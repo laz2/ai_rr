@@ -1,0 +1,38 @@
+
+\documentclass[a4paper,12pt]{report}
+
+% Включаем русский язык
+\usepackage{latexsym}
+\usepackage[warn]{mathtext}     % русские буквы буквы в формулах (с предупреждением)
+\usepackage[russian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage{indentfirst}        % русский стиль: отступ первого абзаца раздела
+
+% Подключаем графику
+\usepackage[pdftex]{graphicx}
+\pdfcompresslevel=9
+
+\graphicspath{{./images}}
+
+% Подключаем математические формулы
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\usepackage{cmap}               % Поиск по русским буквам в pdf
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+\newcommand{\idtf}[1]{\textit{#1}}
+\newcommand{\attr}[1]{\idtf{#1\_}}
+\newcommand{\rel}[1]{\idtf{#1*}}
+
+\begin{document}
+
+\input{titlepage}
+\input{chap2}
+
+\end{document}
+
+
