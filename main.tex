@@ -8,6 +8,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T2A]{fontenc}
 \usepackage{indentfirst}        % русский стиль: отступ первого абзаца раздела
+%\usepackage[nohyphen]{underscore}
 
 % Подключаем графику
 \usepackage[pdftex]{graphicx}
@@ -22,9 +23,16 @@
 
 \usepackage{cmap}               % Поиск по русским буквам в pdf
 
+\usepackage{hyperref}
+
+\usepackage[usenames]{color}
+
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
 
+\renewcommand{\ref}[1]{\hyperef[#1]{\ref*{#1}}}
+
 \newcommand{\idtf}[1]{\textit{#1}}
+\newcommand{\vidtf}[1]{\idtf{\_#1}}
 \newcommand{\attr}[1]{\idtf{#1\_}}
 \newcommand{\rel}[1]{\idtf{#1*}}
 
@@ -32,6 +40,7 @@
 
 \input{titlepage}
 \input{chap2}
+\input{chap3}
 
 \end{document}
 
