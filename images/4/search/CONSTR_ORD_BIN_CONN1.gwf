@@ -1,0 +1,45 @@
+<?xml version="1.0"  encoding="windows-1251"?>
+
+<GWF version="1.6">
+<staticSector>
+<node type="node/const/relation" x="160" y="45" idtf="1" id="45688864" shapeColor="16728128" left="167" top="42.1406" right="180.576" bottom="61.8594" textColor="8421631" text_angle="0" text_font="Times New Roman" font_size="12" show_content="false" parent="29804644" haveBus="false">
+<content type="0" mime_type="content/base" file_name="">
+</content>
+</node>
+<node type="node/const/asymmetry" x="160" y="115" idtf="3" id="45138256" shapeColor="16728128" left="170.392" top="90.1403" right="183.968" bottom="109.859" textColor="8421631" text_angle="0" text_font="Times New Roman" font_size="12" show_content="false" parent="29804644" haveBus="false">
+<content type="0" mime_type="content/base" file_name="">
+</content>
+</node>
+<arc type="arc/const/pos" idtf="2" id_b="45688864" id_e="45138256" id="45743448" parent="29804644" shapeColor="16744576" b_x="160" b_y="52" e_x="160" e_y="108" dotBBalance="0" dotEBalance="0" left="157.395" top="74.9154" right="167.576" bottom="89.7044" textColor="8421504" text_angle="90" text_font="Times New Roman" font_size="9">
+<points/>
+</arc>
+<node type="node/const/general_node" x="50" y="210" idtf="5" id="45779264" shapeColor="16728128" left="57" top="207.141" right="70.5755" bottom="226.859" textColor="8421631" text_angle="0" text_font="Times New Roman" font_size="12" show_content="false" parent="29804644" haveBus="false">
+<content type="0" mime_type="content/base" file_name="">
+</content>
+</node>
+<arc type="arc/const/pos" idtf="4" id_b="45138256" id_e="45779264" id="46101152" parent="29804644" shapeColor="16744576" b_x="154.702" b_y="119.575" e_x="55.2978" e_y="205.425" dotBBalance="0" dotEBalance="0" left="84.1212" top="156.756" right="94.3028" bottom="171.545" textColor="8421504" text_angle="-40" text_font="Times New Roman" font_size="9">
+<points/>
+</arc>
+<node type="node/const/attribute" x="30" y="90" idtf="7" id="46112472" shapeColor="16728128" left="37.1185" top="70.1406" right="50.694" bottom="89.8594" textColor="8421631" text_angle="0" text_font="Times New Roman" font_size="12" show_content="false" parent="29804644" haveBus="false">
+<content type="0" mime_type="content/base" file_name="">
+</content>
+</node>
+<node type="node/const/general_node" x="260" y="205" idtf="9" id="46143512" shapeColor="16728128" left="267" top="202.141" right="280.576" bottom="221.859" textColor="8421631" text_angle="0" text_font="Times New Roman" font_size="12" show_content="false" parent="29804644" haveBus="false">
+<content type="0" mime_type="content/base" file_name="">
+</content>
+</node>
+<arc type="arc/const/pos" idtf="8" id_b="45138256" id_e="46143512" id="46180016" parent="29804644" shapeColor="16744576" b_x="165.203" b_y="119.683" e_x="254.797" e_y="200.317" dotBBalance="0" dotEBalance="0" left="202.149" top="155.588" right="212.33" bottom="170.377" textColor="8421504" text_angle="42" text_font="Times New Roman" font_size="9">
+<points/>
+</arc>
+<node type="node/const/attribute" x="290" y="80" idtf="10" id="46191424" shapeColor="16728128" left="297" top="77.1406" right="318.818" bottom="96.8594" textColor="8421631" text_angle="0" text_font="Times New Roman" font_size="12" show_content="false" parent="29804644" haveBus="false">
+<content type="0" mime_type="content/base" file_name="">
+</content>
+</node>
+<arc type="arc/const/pos" idtf="9" id_b="46191424" id_e="46180016" id="46222472" parent="29804644" shapeColor="16744576" b_x="284.788" b_y="84.6732" e_x="205.401" e_y="155.86" dotBBalance="0" dotEBalance="0.448663" left="234.105" top="111.296" right="244.286" bottom="126.085" textColor="8421504" text_angle="-45" text_font="Times New Roman" font_size="9">
+<points/>
+</arc>
+<arc type="arc/const/pos" idtf="6" id_b="46112472" id_e="46101152" id="46233656" parent="29804644" shapeColor="16744576" b_x="34.4487" b_y="95.4046" e_x="96.0441" e_y="170.235" dotBBalance="0" dotEBalance="0.590096" left="59.8988" top="121.563" right="70.0804" bottom="136.352" textColor="8421504" text_angle="44" text_font="Times New Roman" font_size="9">
+<points/>
+</arc>
+</staticSector>
+</GWF>
