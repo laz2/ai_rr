@@ -1,19 +1,19 @@
 
 \documentclass[a4paper,12pt]{report}
 
+\usepackage[cm]{fullpage}
+
 % Включаем русский язык
 \usepackage{latexsym}
 \usepackage[warn]{mathtext}     % русские буквы буквы в формулах (с предупреждением)
-\usepackage[russian]{babel}
+\usepackage[english,russian]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T2A]{fontenc}
 \usepackage{indentfirst}        % русский стиль: отступ первого абзаца раздела
-%\usepackage[nohyphen]{underscore}
 
 % Подключаем графику
 \usepackage[pdftex]{graphicx}
 \pdfcompresslevel=9
-
 \graphicspath{{./images}}
 
 % Подключаем математические формулы
@@ -27,6 +27,21 @@
 
 \usepackage[usenames]{color}
 
+\usepackage{cite}
+
+\usepackage{listings,fancyvrb}
+\lstset{
+  language=C++,
+  basicstyle=\small\ttfamily,
+  commentstyle=\color[rgb]{0,0.5,0},
+  keywordstyle=\color[rgb]{0,0,1},
+  stringstyle=\color[rgb]{0.7,0.1,0.1},
+  columns=fullflexible,
+  frame=single,
+  escapechar=\%,
+  extendedchars=\false
+}
+
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
 
 \renewcommand{\ref}[1]{\hyperef[#1]{\ref*{#1}}}
@@ -36,11 +51,22 @@
 \newcommand{\attr}[1]{\idtf{#1\_}}
 \newcommand{\rel}[1]{\idtf{#1*}}
 
+\bibliographystyle{unsrt}
+
 \begin{document}
 
 \input{titlepage}
+
+\part{Курс ОИИ}
+%\input{chap1}
 \input{chap2}
 \input{chap3}
+
+\part{Курс ППвИС}
+\input{chap4}
+
+\newpage 
+\bibliography{literature}
 
 \end{document}
 
