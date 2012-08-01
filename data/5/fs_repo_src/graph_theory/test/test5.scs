@@ -1,0 +1,49 @@
+/*
+-----------------------------------------------------------------------------
+This source file is part of OSTIS (Open Semantic Technology for Intelligent Systems)
+For the latest info, see http://www.ostis.net
+
+Copyright (c) 2011 OSTIS
+
+OSTIS is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+OSTIS is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with OSTIS.  If not, see <http://www.gnu.org/licenses/>.
+-----------------------------------------------------------------------------
+*/
+
+vertex_ = "/graph_theory/keynode/vertex_";
+edge_   = "/graph_theory/keynode/edge_";
+
+// Неориентированный граф для теста 5
+"/graph_theory/keynode/undirected graph" -> test_graph5 = {
+	vertex_: V1 = {},
+	vertex_: V2 = {},
+	vertex_: V3 = {},
+	vertex_: V4 = {},
+	vertex_: V5 = {},
+	vertex_: V6 = {},
+	vertex_: V7 = {},
+	vertex_: V8 = {},
+	vertex_: V9 = {},
+	
+	edge_: { V1, V2 },
+	edge_: { V2, V3 },
+	edge_: { V2, V4 },
+	edge_: { V3, V4 },
+	edge_: { V3, V5 },
+	edge_: { V4, V5 },
+	edge_: { V6, V7 },
+	edge_: { V7, V9 },
+	edge_: { V6, V8 },
+	edge_: { V6, V9 },
+	edge_: { V8, V9 }
+};

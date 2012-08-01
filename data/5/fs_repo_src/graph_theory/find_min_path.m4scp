@@ -1,0 +1,407 @@
+/*
+-----------------------------------------------------------------------------
+This source file is part of OSTIS (Open Semantic Technology for Intelligent Systems)
+For the latest info, see http://www.ostis.net
+
+Copyright (c) 2011 OSTIS
+
+OSTIS is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+OSTIS is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with OSTIS.  If not, see <http://www.gnu.org/licenses/>.
+-----------------------------------------------------------------------------
+*/
+
+#include "scp_keynodes.scsy"
+#include "graph_keynodes.scsy"
+#include "lib_keynodes.scsy"
+
+// Находит один из минимальных путей в графе @p graph от вершины @p beg_vertex до вершины @p end_vertex.
+//
+// Волновой алгоритм поиска одного из минимальных путей:
+// 1. Добавить все вершины графа (кроме начальной вершины пути) в множество непроверенных вершин.
+//
+// 2. Создать начальную волну и добавить в нее начальную вершину пути.
+//
+// 3. Начальная волна - новая волна. Новой волной будем называть последнюю созданную волну.
+//
+// 4. Сформировать следующую волну для новой волны. В нее попадет та вершина,
+//    которая является смежной вершине из новой волны и присутствует во множестве непроверенных вершин.
+//    Если вершина попала в формируемую волну, то ее надо исключить из множества непроверенных вершин.
+//    Созданную волну установим как следующую для новой волны, и после этого созданную волну будем считать новой волной.
+//
+// 5. Если новая волна пуста, то значит между вершинами не существует пути.
+//    Завершить алгоритм.
+//
+// 6. Если в текущей волне есть конечная вершина, то перейти к пункту 7, иначе к пункту 4.
+//
+// 7. Сформировать один из минимальных путей, проходя в обратном порядке по списку волн.
+// 
+// @author Dmitry Lazurkin
+//
+procedure(find_min_path,
+[[
+	// Используемые ключевые узлы
+	//
+	"/graph_theory/keynode/vertex_";
+
+	// Используемые программы
+	//
+	add_vertex_visit_to_route;
+	add_edge_visit_to_route;
+	create_wave;
+	erase_waves_list;
+	find_any_edge;
+	get_other_vertex_incidence_edge;
+	print_set;
+]], 
+[{
+	el3, arc2, arc4,       // вспомогательные переменные
+	
+	// Следующие переменные используются при построении списка волн
+	not_checked_vertexes,  // множество непроверенных вершин
+	waves_list_head,       // начальный списочный элемент списка волн
+	waves_list_tail,       // конечный списочный элемент списка волн
+	waves_list_curr,       // текущий списочный элемент списка волн
+	new_wave,              // новая волна
+
+	// Следующие переменные используются при построении структуры маршрута
+	route_struct,          // ориентированный граф структуры маршрута
+	route_visit,           // отношение посещения для маршрута
+	beg_vertex_visit,      // посещение начальной вершины
+	end_vertex_visit,      // посещение конечной ершины
+	list_it,               // текущий обрабатываемые списочный элемент списка волн
+	curr_vertex,           // текущая обрабатываемая вершина
+	curr_wave,             // текущая волна
+	prev_vertex,           // вершина из волны curr_wave, смежная с curr_vertex
+	edge,                  // ребро инцидентное curr_vertex и prev_vertex
+	edge_visit,            // посещение ребра edge
+
+	graph, beg_vertex, end_vertex, route // переменные для параметров
+}],
+[{
+	1_:  in_: graph,      // неориентированный граф, в котором будет находится минимальный путь
+	2_:  in_: beg_vertex, // начальная вершина пути
+	3_:  in_: end_vertex, // конечная вершина пути
+	4_: out_: route       // связка отношения "простая цепь*" или пустое значение, если минимальный путь не найден
+}])
+	// 1. Добавить все вершины графа (кроме начальной вершины пути) в множество непроверенных вершин.
+	//
+	
+	// Добавляем все вершины неориентированного графа graph в множество not_checked_vertexes
+	//
+	searchSetStr5([
+		1_:  fixed_: graph,
+		2_: assign_: const_: pos_: arc2,
+		3_: assign_: el3,
+		4_: assign_: const_: pos_: arc4,
+		5_:  fixed_: "/graph_theory/keynode/vertex_",
+		set3_: assign_: not_checked_vertexes
+	])
+
+	// Удаляем узел начала пути из множества not_checked_vertexes
+	eraseElStr3([
+		1_:  fixed_: not_checked_vertexes,
+		2_: assign_: const_: pos_: f_: arc2,
+		3_:  fixed_: beg_vertex
+	])
+
+
+	// 2. Создать начальную волну и добавить в нее начальную вершину пути.
+	// 3. Начальная волна - новая волна.
+	//
+	
+	// Генерируем первую создаваемую волну
+	//
+	genEl([1_: assign_: node_: const_: new_wave])
+
+	// Добавляем beg_vertex в первую волну
+	//
+	genElStr3([
+		1_:  fixed_: new_wave,
+		2_: assign_: arc2,
+		3_:  fixed_: beg_vertex
+	])
+
+	// Создаем начало списка волн.
+	//
+	callReturn([
+		1_: fixed_: list_new,
+		2_: {[
+			1_: new_wave, 
+			2_: waves_list_head
+		]}
+	])
+
+	varAssign([1_: waves_list_tail, 2_: fixed_: waves_list_head])
+
+	print([1_: fixed_: /"Begin wave: "/])
+	callReturn([
+		1_: fixed_: print_set,
+		2_: {[
+			1_: new_wave
+		]}
+	])
+	printNl([1_: fixed_: /""/])
+
+	// Мы получили первую волну, теперь на ее основе
+	// необходимо сформировать все дальнейшие волны.
+	// Начинаем цикл формирования списка волн.
+	//
+	label(build_next_wave_label)
+		// 4. Сформировать следующую волну для новой волны.
+		//    Установить созданную волну как следующую для новой волны.
+		//    Созданная волна - новая волна.
+		//
+		callReturn([
+			1_: fixed_: create_wave,
+			2_: {[
+				1_: graph, 
+				2_: new_wave,
+				3_: not_checked_vertexes,
+				4_: new_wave
+			]}
+		])
+		
+		
+		print([1_: fixed_: /"Wave: "/])
+		callReturn([
+			1_: fixed_: print_set,
+			2_: {[
+				1_: new_wave
+			]}
+		])
+		printNl([1_: fixed_: /""/])
+		
+		// Добавим new_wave в конец списка волн
+		//
+		callReturn([
+			1_: fixed_: list_new,
+			2_: {[
+				1_: new_wave, 
+				2_: waves_list_curr
+			]}
+		])
+		
+		callReturn([
+			1_: fixed_: list_set_next,
+			2_: {[
+				1_: waves_list_tail, 
+				2_: waves_list_curr
+			]}
+		])
+		
+		varAssign([1_: waves_list_tail, 2_: fixed_: waves_list_curr])
+		
+		// 5. Если новая волна пуста, то значит между вершинами не существует пути.
+		//
+		searchElStr3([
+			1_:  fixed_: new_wave,
+			2_: assign_: const_: pos_: arc2,
+			3_: assign_: el3
+		], new_wave_is_not_empty_label)
+	
+		// Новая волна пуста. Очищаем память и завершаем алгоритм.
+		//
+		callReturn([
+			1_: fixed_: erase_waves_list,
+			2_: {[
+				1_: waves_list_head
+			]}
+		])
+		
+		eraseEl([1_: f_: not_checked_vertexes])
+		
+		return()
+		
+	label([new_wave_is_not_empty_label])
+		// Новая волна не пуста.
+		//
+
+		// 6. Если в текущей волне есть конечная вершина, то перейти к пункту 7, иначе к пункту 4.
+		//
+		
+		// Проверим, входит ли конечная вершина пути в создаваемую волну
+		//
+		searchElStr3([
+			1_:  fixed_: new_wave,
+			2_: assign_: arc_: const_: pos_: arc2,
+			3_:  fixed_: end_vertex
+		], build_route_label, build_next_wave_label)
+	//
+	// Конец цикла построения списка волн
+	
+
+
+label([build_route_label])
+	// Подчистим память...
+	//
+	eraseEl([1_: f_: not_checked_vertexes])
+	
+	// 7. Сформировать один из минимальных путей, проходя в обратном порядке по списку волн.
+
+	// Сформируем связку отношения "простая цепь*"
+	//
+	genEl([1_: assign_: node_: const_: route])
+	genEl([1_: assign_: node_: const_: route_struct])
+	genEl([1_: assign_: node_: const_: route_visit])
+
+	genElStr3([
+		1_:  fixed_: "/graph_theory/keynode/directed graph",
+		2_: assign_: arc_: pos_: const_: arc2,
+		3_:  fixed_: route_struct
+	])
+	
+	// Добавим все компоненты в связку отношения "простая цепь*".
+	//
+	genElStr5([
+		1_:  fixed_: route,
+		2_: assign_: arc_: pos_: const_: arc2,
+		3_:  fixed_: route_struct,
+		4_: assign_: arc_: pos_: const_: arc4,
+		5_:  fixed_: 1_
+	])
+	
+	genElStr5([
+		1_:  fixed_: route,
+		2_: assign_: arc_: pos_: const_: arc2,
+		3_:  fixed_: graph,
+		4_: assign_: arc_: pos_: const_: arc4,
+		5_:  fixed_: 2_
+	])
+	
+	genElStr5([
+		1_:  fixed_: route,
+		2_: assign_: arc_: pos_: const_: arc2,
+		3_:  fixed_: route_visit,
+		4_: assign_: arc_: pos_: const_: arc4,
+		5_:  fixed_: 3_
+	])
+	
+	genElStr3([
+		1_:  fixed_: "/graph_theory/keynode/simple trail*",
+		2_: assign_: arc_: pos_: const_: arc2,
+		3_:  fixed_: route
+	])
+
+	// Добавим в простую цепь посещение начальной вершины.
+	//
+	callReturn([
+		1_: fixed_: add_vertex_visit_to_route, 
+		2_: {[
+			1_: route, 
+			2_: beg_vertex, 
+			3_: beg_vertex_visit
+		]}
+	])
+
+	// Добавим в простую цепь посещение конечной вершины.
+	// 
+	callReturn([
+		1_: fixed_: add_vertex_visit_to_route, 
+		2_: {[
+			1_: route, 
+			2_: end_vertex, 
+			3_: end_vertex_visit
+		]}
+	])
+
+	// Пройдем в обратном направлении по списку волн
+	// и сформируем структуру маршрута.
+	//
+
+	varAssign([1_: curr_vertex, 2_: fixed_: end_vertex])
+
+	// Строим из списка волн маршрут, проходя по этому списку в обратном направлении.
+	//
+	callReturn([
+		1_: fixed_: list_get_prev, 
+		2_: {[
+			1_: waves_list_tail,
+			2_: list_it
+		]}
+	])
+
+	// Цикл построения структуры маршрута
+	//
+	label([process_prev_wave_label])
+		ifVarAssign([1_: list_it],, return_label)
+
+		callReturn([
+			1_: fixed_: list_get_value, 
+			2_: {[
+				1_: list_it,
+				2_: curr_wave
+			]}
+		])
+
+		callReturn([
+			1_: fixed_: find_any_edge, 
+			2_: {[
+				1_: graph,
+				2_: curr_vertex,
+				3_: curr_wave,
+				4_: edge
+			]}
+		])
+
+		// Получаем предыдущую вершину в пути.
+		//
+		callReturn([
+			1_: fixed_: get_other_vertex_incidence_edge, 
+			2_: {[
+				1_: edge,
+				2_: curr_vertex,
+				3_: prev_vertex
+			]}
+		])
+
+		// Добавляем посещение ребра edge в путь.
+		//
+		callReturn([
+			1_: fixed_: add_edge_visit_to_route,
+			2_: {[
+				1_: route,
+				2_: edge, 
+				3_: prev_vertex, 
+				4_: curr_vertex,
+				5_: edge_visit
+			]}
+		])	
+		
+		// Сделаем предыдущую вершину текущей
+		//
+		varAssign([1_: curr_vertex, 2_: prev_vertex])
+
+		callReturn([
+			1_: fixed_: list_get_prev, 
+			2_: {[
+				1_: list_it,
+				2_: list_it
+			]}
+		])
+
+		nop(process_prev_wave_label)
+	//
+	// Конец цикла построения структуры маршрута
+
+label([return_label])
+	// Подчистим память...
+	//
+	callReturn([
+		1_: fixed_: erase_waves_list,
+		2_: {[
+			1_: waves_list_head
+		]}
+	])
+
+	return()
+end

@@ -1,0 +1,55 @@
+/*
+-----------------------------------------------------------------------------
+This source file is part of OSTIS (Open Semantic Technology for Intelligent Systems)
+For the latest info, see http://www.ostis.net
+
+Copyright (c) 2011 OSTIS
+
+OSTIS is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+OSTIS is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with OSTIS.  If not, see <http://www.gnu.org/licenses/>.
+-----------------------------------------------------------------------------
+*/
+
+#include "scp_keynodes.scsy"
+
+//
+// Возвращает структуру маршрута для связки отношения маршрут*.
+// Структура маршрута - это компонент с атрибутом 1_.
+// Найденный ориентированный граф возвращает в @p route_struct.
+//
+// @author Dmitry Lazurkin
+//
+procedure(get_route_struct,
+[[
+	// Используемые ключевые узлы
+	//
+	1_;
+]], 
+[{
+	arc2, arc4,
+	route, route_struct // переменные для параметров
+}],
+{[
+	1_:  in_: route,       // связка отношения маршрута*
+	2_: out_: route_struct // ориентированный граф структуры маршрута
+]})
+	searchElStr5([
+		1_:  fixed_: route,
+		2_: assign_: arc_: pos_: const_: arc2,
+		3_: assign_: node_: const_: route_struct,
+		4_: assign_: arc_: pos_: const_: arc4,
+		5_:  fixed_: 1_
+	])
+
+	return()
+end

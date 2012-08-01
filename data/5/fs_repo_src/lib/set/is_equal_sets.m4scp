@@ -1,0 +1,103 @@
+/*
+-----------------------------------------------------------------------------
+This source file is part of OSTIS (Open Semantic Technology for Intelligent Systems)
+For the latest info, see http://www.ostis.net
+
+Copyright (c) 2011 OSTIS
+
+OSTIS is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+OSTIS is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with OSTIS.  If not, see <http://www.gnu.org/licenses/>.
+-----------------------------------------------------------------------------
+*/
+
+#include "scp_keynodes.scsy"
+
+//
+// Проверяет два множества на эквивалентность.
+// Позволяет сравнивать мультимножества.
+//
+// @author Dmitry Lazurkin
+//
+procedure(is_equal_sets,
+[[
+	// Используемые ключевые узлы
+	//
+	true;
+	false;
+]], 
+[{
+	arc2, el3,
+	set1_copy, set2_copy,
+	set1, set2, result // переменные для параметров
+}],
+{[
+	1_:  in_: set1,  // 1-ое множество
+	2_:  in_: set2,  // 2-ое множество
+	3_: out_: result // true или false
+]})
+	searchSetStr3([
+		1_:  fixed_: set1,
+		2_: assign_: arc_: pos_: arc2,
+		3_: assign_: el3,
+		set3_: assign_: set1_copy
+	])
+
+	searchSetStr3([
+		1_:  fixed_: set2,
+		2_: assign_: arc_: pos_: arc2,
+		3_: assign_: el3,
+		set3_: assign_: set2_copy
+	])
+
+
+label(label_next_el_from_set1_copy)
+	searchElStr3([
+		1_:  fixed_: set1_copy,
+		2_: assign_: arc_: pos_: arc2,
+		3_: assign_: el3
+	],, label_check_set2_copy)
+
+	eraseEl([1_: fixed_: f_: arc2])
+
+	searchElStr3([
+		1_:  fixed_: set2_copy,
+		2_: assign_: arc_: pos_: arc2,
+		3_:  fixed_: el3
+	],, label_not_equal)
+
+	eraseEl([1_: fixed_: f_: arc2])
+
+	nop(label_next_el_from_set1_copy)
+
+
+label(label_check_set2_copy)
+	searchElStr3([
+		1_:  fixed_: set2_copy,
+		2_: assign_: arc_: pos_: arc2,
+		3_: assign_: el3
+	], label_not_equal, label_equal)
+
+
+label(label_equal)
+	eraseEl([1_: f_: set1_copy])
+	eraseEl([1_: f_: set2_copy])
+	varAssign([1_: result, 2_: fixed_: true])
+	return()
+
+
+label(label_not_equal)
+	eraseEl([1_: f_: set1_copy])
+	eraseEl([1_: f_: set2_copy])
+	varAssign([1_: result, 2_: fixed_: false])
+	return()
+end

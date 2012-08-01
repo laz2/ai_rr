@@ -1,0 +1,10 @@
+
+#include "ordinal.scsy"
+#include "testdata.scsy"
+
+relation = {
+	{ 1_: A = {}, 2_: B = {} },
+	{ 1_: C = {}, 2_: D },
+	{. 1_:: one = {}, 2_:: two .},
+	{ 1_: three = {}, 2_: four = {} }
+};

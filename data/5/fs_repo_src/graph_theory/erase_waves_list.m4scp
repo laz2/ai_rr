@@ -1,0 +1,81 @@
+/*
+-----------------------------------------------------------------------------
+This source file is part of OSTIS (Open Semantic Technology for Intelligent Systems)
+For the latest info, see http://www.ostis.net
+
+Copyright (c) 2011 OSTIS
+
+OSTIS is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+OSTIS is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with OSTIS.  If not, see <http://www.gnu.org/licenses/>.
+-----------------------------------------------------------------------------
+*/
+
+#include "scp_keynodes.scsy"
+#include "graph_keynodes.scsy"
+#include "lib_keynodes.scsy"
+
+//
+// Удаляет все волны из списка и список волн.
+//
+// @author Dmitry Lazurkin
+//
+procedure(erase_waves_list,
+[[
+	// Используемые программы
+	//
+	list_get_value;
+	list_get_next;
+]],
+[{
+	waves_list_curr,
+	curr_wave,
+	waves_list_next,
+	waves_list_head // переменные для параметров
+}],
+{[
+	1_:  in_: waves_list_head // головной элемент удаляемого списка волн
+]})
+	varAssign([1_: waves_list_next, 2_: fixed_: waves_list_head])
+
+	// Цикл по элементам списка
+	//
+	label([next_wave_label])
+		varAssign([1_: waves_list_curr, 2_: fixed_: waves_list_next])
+
+		// Удаляем волну.
+		//
+		callReturn([
+			1_: fixed_: list_get_value,
+			2_: {[
+				1_: waves_list_curr,
+				2_: curr_wave
+			]}
+		])
+		eraseEl([1_: f_: curr_wave])
+
+		// Удаляем текущий элемент списка.
+		//
+		callReturn([
+			1_: fixed_: list_get_next,
+			2_: {[
+				1_: waves_list_curr,
+				2_: waves_list_next
+			]}
+		])
+		eraseEl([1_: f_: waves_list_curr])
+
+		ifVarAssign([1_: waves_list_next], next_wave_label)
+
+label([return_label])
+	return()
+end

@@ -1,0 +1,103 @@
+/*
+-----------------------------------------------------------------------------
+This source file is part of OSTIS (Open Semantic Technology for Intelligent Systems)
+For the latest info, see http://www.ostis.net
+
+Copyright (c) 2011 OSTIS
+
+OSTIS is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+OSTIS is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with OSTIS.  If not, see <http://www.gnu.org/licenses/>.
+-----------------------------------------------------------------------------
+*/
+
+#include "scp_keynodes.scsy"
+#include "graph_keynodes.scsy"
+#include "lib_keynodes.scsy"
+
+//
+// Находит начало структуры маршрута @p route_struct.
+// Наденную вершину возвращает в @p route_begin.
+//
+// @author Dmitry Lazurkin
+//
+procedure(get_route_struct_begin,
+[[
+	// Используемые ключевые узлы
+	//
+	"/graph_theory/keynode/vertex_";
+	
+	// Используемые программы
+	//
+	bin_ord_at_1;
+]], 
+[{
+	arc2,
+	arc4,
+	el3,
+	vertexes_set,             // множество вершин для итерации
+	vertex,                   // текущее посещение
+	next_vertex,
+	route_struct, route_begin // переменные для параметров
+}],
+{[
+	1_:  in_: route_struct,    // ориентированный граф структуры маршрута
+	2_: out_: route_begin      // найденное начало структуры маршрута
+]})
+	// Начальной считается вершина, в которую нет входящих связок.
+	// Переберем все вершины и проверим их на это свойство.
+	//
+
+	// Копируем множество вершин структуры маршрута для итерации
+	//
+	searchSetStr5([
+		1_:  fixed_: route_struct,
+		2_: assign_: arc_: const_: pos_: arc2,
+		3_: assign_: el3,
+		4_: assign_: arc_: const_: pos_: arc4,
+		5_:  fixed_: "/graph_theory/keynode/vertex_",
+		set3_: assign_: vertexes_set
+	])
+
+	// Итерация по всем вершинам-посещениям
+	//
+	label([next_connective])
+		searchElStr3([
+			1_:  fixed_: vertexes_set,
+			2_: assign_: arc_: const_: pos_: arc2,
+			3_: assign_: vertex
+		],, return_label)
+
+		eraseEl([1_: fixed_: f_: arc2])
+
+		// Ориентированный граф структуры маршрута можно рассматривать как
+		// бинарное ориентированное отношение, которое связывает вершины.
+		// Это позволяет нам использовать программу bin_ord_at_1.
+		//	
+		callReturn([
+			1_: fixed_: bin_ord_at_1, 
+			2_: {[
+				1_: route_struct, 
+				2_: vertex, 
+				3_: next_vertex
+			]}
+		])
+
+		ifVarAssign([1_: next_vertex], next_connective, begin_founded)
+	
+label([begin_founded])
+	varAssign([1_: route_begin, 2_: fixed_: vertex])
+
+label([return_label])
+	eraseEl([1_: fixed_: f_: vertexes_set])
+	return()
+end

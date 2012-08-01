@@ -1,0 +1,141 @@
+/*
+-----------------------------------------------------------------------------
+This source file is part of OSTIS (Open Semantic Technology for Intelligent Systems)
+For the latest info, see http://www.ostis.net
+
+Copyright (c) 2011 OSTIS
+
+OSTIS is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+OSTIS is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with OSTIS.  If not, see <http://www.gnu.org/licenses/>.
+-----------------------------------------------------------------------------
+*/
+
+#include "scp_keynodes.scsy"
+#include "graph_keynodes.scsy"
+#include "lib_keynodes.scsy"
+
+//
+// Создает следующую волну из непроверенных вершин, смежных с вершинами
+// из волны @p wave неориентированного графа @p graph.
+//
+// @author Dmitry Lazurkin
+//
+procedure(create_wave,
+[[
+	// Используемые ключевые узлы
+	//
+	"/graph_theory/keynode/edge_";
+
+	// Используемые программы
+	//
+	get_other_vertex_incidence_edge;
+]],
+[{
+	arc2, arc4, el3,
+	wave_copy, vertex, edges_set, edge, other_vertex,
+	graph, wave, not_checked_vertexes, new_wave // переменные для параметров
+}],
+{[
+	1_:  in_: graph,                // обрабатываемый неориентированный граф
+	2_:  in_: wave,                 // текущая волна
+	3_:  in_: not_checked_vertexes, // множество непроверенных вершин
+	4_: out_: new_wave              // созданная новая волна
+]})
+	// Создадим новую волну
+	//
+	genEl([1_: assign_: node_: const_: new_wave])
+
+	// Формируем копию волны wave для перебора
+	//
+	searchSetStr3([
+		1_:  fixed_: wave,
+		2_: assign_: arc_: const_: pos_: arc2,
+		3_: assign_: el3,
+		set3_: assign_: wave_copy
+	])
+
+	// Цикл по вершинам в волне wave
+	//
+	label([next_vertex_label])
+		searchElStr3([
+			1_:  fixed_: wave_copy,
+			2_: assign_: arc_: const_: pos_: arc2,
+			3_: assign_: vertex
+		],, return_label)
+
+		eraseEl([1_: fixed_: f_: arc2])
+
+		// Формируем множество ребер графа для итерации
+		//
+		searchSetStr5([
+			1_:  fixed_: graph,
+			2_: assign_:  arc_: const_: pos_: arc2,
+			3_: assign_: node_: const_: el3,
+			4_: assign_:  arc_: const_: pos_: arc4,
+			5_:  fixed_: "/graph_theory/keynode/edge_",
+			set3_: assign_: edges_set
+		])
+
+
+		// Цикл по ребрам графа
+		//
+		label([next_edge_label])
+			searchElStr3([
+				1_:  fixed_: edges_set,
+				2_: assign_: arc_: const_: pos_: arc2,
+				3_: assign_: node_: const_: edge
+			],, after_edge_iter_label)
+
+			eraseEl([1_: fixed_: f_: arc2])
+
+			// Поиск вершины инцидентной ребру edge и отличной от вершины vertex
+			//
+			callReturn([
+				1_: fixed_: get_other_vertex_incidence_edge,
+				2_: {[
+					1_: edge, 
+					2_: vertex, 
+					3_: other_vertex
+				]}
+			])
+
+			ifVarAssign([1_: other_vertex],, next_edge_label)
+
+			searchElStr3([
+				1_:  fixed_: not_checked_vertexes,
+				2_: assign_: arc_: const_: pos_: arc2,
+				3_:  fixed_: other_vertex
+			],, next_edge_label)
+
+			eraseEl([1_: fixed_: f_: arc2])
+			
+			genElStr3([
+				1_:  fixed_: new_wave,
+				2_: assign_: arc_: pos_: const_: arc2,
+				3_:  fixed_: other_vertex
+			])
+
+			nop(next_edge_label)
+
+		// После каждого цикла итерации по ребрам будем выполнять
+		// очистку памяти
+		//
+	label([after_edge_iter_label])
+		eraseEl([1_: f_: edges_set])
+		nop(next_vertex_label)
+
+
+label([return_label])
+	eraseEl([1_: f_: wave_copy])
+	return()
+end

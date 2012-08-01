@@ -1,0 +1,40 @@
+/*
+-----------------------------------------------------------------------------
+This source file is part of OSTIS (Open Semantic Technology for Intelligent Systems)
+For the latest info, see http://www.ostis.net
+
+Copyright (c) 2010 OSTIS
+
+OSTIS is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+OSTIS is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with OSTIS.  If not, see <http://www.gnu.org/licenses/>.
+-----------------------------------------------------------------------------
+*/
+
+//
+// Программы для обработки графов.
+//
+
+add_edge_visit_to_route         = "/graph_theory/add_edge_visit_to_route/add_edge_visit_to_route";
+add_vertex_visit_to_route       = "/graph_theory/add_vertex_visit_to_route/add_vertex_visit_to_route";
+create_wave                     = "/graph_theory/create_wave/create_wave";
+erase_waves_list                = "/graph_theory/erase_waves_list/erase_waves_list";
+find_any_edge                   = "/graph_theory/find_any_edge/find_any_edge";
+find_min_path                   = "/graph_theory/find_min_path/find_min_path";
+get_edge_vertexes               = "/graph_theory/get_edge_vertexes/get_edge_vertexes";
+get_other_vertex_incidence_edge = "/graph_theory/get_other_vertex_incidence_edge/get_other_vertex_incidence_edge";
+get_route_struct_begin          = "/graph_theory/get_route_struct_begin/get_route_struct_begin";
+get_route_struct                = "/graph_theory/get_route_struct/get_route_struct";
+get_route_visit                 = "/graph_theory/get_route_visit/get_route_visit";
+print_graph                     = "/graph_theory/print_graph/print_graph";
+print_route                     = "/graph_theory/print_route/print_route";
+

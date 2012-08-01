@@ -1,0 +1,170 @@
+/*
+-----------------------------------------------------------------------------
+This source file is part of OSTIS (Open Semantic Technology for Intelligent Systems)
+For the latest info, see http://www.ostis.net
+
+Copyright (c) 2011 OSTIS
+
+OSTIS is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+OSTIS is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with OSTIS.  If not, see <http://www.gnu.org/licenses/>.
+-----------------------------------------------------------------------------
+*/
+
+#include "scp_keynodes.scsy"
+#include "lib_keynodes.scsy"
+#include "graph_keynodes.scsy"
+
+run_testcase = "/graph_theory/test/run_testcase/run_testcase";
+
+program(test_all, 
+[[
+	// Используемые программы
+	//
+	test1;
+	test2;
+	test3;
+	test4;
+	test5
+]], [{}], {[]})
+	callReturn([1_: fixed_: test1, 2_: {[]} ])
+	callReturn([1_: fixed_: test2, 2_: {[]} ])
+	callReturn([1_: fixed_: test3, 2_: {[]} ])
+	callReturn([1_: fixed_: test4, 2_: {[]} ])
+	callReturn([1_: fixed_: test5, 2_: {[]} ])
+	return()
+end
+
+program(test1, 
+[[
+	"/graph_theory/test/test1/test_graph1";
+	"/graph_theory/test/test1/A";
+	"/graph_theory/test/test1/C";
+
+	1 =n= 1;
+
+	// Используемые программы
+	//
+	run_testcase;
+]], [{}], {[]})
+	callReturn([
+		1_: fixed_: run_testcase, 
+		2_: {[
+			1_: 1,
+			2_: "/graph_theory/test/test1/test_graph1",
+			3_: "/graph_theory/test/test1/A",
+			4_: "/graph_theory/test/test1/C"
+		]}
+	])
+
+	return()
+end
+
+program(test2, 
+[[
+	"/graph_theory/test/test2/test_graph2";
+	"/graph_theory/test/test2/A";
+	"/graph_theory/test/test2/F";
+
+	2 =n= 2;
+
+	// Используемые программы
+	//
+	run_testcase;
+]], [{}], {[]})
+	callReturn([
+		1_: fixed_: run_testcase, 
+		2_: {[
+			1_: 2,
+			2_: "/graph_theory/test/test2/test_graph2",
+			3_: "/graph_theory/test/test2/A",
+			4_: "/graph_theory/test/test2/F"
+		]}
+	])
+
+	return()
+end
+
+program(test3, 
+[[
+	"/graph_theory/test/test3/test_graph3";
+	"/graph_theory/test/test3/A";
+	"/graph_theory/test/test3/K";
+
+	3 =n= 3;
+
+	// Используемые программы
+	//
+	run_testcase;
+]], [{}], {[]})
+	callReturn([
+		1_: fixed_: run_testcase, 
+		2_: {[
+			1_: 3,
+			2_: "/graph_theory/test/test3/test_graph3",
+			3_: "/graph_theory/test/test3/A",
+			4_: "/graph_theory/test/test3/K"
+		]}
+	])
+
+	return()
+end
+
+program(test4, 
+[[
+	"/graph_theory/test/test4/test_graph4";
+	"/graph_theory/test/test4/V5";
+	"/graph_theory/test/test4/V11";
+
+	4 =n= 4;
+
+	// Используемые программы
+	//
+	run_testcase;
+]], [{}], {[]})
+	callReturn([
+		1_: fixed_: run_testcase, 
+		2_: {[
+			1_: 4,
+			2_: "/graph_theory/test/test4/test_graph4",
+			3_: "/graph_theory/test/test4/V5",
+			4_: "/graph_theory/test/test4/V11"
+		]}
+	])
+
+	return()
+end
+
+program(test5, 
+[[
+	"/graph_theory/test/test5/test_graph5";
+	"/graph_theory/test/test5/V1";
+	"/graph_theory/test/test5/V9";
+
+	5 =n= 5;
+
+	// Используемые программы
+	//
+	run_testcase;
+]], [{}], {[]})
+	callReturn([
+		1_: fixed_: run_testcase, 
+		2_: {[
+			1_: 5,
+			2_: "/graph_theory/test/test5/test_graph5",
+			3_: "/graph_theory/test/test5/V1",
+			4_: "/graph_theory/test/test5/V9"
+		]}
+	])
+
+	return()
+end

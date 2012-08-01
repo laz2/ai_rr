@@ -1,0 +1,325 @@
+/*
+-----------------------------------------------------------------------------
+This source file is part of OSTIS (Open Semantic Technology for Intelligent Systems)
+For the latest info, see http://www.ostis.net
+
+Copyright (c) 2011 OSTIS
+
+OSTIS is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+OSTIS is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with OSTIS.  If not, see <http://www.gnu.org/licenses/>.
+-----------------------------------------------------------------------------
+*/
+
+#include "scp_keynodes.scsy"
+#include "lib_keynodes.scsy"
+
+procedure(check_testcase,
+[[
+	// Используемые ключевые узлы
+	//
+	test_success;
+	test_failure;
+
+	// Используемые программы
+	//
+	is_equal_sets;
+]],
+[{
+	result,
+	set1, set2, expected // переменные для параметров
+}],
+{[
+	1_:  in_: set1,
+	2_:  in_: set2,
+	3_:  in_: expected
+]})
+	callReturn([
+		1_: fixed_: is_equal_sets, 
+		2_: {[
+			1_: set1,
+			2_: set2,
+			3_: result
+		]}
+	])
+
+	ifCoin([1_: result, 2_: expected], label_test_success, label_test_failure)
+
+label(label_test_success)
+	print([1_: fixed_: test_success])
+	return()
+	
+label(label_test_failure)
+	print([1_: fixed_: test_failure])
+	return()
+end
+
+program(test1_empty_and_empty, 
+[[
+	// Используемые ключевые узлы
+	//
+	true;
+	false;
+
+	// Используемые программы
+	//
+	check_testcase;
+
+	test1_set1 = {};
+	test1_set2 = {};
+]], [{}], {[]})
+	callReturn([
+		1_: fixed_: check_testcase, 
+		2_: {[
+			1_: test1_set1,
+			2_: test1_set2,
+			3_: true
+		]}
+	])
+
+	return()
+end
+
+program(test2_empty_and_not_empty, 
+[[
+	// Используемые ключевые узлы
+	//
+	true;
+	false;
+
+	// Используемые программы
+	//
+	check_testcase;
+
+	test2_set1 = {};
+	test2_set2 = {A};
+]], [{}], {[]})
+	callReturn([
+		1_: fixed_: check_testcase, 
+		2_: {[
+			1_: test2_set1,
+			2_: test2_set2,
+			3_: false
+		]}
+	])
+
+	return()
+end
+
+program(test3_not_empty_and_empty, 
+[[
+	// Используемые ключевые узлы
+	//
+	true;
+	false;
+
+	// Используемые программы
+	//
+	check_testcase;
+
+	test3_set1 = {A};
+	test3_set2 = {};
+]], [{}], {[]})
+	callReturn([
+		1_: fixed_: check_testcase, 
+		2_: {[
+			1_: test3_set1,
+			2_: test3_set2,
+			3_: false
+		]}
+	])
+
+	return()
+end
+
+program(test4_singleton_and_singleton_equal, 
+[[
+	// Используемые ключевые узлы
+	//
+	true;
+	false;
+
+	// Используемые программы
+	//
+	check_testcase;
+
+	test4_set1 = {A};
+	test4_set2 = {A};
+]], [{}], {[]})
+	callReturn([
+		1_: fixed_: check_testcase, 
+		2_: {[
+			1_: test4_set1,
+			2_: test4_set2,
+			3_: true
+		]}
+	])
+
+	return()
+end
+
+program(test5_cantor_and_cantor_equal, 
+[[
+	// Используемые ключевые узлы
+	//
+	true;
+	false;
+
+	// Используемые программы
+	//
+	check_testcase;
+
+	test5_set1 = {A, B, C};
+	test5_set2 = {A, B, C};
+]], [{}], {[]})
+	callReturn([
+		1_: fixed_: check_testcase, 
+		2_: {[
+			1_: test5_set1,
+			2_: test5_set2,
+			3_: true
+		]}
+	])
+
+	return()
+end
+
+program(test6_cantor_and_cantor_first_gr, 
+[[
+	// Используемые ключевые узлы
+	//
+	true;
+	false;
+
+	// Используемые программы
+	//
+	check_testcase;
+
+	test6_set1 = {A, B, C, D};
+	test6_set2 = {A, B, C};
+]], [{}], {[]})
+	callReturn([
+		1_: fixed_: check_testcase, 
+		2_: {[
+			1_: test6_set1,
+			2_: test6_set2,
+			3_: false
+		]}
+	])
+
+	return()
+end
+
+program(test7_cantor_and_cantor_second_gr, 
+[[
+	// Используемые ключевые узлы
+	//
+	true;
+	false;
+
+	// Используемые программы
+	//
+	check_testcase;
+
+	test7_set1 = {A, B, C, D};
+	test7_set2 = {A, B, C};
+]], [{}], {[]})
+	callReturn([
+		1_: fixed_: check_testcase, 
+		2_: {[
+			1_: test7_set1,
+			2_: test7_set2,
+			3_: false
+		]}
+	])
+
+	return()
+end
+
+program(test8_multi_and_multi_equal, 
+[[
+	// Используемые ключевые узлы
+	//
+	true;
+	false;
+
+	// Используемые программы
+	//
+	check_testcase;
+
+	test8_set1 = {A, A, A, B, C};
+	test8_set2 = {A, A, A, B, C};
+]], [{}], {[]})
+	callReturn([
+		1_: fixed_: check_testcase, 
+		2_: {[
+			1_: test8_set1,
+			2_: test8_set2,
+			3_: true
+		]}
+	])
+
+	return()
+end
+
+program(test9_multi_and_multi_first_gr, 
+[[
+	// Используемые ключевые узлы
+	//
+	true;
+	false;
+
+	// Используемые программы
+	//
+	check_testcase;
+
+	test9_set1 = {A, A, A, A, B, C};
+	test9_set2 = {A, A, A, B, C};
+]], [{}], {[]})
+	callReturn([
+		1_: fixed_: check_testcase, 
+		2_: {[
+			1_: test9_set1,
+			2_: test9_set2,
+			3_: false
+		]}
+	])
+
+	return()
+end
+
+program(test10_multi_and_multi_second_gr, 
+[[
+	// Используемые ключевые узлы
+	//
+	true;
+	false;
+
+	// Используемые программы
+	//
+	check_testcase;
+
+	test10_set1 = {A, A, A, B, C};
+	test10_set2 = {A, A, A, A, B, C};
+]], [{}], {[]})
+	callReturn([
+		1_: fixed_: check_testcase, 
+		2_: {[
+			1_: test10_set1,
+			2_: test10_set2,
+			3_: false
+		]}
+	])
+
+	return()
+end
+

@@ -1,0 +1,63 @@
+/*
+-----------------------------------------------------------------------------
+This source file is part of OSTIS (Open Semantic Technology for Intelligent Systems)
+For the latest info, see http://www.ostis.net
+
+Copyright (c) 2011 OSTIS
+
+OSTIS is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+OSTIS is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with OSTIS.  If not, see <http://www.gnu.org/licenses/>.
+-----------------------------------------------------------------------------
+*/
+
+#include "scp_keynodes.scsy"
+#include "list_keynodes.scsy"
+
+//
+// Устанавливает следующий элемент списка @p l2 для элемента списка @p l1.
+// Поддерживает обработку @p l1 с уже установленным следующим элементом списка.
+// @author Dmitry Lazurkin
+//
+procedure(list_set_next,
+[[
+	list_next_;
+]],
+[{
+	arc2, arc4, elt3,
+	l1, l2            // переменные для параметров
+}],
+{[
+	1_:  in_: l1, // элемент списка, для которого будет установлен следующий
+	2_:  in_: l2  // элемент списка для установки следующим
+]})
+	searchElStr5([
+		1_:  fixed_: l1,
+		2_: assign_: arc_: pos_: const_: arc2,
+		3_: assign_: elt3,
+		4_: assign_: arc_: pos_: const_: arc4,
+		5_:  fixed_: list_next_
+	],, has_not_next)
+
+	eraseEl([1_: f_: arc2])
+
+label(has_not_next)
+	genElStr5([
+		1_:  fixed_: l1,
+		2_: assign_: arc_: pos_: const_: arc2,
+		3_:  fixed_: l2,
+		4_: assign_: arc_: pos_: const_: arc4,
+		5_:  fixed_: list_next_
+	])
+
+	return()
+end

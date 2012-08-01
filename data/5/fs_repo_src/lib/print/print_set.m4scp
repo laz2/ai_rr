@@ -1,0 +1,87 @@
+/*
+-----------------------------------------------------------------------------
+This source file is part of OSTIS (Open Semantic Technology for Intelligent Systems)
+For the latest info, see http://www.ostis.net
+
+Copyright (c) 2011 OSTIS
+
+OSTIS is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+OSTIS is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with OSTIS.  If not, see <http://www.gnu.org/licenses/>.
+-----------------------------------------------------------------------------
+*/
+#include "scp_keynodes.scsy"
+#include "lib_keynodes.scsy"
+
+//
+// Выводит на консоль идентификаторы элементов множества.
+//
+// @author Dmitry Lazurkin
+//
+procedure(print_set,
+[[
+	// Используемые программы
+	//
+	print_idtf;
+]],
+[{
+	arc2, el3,
+	set_copy,
+	set         // переменные для параметров
+}],
+{[
+	1_:  in_: set // множество для вывода
+]})
+	// Формируем множество связок графа для итерации
+	//
+	searchSetStr3([
+		1_:  fixed_: set,
+		2_: assign_: arc_: const_: pos_: arc2,
+		3_: assign_: el3,
+		set3_: assign_: set_copy
+	])
+
+	print([1_: fixed_: /"{"/])
+
+	// Цикл по элементам множества.
+	//
+	searchElStr3([
+		1_:  fixed_: set_copy,
+		2_: assign_: arc_: const_: pos_: arc2,
+		3_: assign_: el3
+	],, return_label)
+		
+	label([next_el_label])
+		eraseEl([1_: fixed_: f_: arc2])
+
+		callReturn([
+			1_: fixed_: print_idtf, 
+			2_: {[
+				1_: el3
+			]}
+		])
+
+		searchElStr3([
+			1_:  fixed_: set_copy,
+			2_: assign_: arc_: const_: pos_: arc2,
+			3_: assign_: el3
+		],, return_label)	
+
+		print([1_: fixed_: /"; "/])
+
+		nop(next_el_label)
+
+label([return_label])
+	eraseEl([1_: f_: set_copy])
+	print([1_: fixed_: /"}"/])
+	return()
+end
