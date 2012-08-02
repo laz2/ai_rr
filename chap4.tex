@@ -1104,6 +1104,95 @@ session->gen5_f_a_f_a_f(
   \label{fig:gen5_f_a_f_a_f_after}
 \end{figure}
 
+\subsection{Работа с содержимым sc-элементов}
+
+Каждому sc-элементу в программной модели sc-памяти может быть
+установлено содержимое следующих типов (\lstinline|enum TCont| из
+заголовочного файла \verb|sc_content.h|):
+\begin{itemize}
+\item строковое (\lstinline|TCSTRING|);
+\item целочисленное (\lstinline|TCINT|);
+\item вещественное (\lstinline|TCREAL|);
+\item бинарное (\lstinline|TCDATA|);
+\item отложенное (\lstinline|TCLAZY|);
+\item пустое (\lstinline|TCEMPT|).
+\end{itemize}
+
+Для представления содержимого используется класс \lstinline|Content| (объявлен в
+файле \verb|sc_content.h|), а для получения содержимого sc-элемента
+предназначен метод \lstinline|sc_session::get_content|:
+
+\begin{lstlisting}[texcl]
+Content content = session->get_content(e1);
+
+// Изначально у sc-элемента содержимое является пустым
+if (content.type() == TCEMPTY) {
+    // У sc-элемента пустое содержимое
+}
+\end{lstlisting}
+
+В приведенном выше примере используется метод
+\lstinline|Content::type|, который возвращает тип содержимого через
+значение \lstinline|TCont|. Для установки содержимого sc-элементу
+необходимо использовать метод \lstinline|sc_session::set_content| и
+статические методы \lstinline|Content::integer|,
+\lstinline|Content::real|, \lstinline|Content::string|,
+\lstinline|Content::data|:
+\begin{lstlisting}[texcl]
+// Установка содержимого типа TCINT
+session->set_content(first_el, Content::integer(1));
+
+// Установка содержимого типа TCREAL
+session->set_content(first_el, Content::real(0.05));
+
+// Установка содержимого типа TCSTRING
+session->set_content(first_el, Content::string("Hello world!!!"));
+
+int my_data[] = { 1, 2, 3, 4, 5 };
+// Установка содержимого типа TCDATA
+session->set_content(first_el, Content::data(sizeof(my_data), my_data));
+\end{lstlisting}
+
+Чтобы получить доступ к данным объекта класса \lstinline|Content|
+необходимо использовать \lstinline|union Cont|. Для пояснения я
+продемонстрирую реализацию функции вывода на консоль содержимого
+sc-элемента:
+\begin{lstlisting}[texcl]
+sc_retval print_content(const Content &content)
+{
+    // Класс Content имеет перегруженный оператор
+    // приведения к типу Cont, поэтому возможна следующая запись:
+    Cont c = cont;
+
+    switch (cont.type()) {
+    case TCSTRING:
+        std::cout << c.d.ptr;
+        break;
+    case TCINT:
+        std::cout << c.i;
+        break;
+    case TCREAL:
+        std::cout << (double) c.r;
+        break;
+    case TCDATA:
+        std::cout.write(c.d.ptr, c.d.size);
+        break;
+    case TCEMPTY:
+        break;
+    default:
+        return RV_ERR_GEN;
+    }
+
+    return RV_OK;
+}
+\end{lstlisting}
+
+Напоследок хочу сказать, что существует еще метод
+\lstinline|sc_session::erase_content|, который уничтожает текущее
+содержимое sc-элемента. После применения метода
+\lstinline|sc_session::erase_content| sc-элемент будет иметь пустое
+содержимое.
+
 %%% Local Variables: 
 %%% mode: latex
 %%% TeX-master: "main"
