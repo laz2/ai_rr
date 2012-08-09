@@ -51,7 +51,7 @@ namespace graph_theory
 	// В массиве "uris" перечислены полные пути (URI) ключевых узлов.
 	// Договоримся, что ключевые узлы теории графов будут
 	// находиться в сегменте "/graph_theory/keynode",
-	// а все узлы в качестве идентификаторов будут иметь 
+	// а все узлы в качестве идентификаторов будут иметь
 	// свои английские названия.
 	const char* uris[] = {
 		"/graph_theory/keynode/graph structure",             // графовая структура
@@ -60,7 +60,7 @@ namespace graph_theory
 
 		"/graph_theory/keynode/directed graph structure",    // графовая структура с ориентированными связками
 		"/graph_theory/keynode/directed connective_",        // ориентированная связка_
-		
+
 		"/graph_theory/keynode/undirected graph structure",  // графовая структура с неориентированными связками
 		"/graph_theory/keynode/undirected connective_",      // неориентированная связка_
 
@@ -126,13 +126,13 @@ namespace graph_theory
 	const sc_addr &graph                         = keynodes[17];
 
 	const sc_addr &undirected_graph              = keynodes[18];
-	
+
 	const sc_addr &directed_graph                = keynodes[19];
-	
+
 	const sc_addr &route                         = keynodes[20];
-	
+
 	const sc_addr &trail                         = keynodes[21];
-	
+
 	const sc_addr &simple_trail                  = keynodes[22];
 }
 
@@ -151,12 +151,11 @@ namespace graph_theory
 ///
 sc_addr gen_undirected_graph(sc_session *s, sc_segment *seg, const sc_string &str);
 
-/// @brief Выводит на консоль неориентированный граф @p graph.
+/// Выводит на консоль неориентированный граф @p graph.
 ///
-/// @param s     sc-сессия, при помощи которой будет производиться работа с sc-памятью.
+/// @param s     сессия, при помощи которой будет производиться работа с sc-памятью.
 /// @param graph неориентированный граф для вывода на консоль.
-///
-void print_graph(sc_session* s, sc_addr graph);
+void print_graph(sc_session *s, sc_addr graph);
 
 /// @brief Выводит на консоль маршрута @p route.
 ///
@@ -203,7 +202,7 @@ void graph_keynodes_init(sc_session *s)
 	graph_theory::segment = create_segment_full_path(s, "/graph_theory/keynode");
 
 	// Пробежимся по массиву полных URI ключевых узлов, для каждого URI создадим соответствующий ему узел.
-	// Создаваемые узлы будем заносить в массив graph_theory::keynodes. 
+	// Создаваемые узлы будем заносить в массив graph_theory::keynodes.
 	//
 	for (int i = 0; i < sizeof(graph_theory::keynodes) / sizeof(sc_addr); ++i)
 		graph_theory::keynodes[i] = create_el_by_full_uri(s, graph_theory::uris[i], SC_N_CONST);
@@ -218,7 +217,7 @@ int main(int argc, char **argv)
 
 	// Кроме ключевых узлов нашей предментной области (теории графов)
 	// есть еще системные ключевые узлы, которые необходимо также создать.
-	// Для этого воспользуемся функцией "pm_keynodes_init". 
+	// Для этого воспользуемся функцией "pm_keynodes_init".
 	//
 	pm_keynodes_init(system);
 
@@ -373,7 +372,7 @@ sc_addr gen_undirected_graph(sc_session *s, sc_segment *seg, const sc_string &st
 					break;
 				}
 			break;
-			default: 
+			default:
 				buf += str[i];
 		}
 	}
@@ -421,16 +420,35 @@ sc_addr gen_undirected_graph(sc_session *s, sc_segment *seg, const sc_string &st
 	return graph;
 }
 
+void get_edge_vertexes(sc_session *s, sc_addr edge, sc_addr &v1, sc_addr &v2)
+{
+	assert(s);
+	assert(edge);
+
+	sc_iterator *it = s->create_iterator(
+		sc_constraint_new(
+			CONSTR_3_f_a_a,
+			edge,
+			SC_A_CONST|SC_POS,
+			0,
+	), true);
+
+	v1 = it->value(2);
+	it->next();
+	v2 = it->value(2);
+
+	delete it;
+}
+
 void print_graph(sc_session *s, sc_addr graph)
 {
 	assert(s);
 	assert(graph);
 
-	std::set<sc_addr> vertexes_set;
+	std::set<sc_addr> printed_vertexes; // множество выведенных вершин
 
-	// Создаем итератор по всем ребрам.
-	//
-	sc_iterator* arcs_it = s->create_iterator(
+	// 1. Создание итератора по ребрам.
+	sc_iterator* edges_it = s->create_iterator(
 		sc_constraint_new(
 			CONSTR_5_f_a_a_a_f,
 			graph,
@@ -440,42 +458,37 @@ void print_graph(sc_session *s, sc_addr graph)
 			graph_theory::edge_
 	), true);
 
-	// Запускаем цикл по всем результатам поиска
-	//
-	sc_for_each (arcs_it) {
-		// Третьим элементом найденной пяти элементной конструкции будет знак ребра графа
-		// Индекция ведется с 0 как в массивах
-		sc_addr arc = arcs_it->value(2);
+	// 2. Цикл по всем результатам поиска.
+	sc_for_each (edges_it) {
+		sc_addr edge = edges_it->value(2);
 
-		// Для каждого ребра нам необходимо вывести инцидентные ему вершины,
-		// поэтому создаем итератор по sc-элементам, которые включает в себя sc-множество, обозначающее найденное ребро графа 
-		sc_iterator* vertexes_it = s->create_iterator(sc_constraint_new(CONSTR_3_f_a_a, arc, 0, 0), true);
+		// Получим вершины, инцидентные ребру edge.
+		sc_addr v1 = 0, v2 = 0;
+		get_edge_vertexes(s, edge, v1, v2);
 
-		// Получаем инцидентные вершины
-		// Так как у нас классический граф, то мы всегда знаем что множество ребра всегда двумощно.
-		sc_addr e1 = vertexes_it->value(2);
-		vertexes_it->next();
-		sc_addr e2 = vertexes_it->value(2);
+		// Выведем ребро вместе с инцидентными вершинами.
+		std::cout << s->get_idtf(v1) << " -- " << s->get_idtf(v2) << '\n';
 
-		// Запоминаем вершины, которые уже выводились
-		vertexes_set.insert(e1);
-		vertexes_set.insert(e2);
-
-		// Выводим ребро на консоль
-		std::cout << s->get_idtf(e1) << " -- " << s->get_idtf(e2) << '\n';
-
-		// Освобождаем память, выделенную под итератор vertexes_it
-		delete vertexes_it;
+		// Запомним вершины, как выведенные.
+		printed_vertexes.insert(v1);
+		printed_vertexes.insert(v2);
 	}
-	// sc_for_each автоматический освободит память, выделенную под arcs_it
 
-	// Вывод всех вершин, которые не имеют инцидентных дуг.
-	sc_iterator *vertexes_it = s->create_iterator(sc_constraint_new(CONSTR_5_f_a_a_a_f, graph, 0, 0, 0, graph_theory::vertex_), true);
+	// 3. Вывод вершин, которые не имеют инцидентных ребер.
+	sc_iterator *vertexes_it = s->create_iterator(
+		sc_constraint_new(
+			CONSTR_5_f_a_a_a_f,
+			graph,
+			SC_A_CONST|SC_POS,
+			0,
+			SC_A_CONST|SC_POS,
+			graph_theory::vertex_
+	), true);
 	sc_for_each (vertexes_it) {
 		sc_addr vertex = vertexes_it->value(2);
 
-		// Проверим, входит ли sc-адерс вершин в множество vertexes_set
-		if(vertexes_set.find(vertex) == vertexes_set.end())
+		// Проверим, входит ли вершина в множество printed_vertexes
+		if(printed_vertexes.find(vertex) == printed_vertexes.end())
 			std::cout << s->get_idtf(vertex) << '\n';
 	}
 }
@@ -645,7 +658,7 @@ sc_addr add_edge_visit_to_route(sc_session *s, sc_addr route, sc_addr edge, sc_a
 
 	// Добавим посещение вершины @p from_vertex в маршрут.
 	sc_addr from_vertex_visit = add_vertex_visit_to_route(s, route, from_vertex);
-	
+
 	// Ориентированная связка, которая обозначает в структуре маршрута посещение ребра графа, на котором задан мартшрут.
 	//
 	sc_addr edge_visit = s->create_el(route->seg, SC_N_CONST);
@@ -699,7 +712,7 @@ sc_addr find_any_edge(sc_session *s, sc_addr graph, sc_addr vertex, sc_addr prev
 	sc_for_each (it) {
 		edge = it->value(2);
 		sc_addr other_vertex = get_other_vertex_incidence_edge(s, edge, vertex);
-		
+
 		if(sc_set::is_in(s, other_vertex, prev_wave))
 			break;
 	}
@@ -822,7 +835,7 @@ sc_addr find_min_path(sc_session* s, sc_segment* seg, sc_addr graph, sc_addr beg
 	//
 	sc_iterator *it = s->create_iterator(
 		sc_constraint_new(
-			CONSTR_5_f_a_a_a_f, 
+			CONSTR_5_f_a_a_a_f,
 			graph,
 			SC_A_CONST|SC_POS,
 			0,
@@ -919,7 +932,7 @@ sc_addr find_min_path(sc_session* s, sc_segment* seg, sc_addr graph, sc_addr beg
 
 		// Получаем предыдущую вершину в пути.
 		//
-		sc_addr prev_vertex = get_other_vertex_incidence_edge(s, edge, curr_vertex); 
+		sc_addr prev_vertex = get_other_vertex_incidence_edge(s, edge, curr_vertex);
 
 		// Добавляем посещение ребра @p edge в путь.
 		//

@@ -207,9 +207,149 @@ int main(int argc, char **argv)
 
 \subsection{Генерация неориентированного графа}
 
+\subsection{Вывод на консоль неориентированного графа}
 
+Для вывода неориентированного графа на консоль нам надо будет
+предпринять следующие шаги:
+\begin{enumerate}
+\item вывести на консоль каждое ребро графа вместе с инцидентными
+  вершинами и запомнить выведенные вершины;
+\item вывести на консоль те вершины, которые еще не были выведены.
+\end{enumerate}
+
+Приступим к написанию фукнции \lstinline|print_graph|, заголовочная
+часть которой выглядит следующим образом:
+\begin{lstlisting}[texcl]
+/// Выводит на консоль неориентированный граф @p \verb|graph|.
+///
+/// @param s     сессия, при помощи которой будет производиться работа с sc-памятью.
+/// @param graph неориентированный граф для вывода на консоль.
+void print_graph(sc_session *s, sc_addr graph);
+\end{lstlisting}
+
+Для начала определимся со структурой данных, в которой будем хранить
+уже выведенные на консоль вершины. Можно было бы, сохраняя чистоту
+подхода, использовать для хранения такой информации множество в
+sc-памяти. Однако, на мой взгляд, в данном случае будет достаточно
+использовать STL-контейнер \lstinline|std::set|, который будет хранить
+sc-адреса вершин. Для самых распространнех STL-контейнеров, которые
+хранят данные типа \lstinline|sc_addr|, в файле \verb|sc_types.h|
+объявлены \lstinline|typedef|'ы. Нас будет интересовать
+\lstinline|addr_set| - \lstinline|typedef| для
+\lstinline|std::set<sc_addr>|. Таким образом, начало функции
+будет следующим:
+\begin{lstlisting}[texcl]
+void print_graph(sc_session *s, sc_addr graph)
+{
+    assert(s);
+    assert(graph);
+
+    addr_set printed_vertexes; // множество выведенных вершин
+
+    // $\dots$
+}
+\end{lstlisting}
+
+Следующим шагом будет вывод на консоль ребер и инцидентных им
+вершин. Так как граф хранится в sc-памяти, то нам необходимо
+использовать ее базовые поисковые механизмы
+(раздел~\ref{sec:libsc_search_basic}).
+
+Ребра входят в граф с атрибутом \idtf{ребро\_}, поэтому для их
+перебора мы будем использовать одно из ограничений поиска
+пятиэлементных sc-конструкций(см. рис~\ref{fig:5_sc_constr}). В нашем
+случае фиксированными являются 1-ый (узел графа, т.е. параметр
+\lstinline|graph|) и 5-ый (атрибут \idtf{ребро\_}) элементы
+пятиэлементной sc-конструкции. Следовательно, мы будем использовать
+ограничение \lstinline|CONSTR_5_f_a_a_a_f|. Это ограничение является
+одним из самых часто используемых, когда 2-ой и 4-ый элементы являются
+константными позитивными sc-дугами, т.е. подходят под маску типа
+\lstinline+SC_A_CONST|SC_POS+. В нашем случае это так и есть, а для
+3-го элемента будем использовать маску типа 0, т.е. он может быть
+любого типа. Ниже приведен код создания итератора по ребрам:
+\begin{lstlisting}[texcl]
+void print_graph(sc_session *s, sc_addr graph)
+{
+    // $\dots$
+
+    // 1. Создание итератора по ребрам.
+    sc_iterator* edges_it = s->create_iterator(
+        sc_constraint_new(
+            CONSTR_5_f_a_a_a_f,
+            graph,
+            SC_A_CONST|SC_POS,
+            0,
+            SC_A_CONST|SC_POS,
+            graph_theory::edge_
+    ), true);
+
+    // $\dots$
+}
+\end{lstlisting}
+
+Начнем создания цикла по ребрам. Для него логично использовать макрос
+\lstinline|sc_for_each|:
+\begin{lstlisting}[texcl]
+void print_graph(sc_session *s, sc_addr graph)
+{
+    // $\dots$
+
+    // 2. Цикл по всем результатам поиска.
+    sc_for_each (edges_it) {
+        sc_addr edge = edges_it->value(2);
+
+        // Получим вершины, инцидентные ребру \verb|edge|.
+        sc_addr v1 = 0, v2 = 0;
+        get_edge_vertexes(s, edge, v1, v2);
+
+        // Выведем ребро вместе с инцидентными вершинами.
+        std::cout << s->get_idtf(v1) << " -- " << s->get_idtf(v2) << '\n';
+
+        // Запомним вершины, как выведенные.
+        printed_vertexes.insert(v1);
+        printed_vertexes.insert(v2);
+    }
+
+    // $\dots$
+}
+\end{lstlisting}
+
+Последним этапом функции \lstinline|print_graph| является вывод тех
+вершин, которые еще не были выведены на консоль, т.е. не входят во
+множество \lstinline|printed_vertexes|. Для этого необходимо
+организовать цикл по всем вершинам.  Вершины входят в граф с атрибутом
+\idtf{вершина\_}. Tаким образом, нам подходит уже знакомое ограничение
+\lstinline|CONSTR_5_f_a_a_a_f|, которому в качестве атрибута мы
+передадим не \lstinline|graph_theory::edge_|, как в случае с перебором
+ребер, а \lstinline|graph_theory::vertex_|. Разрабатываемый цикл будет
+следующим:
+\begin{lstlisting}[texcl]
+void print_graph(sc_session *s, sc_addr graph)
+{
+    // $\dots$
+
+    // 3. Вывод вершин, которые не имеют инцидентных ребер.
+    sc_iterator *vertexes_it = s->create_iterator(
+        sc_constraint_new(
+            CONSTR_5_f_a_a_a_f,
+            graph,
+            SC_A_CONST|SC_POS,
+            0,
+            SC_A_CONST|SC_POS,
+            graph_theory::vertex_
+    ), true);
+    sc_for_each (vertexes_it) {
+        sc_addr vertex = vertexes_it->value(2);
+
+        // Проверим, входит ли вершина в множество \verb|printed_vertexes|
+        if(printed_vertexes.find(vertex) == printed_vertexes.end())
+            std::cout << s->get_idtf(vertex) << '\n';
+    }
+}
+\end{lstlisting}
 
 %%% Local Variables: 
 %%% mode: latex
 %%% TeX-master: "main"
 %%% End: 
+
