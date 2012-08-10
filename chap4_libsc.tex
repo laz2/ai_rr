@@ -42,8 +42,8 @@
   \item \verb|fs_repo_src/| : SCP-пример на основе алгоритма поиска одного из
     минимальных путей в неориентированном графе;
   \end{itemize}
-\item \verb|include/| : содержит директории с заголовочными файлами для всех библиотек
-  модуля;
+\item \verb|include/| : содержит директории с заголовочными файлами
+  для всех библиотек модуля;
 \item \verb|lib/| : библиотеки импорта для всех динамических библиотек модуля
   В этой директории библиотеки импорта для отладочной версии
   динамической библиотеки имеют в конце имени букву «d» (сравните,
@@ -120,7 +120,7 @@ sc-директории. Проиллюстрирую на конкретной 
 
 \begin{itemize}
 \item /: корневая sc-директория, которая всегда существует
-  
+
   \begin{itemize}
   \item \verb|graph_theory/|: sc-директория, которая содержит базу знаний по
     теории графов
@@ -256,7 +256,7 @@ sc-сессия, поэтому в следующем разделе я начн
   // $\dots$
   // Инициализируем sc-память при помощи функции \verb|libsc_init|.
   // Она вернет системную sc-сессию.
-  // 
+  //
   sc_session *system = libsc_init();
 \end{lstlisting}
 
@@ -288,7 +288,7 @@ sc-сессию:
   sc_session *session = libsc_login();
 
   // При помощи метода \verb|sc_session::open_segment| по URI "/proc/keynode"
-  // откроем в нашей пользовательской sc-сессии sc-сегмент системных 
+  // откроем в нашей пользовательской sc-сессии sc-сегмент системных
   // ключевых узлов.
   //
   session->open_segment(“/proc/keynode”);
@@ -298,14 +298,15 @@ sc-сессию:
 sc-памяти:
 
 \begin{lstlisting}[texcl]
-  // Этот заголовочный файл содержит функции, которые облегчают работу с 
+  // Этот заголовочный файл содержит функции, которые облегчают работу с
   // sc-сегментами.
   #include <segment_utils.h>
-  
+
   // $\dots$
-  // Создадим уникальный sc-сегмент с использованием \verb|create_unique_segment|
-  // и URI этого sc-сегмента будет начинатся с "/tmp/test".
-  // 
+  // Создадим уникальный sc-сегмент с использованием
+  // \verb|create_unique_segment| и URI этого sc-сегмента
+  // будет начинатся с "/tmp/test".
+  //
   sc_segment *segment = create_unique_segment(session, “/tmp/test”);
 
   // Созданный при помощи sc-сессии session sc-сегмент будет автоматический
@@ -391,16 +392,16 @@ libsc нет разницы в кодировании структурных т�
   \centering
   \begin{tabular}{|c|c|}
     \hline
-	\includegraphics{4/scg2sc/undf_const} & \verb+SC_UNDF|SC_CONST+
+    \includegraphics{4/scg2sc/undf_const} & \verb+SC_UNDF|SC_CONST+
     , \verb+SC_U_CONST+ \\
-    
+
     \hline
     \includegraphics{4/scg2sc/undf_var} & \verb+SC_UNDF|SC_VAR+, \verb+SC_U_VAR+ \\
-    
+
     \hline
     \includegraphics{4/scg2sc/undf_metavar} & \verb+SC_UNDF|SC_METAVAR+
     , \verb+SC_U_METAVAR+ \\
-    
+
     \hline
     \includegraphics{4/scg2sc/node_general_const}
     \includegraphics{4/scg2sc/node_role_const}
@@ -408,7 +409,7 @@ libsc нет разницы в кодировании структурных т�
     \includegraphics{4/scg2sc/node_concept_const}
     \includegraphics{4/scg2sc/node_binary_const}
     & \verb+SC_NODE|SC_CONST+, \verb+SC_N_CONST+ \\
-    
+
     \hline
     \includegraphics{4/scg2sc/node_general_var}
     \includegraphics{4/scg2sc/node_role_var}
@@ -416,7 +417,7 @@ libsc нет разницы в кодировании структурных т�
     \includegraphics{4/scg2sc/node_concept_var}
     \includegraphics{4/scg2sc/node_binary_var}
     & \verb+SC_NODE|SC_VAR+, \verb+SC_N_VAR+ \\
-    
+
     \hline
     \includegraphics{4/scg2sc/node_general_meta}
     \includegraphics{4/scg2sc/node_role_meta}
@@ -424,43 +425,43 @@ libsc нет разницы в кодировании структурных т�
     \includegraphics{4/scg2sc/node_concept_meta}
     \includegraphics{4/scg2sc/node_binary_meta}
     & \verb+SC_NODE|SC_METAVAR+, \verb+SC_N_METAVAR+ \\
-    
+
     \hline
-	\includegraphics{4/scg2sc/arc_main} & \verb+SC_ARC|SC_CONST|SC_POS+
+    \includegraphics{4/scg2sc/arc_main} & \verb+SC_ARC|SC_CONST|SC_POS+
     , \verb+SC_A_CONST|SC_POS+ \\
-    
+
     \hline
-	\includegraphics{4/scg2sc/pair_const_perm_fuz} & \verb+SC_ARC|SC_CONST|SC_FUZ+
+    \includegraphics{4/scg2sc/pair_const_perm_fuz} & \verb+SC_ARC|SC_CONST|SC_FUZ+
     , \verb+SC_A_CONST|SC_FUZ+ \\
-    
+
     \hline
-	\includegraphics{4/scg2sc/pair_const_perm_neg} & \verb+SC_ARC|SC_CONST|SC_NEG+
+    \includegraphics{4/scg2sc/pair_const_perm_neg} & \verb+SC_ARC|SC_CONST|SC_NEG+
     , \verb+SC_A_CONST|SC_NEG+ \\
-    
+
     \hline
-	\includegraphics{4/scg2sc/pair_var_perm_pos} & \verb+SC_ARC|SC_VAR|SC_POS+
+    \includegraphics{4/scg2sc/pair_var_perm_pos} & \verb+SC_ARC|SC_VAR|SC_POS+
     , \verb+SC_A_VAR|SC_POS+ \\
-    
+
     \hline
-	\includegraphics{4/scg2sc/pair_var_perm_fuz} & \verb+SC_ARC|SC_VAR|SC_FUZ+
+    \includegraphics{4/scg2sc/pair_var_perm_fuz} & \verb+SC_ARC|SC_VAR|SC_FUZ+
     , \verb+SC_A_VAR|SC_FUZ+ \\
-    
+
     \hline
-	\includegraphics{4/scg2sc/pair_var_perm_neg} & \verb+SC_ARC|SC_VAR|SC_NEG+
+    \includegraphics{4/scg2sc/pair_var_perm_neg} & \verb+SC_ARC|SC_VAR|SC_NEG+
     , \verb+SC_A_VAR|SC_NEG+ \\
-    
+
     \hline
-	\includegraphics{4/scg2sc/pair_meta_perm_pos} & \verb+SC_ARC|SC_METAVAR|SC_POS+
+    \includegraphics{4/scg2sc/pair_meta_perm_pos} & \verb+SC_ARC|SC_METAVAR|SC_POS+
     , \verb+SC_A_METAVAR|SC_POS+ \\
-    
+
     \hline
-	\includegraphics{4/scg2sc/pair_meta_perm_fuz} & \verb+SC_ARC|SC_METAVAR|SC_FUZ+
+    \includegraphics{4/scg2sc/pair_meta_perm_fuz} & \verb+SC_ARC|SC_METAVAR|SC_FUZ+
     , \verb+SC_A_METAVAR|SC_FUZ+ \\
-    
+
     \hline
-	\includegraphics{4/scg2sc/pair_meta_perm_neg} & \verb+SC_ARC|SC_METAVAR|SC_NEG+
+    \includegraphics{4/scg2sc/pair_meta_perm_neg} & \verb+SC_ARC|SC_METAVAR|SC_NEG+
     , \verb+SC_A_METAVAR|SC_NEG+ \\
-    
+
     \hline
   \end{tabular}
   \label{tab:SCgType2SCType}
@@ -716,7 +717,7 @@ session->gen3_f_a_f(
 возвратит \lstinline|RV_OK|, а в случае неуспешного –
 \lstinline|RV_ERR_GEN|. Проверки можно организовать следующим образом:
 \begin{lstlisting}[texcl]
-if (session->gen3_f_a_f(...) == RV_OK) {
+if (session->gen3_f_a_f(%$\dots$%) == RV_OK) {
     // Генерация прошла успешно
 } else {
     // Возникла ошибка в процессе генерации
@@ -724,7 +725,7 @@ if (session->gen3_f_a_f(...) == RV_OK) {
 
 // Зная о том, что константа RV\_OK равна 0 можно
 // организовать проверку следующим образом.
-if (!session->gen3_f_a_f(...)) {
+if (!session->gen3_f_a_f(%$\dots$%)) {
     // Генерация прошла успешно
 } else {
     // Возникла ошибка в процессе генерации
@@ -732,7 +733,7 @@ if (!session->gen3_f_a_f(...)) {
 
 // Зная о том, что код ошибки неравен 0 можно
 // организовать проверку ошибочной ситуации следующим образом.
-if (session->gen3_f_a_f(...)) {
+if (session->gen3_f_a_f(%$\dots$%)) {
     // Возникла ошибка в процессе генерации
 }
 \end{lstlisting}
@@ -1196,9 +1197,10 @@ Set1 -> Z
 \lstinline|while| это можно сделать следующим образом:
 \begin{lstlisting}[texcl]
 // Создание итератора.
+
 sc_iterator *it = session->create_iterator(
     sc_constraint_new(
-        /* Здесь должны быть параметры ограничения. */
+        // Здесь должны быть параметры ограничения.
     ),
     true
 );
