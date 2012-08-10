@@ -44,62 +44,63 @@ along with OSTIS.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <iostream>
 
-// Определение ключевых узлов в пространсте имен позволяет разграничить предметные области.
-// В данном случае у нас только одна предметная область, но их может быть и больше.
+/// Пространство имен ключевых узлов по теории графов.
+///
+/// Для начала работы необходимо вызвать функцию graph_theory::init,
+/// передав в качестве параметра системную сессию.
+/// После этого, например, чтобы обратиться к узлу вершина_,
+/// достаточно написать graph_keynodes::vertex_.
 namespace graph_theory
 {
-	// В массиве "uris" перечислены полные пути (URI) ключевых узлов.
-	// Договоримся, что ключевые узлы теории графов будут
-	// находиться в сегменте "/graph_theory/keynode",
-	// а все узлы в качестве идентификаторов будут иметь
-	// свои английские названия.
-	const char* uris[] = {
-		"/graph_theory/keynode/graph structure",             // графовая структура
-		"/graph_theory/keynode/vertex_",                     // вершина_
-		"/graph_theory/keynode/connective_",                 // связка_
+	/// URI сегмента ключевых узлов.
+	const char *segment_uri = "/graph_theory/keynode";
 
-		"/graph_theory/keynode/directed graph structure",    // графовая структура с ориентированными связками
-		"/graph_theory/keynode/directed connective_",        // ориентированная связка_
-
-		"/graph_theory/keynode/undirected graph structure",  // графовая структура с неориентированными связками
-		"/graph_theory/keynode/undirected connective_",      // неориентированная связка_
-
-		"/graph_theory/keynode/hypergraph",                  // гиперграф
-		"/graph_theory/keynode/hyperconnective_",            // гиперсвязка_
-		"/graph_theory/keynode/hyperedge_",                  // гиперребро_
-		"/graph_theory/keynode/hyperarc_",                   // гипердуга_
-
-		"/graph_theory/keynode/pseudograph",                 // псевдограф
-		"/graph_theory/keynode/binary connective_",          // бинарная связка_
-		"/graph_theory/keynode/edge_",                       // ребро_
-		"/graph_theory/keynode/arc_",                        // дуга_
-		"/graph_theory/keynode/loop_",                       // петля_
-
-		"/graph_theory/keynode/multigraph",                  // мультиграф
-
-		"/graph_theory/keynode/graph",                       // граф
-
-		"/graph_theory/keynode/undirected graph",            // неориентированный граф
-
-		"/graph_theory/keynode/directed graph",              // ориентированный граф
-
-		"/graph_theory/keynode/route*",                      // маршрут*
-
-		"/graph_theory/keynode/trail*",                      // цепь*
-
-		"/graph_theory/keynode/simple trail*"                // простая цепь*
-	};
-
-	// В данном массиве будут храниться sc-адреса созданных ключевых узлов.
-	sc_addr keynodes[sizeof(uris) / sizeof(const char*)];
-
-	// В этом sc-сегменте будут созданы ключевые узлы теории графов.
+	/// Созданный сегмент ключевых узлов.
 	sc_segment *segment;
 
-	// С помощью ссылок C++ задан удобный способ обращения
-	// к элементам массива ключевых узлов "keynodes".
-	// Каждая из следующих констант ссылается на sc-адрес
-	// ключевого узла с соответствующем именем.
+	/// Массив идентификаторов ключевых узлов.
+	const char *idtfs[] = {
+		"graph structure",             // графовая структура
+		"vertex_",                     // вершина_
+		"connective_",                 // связка_
+
+		"directed graph structure",    // графовая структура с ориентированными связками
+		"directed connective_",        // ориентированная связка_
+
+		"undirected graph structure",  // графовая структура с неориентированными связками
+		"undirected connective_",      // неориентированная связка_
+
+		"hypergraph",                  // гиперграф
+		"hyperconnective_",            // гиперсвязка_
+		"hyperedge_",                  // гиперребро_
+		"hyperarc_",                   // гипердуга_
+
+		"pseudograph",                 // псевдограф
+		"binary connective_",          // бинарная связка_
+		"edge_",                       // ребро_
+		"arc_",                        // дуга_
+		"loop_",                       // петля_
+
+		"multigraph",                  // мультиграф
+
+		"graph",                       // граф
+
+		"undirected graph",            // неориентированный граф
+
+		"directed graph",              // ориентированный граф
+
+		"route*",                      // маршрут*
+
+		"trail*",                      // цепь*
+
+		"simple trail*"                // простая цепь*
+	};
+
+	/// Массив sc-адресов созданных ключевых узлов.
+	sc_addr keynodes[sizeof(uris) / sizeof(const char*)];
+
+	/// Ссылки на ключевые узлы для более удобной работы.
+	/// @{
 	const sc_addr &graph_structure               = keynodes[0];
 	const sc_addr &vertex_                       = keynodes[1];
 	const sc_addr &connective_                   = keynodes[2];
@@ -134,6 +135,24 @@ namespace graph_theory
 	const sc_addr &trail                         = keynodes[21];
 
 	const sc_addr &simple_trail                  = keynodes[22];
+    /// @}
+
+	/// Производит создание ключевых узлов при помощи сессии @p s
+	/// и готовит их к работе.
+	void init(sc_session *s)
+	{
+		// Сперва создадим сегмент /graph_theory/keynode для
+		// ключевых узлов.
+		segment = create_segment_full_path(s, segment_uri);
+
+		// Пробежимся по массиву идентификаторов ключевых узлов idtfs
+		// и создадим каждый ключевой узел.
+		// Создаваемые узлы будем заносить в массив keynodes.
+		for (int i = 0; i < sizeof(keynodes) / sizeof(sc_addr); ++i) {
+			keynodes[i] = s->create_el(segment, SC_N_CONST);
+			s->set_idtf(keynodes[i], idtfs[i]);
+		}
+	}
 }
 
 /// @brief Генерирует в sc-памяти неориентированный граф по строке @p str.
@@ -153,7 +172,7 @@ sc_addr gen_undirected_graph(sc_session *s, sc_segment *seg, const sc_string &st
 
 /// Выводит на консоль неориентированный граф @p graph.
 ///
-/// @param s     сессия, при помощи которой будет производиться работа с sc-памятью.
+/// @param s     сессия для работы с sc-памятью.
 /// @param graph неориентированный граф для вывода на консоль.
 void print_graph(sc_session *s, sc_addr graph);
 
@@ -188,25 +207,6 @@ sc_addr find_min_path(sc_session *s, sc_segment *seg, sc_addr graph, sc_addr beg
 /// @see find_min_path
 ///
 void run_testcase(sc_session *s, int number, const sc_string &graph_str, const sc_string &beg_name, const sc_string &end_name);
-
-/// @brief Создает ключевые узлы базы знаний по теории графов.
-///
-/// @note Ключевые узлы создаются в sc-сегменте с URI "/graph_theory/keynode".
-///
-/// @param s sc-сессия, при помощи которой будет производиться работа с sc-памятью.
-///
-void graph_keynodes_init(sc_session *s)
-{
-	// Сперва создадим для них сегмент "/graph_theory/keynode".
-	//
-	graph_theory::segment = create_segment_full_path(s, "/graph_theory/keynode");
-
-	// Пробежимся по массиву полных URI ключевых узлов, для каждого URI создадим соответствующий ему узел.
-	// Создаваемые узлы будем заносить в массив graph_theory::keynodes.
-	//
-	for (int i = 0; i < sizeof(graph_theory::keynodes) / sizeof(sc_addr); ++i)
-		graph_theory::keynodes[i] = create_el_by_full_uri(s, graph_theory::uris[i], SC_N_CONST);
-}
 
 int main(int argc, char **argv)
 {
@@ -420,6 +420,7 @@ sc_addr gen_undirected_graph(sc_session *s, sc_segment *seg, const sc_string &st
 	return graph;
 }
 
+/// Возвращает в @p v1 и @p v2 вершины, инцидетные ребру @p edge.
 void get_edge_vertexes(sc_session *s, sc_addr edge, sc_addr &v1, sc_addr &v2)
 {
 	assert(s);
@@ -458,7 +459,7 @@ void print_graph(sc_session *s, sc_addr graph)
 			graph_theory::edge_
 	), true);
 
-	// 2. Цикл по всем результатам поиска.
+	// 2. Вывод ребер.
 	sc_for_each (edges_it) {
 		sc_addr edge = edges_it->value(2);
 
@@ -467,7 +468,7 @@ void print_graph(sc_session *s, sc_addr graph)
 		get_edge_vertexes(s, edge, v1, v2);
 
 		// Выведем ребро вместе с инцидентными вершинами.
-		std::cout << s->get_idtf(v1) << " -- " << s->get_idtf(v2) << '\n';
+		std::cout << s->get_idtf(v1) << " -- " << s->get_idtf(v2) << std::endl;
 
 		// Запомним вершины, как выведенные.
 		printed_vertexes.insert(v1);

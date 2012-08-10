@@ -1,15 +1,17 @@
 \section{Созданиe программы wave\_find\_path}
+\label{Desc_libscprg}
 
 В этом разделе мы будем создавать программу поиска минимального пути с
 использованием библиотеки libsc. По примененному алгоритму поиска
 минимального пути и своей структуре программа из этого раздела будет
-похожа на программу из раздела~\ref{Desc_wave_find_path}. Самым важным
+похожа на программу из раздела~\ref{Desc_prg}. Самым важным
 отличием будет то, что обработка информации будет происходить в
 sc-памяти.
 
 Начнем мы с подготовке sc-памяти для работы алгоритма.
 
 \subsection{Инициализация и подготовка sc-памяти}
+\label{libscprg_init_sc_memory}
 
 Создадим набросок функции \lstinline|main| для начала работы с
 sc-памятью:
@@ -32,7 +34,7 @@ int main(int argc, char **argv)
     // Эту функцию нужно вызывать обязательно.
     pm_keynodes_init(system);
 
-    //
+npn    //
     // Здесь мы будем производить основную работу с sc-памятью.
     //
 
@@ -205,9 +207,11 @@ int main(int argc, char **argv)
 рассматривать вспомогательные функции для генерации и вывода на
 консоль неориентированных графов.
 
-\subsection{Генерация неориентированного графа}
+\subsection{Загрузка неориентированного графа}
+\label{sec:libscprg_load_graph}
 
 \subsection{Вывод на консоль неориентированного графа}
+\label{sec:libscprg_print_graph}
 
 Для вывода неориентированного графа на консоль нам надо будет
 предпринять следующие шаги:
@@ -222,7 +226,7 @@ int main(int argc, char **argv)
 \begin{lstlisting}[texcl]
 /// Выводит на консоль неориентированный граф @p \verb|graph|.
 ///
-/// @param s     сессия, при помощи которой будет производиться работа с sc-памятью.
+/// @param s     сессия для работы с sc-памятью.
 /// @param graph неориентированный граф для вывода на консоль.
 void print_graph(sc_session *s, sc_addr graph);
 \end{lstlisting}
@@ -231,13 +235,13 @@ void print_graph(sc_session *s, sc_addr graph);
 уже выведенные на консоль вершины. Можно было бы, сохраняя чистоту
 подхода, использовать для хранения такой информации множество в
 sc-памяти. Однако, на мой взгляд, в данном случае будет достаточно
-использовать STL-контейнер \lstinline|std::set|, который будет хранить
-sc-адреса вершин. Для самых распространнех STL-контейнеров, которые
+использовать STL-контейнер \lstinline|std::set|, который сохранит
+sc-адреса вершин. Для самых распространных STL-контейнеров, которые
 хранят данные типа \lstinline|sc_addr|, в файле \verb|sc_types.h|
 объявлены \lstinline|typedef|'ы. Нас будет интересовать
 \lstinline|addr_set| - \lstinline|typedef| для
-\lstinline|std::set<sc_addr>|. Таким образом, начало функции
-будет следующим:
+\lstinline|std::set<sc_addr>|. Таким образом, начало функции будет
+следующим:
 \begin{lstlisting}[texcl]
 void print_graph(sc_session *s, sc_addr graph)
 {
@@ -251,7 +255,7 @@ void print_graph(sc_session *s, sc_addr graph)
 \end{lstlisting}
 
 Следующим шагом будет вывод на консоль ребер и инцидентных им
-вершин. Так как граф хранится в sc-памяти, то нам необходимо
+вершин. Так как граф хранится в sc-памяти, то для этого нам необходимо
 использовать ее базовые поисковые механизмы
 (раздел~\ref{sec:libsc_search_basic}).
 
@@ -261,11 +265,11 @@ void print_graph(sc_session *s, sc_addr graph)
 случае фиксированными являются 1-ый (узел графа, т.е. параметр
 \lstinline|graph|) и 5-ый (атрибут \idtf{ребро\_}) элементы
 пятиэлементной sc-конструкции. Следовательно, мы будем использовать
-ограничение \lstinline|CONSTR_5_f_a_a_a_f|. Это ограничение является
-одним из самых часто используемых, когда 2-ой и 4-ый элементы являются
-константными позитивными sc-дугами, т.е. подходят под маску типа
-\lstinline+SC_A_CONST|SC_POS+. В нашем случае это так и есть, а для
-3-го элемента будем использовать маску типа 0, т.е. он может быть
+ограничение вида \lstinline|CONSTR_5_f_a_a_a_f|. Этот вид ограничения
+является одним из самых часто используемых, когда 2-ой и 4-ый элементы
+являются константными позитивными sc-дугами, т.е. подходят под маску
+типа \lstinline+SC_A_CONST|SC_POS+. В нашем случае это так и есть, а
+для 3-го элемента будем использовать маску типа 0, т.е. он может быть
 любого типа. Ниже приведен код создания итератора по ребрам:
 \begin{lstlisting}[texcl]
 void print_graph(sc_session *s, sc_addr graph)
@@ -287,14 +291,18 @@ void print_graph(sc_session *s, sc_addr graph)
 }
 \end{lstlisting}
 
-Начнем создания цикла по ребрам. Для него логично использовать макрос
+Для цикла по ребрам логично использовать макрос
 \lstinline|sc_for_each|:
 \begin{lstlisting}[texcl]
+#include <iostream> // для std::cout и std::endl
+
+// $\dots$
+
 void print_graph(sc_session *s, sc_addr graph)
 {
     // $\dots$
 
-    // 2. Цикл по всем результатам поиска.
+    // 2. Вывод ребер.
     sc_for_each (edges_it) {
         sc_addr edge = edges_it->value(2);
 
@@ -303,7 +311,7 @@ void print_graph(sc_session *s, sc_addr graph)
         get_edge_vertexes(s, edge, v1, v2);
 
         // Выведем ребро вместе с инцидентными вершинами.
-        std::cout << s->get_idtf(v1) << " -- " << s->get_idtf(v2) << '\n';
+        std::cout << s->get_idtf(v1) << " -- " << s->get_idtf(v2) << std::endl;
 
         // Запомним вершины, как выведенные.
         printed_vertexes.insert(v1);
@@ -314,14 +322,59 @@ void print_graph(sc_session *s, sc_addr graph)
 }
 \end{lstlisting}
 
-Последним этапом функции \lstinline|print_graph| является вывод тех
-вершин, которые еще не были выведены на консоль, т.е. не входят во
-множество \lstinline|printed_vertexes|. Для этого необходимо
-организовать цикл по всем вершинам.  Вершины входят в граф с атрибутом
-\idtf{вершина\_}. Tаким образом, нам подходит уже знакомое ограничение
-\lstinline|CONSTR_5_f_a_a_a_f|, которому в качестве атрибута мы
-передадим не \lstinline|graph_theory::edge_|, как в случае с перебором
-ребер, а \lstinline|graph_theory::vertex_|. Разрабатываемый цикл будет
+В приведенном выше листинге используется еще ненаписанная функция
+\lstinline|get_edge_vertexes|, которая возвращает вершины, инцидетные
+переданному ребру. Объявим эту функцию следующим образом
+(\textcolor{green}{обратите внимание}, что функция возвращает результаты
+работы через параметры \lstinline|v1| и \lstinline|v2|, которые имеют
+ссылочный тип):
+\begin{lstlisting}[texcl]
+/// Возвращает в @p \verb|v1| и @p \verb|v2| вершины,
+/// инцидетные ребру @p \verb|edge|.
+void get_edge_vertexes(sc_session *s, sc_addr edge, sc_addr &v1, sc_addr &v2);
+\end{lstlisting}
+
+Так как ребро неориентированного графа является двумощным множеством,
+то для перебора инцидентных вершин логично использовать одно из
+ограничений для поиска трехэлементных sc-конструкций
+(см. рис~\ref{fig:3_sc_constr}). Фиксированным в данном случае
+является 1-ый элемент (ребро графа, т.е. параметр \lstinline|edge|),
+значит мы будем использовать для поиска ограничение вида
+\lstinline|CONSTR_3_f_a_a|. Теперь можно написать следующее тело
+функции (\textcolor{green}{обратите внимание}, что в коде не
+используется цикл \lstinline|sc_for_each|, поэтому после работы надо
+освободить итератор):
+\begin{lstlisting}[texcl]
+void get_edge_vertexes(sc_session *s, sc_addr edge, sc_addr &v1, sc_addr &v2)
+{
+    assert(s);
+    assert(edge);
+
+    sc_iterator *it = s->create_iterator(
+        sc_constraint_new(
+            CONSTR_3_f_a_a,
+            edge,
+            SC_A_CONST|SC_POS,
+            0,
+    ), true);
+
+    v1 = it->value(2);
+    it->next();
+    v2 = it->value(2);
+
+    delete it;
+}
+\end{lstlisting}
+
+Вернемся к \lstinline|print_graph|. Последним этапом этой функции
+является вывод тех вершин, которые еще не были выведены на консоль,
+т.е. не входят во множество \lstinline|printed_vertexes|. Для этого
+необходимо организовать цикл по всем вершинам.  Вершины входят в граф
+с атрибутом \idtf{вершина\_}, поэтому нам подходит уже знакомое
+ограничение вида \lstinline|CONSTR_5_f_a_a_a_f|. Ограничению в
+качестве атрибута мы передадим не \lstinline|graph_theory::edge_|, как
+в случае с перебором ребер, а
+\lstinline|graph_theory::vertex_|. Разрабатываемый цикл будет
 следующим:
 \begin{lstlisting}[texcl]
 void print_graph(sc_session *s, sc_addr graph)
@@ -347,6 +400,181 @@ void print_graph(sc_session *s, sc_addr graph)
     }
 }
 \end{lstlisting}
+
+Мы рассмотрели две простые функции для работы с неориентированными
+графами, представленными в sc-памяти. Научились генерировать граф в
+sc-памяти, перебирать вершины и ребра. Пришло время перейти к
+реализации алгоритма поиска минимального пути.
+
+\subsection{Запуск тестов алгоритма}
+\label{sec:libscprg_run_testcase}
+
+Мы будем разрабатывать функцию \lstinline|run_testcase|, которая
+запустит алгоритм с конкретными входными данными. Варианты входных
+данных будем брать из раздела~\ref{sec:-Graph_onto_tests}. Эта функция
+очень похожа на тезку из раздела~\ref{sec:Desc_prg}.
+
+Объявим функцию \lstinline|run_testcase| вот так:
+\begin{lstlisting}[texcl]
+/// Подготавливает запуск и запускает тестовый пример для алгоритма поиска минимального пути.
+///
+/// @param \verb|number|     порядковый номер тестового примера.
+/// @param \verb|graph_file| путь к файлу с тестовым графом для функции \#\verb|load_graph|.
+/// @param \verb|beg_name|   имя начальной вершина для поиска минимального пути.
+/// @param \verb|end_name|   имя конечной вершина для поиска минимального пути.
+///
+/// @see \verb|load_graph|
+/// @see \verb|find_min_path|
+void run_testcase(int number, const char *graph_file, const char *beg_name,
+    const char *end_name);
+\end{lstlisting}
+
+Тогда в функции \lstinline|main| ее вызовем следующим образом с
+тестовыми файлами из раздела~\ref{sec:Cppalgo_tests}:
+\begin{lstlisting}[texcl]
+int main(int argc, char **argv)
+{
+    // $\dots$
+
+    // Запуск алгоритма.
+    run_testcase(1, "graph1.txt", "A", "C");
+    run_testcase(2, "graph2.txt", "A", "F");
+    run_testcase(3, "graph3.txt", "A", "K");
+    run_testcase(4, "graph4.txt", "V5", "V11");
+    run_testcase(5, "graph5.txt", "V1", "V9");
+
+    // $\dots$
+}
+\end{lstlisting}
+
+Саму функцию начнем с того, что создадим сегмент для работы
+алгоритма. В него будем загружать граф из файла, в нем алгоритм будет
+создавать временные структуры и результат. Для этого воспользуемся
+функцией \lstinline|create_unique_segment|, которая объявлена в файле
+\verb|segment_utils.h| как показано ниже:
+\begin{lstlisting}[texcl]
+/// Функция для создания уникального сегмента.
+///
+/// @param \verb|s| sc-сессия, при помощи которой будет происходить работа с sc-памятью.
+/// @param \verb|base| базовый uri, на основе которого будет происходить создание сегмента.
+///                    Например, "\verb|/tmp/myseg|".
+/// @return sc-сегмент, если создание прошло успешно.
+/// @return 0, если возникла ошибка.
+sc_segment *create_unique_segment(sc_session *s, const sc_string &base);
+\end{lstlisting}
+
+Создание рабочего сегмента показано в листинге ниже:
+\begin{lstlisting}[texcl]
+void run_testcase(int number, const char *graph_file, const char *beg_name,
+    const char *end_name)
+{
+    std::cout << "[Testcase " << number << "]\n";
+
+    // 1. Для работы создаем рабочий сегмент \verb|/tmp/wave_find_path|.
+    sc_segment *tmp_seg = create_unique_segment(s, "/tmp/wave_find_path");
+
+    // $\dots$
+}
+\end{lstlisting}
+
+Теперь загрузим в рабочий сегмент при помощи функции
+\lstinline|load_graph| (из раздела~\ref{sec:libscprg_load_graph})
+граф:
+\begin{lstlisting}[texcl]
+void run_testcase(int number, const char *graph_file, const char *beg_name,
+    const char *end_name)
+{
+    // $\dots$
+
+    // 2. Загрузим тестовый граф в sc-памяти и распечатаем его.
+    sc_addr graph = load_graph(s, tmp_seg, graph_file);
+
+    std::cout << "Graph: " << std::endl;
+    print_graph(s, graph);
+
+    // $\dots$
+}
+\end{lstlisting}
+
+Найдем вершины по идентификаторам при помощи метода
+\lstinline|sc_session::find_by_idtf|:
+\begin{lstlisting}[texcl]
+void run_testcase(int number, const char *graph_file, const char *beg_name,
+    const char *end_name)
+{
+    // $\dots$
+
+    // 3. Найдем вершины по именам в sc-памяти.
+    sc_addr beg = s->find_by_idtf(beg_name, tmp_seg);
+    assert(beg);
+
+    sc_addr end = s->find_by_idtf(end_name, tmp_seg);
+    assert(end);
+
+    std::cout << "Find minimal path from '" << beg_name << "' to '"
+        << end_name << "'" << std::endl;
+
+    // $\dots$
+}
+\end{lstlisting}
+
+Всё подготовлено для запуска алгоритма. Он запускается в функции
+\lstinline|find_min_path|, которая будет описана ниже в
+разделе~\ref{sec:libscprg_find_min_path}, а после этого выведем
+маршрут при помощи функции \lstinline|print_route|
+(см. раздел~\ref{sec:libscprg_print_route}):
+\begin{lstlisting}[texcl]
+void run_testcase(int number, const char *graph_file, const char *beg_name,
+    const char *end_name)
+{
+    // $\dots$
+
+    // 4. Найдем минимальный пути между начальной и конечной вершинами,
+    // распечатаем его на консоль.
+    sc_addr result = find_min_path(s, tmp_seg, graph, beg, end);
+
+    std::cout << "Path";
+
+    if (result) {
+        std::cout << ":" << std::endl;
+        print_route(s, result);
+    } else {
+        std::cout << " isn't exist." << std::endl;
+    }
+
+    std::cout << std::endl;
+
+    // $\dots$
+}
+\end{lstlisting}
+
+Тестовый пример выполнен. Необходимо удалить созданные
+sc-конструкции. Это можно сделать, удалив целиком весь рабочий сегмент
+при помощи метода \lstinline|sc_session::unlink|, который удаляет
+сегмент по полному URI:
+\begin{lstlisting}[texcl]
+void run_testcase(int number, const char *graph_file, const char *beg_name,
+    const char *end_name)
+{
+    // $\dots$
+
+    // 5. Удалим рабочий сегмент.
+    s->unlink(tmp_seg->get_full_uri());
+}
+\end{lstlisting}
+
+Функция запуска тестового примера закончена, а значит перейдем к
+реализации <<сердца>> программы - функции \lstinline|find_min_path|.
+
+\subsection{Реализация алгоритма}
+\label{sec:libscprg_find_min_path}
+
+
+
+\subsection{Вывод маршрута на консоль}
+\label{sec:libscprg_print_route}
+
+
 
 %%% Local Variables: 
 %%% mode: latex
