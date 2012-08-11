@@ -496,7 +496,7 @@ void print_graph(sc_session *s, sc_addr graph)
 
 /// @brief Находит начало структуры маршурта @p route_struct.
 ///
-/// @param s            sc-сессия, при помощи которой будет производиться работа с sc-памятью.
+/// @param s            сессия для работы с sc-памятью.
 /// @param route_struct ориентированный граф структуры маршрута.
 ///
 /// @return начальную вершину в структуре маршрута, если не найдена - 0.
@@ -531,39 +531,21 @@ sc_addr get_route_struct_begin(sc_session *s, sc_addr route_struct)
 	return 0;
 }
 
-/// @brief Возвращает структуру маршрута для связки отношения маршрут*.
-///
+/// Возвращает структуру маршрута для связки отношения маршрут*.
 /// @note Структура маршрута - это компонент с атрибутом 1_.
-///
-/// @param s     sc-сессия, при помощи которой будет производиться работа с sc-памятью.
-/// @param route связка отношения маршрут*.
-///
-/// @return ориентированный граф структуры маршрута.
-///
 inline sc_addr get_route_struct(sc_session *s, sc_addr route)
 {
 	return sc_tup::at(s, route, N1_);
 }
 
-/// @brief Возвращает отношение посещения для связки отношения маршрут*.
-///
+/// Возвращает отношение посещения для связки отношения маршрут*.
 /// @note Отношение посещения - это компонент с атрибутом 3_.
-///
-/// @param s     sc-сессия, при помощи которой будет производиться работа с sc-памятью.
-/// @param route связка отношения маршрут*.
-///
-/// @return бинарное отношение посещения.
-///
 inline sc_addr get_route_visit(sc_session *s, sc_addr route)
 {
 	return sc_tup::at(s, route, N3_);
 }
 
-/// @brief Выводит на консоль маршрут.
-///
-/// @param s     sc-сессия, при помощи которой будет производиться работа с sc-памятью.
-/// @param route связка отношения маршрут*.
-///
+/// Выводит на консоль маршрут, получив связку отношения @p route.
 void print_route(sc_session *s, sc_addr route)
 {
 	sc_addr route_struct = get_route_struct(s, route);
@@ -587,39 +569,19 @@ void print_route(sc_session *s, sc_addr route)
 	std::cout << '\n';
 }
 
-/// @brief Возвращает вершину, которая инцидентена ребру @p edge и не является вершиной @p vertex.
-///
-/// @param s      sc-сессия, при помощи которой будет производиться работа с sc-памятью.
-/// @param edge   ребро, которому инцидентна вершина @p vertex и должна быть инцидентна найденная вершина.
-/// @param vertex одна из вершин, инцидентных ребру @p edge.
-///
-/// @return вершина, инцидентная ребру @p edge.
-///
+/// Возвращает вершину, которая инцидентена ребру @p edge и не является вершиной @p vertex.
 sc_addr get_other_vertex_incidence_edge(sc_session *s, sc_addr edge, sc_addr vertex)
 {
-	sc_iterator *it = s->create_iterator(
-		sc_constraint_new(
-			CONSTR_3_f_a_a,
-			edge,
-			SC_A_CONST|SC_POS,
-			0
-	), true);
-
-	sc_addr other_vertex = it->value(2);
-	if(other_vertex == vertex) {
-		it->next();
-		other_vertex = it->value(2);
-	}
-	delete it;
-
-	return other_vertex;
+	sc_addr v1 = 0, v2 = 0;
+	get_edge_vertexes(s, edge, v1, v2);
+	return vertex == v1 ? v2 : v1;
 }
 
 /// @brief Добавляет посещение вершины @p vertex в маршрут @p route.
 ///
 /// @note Все sc-элементы генерируются в sc-сегменте связки отношения маршрут* @p route.
 ///
-/// @param s      sc-сессия, при помощи которой будет производиться работа с sc-памятью.
+/// @param s      сессия для работы с sc-памятью.
 /// @param route  связка отношения маршрут*.
 /// @param vertex вершина, для которой нужно добавить посещение в маршрут.
 ///
@@ -644,7 +606,7 @@ sc_addr add_vertex_visit_to_route(sc_session *s, sc_addr route, sc_addr vertex)
 ///
 /// @note Все sc-элементы генерируются в sc-сегменте связки отношения маршрут* @p route.
 ///
-/// @param s           sc-сессия, при помощи которой будет производиться работа с sc-памятью.
+/// @param s           сессия для работы с sc-памятью.
 /// @param route       связка отношения маршрут*.
 /// @param edge        ребро, посещение которого надо добавить в маршрут.
 /// @param from_vertex вершина, из которой выходит при посещении.
@@ -689,7 +651,7 @@ sc_addr add_edge_visit_to_route(sc_session *s, sc_addr route, sc_addr edge, sc_a
 
 /// @brief Ищет для @p vertex любую смежную вершину из волны @p prev_wave в графе @p graph.
 ///
-/// @param s         sc-сессия, при помощи которой будет производиться работа с sc-памятью.
+/// @param s         сессия для работы с sc-памятью.
 /// @param graph     обрабатываемый неориентированный граф.
 /// @param vertex    вершина, для которой ищется смежная вершина из @p prev_wave.
 /// @param prev_wave предыдущая волна, из которой ищется смежная вершина.
@@ -723,7 +685,7 @@ sc_addr find_any_edge(sc_session *s, sc_addr graph, sc_addr vertex, sc_addr prev
 
 /// @brief Удаляет все волны из списка и список волн.
 ///
-/// @param s               sc-сессия, при помощи которой будет производиться работа с sc-памятью.
+/// @param s               сессия для работы с sc-памятью.
 /// @param waves_list_head sc-адрес головного элемента удаляемого списка волн.
 ///
 void erase_waves_list(sc_session *s, sc_addr waves_list_head)
@@ -744,23 +706,22 @@ void erase_waves_list(sc_session *s, sc_addr waves_list_head)
 	}
 }
 
-/// @brief Создает следующую волну из непроверенных вершин,
-///        смежных с вершинами из волны @p wave неориентированного графа @p graph.
+/// Создает следующую волну из непроверенных вершин,
+/// смежных с вершинами из волны @p wave неориентированного графа @p graph.
 ///
-/// @param s                    sc-сессия, при помощи которой будет производиться работа с sc-памятью.
-/// @param seg                  sc-сегмент, в котором происходит генерация новой волны.
+/// @param s                    сессия для работы с sc-памятью.
+/// @param seg                  сегмент, в котором происходит генерация новой волны.
 /// @param graph                обрабатываемый неориентированный граф.
 /// @param wave                 текущая волна.
 /// @param not_checked_vertexes множество непроверенных вершин.
 ///
 /// @return созданная новая волна.
-///
 sc_addr create_wave(sc_session *s, sc_segment *seg, sc_addr graph, sc_addr wave, sc_addr not_checked_vertexes)
 {
+	// Создадим узел новой волны.
 	sc_addr new_wave = s->create_el(seg, SC_N_CONST);
 
-	// Перебор всех вершин из волны wave.
-	//
+	// 1. Перебор всех вершин из волны wave.
 	sc_iterator *it_vertex = s->create_iterator(
 		sc_constraint_new(
 			CONSTR_3_f_a_a,
@@ -768,12 +729,10 @@ sc_addr create_wave(sc_session *s, sc_segment *seg, sc_addr graph, sc_addr wave,
 			SC_A_CONST|SC_POS,
 			0
 		), true);
-
 	sc_for_each (it_vertex) {
 		sc_addr vertex = it_vertex->value(2);
 
-		// Перебор всех ребер, которые инцидентны vertex.
-		//
+		// 2. Перебор всех ребер, которые инцидентны vertex.
 		sc_iterator *it_edge = s->create_iterator(
 			sc_constraint_new(
 				CONSTR_3l2_f_a_a_a_f,
@@ -783,11 +742,12 @@ sc_addr create_wave(sc_session *s, sc_segment *seg, sc_addr graph, sc_addr wave,
 				SC_A_CONST|SC_POS,
 				vertex
 			), true);
-
 		sc_for_each (it_edge) {
 			sc_addr edge = it_edge->value(2);
 			sc_addr other_vertex = get_other_vertex_incidence_edge(s, edge, vertex);
 
+			// Исключим вершину other_vertex из множества непроверенных вершин и
+			// включим в создаваемую волну.
 			if (sc_set::exclude_from(s, other_vertex, not_checked_vertexes))
 				sc_set::include_in(s, other_vertex, new_wave);
 		}
@@ -796,44 +756,25 @@ sc_addr create_wave(sc_session *s, sc_segment *seg, sc_addr graph, sc_addr wave,
 	return new_wave;
 }
 
-/// @brief Находит один из минимальных путей в графе @p graph
-///        от вершины @p beg_vertex до вершины @p end_vertex.
+/// Находит один из минимальных путей в графе @p graph
+/// от вершины @p beg_vertex до вершины @p end_vertex.
 ///
-/// Волновой алгоритм поиска одного из минимальных путей:
-/// 1. Добавить все вершины графа (кроме начальной вершины пути) в множество непроверенных вершин.
-///
-/// 2. Создать начальную волну и добавить в нее начальную вершину пути.
-///
-/// 3. Начальная волна - новая волна. Новой волной будем называть последнюю созданную волну.
-///
-/// 4. Сформировать следующую волну для новой волны. В нее попадет та вершина,
-///    которая является смежной вершине из новой волны и присутствует во множестве непроверенных вершин.
-///    Если вершина попала в формируемую волну, то ее надо исключить из множества непроверенных вершин.
-///    Созданную волну установим как следующую для новой волны, и после этого созданную волну будем считать новой волной.
-///
-/// 5. Если новая волна пуста, то значит между вершинами не существует пути.
-///    Завершить алгоритм.
-///
-/// 6. Если в текущей волне есть конечная вершина, то перейти к пункту 7, иначе к пункту 4.
-///
-/// 7. Сформировать один из минимальных путей, проходя в обратном порядке по списку волн.
-///
-/// @param s          sc-сессия, при помощи которой будет производиться работа с sc-памятью.
-/// @param seg        sc-сегмент, в котором происходит работа алгоритма.
+/// @param s          сессия для работы с sc-памятью.
+/// @param seg        сегмент, в котором происходит работа алгоритма.
 /// @param graph      неориентированный граф, в котором будет находится минимальный путь.
 /// @param beg_vertex начальная вершина пути.
 /// @param end_vertex конечная вершина пути.
 ///
 /// @return связка отношения "простая цепь*" или 0, если минимальный путь не найден.
-///
-sc_addr find_min_path(sc_session* s, sc_segment* seg, sc_addr graph, sc_addr beg_vertex, sc_addr end_vertex)
+sc_addr find_min_path(sc_session *s, sc_segment *seg, sc_addr graph, sc_addr beg_vertex, sc_addr end_vertex)
 {
-	// 1. Добавить все вершины графа (кроме начальной вершины пути) в множество непроверенных вершин.
-	//
-	sc_addr not_checked_vertexes = s->create_el(seg, SC_N_CONST); // множество непроверенных вершин
+	// 1. Добавим все вершины графа (кроме начальной вершины пути)
+	// в множество непроверенных вершин.
 
-	// Итератор по вершинам графа
-	//
+	// множество непроверенных вершин
+	sc_addr not_checked_vertexes = s->create_el(seg, SC_N_CONST);
+
+	// Перебор всех вершин.
 	sc_iterator *it = s->create_iterator(
 		sc_constraint_new(
 			CONSTR_5_f_a_a_a_f,
@@ -843,50 +784,43 @@ sc_addr find_min_path(sc_session* s, sc_segment* seg, sc_addr graph, sc_addr beg
 			SC_A_CONST|SC_POS,
 			graph_theory::vertex_
 		), true);
-
 	sc_for_each (it) {
 		sc_addr vertex = it->value(2);
 
 		// Не добавляем вершину начала пути в множество непросмотренных вершин.
-		//
 		if (vertex != beg_vertex)
 			sc_set::include_in(s, it->value(2), not_checked_vertexes);
 	}
 
-	// 2. Создать начальную волну и добавить в нее начальную вершину пути.
-	// 3. Начальная волна - новая волна.
-	//
+	// 2. Создадим начальную волну и добавим в нее начальную вершину пути.
+	// Включим в список волн.
 	sc_addr new_wave = s->create_el(seg, SC_N_CONST);
 	sc_set::include_in(s, beg_vertex, new_wave);
 
-	// Создаем начало списка волн.
+	// Создадим начало списка волн.
 	sc_addr waves_list_head = sc_list::create(s, seg, new_wave);
 	sc_addr waves_list_tail = waves_list_head;
 
+	// 3. Сформируем список волн.
 	do {
-		// 4. Сформировать следующую волну для новой волны.
-		//    Установить созданную волну как следующую для новой волны.
-		//    Созданная волна - новая волна.
-		//
+		// Создадим новую волну на основе предыдущей
 		new_wave = create_wave(s, seg, graph, new_wave, not_checked_vertexes);
 
+		// Добавим новую волну в конец списка.
 		sc_addr waves_list_curr = sc_list::create(s, seg, new_wave);
 		sc_list::set_next(s, waves_list_tail, waves_list_curr);
 
 		waves_list_tail = waves_list_curr;
 
-		// 5. Если новая волна пуста, то значит между вершинами не существует пути.
-		//
+		// Если новая волна пуста, то значит между вершинами не существует пути.
 		if (sc_set::is_empty(s, new_wave)) {
 			// Очищаем память и завершаем алгоритм.
-			//
 			erase_waves_list(s, waves_list_head);
 			s->erase_el(not_checked_vertexes);
 			return 0;
 		}
 
-		// 6. Если в текущей волне есть конечная вершина, то перейти к пункту 7, иначе к пункту 4.
-		//
+		// Если в новой волне есть конечная вершина, то перейдем в начало цикла.
 	} while (!sc_set::is_in(s, end_vertex, new_wave));
 
 	// Подчистим память...

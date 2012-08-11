@@ -564,15 +564,228 @@ void run_testcase(int number, const char *graph_file, const char *beg_name,
 \end{lstlisting}
 
 Функция запуска тестового примера закончена, а значит перейдем к
-реализации <<сердца>> программы - функции \lstinline|find_min_path|.
+реализации <<сердца>> программы --- функции \lstinline|find_min_path|.
 
 \subsection{Реализация алгоритма}
 \label{sec:libscprg_find_min_path}
 
+Объявление функции будет выглядеть вот так:
+\begin{lstlisting}[texcl]
+/// Находит один из минимальных путей в графе @p \verb|graph|
+/// от вершины @p \verb|beg_vertex| до вершины @p \verb|end_vertex|.
+///
+/// @param \verb|s|          сессия для работы с sc-памятью.
+/// @param \verb|seg|        сегмент, в котором происходит работа алгоритма.
+/// @param \verb|graph|      неориентированный граф, в котором будет находится минимальный путь.
+/// @param \verb|beg_vertex| начальная вершина пути.
+/// @param \verb|end_vertex| конечная вершина пути.
+///
+/// @return связка отношения \idtf{простая цепь*} или 0, если минимальный путь не найден.
+sc_addr find_min_path(sc_session *s, sc_segment *seg, sc_addr graph,
+    sc_addr beg_vertex, sc_addr end_vertex);
+\end{lstlisting}
+
+Каждый кусок кода в дальнейшем мы будем связывать с шагом работы
+алгоритма в sc-памяти из раздела~\ref{sec:AlgoDemo_demo}. Названия
+переменных на рисунках в этом разделе будет соответствовать локальным
+переменным функции
+\lstinline|find_min_path|. \textcolor{green}{Обратите внимание}, что
+вся обработка информацией \lstinline|find_min_path| будет происходить
+в sc-памяти. Это соответствует требованию, указанному в задании. В
+вашей программе должно соблюдаться это же требование --- обработка
+всей информации должна происходить в sc-памяти.
+
+В функции \lstinline|find_min_path| во всю будут использоваться классы
+\lstinline|sc_set|, \lstinline|sc_tup|, \lstinline|sc_rel|, которые
+описаны в разделе~\ref{sec:libsc_high}.
+
+\subsubsection{Подготовка к созданию списка волн}
+\label{sec:libscprg_fmp_before_waves_list}
+
+Начнем мы с формирования множества непроверенных вершин, что
+соотвествует шагу на
+странице~\pageref{astep:S2_Create_unchecked_vertexes_set}. Для этого
+нам необходимо создать множество непроверенных вершин и, перебрав
+вершины входного графа, добавить все, кроме начальной, в созданное
+множество:
+\begin{lstlisting}[texcl]
+sc_addr find_min_path(sc_session *s, sc_segment *seg, sc_addr graph,
+    sc_addr beg_vertex, sc_addr end_vertex)
+{
+    // 1. Добавим все вершины графа (кроме начальной вершины пути)
+    // в множество непроверенных вершин.
+
+    // множество непроверенных вершин
+    sc_addr not_checked_vertexes = s->create_el(seg, SC_N_CONST);
+
+    // Перебор всех вершин.
+    sc_iterator *it = s->create_iterator(
+        sc_constraint_new(
+            CONSTR_5_f_a_a_a_f,
+            graph,
+            SC_A_CONST|SC_POS,
+            0,
+            SC_A_CONST|SC_POS,
+            graph_theory::vertex_
+        ), true);
+    sc_for_each (it) {
+        sc_addr vertex = it->value(2);
+
+        // Не добавляем вершину начала пути в множество непросмотренных вершин.
+        if (vertex != beg_vertex)
+            sc_set::include_in(s, it->value(2), not_checked_vertexes);
+    }
+
+    // $\dots$
+}
+\end{lstlisting}
+
+Теперь, согласно шагу на странице~\pageref{astep:S3_Create_1st_wave},
+необходимо создать первую волну списка волн. Для работы со списком
+волн мы будем использовать класс \lstinline|sc_list|
+(см. раздел~\ref{sec:libsc_sc_list}). Таким образом, код для создания
+начальной волны будет следующим:
+\begin{lstlisting}[texcl]
+sc_addr find_min_path(sc_session *s, sc_segment *seg, sc_addr graph,
+    sc_addr beg_vertex, sc_addr end_vertex)
+{
+    // $\dots$
+
+    // 2. Создадим начальную волну и добавим в нее начальную вершину пути.
+    // Включим в список волн.
+    sc_addr new_wave = s->create_el(seg, SC_N_CONST);
+    sc_set::include_in(s, beg_vertex, new_wave);
+
+    // Создадим начало списка волн.
+    sc_addr waves_list_head = sc_list::create(s, seg, new_wave);
+    sc_addr waves_list_tail = waves_list_head;
+
+    // $\dots$
+}
+\end{lstlisting}
+
+Перейдем к написанию кода для формирования оставшегося списка волн.
+
+\subsubsection{Формирование списка волн}
+\label{sec:libscprg_fmp_waves_list}
+
+Код в этом разделе будет соответствовать шагам алгоритма на
+страницах~\pageref{astep:S4_Create_next_wave},~\pageref{astep:S5_Create_next_wave},~\pageref{astep:S6_Create_last_wave}.
+Учитывая то, что в переменной \lstinline|new_wave| сейчас находится
+первая волна, а на каждой итерации она в качестве значения будет
+получать новую созданную волну, можно составить основу цикла
+формирования волн. В конце каждой итерации нужно проверять, не входит
+ли в новую волну конечная вершина пути:
+\begin{lstlisting}[texcl]
+sc_addr find_min_path(sc_session *s, sc_segment *seg, sc_addr graph,
+    sc_addr beg_vertex, sc_addr end_vertex)
+{
+    // $\dots$
+
+    // 3. Сформируем список волн.
+    do {
+
+        // $\dots$
+
+        // Если в новой волне есть конечная вершина, то перейдем в начало цикла.
+    } while (!sc_set::is_in(s, end_vertex, new_wave));
+
+    // $\dots$
+}
+\end{lstlisting}
+
+Теперь обратим внимание на тело цикла. Начнем мы его с создания новой
+волны на основе текущей, записанной в переменную
+\lstinline|new_wave|. Для этого будем использовать функцию создания
+новой волны \lstinline|create_wave|:
+\begin{lstlisting}[texcl]
+/// Создает следующую волну из непроверенных вершин,
+/// смежных с вершинами из волны @p \verb|wave| неориентированного графа @p \verb|graph|.
+///
+/// @param \verb|s|                    сессия для работы с sc-памятью.
+/// @param \verb|seg|                  сегмент, в котором происходит генерация новой волны.
+/// @param \verb|graph|                обрабатываемый неориентированный граф.
+/// @param \verb|wave|                 текущая волна.
+/// @param \verb|not_checked_vertexes| множество непроверенных вершин.
+///
+/// @return созданная новая волна.
+sc_addr create_wave(sc_session *s, sc_segment *seg, sc_addr graph,
+    sc_addr wave, sc_addr not_checked_vertexes);
+\end{lstlisting}
+
+Разберем функцию \lstinline|create_wave| чуть позже, а сейчас
+посмотрим как она применяется в цикле формирования списка волн:
+\begin{lstlisting}[texcl]
+sc_addr find_min_path(sc_session *s, sc_segment *seg, sc_addr graph,
+    sc_addr beg_vertex, sc_addr end_vertex)
+{
+    // $\dots$
+
+    // 3. Сформируем список волн.
+    do {
+        // Создадим новую волну на основе предыдущей
+        new_wave = create_wave(s, seg, graph, new_wave, not_checked_vertexes);
+
+        // $\dots$
+    } while (!sc_set::is_in(s, end_vertex, new_wave));
+
+    // $\dots$
+}
+\end{lstlisting}
+
+
+
+\begin{lstlisting}[texcl]
+sc_addr find_min_path(sc_session *s, sc_segment *seg, sc_addr graph,
+    sc_addr beg_vertex, sc_addr end_vertex)
+{
+    // $\dots$
+
+    // 3. Сформируем список волн.
+    do {
+        // $\dots$
+
+        // Добавим новую волну в конец списка.
+        sc_addr waves_list_curr = sc_list::create(s, seg, new_wave);
+        sc_list::set_next(s, waves_list_tail, waves_list_curr);
+
+        waves_list_tail = waves_list_curr;
+
+        // $\dots$
+    } while (!sc_set::is_in(s, end_vertex, new_wave));
+
+    // $\dots$
+}
+\end{lstlisting}
+
+\begin{lstlisting}[texcl]
+sc_addr find_min_path(sc_session *s, sc_segment *seg, sc_addr graph,
+    sc_addr beg_vertex, sc_addr end_vertex)
+{
+    // $\dots$
+
+    // 3. Сформируем список волн.
+    do {
+        // $\dots$
+
+        // Если новая волна пуста, то значит между вершинами не существует пути.
+        if (sc_set::is_empty(s, new_wave)) {
+            // Очищаем память и завершаем алгоритм.
+            erase_waves_list(s, waves_list_head);
+            s->erase_el(not_checked_vertexes);
+            return 0;
+        }
+
+        // Если в новой волне есть конечная вершина, то перейдем в начало цикла.
+    } while (!sc_set::is_in(s, end_vertex, new_wave));
+
+    // $\dots$
+}
+\end{lstlisting}
 
 
 \subsection{Вывод маршрута на консоль}
-\label{sec:libscprg_print_route}
+\label{sec:libscprg_fmp_print_route}
 
 
 
