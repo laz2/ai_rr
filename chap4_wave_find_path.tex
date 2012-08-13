@@ -1,14 +1,14 @@
-\section{Созданиe программы wave\_find\_path}
+\section{Созданиe программы wave\_find\_path c использованием sc-памяти}
 \label{Desc_libscprg}
 
 В этом разделе мы будем создавать программу поиска минимального пути с
-использованием библиотеки libsc. По примененному алгоритму поиска
-минимального пути и своей структуре программа из этого раздела будет
-похожа на программу из раздела~\ref{Desc_prg}. Самым важным
-отличием будет то, что обработка информации будет происходить в
+использованием библиотеки \verb|libsc|. По примененному алгоритму
+поиска минимального пути и своей структуре программа из этого раздела
+будет похожа на программу из раздела~\ref{Desc_prg}. Самым важным
+отличием будет то, что обработка информации должна происходить в
 sc-памяти.
 
-Начнем мы с подготовке sc-памяти для работы алгоритма.
+Начнем мы с подготовки sc-памяти для работы алгоритма.
 
 \subsection{Инициализация и подготовка sc-памяти}
 \label{libscprg_init_sc_memory}
@@ -24,21 +24,22 @@ sc-памятью:
 
 int main(int argc, char **argv)
 {
-    // Инициализация libsc.
+    // 1. Инициализация libsc.
     sc_session *system = libsc_init();
 
     // Теперь мы получили пустую sc-память.
 
-    // Создание sc-сегмента \verb|/proc/keynode| и
+    // 2. Создание sc-сегмента \verb|/proc/keynode| и
     // системных ключевых узлов в нем (например, \verb|1_|, \verb|2_| и т.д.)
     // Эту функцию нужно вызывать обязательно.
     pm_keynodes_init(system);
 
-npn    //
-    // Здесь мы будем производить основную работу с sc-памятью.
-    //
+    // \dots
 
-    // Деинициализируем libsc.
+    // 7. Закроем пользовательскую сессию.
+    session->close();
+
+    // 8. Деинициализируем libsc.
     libsc_deinit();
 
     return 0;
@@ -54,19 +55,20 @@ npn    //
 алгоритма необходимы еще и такие ключевые узлы, как
 \idtf{неориентированный граф}, \idtf{вершина\_}, \idtf{ребро\_} и др.,
 т.е. ключевые узлы базы знаний по теории графов
-(см. раздел~\ref{sec:-Graph_onto_concept_list}).Однако, по данному
-пункту есть два отличия от раздела~\ref{sec:-Graph_onto_concept_list}.
+(см. раздел~\ref{sec:Graph_onto_concept_list}).Однако, по данному
+пункту есть два отличия от раздела~\ref{sec:Graph_onto_concept_list}.
 
 Во-первых, реализация sc-памяти имеет сегментную организацию, поэтому
-необходимо выбрать sc-сегмент, в котором будут храниться ключевые узлы
-базы знаний по теории графов. Для этого мы бдуем использовать sc-сегмент
+необходимо выбрать сегмент, в котором будут храниться ключевые узлы
+базы знаний по теории графов. Для этого мы бдуем использовать сегмент
 \verb|/graphs_theory/keynode|.
 
-Во-вторых, реализация sc-памяти работает только с кодировкой CP1251, а
-мной используется для написания исходных текстов кодировка UTF-8,
-поэтому при решении нашей задачи не очень удобно использовать русские
-идентификаторы ключевых узлов. Таким образом, мы будем использовать
-английские идентификаторы ключевых узлов, например:
+Во-вторых, реализация sc-памяти работает только с кодировкой
+\verb|CP1251|, а исходники примера подготовлены в кодировке
+\verb|UTF-8|, поэтому при решении нашей задачи не очень удобно
+использовать русские идентификаторы ключевых узлов. Таким образом, мы
+будем использовать в исходном тексте английские идентификаторы
+ключевых узлов, например:
 \begin{itemize}
 \item \idtf{вершина\_} <=> \idtf{vertex\_}
 \item \idtf{связка\_} <=> \idtf{connective\_}
@@ -79,8 +81,8 @@ npn    //
 
 Теперь можно переходить к организации создания и работы с ключевыми
 узлами. Для этого нам понадобится функция создания сегмента по полному
-URI, которая определена в файле \verb|segment_utils.h| следующим
-образом:
+\verb|URI|, которая определена в файле \verb|segment_utils.h|
+следующим образом:
 \begin{lstlisting}[texcl]
 /// Функция при помощи sc-сессии @p s создает sc-сегмент по полному URI @p uri
 /// c созданием всех промежуточных директорий.
@@ -89,7 +91,7 @@ URI, которая определена в файле \verb|segment_utils.h| с
 sc_segment *create_segment_full_path(sc_session *s, const sc_string &uri);
 \end{lstlisting}
 
-Пришло время написать код, который обеспечивает работу с ключевыми
+Напишем код, который обеспечивает работу с ключевыми
 узлами. В листинге ниже представлено пространство имен
 \lstinline|graph_theory|, которое содержит объявление ключевых узлов и
 функцию для их инициализации:
@@ -163,40 +165,38 @@ namespace graph_theory
 теории графов. Во-вторых, создать пользовательскую сессию для работы
 алгоритма. В-третьих, так как в рамках только что созданной
 пользовательской сессии нет открытых сегментов, открыть сегменты
-ключевых узлов в созданной сессии. Таким образом, окончательный
-вариант разрабатываемой функции будет следующим:
+ключевых узлов. Окончательный вариант разрабатываемой
+функции будет следующим:
 \begin{lstlisting}[texcl]
 int main(int argc, char **argv)
 {
-    // Инициализация libsc.
+    // 1. Инициализация libsc.
     sc_session *system = libsc_init();
 
     // Теперь мы получили пустую sc-память.
 
-    // Создание sc-сегмента \verb|/proc/keynode| и
+    // 2. Создание sc-сегмента \verb|/proc/keynode| и
     // системных ключевых узлов в нем (например, \verb|1_|, \verb|2_| и т.д.)
     // Эту функцию нужно вызывать обязательно.
     pm_keynodes_init(system);
 
-    // Инициализируем ключевые узлы базы знаний по теории графов.
+    // 3. Инициализируем ключевые узлы базы знаний по теории графов.
     graph_theory::init(system);
 
-    // Создадим пользовательскую сессию для работы алгоритма.
+    // 4. Создадим пользовательскую сессию для работы алгоритма.
     sc_session *session = libsc_login();
 
-    // Откроем сегменты системных ключевых узлов и ключевых узлов
+    // 5. Откроем сегменты системных ключевых узлов и ключевых узлов
     // базы знаний по теории графов в рамках пользовательской сессии.
     session->open_segment("/proc/keynode");
     session->open_segment(graph_theory::segment_uri);
 
-    //
-    // Запуск алгоритма.
-    //
+    // 6. Запуск алгоритма.
 
-    // Закроем пользовательскую сессию.
+    // 7. Закроем пользовательскую сессию.
     session->close();
 
-    // Деинициализируем libsc.
+    // 8. Деинициализируем libsc.
     libsc_deinit();
 
     return 0;
@@ -204,8 +204,8 @@ int main(int argc, char **argv)
 \end{lstlisting}
 
 Все готово для написания и запуска алгоритма, но сейчас мы будем
-рассматривать вспомогательные функции для генерации и вывода на
-консоль неориентированных графов.
+рассматривать вспомогательные функции для загрузки из файла и вывода
+на консоль неориентированных графов.
 
 \subsection{Загрузка неориентированного графа}
 \label{sec:libscprg_load_graph}
@@ -436,7 +436,7 @@ int main(int argc, char **argv)
 {
     // $\dots$
 
-    // Запуск алгоритма.
+    // 6. Запуск тестов алгоритма.
     run_testcase(1, "graph1.txt", "A", "C");
     run_testcase(2, "graph2.txt", "A", "F");
     run_testcase(3, "graph3.txt", "A", "K");
@@ -733,8 +733,157 @@ sc_addr find_min_path(sc_session *s, sc_segment *seg, sc_addr graph,
 }
 \end{lstlisting}
 
+Оставим на время цикл создания списка волн и рассмотрим функцию
+\lstinline|create_wave|. Для создания новой волны нам необходимо
+перебрать вершины из предыдущей волны \lstinline|wave|:
+\begin{lstlisting}[texcl]
+sc_addr create_wave(sc_session *s, sc_segment *seg, sc_addr graph,
+    sc_addr wave, sc_addr not_checked_vertexes)
+{
+    // Создадим узел новой волны.
+    sc_addr new_wave = s->create_el(seg, SC_N_CONST);
 
+    // 1. Перебор всех вершин из волны wave.
+    sc_iterator *it_vertex = s->create_iterator(
+        sc_constraint_new(
+            CONSTR_3_f_a_a,
+            wave,
+            SC_A_CONST|SC_POS,
+            0
+        ), true);
+    sc_for_each (it_vertex) {
+        sc_addr vertex = it_vertex->value(2);
 
+        // $\dots$
+    }
+
+    return new_wave;
+}
+\end{lstlisting}
+
+Для каждой вершины \lstinline|vertex| переберем смежные с ней
+вершины. Для этого воспользуемся ограничением вида
+\lstinline|CONSTR_3l2_f_a_a_a_f| (см. рис.~\ref{fig:CONSTR_3l2}). 1-ым
+элементом будет \lstinline|graph|, 5-ым --- \lstinline|vertex|, все
+остальные --- нефиксированные.
+\begin{lstlisting}[texcl]
+sc_addr create_wave(sc_session *s, sc_segment *seg, sc_addr graph,
+    sc_addr wave, sc_addr not_checked_vertexes)
+{
+    // $\dots$
+
+    sc_for_each (it_vertex) {
+        sc_addr vertex = it_vertex->value(2);
+
+        // 2. Перебор всех ребер, которые инцидентны \verb|vertex|.
+        sc_iterator *it_edge = s->create_iterator(
+            sc_constraint_new(
+                CONSTR_3l2_f_a_a_a_f,
+                graph,
+                SC_A_CONST|SC_POS,
+                0,
+                SC_A_CONST|SC_POS,
+                vertex
+            ), true);
+        sc_for_each (it_edge) {
+            sc_addr edge = it_edge->value(2); // ребро, инцидентное  \verb|vertex|
+            sc_addr other_vertex = get_other_vertex_incidence_edge(
+                s, edge, vertex); // вершина, смежная \verb|vertex| и инцидентная \verb|edge|
+
+            // $\dots$
+        }
+    }
+
+    return new_wave;
+}
+\end{lstlisting}
+
+На рис.~\ref{fig:create_wave_search_edges} показана работа поиска по
+ограничению \lstinline|CONSTR_3l2_f_a_a_a_f|. Фиксированными
+элементами являются граф \idtf{G} и вершина \idtf{C}. Фиксированные
+элементы отмечены \textcolor{green}{зеленым} цветом, а найденные
+нефиксированные --- \textcolor{blue}{синим}. \emph{Обратите внимание},
+что в этом поиске не учитывается то, что ребро должно входить в граф с
+атрибутом \idtf{вершина\_}.
+\begin{figure}[h!]
+  \centering
+  \includegraphics[scale=0.6]{4/libscprg/create_wave_search_edges}
+  \caption{Поиск в указаном неориентированном граф инцидентных указанной вершине ребер}
+  \label{fig:create_wave_search_edges}
+\end{figure}
+
+Теперь в новую волну \lstinline|new_wave| необходимо добавить ту
+вершину \lstinline|other_vertex|, которая входит в
+\lstinline|not_checked_vertexes|, и исключить ее из
+\lstinline|not_checked_vertexes|. Эти действия продемонстрированы в
+листинге ниже:
+\begin{lstlisting}[texcl]
+sc_addr create_wave(sc_session *s, sc_segment *seg, sc_addr graph,
+    sc_addr wave, sc_addr not_checked_vertexes)
+{
+    // $\dots$
+
+    sc_for_each (it_vertex) {
+        // $\dots$
+
+        sc_for_each (it_edge) {
+            sc_addr edge = it_edge->value(2); // ребро, инцидентное  \verb|vertex|
+            sc_addr other_vertex = get_other_vertex_incidence_edge(
+                s, edge, vertex); // вершина, смежная \verb|vertex| и инцидентная \verb|edge|
+
+            // Исключим вершину \verb|other_vertex| из множества непроверенных вершин и
+            // включим в создаваемую волну.
+            if (sc_set::exclude_from(s, other_vertex, not_checked_vertexes))
+                sc_set::include_in(s, other_vertex, new_wave);
+        }
+    }
+
+    return new_wave;
+}
+\end{lstlisting}
+
+На этом написание функции \lstinline|create_wave| закончено, поэтому
+вернемся к месту в цикле формирования списка волн, на котором мы
+остановились. Новая волна создана, но она может быть пустой. Это
+значит, что пути между вершинами не существует. Если волна пустая, то
+необходимо выйти из функции \lstinline|find_min_path|:
+\begin{lstlisting}[texcl]
+sc_addr find_min_path(sc_session *s, sc_segment *seg, sc_addr graph,
+    sc_addr beg_vertex, sc_addr end_vertex)
+{
+    // $\dots$
+
+    // 3. Сформируем список волн.
+    do {
+        // $\dots$
+
+        // Если новая волна пуста, то значит между вершинами не существует пути.
+        if (sc_set::is_empty(s, new_wave)) {
+            // Очищаем память и завершаем алгоритм.
+            erase_waves_list(s, waves_list_head);
+            s->erase_el(new_wave);
+            s->erase_el(not_checked_vertexes);
+            return 0;
+        }
+
+        // $\dots$
+    } while (!sc_set::is_in(s, end_vertex, new_wave));
+
+    // $\dots$
+}
+\end{lstlisting}
+
+Обратите внимание, что при выходе из функции удалили все созданные
+sc-конструкции. Функция \lstinline|erase_waves_list| имеет следующее
+объявление (эту функцию вы рассмотрите самостоятельно):
+\begin{lstlisting}[texcl]
+/// Удаляет все волны из списка и список волн, начиная
+/// с элемента списка @p \verb|waves_list_head|.
+void erase_waves_list(sc_session *s, sc_addr waves_list_head);
+\end{lstlisting}
+
+Новая волна создана и непуста, значит пришла пора добавить ее в конец
+списка волн:
 \begin{lstlisting}[texcl]
 sc_addr find_min_path(sc_session *s, sc_segment *seg, sc_addr graph,
     sc_addr beg_vertex, sc_addr end_vertex)
@@ -751,37 +900,111 @@ sc_addr find_min_path(sc_session *s, sc_segment *seg, sc_addr graph,
 
         waves_list_tail = waves_list_curr;
 
-        // $\dots$
-    } while (!sc_set::is_in(s, end_vertex, new_wave));
-
-    // $\dots$
-}
-\end{lstlisting}
-
-\begin{lstlisting}[texcl]
-sc_addr find_min_path(sc_session *s, sc_segment *seg, sc_addr graph,
-    sc_addr beg_vertex, sc_addr end_vertex)
-{
-    // $\dots$
-
-    // 3. Сформируем список волн.
-    do {
-        // $\dots$
-
-        // Если новая волна пуста, то значит между вершинами не существует пути.
-        if (sc_set::is_empty(s, new_wave)) {
-            // Очищаем память и завершаем алгоритм.
-            erase_waves_list(s, waves_list_head);
-            s->erase_el(not_checked_vertexes);
-            return 0;
-        }
-
         // Если в новой волне есть конечная вершина, то перейдем в начало цикла.
     } while (!sc_set::is_in(s, end_vertex, new_wave));
 
     // $\dots$
 }
 \end{lstlisting}
+
+После цикла не забудем удалить уже ненужные sc-конструкции:
+\begin{lstlisting}[texcl]
+sc_addr find_min_path(sc_session *s, sc_segment *seg, sc_addr graph,
+    sc_addr beg_vertex, sc_addr end_vertex)
+{
+    // $\dots$
+
+    // Подчистим память.
+    s->erase_el(not_checked_vertexes);
+
+    // $\dots$
+}
+\end{lstlisting}
+
+Итак\dots Мы закончили цикл формирования списка волн и переходим к
+построению маршрута.
+
+\subsubsection{Подготовка к формированию структуры маршрута}
+\label{sec:libscprg_fmp_before_build_route}
+
+Прежде, чем формировать структуру маршрута, нам необходимо создать
+связку отношения \idtf{простая цепь*}. Это соотвествует шагу алгоритма
+на странице \pageref{astep:S8_Create_route_tuple}.
+
+Сгенерируем в sc-памяти связку отношения \idtf{простая цепь*}:
+\begin{lstlisting}[texcl]
+sc_addr find_min_path(sc_session *s, sc_segment *seg, sc_addr graph,
+    sc_addr beg_vertex, sc_addr end_vertex)
+{
+    // $\dots$
+
+    // 4. Создадим связку отношения \idtf{простая цепь*}.
+    sc_addr route = s->create_el(seg, SC_N_CONST); // связка отношения
+    sc_set::include_in(s, route, graph_theory::simple_trail);
+
+    // $\dots$
+}
+\end{lstlisting}
+
+\emph{Обратите внимание}, что в листинге выше для включения связки в
+отношение используется метод \lstinline|sc_set::include_in|, потому
+что необходима генерация дуги в сегменте связки \lstinline|route|, а
+не ключевого узла \lstinline|graph_theory::simple_trail|.
+
+Теперь создадим компоненты связки \lstinline|route|:
+\begin{lstlisting}[texcl]
+sc_addr find_min_path(sc_session *s, sc_segment *seg, sc_addr graph,
+    sc_addr beg_vertex, sc_addr end_vertex)
+{
+    // $\dots$
+
+    // 5. Создадим компоненты связки \verb|route|.
+    
+    // Ориентированный граф структуры маршрута
+    sc_addr route_struct = s->create_el(seg, SC_N_CONST);
+    sc_set::include_in(s, route_struct, graph_theory::directed_graph);
+    
+    // Бинарное отношение посещения
+    sc_addr route_visit = s->create_el(seg, SC_N_CONST);
+
+    // $\dots$
+}
+\end{lstlisting}
+
+Созданные компоненты включим в связку \lstinline|route|:
+\begin{lstlisting}[texcl]
+sc_addr find_min_path(sc_session *s, sc_segment *seg, sc_addr graph,
+    sc_addr beg_vertex, sc_addr end_vertex)
+{
+    // $\dots$
+
+    // 6. Добавим все компоненты в связку \verb|route|.
+    sc_tup::add(s, route, N1_, route_struct);
+    sc_tup::add(s, route, N2_, graph);
+    sc_tup::add(s, route, N3_, route_visit);
+
+    // $\dots$
+}
+\end{lstlisting}
+
+В соответствии со следующим шагом алгоритма
+(см. стр.~\pageref{S9_Add_begin_and_end_vertexes_visit_to_route_tuple}),
+добавим посещение начальной и конечной вершин пути в структуру
+маршрута:
+\begin{lstlisting}[texcl]
+sc_addr find_min_path(sc_session *s, sc_segment *seg, sc_addr graph,
+    sc_addr beg_vertex, sc_addr end_vertex)
+{
+    // $\dots$
+
+    // 7. Добавим в простую цепь посещение начальной и конечной вершин.
+    sc_addr beg_vertex_visit = add_vertex_visit_to_route(s, route, beg_vertex);
+    sc_addr end_vertex_visit = add_vertex_visit_to_route(s, route, end_vertex);
+
+    // $\dots$
+}
+\end{lstlisting}
+
 
 
 \subsection{Вывод маршрута на консоль}
