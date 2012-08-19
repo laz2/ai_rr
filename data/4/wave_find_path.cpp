@@ -43,6 +43,7 @@ along with OSTIS.  If not, see <http://www.gnu.org/licenses/>.
 #include <sc_list.h>
 
 #include <iostream>
+#include <fstream>
 
 /// Пространство имен ключевых узлов по теории графов.
 ///
@@ -97,7 +98,7 @@ namespace graph_theory
 	};
 
 	/// Массив sc-адресов созданных ключевых узлов.
-	sc_addr keynodes[sizeof(uris) / sizeof(const char*)];
+	sc_addr keynodes[sizeof(idtfs) / sizeof(const char*)];
 
 	/// Ссылки на ключевые узлы для более удобной работы.
 	/// @{
@@ -135,7 +136,7 @@ namespace graph_theory
 	const sc_addr &trail                         = keynodes[21];
 
 	const sc_addr &simple_trail                  = keynodes[22];
-    /// @}
+	/// @}
 
 	/// Производит создание ключевых узлов при помощи сессии @p s
 	/// и готовит их к работе.
@@ -155,119 +156,63 @@ namespace graph_theory
 	}
 }
 
-/// @brief Генерирует в sc-памяти неориентированный граф по строке @p str.
+/// Генерирует в sc-памяти неориентированный граф.
 ///
-/// Входная строка @p str должна иметь следующую структуру:
-/// "<{vertex_id1, vertex_id2,...},{{vertex_id1, vertex_id2},...}>"
-/// Как видно из строки, граф задается классическим способом через множество вершин и множество ребер.
-/// Например, "<{A,B,C,D,E,F,G},{{A,B},{C,A},{E,C},{C,D},{E,B},{E,F}}>".
+/// @param s   сессия для работы с sc-памятью.
+/// @param seg сегмент, в котором будет сгенерирован неориентированный граф.
+/// @param graph_file входной файл с матрицей смежности неориентированного графа.
 ///
-/// @param s   sc-сессия, при помощи которой будет производиться работа с sc-памятью.
-/// @param seg sc-сегмент, в котором будет сгенерирован неориентированный граф.
-/// @param str строка, описывающая неориентированный граф.
-///
-/// @return сгенерированный неориентированный граф или 0, если входная строка имеет неправильную структуру.
-sc_addr gen_undirected_graph(sc_session *s, sc_segment *seg, const sc_string &str)
+/// @return сгенерированный неориентированный граф.
+sc_addr load_graph(sc_session *s, sc_segment *seg, const std::string &graph_file)
 {
 	assert(s);
 	assert(seg);
 
-	//
-	// Разбор входной строки str, описывающей создаваемый граф.
-	//
-	enum {FIRST, RNODES, RNODE, RARCS, RARC} state = FIRST;
-	sc_string buf;
-	typedef std::set<sc_string> vertex_set;
-	vertex_set vertexes;
-	typedef std::set<std::pair<sc_string, sc_string> > edge_set;
-	edge_set edges;
-	std::pair<sc_string, sc_string> edge;
-#define PUT_NODE() {vertexes.insert(buf); buf.erase();}
-#define PUT_ARC() {edge.second = buf; buf.erase(); edges.insert(edge);}
-#define PUT_ARC_BEG() {edge.first = buf; buf.erase();}
-	for (size_t i = 1; i < str.size() - 1; i++) {
-		switch (str[i]) {
-			case '{':
-				if (state == FIRST) {
-					state = RNODE;
-					break;
-				}
-				if(state == RNODES) {
-					state = RARCS;
-					break;
-				}
-				if(state == RARCS) {
-					state = RARC;
-					break;
-				}
-			break;
-			case '}':
-				if(state == RNODE) {
-					PUT_NODE();
-					state = RNODES;
-					break;
-				}
-				if(state == RARC) {
-					PUT_ARC();
-					state = RARCS;
-					break;
-				}
-			break;
-			case ',':
-				if(state == RNODE) {
-					PUT_NODE();
-					break;
-				}
-				if(state == RARC) {
-					PUT_ARC_BEG();
-					break;
-				}
-			break;
-			default:
-				buf += str[i];
-		}
-	}
-#undef PUT_NODE
-#undef PUT_ARC_BEG
-#undef PUT_ARC
-
-	//
-	// Начинаем генерацию графа в sc-памяти
-	//
-
-	// Отображение, которое позволяет переходить быстро от имени вершины к sc-адресу,
-	// который обозначает данную вершину графа в sc-памяти
-	std::map<sc_string, sc_addr> vertexes_map;
-
-	sc_addr graph = s->create_el(seg, SC_N_CONST); // Переменная будет хранить sc-адрес знака сгенерированного графа
-
+	// 1. Создадим узел графа.
+	sc_addr graph = s->create_el(seg, SC_N_CONST);
 	s->gen3_f_a_f(graph_theory::undirected_graph, 0, seg, SC_A_CONST|SC_POS, graph);
 
-	// Генерация всех узлов графа в sc-памяти.
-	// Пробегаем по всем вершинам графа из STL-множества vertexes
-	// и добавляем их в генерируемый граф с атрибутом "vertex_".
-	for(vertex_set::iterator it = vertexes.begin(); it != vertexes.end(); ++it) {
+	// 2. Откроем файл с входным графом и считаем количество вершин.
+	size_t vcount; // количество вершин
+	std::ifstream in(graph_file.c_str());
+	in >> vcount;
+
+	// 3. Считаем имена вершин и создадим каждую из вершин.
+	std::string name;
+	// Этот массив позволит перейти от индекса вершины к ее sc-адресу.
+	addr_vector vertexes;
+	for (size_t i = 0; i < vcount; ++i) {
+		in >> name;
+
+		// Создадим вершину, установим идентификатор, добавим ее в граф.
 		sc_addr vertex = s->create_el(seg, SC_N_CONST);
-		s->set_idtf(vertex, *it);
+		s->set_idtf(vertex, name);
+		s->gen5_f_a_f_a_f(graph, 0, seg, SC_A_CONST|SC_POS, vertex, 0, seg,
+			SC_A_CONST|SC_POS, graph_theory::vertex_);
 
-		s->gen5_f_a_f_a_f(graph, 0, seg, SC_A_CONST|SC_POS, vertex, 0, seg, SC_A_CONST|SC_POS, graph_theory::vertex_);
-
-		vertexes_map[*it] = vertex;
+		vertexes.push_back(vertex);
 	}
 
-	// Генерация всех дуг графа в sc-памяти.
-	// Пробегаем по всем ребрам графа из STL-множества edges
-	// и добавляем их в генерируемый граф с атрибутом "edge_".
-	for(edge_set::iterator it = edges.begin(); it != edges.end(); ++it) {
-		sc_addr edge = s->create_el(seg, SC_N_CONST);
+	// 4. Считаем нижнюю половину матрицы смежности и создадим ребра графа.
+	for (size_t i = 0; i < vcount; ++i) {
+		for (size_t j = 0; j < vcount; ++j) {
+			unsigned int k;
+			in >> k;
 
-		s->gen5_f_a_f_a_f(graph, 0, seg, SC_A_CONST|SC_POS, edge, 0, seg, SC_A_CONST|SC_POS, graph_theory::edge_);
+			if (j <= i && k) {
+				// Создадим ребро.
+				sc_addr edge = s->create_el(seg, SC_N_CONST);
+				s->gen3_f_a_f(edge, 0, seg, SC_A_CONST|SC_POS, vertexes[i]);
+				s->gen3_f_a_f(edge, 0, seg, SC_A_CONST|SC_POS, vertexes[j]);
 
-		s->gen3_f_a_f(edge, 0, seg, SC_A_CONST|SC_POS, vertexes_map[it->first]);
-		s->gen3_f_a_f(edge, 0, seg, SC_A_CONST|SC_POS, vertexes_map[it->second]);
+				// Добавим ребро в граф.
+				s->gen5_f_a_f_a_f(graph, 0, seg, SC_A_CONST|SC_POS, edge, 0, seg,
+					SC_A_CONST|SC_POS, graph_theory::edge_);
+
+			}
+		}
 	}
 
-	// Возвращаем из функции sc-адрес сгенерированного графа
 	return graph;
 }
 
@@ -282,8 +227,8 @@ void get_edge_vertexes(sc_session *s, sc_addr edge, sc_addr &v1, sc_addr &v2)
 			CONSTR_3_f_a_a,
 			edge,
 			SC_A_CONST|SC_POS,
-			0,
-	), true);
+			0
+		), true);
 
 	v1 = it->value(2);
 	it->next();
@@ -293,9 +238,6 @@ void get_edge_vertexes(sc_session *s, sc_addr edge, sc_addr &v1, sc_addr &v2)
 }
 
 /// Выводит на консоль неориентированный граф @p graph.
-///
-/// @param s     сессия для работы с sc-памятью.
-/// @param graph неориентированный граф для вывода на консоль.
 void print_graph(sc_session *s, sc_addr graph)
 {
 	assert(s);
@@ -312,7 +254,7 @@ void print_graph(sc_session *s, sc_addr graph)
 			0,
 			SC_A_CONST|SC_POS,
 			graph_theory::edge_
-	), true);
+		), true);
 
 	// 2. Вывод ребер.
 	sc_for_each (edges_it) {
@@ -339,7 +281,7 @@ void print_graph(sc_session *s, sc_addr graph)
 			0,
 			SC_A_CONST|SC_POS,
 			graph_theory::vertex_
-	), true);
+		), true);
 	sc_for_each (vertexes_it) {
 		sc_addr vertex = vertexes_it->value(2);
 
@@ -364,7 +306,7 @@ sc_addr get_route_struct_begin(sc_session *s, sc_addr route_struct)
 			0,
 			SC_A_CONST|SC_POS,
 			graph_theory::vertex_
-	), true);
+		), true);
 
 	sc_for_each (it) {
 		sc_addr vertex = it->value(2);
@@ -457,16 +399,11 @@ sc_addr add_vertex_visit_to_route(sc_session *s, sc_addr route, sc_addr vertex)
 ///
 /// @return посещение ребра (дуга в ориентированном графе структуры маршрута).
 ///
-sc_addr add_edge_visit_to_route(sc_session *s, sc_addr route, sc_addr edge, sc_addr from_vertex, sc_addr to_vertex)
+sc_addr add_edge_visit_to_route(sc_session *s, sc_addr route, sc_addr edge, sc_addr from_visit, sc_addr to_visit)
 {
 	sc_addr route_struct = get_route_struct(s, route);
 	sc_addr route_visit  = get_route_visit(s, route);
 
-	// Добавим посещение вершины @p from_vertex в маршрут.
-	sc_addr from_vertex_visit = add_vertex_visit_to_route(s, route, from_vertex);
-
-	// Ориентированная связка, которая обозначает в структуре маршрута посещение ребра графа, на котором задан мартшрут.
-	//
 	sc_addr edge_visit = s->create_el(route->seg, SC_N_CONST);
 
 	// Добавим @p edge_visit как дугу в структуру маршрута.
@@ -479,15 +416,11 @@ sc_addr add_edge_visit_to_route(sc_session *s, sc_addr route, sc_addr edge, sc_a
 
 	// Укажем, что дуга @p edge_visit выходит из @p from_vertex_visit.
 	//
-	sc_tup::add(s, edge_visit, N1_, from_vertex_visit);
-
-	// Найдем посещение для вершины @p to_vertex.
-	//
-	sc_addr to_vertex_visit = sc_rel::bin_ord_at_1(s, route_visit, to_vertex);
+	sc_tup::add(s, edge_visit, N1_, from_visit);
 
 	// Укажем, что дуга @p edge_visit входит в @p to_vertex_visit.
 	//
-	sc_tup::add(s, edge_visit, N2_, to_vertex_visit);
+	sc_tup::add(s, edge_visit, N2_, to_visit);
 
 	return edge_visit;
 }
@@ -512,7 +445,7 @@ sc_addr find_any_edge(sc_session *s, sc_addr graph, sc_addr vertex, sc_addr prev
 			SC_N_CONST,
 			SC_A_CONST|SC_POS,
 			vertex
-	), true);
+		), true);
 
 	sc_for_each (it) {
 		edge = it->value(2);
@@ -680,8 +613,7 @@ sc_addr find_min_path(sc_session *s, sc_segment *seg, sc_addr graph, sc_addr beg
 	sc_tup::add(s, route, N2_, graph);
 	sc_tup::add(s, route, N3_, route_visit);
 
-	// 7. Добавим в простую цепь посещение начальной и конечной вершин.
-	sc_addr beg_vertex_visit = add_vertex_visit_to_route(s, route, beg_vertex);
+	// 7. Добавим в простую цепь посещение конечной вершин.
 	sc_addr end_vertex_visit = add_vertex_visit_to_route(s, route, end_vertex);
 
 	// Пройдем в обратном направлении по списку волн
@@ -689,6 +621,7 @@ sc_addr find_min_path(sc_session *s, sc_segment *seg, sc_addr graph, sc_addr beg
 	//
 
 	sc_addr curr_vertex = end_vertex;
+	sc_addr curr_visit = end_vertex_visit;
 
 	// Строим из списка волн маршрут, проходя по этому списку в обратном направлении.
 	sc_list::reverse_iterator list_it(s, waves_list_tail), list_end;
@@ -700,11 +633,14 @@ sc_addr find_min_path(sc_session *s, sc_segment *seg, sc_addr graph, sc_addr beg
 		// Получаем предыдущую вершину в пути.
 		//
 		sc_addr prev_vertex = get_other_vertex_incidence_edge(s, edge, curr_vertex);
+		sc_addr prev_visit = add_vertex_visit_to_route(s, route, prev_vertex);
 
 		// Добавляем посещение ребра @p edge в путь.
 		//
-		add_edge_visit_to_route(s, route, edge, prev_vertex, curr_vertex);
+		add_edge_visit_to_route(s, route, edge, prev_visit, curr_visit);
+
 		curr_vertex = prev_vertex;
+		curr_visit = prev_visit;
 	}
 
 	// Подчистим память...
@@ -716,64 +652,55 @@ sc_addr find_min_path(sc_session *s, sc_segment *seg, sc_addr graph, sc_addr beg
 
 /// Подготавливает запуск и запускает тестовый пример для алгоритма поиска минимального пути.
 ///
-/// @param s          sc-сессия, при помощи которой будет производиться работа с sc-памятью.
+/// @param s          сессия для работы с sc-памятью.
 /// @param number     порядковый номер тестового примера.
-/// @param graph_str  строка, задающая тестовый граф для функции #gen_undirected_graph.
-/// @param beg_name   имя начальной вершина в графе @p graph_str для поиска минимального пути.
-/// @param end_name   имя конечной вершина в графе @p graph_str для поиска минимального пути.
+/// @param graph_file путь к файлу с тестовым графом для функции #load_graph.
+/// @param beg_name   имя начальной вершина для поиска минимального пути.
+/// @param end_name   имя конечной вершина для поиска минимального пути.
 ///
-/// @see gen_undirected_graph
+/// @see load_graph
 /// @see find_min_path
-void run_testcase(sc_session *s, int number, const sc_string &graph_str, const sc_string &beg_name, const sc_string &end_name)
+void run_testcase(sc_session *s, int number, const char *graph_file, const char *beg_name,
+				  const char *end_name)
 {
 	std::cout << "[Testcase " << number << "]\n";
 
-	// Для работы создаем временный сегмент /tmp/wave_find_path.
-	//
-	sc_segment* tmp_seg = create_unique_segment(s, "/tmp/wave_find_path");
+	// 1. Для работы создаем рабочий сегмент /tmp/wave_find_path.
+	sc_segment *tmp_seg = create_unique_segment(s, "/tmp/wave_find_path");
 
-	// Генерируем текстовый граф в sc-памяти.
-	//
-	sc_addr graph = gen_undirected_graph(s, tmp_seg, graph_str);
+	// 2. Загрузим тестовый граф в sc-памяти и распечатаем его.
+	sc_addr graph = load_graph(s, tmp_seg, graph_file);
 
-	// Распечатаем граф на консоль
-	//
-	std::cout << "Graph string: \n" << graph_str << '\n';
-
-	std::cout << "Graph from memory: " << '\n';
+	std::cout << "Graph: " << std::endl;
 	print_graph(s, graph);
 
-	// Найдем начальную вершину для тестового поиска минимального пути.
-	//
+	// 3. Найдем вершины по именам в sc-памяти.
 	sc_addr beg = s->find_by_idtf(beg_name, tmp_seg);
 	assert(beg);
 
-	// Найдем конечную вершину для тестового поиска миниального пути.
-	//
 	sc_addr end = s->find_by_idtf(end_name, tmp_seg);
 	assert(end);
 
-	std::cout << "Find minimal path from '" << beg_name << "' to '" << end_name << "'\n";
+	std::cout << "Find minimal path from '" << beg_name << "' to '"
+		<< end_name << "'" << std::endl;
 
-	// Найдем минимальный пути между начальной и конечной вершинами.
-	//
+	// 4. Найдем минимальный пути между начальной и конечной вершинами,
+	// распечатаем его на консоль.
 	sc_addr result = find_min_path(s, tmp_seg, graph, beg, end);
 
-	// Распечатаем найденный путь на консоль
 	std::cout << "Path";
 
 	if (result) {
-		std::cout << ":\n";
+		std::cout << ":" << std::endl;
 		print_route(s, result);
 	} else {
-		std::cout << " isn't exist.\n";
+		std::cout << " isn't exist." << std::endl;
 	}
 
-	// Удалим временный sc-сегмент.
-	//
-	s->unlink(tmp_seg->get_full_uri());
-
 	std::cout << std::endl;
+
+	// 5. Удалим рабочий сегмент.
+	s->unlink(tmp_seg->get_full_uri());
 }
 
 int main(int argc, char **argv)
@@ -799,19 +726,18 @@ int main(int argc, char **argv)
 	session->open_segment("/proc/keynode");
 	session->open_segment(graph_theory::segment_uri);
 
-    // 6. Запуск тестов алгоритма.
-    run_testcase(1, "graph1.txt", "A", "C");
-    run_testcase(2, "graph2.txt", "A", "F");
-    run_testcase(3, "graph3.txt", "A", "K");
-    run_testcase(4, "graph4.txt", "V5", "V11");
-    run_testcase(5, "graph5.txt", "V1", "V9");
+	// 6. Запуск тестов алгоритма.
+	run_testcase(session, 1, "graph1.txt", "A", "C");
+	run_testcase(session, 2, "graph2.txt", "A", "F");
+	run_testcase(session, 3, "graph3.txt", "A", "K");
+	run_testcase(session, 4, "graph4.txt", "V5", "V11");
+	run_testcase(session, 5, "graph5.txt", "V1", "V9");
 
-    // 7. Закроем пользовательскую сессию.
-    session->close();
+	// 7. Закроем пользовательскую сессию.
+	session->close();
 
-    // 8. Деинициализируем libsc.
-    libsc_deinit();
-
+	// 8. Деинициализируем libsc.
+	libsc_deinit();
 
 	return 0;
 }

@@ -127,7 +127,7 @@ namespace graph_theory
     };
 
     /// Массив sc-адресов созданных ключевых узлов.
-    sc_addr keynodes[sizeof(uris) / sizeof(const char*)];
+    sc_addr keynodes[sizeof(idtfs) / sizeof(const char*)];
 
     /// Ссылки на ключевые узлы для более удобной работы.
     /// @\{
@@ -355,8 +355,8 @@ void get_edge_vertexes(sc_session *s, sc_addr edge, sc_addr &v1, sc_addr &v2)
             CONSTR_3_f_a_a,
             edge,
             SC_A_CONST|SC_POS,
-            0,
-    ), true);
+            0
+        ), true);
 
     v1 = it->value(2);
     it->next();
