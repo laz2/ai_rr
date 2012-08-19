@@ -368,75 +368,57 @@ sc_addr get_other_vertex_incidence_edge(sc_session *s, sc_addr edge, sc_addr ver
 	return vertex == v1 ? v2 : v1;
 }
 
-/// Добавляет посещение вершины @p vertex в маршрут @p route.
-/// Возвращает посещение вершины (вершина в ориентированном графе структуры маршрута).
+/// Создает в структуре маршрута @p route посещение вершины @p vertex
+/// и возвращает это посещение.
 ///
 /// @note Все элементы генерируются в сегменте связки @p route.
 sc_addr add_vertex_visit_to_route(sc_session *s, sc_addr route, sc_addr vertex)
 {
-	sc_addr route_struct = get_route_struct(s, route);
-	sc_addr route_visit  = get_route_visit(s, route);
+	// 1. Получим компоненты машрута: структуру маршрута и отношение посещения.
+	sc_addr route_struct = get_route_struct(s, route); // структура маршрута
+	sc_addr route_visit  = get_route_visit(s, route);  // отношение посещения
 
-	sc_addr vertex_visit = sc_rel::bin_ord_at_1(s, route_visit, vertex);
-	if (vertex_visit == 0) {
-		vertex_visit = s->create_el(route->seg, SC_N_CONST);
-		sc_tup::add(s, route->seg, route_struct, graph_theory::vertex_, vertex_visit);
-		sc_rel::add_ord_tuple(s, route_visit, vertex_visit, vertex);
-	}
+	// 2. Создадим посещение вершины.
+	sc_addr vertex_visit = s->create_el(route->seg, SC_N_CONST);
+	sc_tup::add(s, route->seg, route_struct, graph_theory::vertex_, vertex_visit);
+	sc_rel::add_ord_tuple(s, route_visit, vertex_visit, vertex);
 
 	return vertex_visit;
 }
 
-/// @brief Добавляет посещение ребра @p edge и инцидентные ей вершины в маршрут @p route.
+/// Создает в структуре маршрута @p route посещение ребра/дуги @p connective
+/// из вершины-посещения @p from_visit в вершину-посещение @p to_visit
+/// и возвращает это посещение.
 ///
-/// @note Все sc-элементы генерируются в sc-сегменте связки отношения маршрут* @p route.
-///
-/// @param s           сессия для работы с sc-памятью.
-/// @param route       связка отношения маршрут*.
-/// @param edge        ребро, посещение которого надо добавить в маршрут.
-/// @param from_vertex вершина, из которой выходит при посещении.
-/// @param to_vertex   вершина, в которую входим при посещении.
-///
-/// @return посещение ребра (дуга в ориентированном графе структуры маршрута).
-///
-sc_addr add_edge_visit_to_route(sc_session *s, sc_addr route, sc_addr edge, sc_addr from_visit, sc_addr to_visit)
+/// @note Все элементы генерируются в сегменте связки @p route.
+sc_addr add_connective_visit_to_route(sc_session *s, sc_addr route, sc_addr connective,
+									  sc_addr from_visit, sc_addr to_visit)
 {
-	sc_addr route_struct = get_route_struct(s, route);
-	sc_addr route_visit  = get_route_visit(s, route);
+	// 1. Получим компоненты машрута: структуру маршрута и отношение посещения.
+	sc_addr route_struct = get_route_struct(s, route); // структура маршрута
+	sc_addr route_visit  = get_route_visit(s, route);  // отношение посещения
 
+	// 2. Создадим узел посещения ребра/дуги в структуре маршрута,
+	// укажем чьим посещением он является.
 	sc_addr edge_visit = s->create_el(route->seg, SC_N_CONST);
-
-	// Добавим @p edge_visit как дугу в структуру маршрута.
-	//
 	sc_tup::add(s, route_struct, graph_theory::arc_, edge_visit);
+	sc_rel::add_ord_tuple(s, route_visit, edge_visit, connective);
 
-	// Укажем, что @p edge_visit является посещением @p edge.
-	//
-	sc_rel::add_ord_tuple(s, route_visit, edge_visit, edge);
-
-	// Укажем, что дуга @p edge_visit выходит из @p from_vertex_visit.
-	//
+	// 3. Укажем, что посещение ребра/дуги выходит из вершины from_visit и
+	// входит в вершину to_visit.
 	sc_tup::add(s, edge_visit, N1_, from_visit);
-
-	// Укажем, что дуга @p edge_visit входит в @p to_vertex_visit.
-	//
 	sc_tup::add(s, edge_visit, N2_, to_visit);
 
 	return edge_visit;
 }
 
-/// Ищет для @p vertex любую смежную вершину из волны @p prev_wave в графе @p graph.
-///
-/// @param s         сессия для работы с sc-памятью.
-/// @param graph     обрабатываемый неориентированный граф.
-/// @param vertex    вершина, для которой ищется смежная вершина из @p prev_wave.
-/// @param prev_wave предыдущая волна, из которой ищется смежная вершина.
-///
-/// @return ребро инцидентное @p vertex и найденной вершине.
+/// Ищет в графе @p graph любое ребро, которое инцидентно вершине @p vertex
+/// и любой вершине из волны @p prev_wave.
 sc_addr find_any_edge(sc_session *s, sc_addr graph, sc_addr vertex, sc_addr prev_wave)
 {
 	sc_addr edge = 0;
 
+	// 1. Перебор всех ребер, которые инцидентны vertex.
 	sc_iterator *it = s->create_iterator(
 		sc_constraint_new(
 			CONSTR_3l2_f_a_a_a_f,
@@ -446,10 +428,10 @@ sc_addr find_any_edge(sc_session *s, sc_addr graph, sc_addr vertex, sc_addr prev
 			SC_A_CONST|SC_POS,
 			vertex
 		), true);
-
 	sc_for_each (it) {
-		edge = it->value(2);
-		sc_addr other_vertex = get_other_vertex_incidence_edge(s, edge, vertex);
+		sc_addr edge = it->value(2); // ребро, инцидентное  vertex
+		sc_addr other_vertex = get_other_vertex_incidence_edge(
+			s, edge, vertex); // вершина, смежная vertex и инцидентная ребру
 
 		if(sc_set::is_in(s, other_vertex, prev_wave))
 			break;
@@ -531,13 +513,9 @@ sc_addr create_wave(sc_session *s, sc_segment *seg, sc_addr graph, sc_addr wave,
 /// Находит один из минимальных путей в графе @p graph
 /// от вершины @p beg_vertex до вершины @p end_vertex.
 ///
-/// @param s          сессия для работы с sc-памятью.
-/// @param seg        сегмент, в котором происходит работа алгоритма.
-/// @param graph      неориентированный граф, в котором будет находится минимальный путь.
-/// @param beg_vertex начальная вершина пути.
-/// @param end_vertex конечная вершина пути.
-///
-/// @return связка отношения "простая цепь*" или 0, если минимальный путь не найден.
+/// @note Алгоритм работает в сегменте @p seg.
+/// @note Если путь существует, то функция вернет связку отношения
+/// "простая цепь*", иначе 0.
 sc_addr find_min_path(sc_session *s, sc_segment *seg, sc_addr graph, sc_addr beg_vertex, sc_addr end_vertex)
 {
 	// 1. Добавим все вершины графа (кроме начальной вершины пути)
@@ -616,14 +594,12 @@ sc_addr find_min_path(sc_session *s, sc_segment *seg, sc_addr graph, sc_addr beg
 	// 7. Добавим в простую цепь посещение конечной вершин.
 	sc_addr end_vertex_visit = add_vertex_visit_to_route(s, route, end_vertex);
 
-	// Пройдем в обратном направлении по списку волн
+	// 8. Пройдем в обратном направлении по списку волн
 	// и сформируем структуру маршрута.
-	//
 
 	sc_addr curr_vertex = end_vertex;
 	sc_addr curr_visit = end_vertex_visit;
 
-	// Строим из списка волн маршрут, проходя по этому списку в обратном направлении.
 	sc_list::reverse_iterator list_it(s, waves_list_tail), list_end;
 	for (++list_it; list_it != list_end; ++list_it) {
 		sc_addr curr_wave = *list_it;
@@ -637,7 +613,7 @@ sc_addr find_min_path(sc_session *s, sc_segment *seg, sc_addr graph, sc_addr beg
 
 		// Добавляем посещение ребра @p edge в путь.
 		//
-		add_edge_visit_to_route(s, route, edge, prev_visit, curr_visit);
+		add_connective_visit_to_route(s, route, edge, prev_visit, curr_visit);
 
 		curr_vertex = prev_vertex;
 		curr_visit = prev_visit;
