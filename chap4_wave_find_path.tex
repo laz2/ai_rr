@@ -70,13 +70,13 @@ int main(int argc, char **argv)
 будем использовать в исходном тексте английские идентификаторы
 ключевых узлов, например:
 \begin{itemize}
-\item \idtf{вершина\_} <=> \idtf{vertex\_}
-\item \idtf{связка\_} <=> \idtf{connective\_}
-\item \idtf{ребро\_} <=> \idtf{edge\_}
-\item \idtf{дуга\_} <=> \idtf{arc\_}
-\item \idtf{неориентированный граф} <=> \idtf{undirected graph}
-\item \idtf{ориентированный граф} <=> \idtf{directed graph}
-\item \idtf{простая цепь*} <=> \idtf{simple trail*}
+\item \idtf{вершина\_} $\Leftrightarrow$ \idtf{vertex\_}
+\item \idtf{связка\_} $\Leftrightarrow$ \idtf{connective\_}
+\item \idtf{ребро\_} $\Leftrightarrow$ \idtf{edge\_}
+\item \idtf{дуга\_} $\Leftrightarrow$ \idtf{arc\_}
+\item \idtf{неориентированный граф} $\Leftrightarrow$ \idtf{undirected graph}
+\item \idtf{ориентированный граф} $\Leftrightarrow$ \idtf{directed graph}
+\item \idtf{простая цепь*} $\Leftrightarrow$ \idtf{simple trail*}
 \end{itemize}
 
 Теперь можно переходить к организации создания и работы с ключевыми
@@ -210,6 +210,151 @@ int main(int argc, char **argv)
 \subsection{Загрузка неориентированного графа}
 \label{sec:libscprg_load_graph}
 
+Объявим функцию загрузки графа следующим образом:
+\begin{lstlisting}[texcl]
+/// Генерирует в sc-памяти неориентированный граф.
+///
+/// @param \verb|s| сессия для работы с sc-памятью.
+/// @param \verb|seg| сегмент, в котором будет сгенерирован неориентированный граф.
+/// @param \verb|graph_file| входной файл с матрицей смежности неориентированного графа.
+///
+/// @return сгенерированный неориентированный граф.
+sc_addr load_graph(sc_session *s, sc_segment *seg, const std::string &graph_file);
+\end{lstlisting}
+
+Обратите внимание, что 1-ым параметром функции \lstinline|load_graph|
+является sc-сессия, при помощи которой будет происходить работа с
+sc-памятью. Все функции из этого раздела будут иметь аналогичный 1-ый
+параметр. Теперь перейдем к созданию тела функции.
+
+Во-первых, мы должны создать узел графа и включить его во множество
+\idtf{неориентированный граф}:
+\begin{lstlisting}[texcl]
+#include <assert.h>
+
+// $\dots$
+
+sc_addr load_graph(sc_session *s, sc_segment *seg, const std::string &graph_file)
+{
+    assert(s);
+    assert(seg);
+
+    // 1. Создадим узел графа.
+    sc_addr graph = s->create_el(seg, SC_N_CONST);
+    s->gen3_f_a_f(graph_theory::undirected_graph, 0, seg, SC_A_CONST|SC_POS, graph);
+
+    // $\dots$
+}
+\end{lstlisting}
+
+Макрос \lstinline|assert| в дальнейшем будет использоваться часто для
+проверки параметров функций, поэтому прочтите его назначение на
+\href{http://ru.wikipedia.org/wiki/Assert}{странице в Wikipedia}.
+
+Загружать неориентированный граф мы будем из файл, формат которого
+аналогичен использованному в части \ref{cha:Cppalgo}. Откроем файл с
+графом и считаем количество вершин:
+\begin{lstlisting}[texcl]
+#include <fstream>
+
+// $\dots$
+
+sc_addr load_graph(sc_session *s, sc_segment *seg, const std::string &graph_file)
+{
+    // $\dots$
+
+    // 2. Откроем файл с входным графом и считаем количество вершин.
+    size_t vcount; // количество вершин
+    std::ifstream in(graph_file.c_str());
+    in >> vcount;
+
+    // $\dots$
+}
+\end{lstlisting}
+
+Теперь необходимо считать имена вершин и создать вершины в
+sc-памяти. Так как при работе с матрицей смежности мы будем иметь дело
+с индексами вершин, то необходим способ для быстрого перехода от
+индекса вершины к ее sc-адресу. Для этого мы воспользуемся
+\lstinline|std::vector|. Для самых распространных STL-контейнеров,
+которые хранят данные типа \lstinline|sc_addr|, в файле
+\verb|sc_types.h| объявлены \lstinline|typedef|'ы. Нас будет
+интересовать \lstinline|addr_vector| - \lstinline|typedef| для
+\lstinline|std::vector<sc_addr>|. Итак, код создания вершин будет
+следующим:
+\begin{lstlisting}[texcl]
+sc_addr load_graph(sc_session *s, sc_segment *seg, const std::string &graph_file)
+{
+    // $\dots$
+
+    // 3. Считаем имена вершин и создадим каждую из вершин.
+    std::string name;
+    // Этот массив позволит перейти от индекса вершины к ее sc-адресу.
+    addr_vector vertexes;
+    for (size_t i = 0; i < vcount; ++i) {
+        in >> name;
+
+        // Создадим вершину, установим идентификатор, добавим ее в граф.
+        sc_addr vertex = s->create_el(seg, SC_N_CONST);
+        s->set_idtf(vertex, name);
+        s->gen5_f_a_f_a_f(graph, 0, seg, SC_A_CONST|SC_POS, vertex, 0, seg,
+            SC_A_CONST|SC_POS, graph_theory::vertex_);
+
+        vertexes.push_back(vertex);
+    }
+
+    // $\dots$
+}
+\end{lstlisting}
+
+Пришло время считывать матрицу смежности. Матрица смежности обладает
+симметрией, поэтому нам необходимо создавать ребра только для одной из
+ее половин и главной диагонали. Будем создавать ребра при считывании
+нижней половины и главной диагонали (номер столбца меньше либо равен
+номеру строки), а при считывании верхней половины не выполнять никаких
+действий:
+\begin{lstlisting}[texcl]
+sc_addr load_graph(sc_session *s, sc_segment *seg, const std::string &graph_file)
+{
+    // $\dots$
+
+    // 4. Считаем нижнюю половину матрицы смежности и создадим ребра графа.
+    for (size_t i = 0; i < vcount; ++i) {
+        for (size_t j = 0; j < vcount; ++j) {
+            unsigned int k;
+            in >> k;
+
+            if (j <= i && k) {
+                // Создадим ребро.
+                sc_addr edge = s->create_el(seg, SC_N_CONST);
+                s->gen3_f_a_f(edge, 0, seg, SC_A_CONST|SC_POS, vertexes[i]);
+                s->gen3_f_a_f(edge, 0, seg, SC_A_CONST|SC_POS, vertexes[j]);
+
+                // Добавим ребро в граф.
+                s->gen5_f_a_f_a_f(graph, 0, seg, SC_A_CONST|SC_POS, edge, 0, seg,
+                    SC_A_CONST|SC_POS, graph_theory::edge_);
+            }
+        }
+    }
+
+    return graph;
+}
+\end{lstlisting}
+
+Неориентированный граф создан в sc-памяти, значит можно вернуть его
+sc-адрес в качестве результата выполнения функции:
+\begin{lstlisting}[texcl]
+sc_addr load_graph(sc_session *s, sc_segment *seg, const std::string &graph_file)
+{
+    // $\dots$
+
+    return graph;
+}
+\end{lstlisting}
+
+Теперь напишем функцию, которая будет выводить на консоль
+неориентированный граф, загруженный при помощи \lstinline|load_graph|.
+
 \subsection{Вывод на консоль неориентированного графа}
 \label{sec:libscprg_print_graph}
 
@@ -225,9 +370,6 @@ int main(int argc, char **argv)
 часть которой выглядит следующим образом:
 \begin{lstlisting}[texcl]
 /// Выводит на консоль неориентированный граф @p \verb|graph|.
-///
-/// @param s     сессия для работы с sc-памятью.
-/// @param graph неориентированный граф для вывода на консоль.
 void print_graph(sc_session *s, sc_addr graph);
 \end{lstlisting}
 
@@ -236,10 +378,8 @@ void print_graph(sc_session *s, sc_addr graph);
 подхода, использовать для хранения такой информации множество в
 sc-памяти. Однако, на мой взгляд, в данном случае будет достаточно
 использовать STL-контейнер \lstinline|std::set|, который сохранит
-sc-адреса вершин. Для самых распространных STL-контейнеров, которые
-хранят данные типа \lstinline|sc_addr|, в файле \verb|sc_types.h|
-объявлены \lstinline|typedef|'ы. Нас будет интересовать
-\lstinline|addr_set| - \lstinline|typedef| для
+sc-адреса вершин. Нас будет интересовать \lstinline|addr_set| из
+\verb|sc_types.h| - \lstinline|typedef| для
 \lstinline|std::set<sc_addr>|. Таким образом, начало функции будет
 следующим:
 \begin{lstlisting}[texcl]
