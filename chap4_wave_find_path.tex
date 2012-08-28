@@ -5,8 +5,7 @@
 использованием библиотеки \verb|libsc|. По примененному алгоритму
 поиска минимального пути и своей структуре программа из этого раздела
 будет похожа на программу из раздела~\ref{Desc_prg}. Самым важным
-отличием будет то, что обработка информации должна происходить в
-sc-памяти.
+отличием будет то, что обработка информации происходит в sc-памяти.
 
 Начнем мы с подготовки sc-памяти для работы алгоритма.
 
@@ -55,8 +54,8 @@ int main(int argc, char **argv)
 алгоритма необходимы еще и такие ключевые узлы, как
 \idtf{неориентированный граф}, \idtf{вершина\_}, \idtf{ребро\_} и др.,
 т.е. ключевые узлы базы знаний по теории графов
-(см. раздел~\ref{sec:Graph_onto_concept_list}).Однако, по данному
-пункту есть два отличия от раздела~\ref{sec:Graph_onto_concept_list}.
+(см. раздел~\ref{sec:Onto_concept_list}). Однако, по данному
+пункту есть два отличия от раздела~\ref{sec:Onto_concept_list}.
 
 Во-первых, реализация sc-памяти имеет сегментную организацию, поэтому
 необходимо выбрать сегмент, в котором будут храниться ключевые узлы
@@ -105,7 +104,7 @@ sc_segment *create_segment_full_path(sc_session *s, const sc_string &uri);
 ///
 /// Для начала работы необходимо вызвать функцию \verb|graph_theory::init|,
 /// передав в качестве параметра системную сессию.
-/// После этого, например, чтобы обратиться к узлу \idtf{вершина\_},
+/// После этого, например, чтобы обратиться к узлу \idtfm{вершина\_},
 /// достаточно написать \verb|graph_keynodes::vertex_|.
 namespace graph_theory
 {
@@ -117,13 +116,13 @@ namespace graph_theory
 
     /// Массив идентификаторов ключевых узлов.
     const char *idtfs[] = {
-        "vertex_",          // \idtf{вершина\_}
-        "connective_",      // \idtf{связка\_}
-        "edge_",            // \idtf{ребро\_}
-        "arc_",             // \idtf{дуга\_}
-        "undirected graph", // \idtf{неориентированный граф}
-        "directed graph",   // \idtf{ориентированный граф}
-        "simple trail*"     // \idtf{простая цепь*}
+        "vertex_",          // \idtfm{вершина\_}
+        "connective_",      // \idtfm{связка\_}
+        "edge_",            // \idtfm{ребро\_}
+        "arc_",             // \idtfm{дуга\_}
+        "undirected graph", // \idtfm{неориентированный граф}
+        "directed graph",   // \idtfm{ориентированный граф}
+        "simple trail*"     // \idtfm{простая цепь*}
     };
 
     /// Массив sc-адресов созданных ключевых узлов.
@@ -165,8 +164,8 @@ namespace graph_theory
 теории графов. Во-вторых, создать пользовательскую сессию для работы
 алгоритма. В-третьих, так как в рамках только что созданной
 пользовательской сессии нет открытых сегментов, открыть сегменты
-ключевых узлов. Окончательный вариант разрабатываемой
-функции будет следующим:
+ключевых узлов. Окончательный вариант разрабатываемой функции будет
+следующим:
 \begin{lstlisting}[texcl]
 int main(int argc, char **argv)
 {
@@ -192,6 +191,7 @@ int main(int argc, char **argv)
     session->open_segment(graph_theory::segment_uri);
 
     // 6. Запуск алгоритма.
+    // $\dots$
 
     // 7. Закроем пользовательскую сессию.
     session->close();
@@ -366,8 +366,8 @@ sc_addr load_graph(sc_session *s, sc_segment *seg, const std::string &graph_file
 \item вывести на консоль те вершины, которые еще не были выведены.
 \end{enumerate}
 
-Приступим к написанию фукнции \lstinline|print_graph|, заголовочная
-часть которой выглядит следующим образом:
+Приступим к написанию функции \lstinline|print_graph|, объявление
+которой выглядит следующим образом:
 \begin{lstlisting}[texcl]
 /// Выводит на консоль неориентированный граф @p \verb|graph|.
 void print_graph(sc_session *s, sc_addr graph);
@@ -510,7 +510,7 @@ void get_edge_vertexes(sc_session *s, sc_addr edge, sc_addr &v1, sc_addr &v2)
 является вывод тех вершин, которые еще не были выведены на консоль,
 т.е. не входят во множество \lstinline|printed_vertexes|. Для этого
 необходимо организовать цикл по всем вершинам.  Вершины входят в граф
-с атрибутом \idtf{вершина\_}, поэтому нам подходит уже знакомое
+с атрибутом \idtf{вершина_}, поэтому нам подходит уже знакомое
 ограничение вида \lstinline|CONSTR_5_f_a_a_a_f|. Ограничению в
 качестве атрибута мы передадим не \lstinline|graph_theory::edge_|, как
 в случае с перебором ребер, а
@@ -720,7 +720,7 @@ void run_testcase(int number, const char *graph_file, const char *beg_name,
 /// @param \verb|beg_vertex| начальная вершина пути.
 /// @param \verb|end_vertex| конечная вершина пути.
 ///
-/// @return связка отношения \idtf{простая цепь*} или 0, если минимальный путь не найден.
+/// @return связка отношения \idtfm{простая цепь*} или 0, если минимальный путь не найден.
 sc_addr find_min_path(sc_session *s, sc_segment *seg, sc_addr graph,
     sc_addr beg_vertex, sc_addr end_vertex);
 \end{lstlisting}
@@ -944,7 +944,7 @@ sc_addr create_wave(sc_session *s, sc_segment *seg, sc_addr graph,
 элементы отмечены \textcolor{green}{зеленым} цветом, а найденные
 нефиксированные --- \textcolor{blue}{синим}. \emph{Обратите внимание},
 что в этом поиске не учитывается то, что ребро должно входить в граф с
-атрибутом \idtf{вершина\_}.
+атрибутом \idtf{вершина_}.
 \begin{figure}[h!]
   \centering
   \includegraphics[scale=0.6]{4/libscprg/create_wave_search_edges}
@@ -1078,7 +1078,7 @@ sc_addr find_min_path(sc_session *s, sc_segment *seg, sc_addr graph,
 {
     // $\dots$
 
-    // 4. Создадим связку отношения \idtf{простая цепь*}.
+    // 4. Создадим связку отношения \idtfm{простая цепь*}.
     sc_addr route = s->create_el(seg, SC_N_CONST); // связка отношения
     sc_set::include_in(s, route, graph_theory::simple_trail);
 
@@ -1128,24 +1128,79 @@ sc_addr find_min_path(sc_session *s, sc_segment *seg, sc_addr graph,
 \end{lstlisting}
 
 В соответствии со следующим шагом алгоритма
-(см. стр.~\pageref{S9_Add_begin_and_end_vertexes_visit_to_route_tuple}),
-добавим посещение начальной и конечной вершин пути в структуру
-маршрута:
+(см. стр.~\pageref{S9_Add_end_vertex_visit_to_route_tuple}), добавим
+посещение конечной вершины пути в структуру маршрута:
 \begin{lstlisting}[texcl]
 sc_addr find_min_path(sc_session *s, sc_segment *seg, sc_addr graph,
     sc_addr beg_vertex, sc_addr end_vertex)
 {
     // $\dots$
 
-    // 7. Добавим в простую цепь посещение начальной и конечной вершин.
-    sc_addr beg_vertex_visit = add_vertex_visit_to_route(s, route, beg_vertex);
+    // 7. Добавим в простую цепь посещение конечной вершины.
     sc_addr end_vertex_visit = add_vertex_visit_to_route(s, route, end_vertex);
 
     // $\dots$
 }
 \end{lstlisting}
 
+Функцию \lstinline|add_vertex_visit_to_route| объявим вот так:
+\begin{lstlisting}[texcl]
+/// Создает в структуре маршрута @p \verb|route| посещение вершины @p \verb|vertex|
+/// и возвращает это посещение.
+///
+/// @note Все элементы генерируются в сегменте связки @p \verb|route|.
+sc_addr add_vertex_visit_to_route(sc_session *s, sc_addr route, sc_addr vertex);
+\end{lstlisting}
 
+Прежде, чем рассматривать код этой функции, напишем две простые
+вспомогательные функции для работы с маршрутом:
+\begin{lstlisting}[texcl]
+/// Возвращает структуру маршрута для связки отношения \idtfm{маршрут*}.
+/// @note Структура маршрута - это компонент с атрибутом \idtfm{1\_}.
+inline sc_addr get_route_struct(sc_session *s, sc_addr route)
+{
+    return sc_tup::at(s, route, N1_);
+}
+
+/// Возвращает отношение посещения для связки отношения \idtfm{маршрут*}.
+/// @note Отношение посещения - это компонент с атрибутом \idtfm{3\_}.
+inline sc_addr get_route_visit(sc_session *s, sc_addr route)
+{
+    return sc_tup::at(s, route, N3_);
+}
+\end{lstlisting}
+
+Теперь перейдем к \lstinline|add_vertex_visit_to_route|. В начале
+каждой функции для работы с маршрутом мы будем выполнять одно и то же
+действие, а именно:
+\begin{lstlisting}[texcl]
+sc_addr add_vertex_visit_to_route(sc_session *s, sc_addr route, sc_addr vertex)
+{
+    // 1. Получим компоненты машрута: структуру маршрута и отношение посещения.
+    sc_addr route_struct = get_route_struct(s, route); // структура маршрута
+    sc_addr route_visit  = get_route_visit(s, route);  // отношение посещения
+
+    // $\dots$
+}
+\end{lstlisting}
+
+Зная структуру маршрута и отношение посещения, можно создать посещение
+вершины в ориентированном графе структуры маршрута:
+\begin{lstlisting}[texcl]
+sc_addr add_vertex_visit_to_route(sc_session *s, sc_addr route, sc_addr vertex)
+{
+    // $\dots$
+
+    // 2. Создадим посещение вершины.
+    sc_addr vertex_visit = s->create_el(route->seg, SC_N_CONST);
+    sc_tup::add(s, route->seg, route_struct, graph_theory::vertex_, vertex_visit);
+    sc_rel::add_ord_tuple(s, route_visit, vertex_visit, vertex);
+
+    return vertex_visit;
+}
+\end{lstlisting}
+
+Теперь нам нужно пройтись по списку волн от конца в начало и построить найденный путь, что соответствует шагам алгоритма 
 
 \subsection{Вывод маршрута на консоль}
 \label{sec:libscprg_fmp_print_route}
