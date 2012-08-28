@@ -9,3 +9,5 @@ del /F /Q *.log
 del /F /Q *.out
 del /F /Q *.pdf
 del /F /Q *.rel
+
+del /F /Q *.bak
