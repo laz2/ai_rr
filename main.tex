@@ -46,10 +46,24 @@
 
 \renewcommand{\ref}[1]{\hyperef[#1]{\ref*{#1}}}
 
-\newcommand{\idtf}[1]{\textit{#1}}
-\newcommand{\vidtf}[1]{\idtf{\_#1}}
-\newcommand{\attr}[1]{\idtf{#1\_}}
-\newcommand{\rel}[1]{\idtf{#1*}}
+% Макрос для экранирования символа _. Для меня магия, что там происходит.
+% http://tex.stackexchange.com/questions/20890/define-an-escape-underscore-environment
+\makeatletter
+\newcommand{\escapeus}{\begingroup\@makeother\_\@escapeus}
+\newcommand*{\@escapeus}[1]{#1\endgroup}
+\makeatother
+
+% Без этого макрос \escapeus нельзя использовать в качестве аргумента
+\makeatletter
+\DeclareRobustCommand*{\escapeus}[1]{%
+  \begingroup\@activeus\scantokens{#1\endinput}\endgroup}
+\begingroup\lccode`\~=`\_\relax
+   \lowercase{\endgroup\def\@activeus{\catcode`\_=\active \let~\_}}
+\makeatother
+
+
+\newcommand{\idtf}[1]{\textit{\escapeus{#1}}}
+\newcommand{\idtfm}[1]{\textit{#1}}
 
 \newcommand{\ostisgtlink}{\href{http://ostisgraphstheo.sourceforge.net}{OSTIS GT}}
 
