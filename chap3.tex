@@ -120,9 +120,15 @@ sc-конструкция не является корректной в сема
 скобках будет указан соответствующий номер шага алгоритма из
 раздела~\ref{sec:AlgoDemo_algo_desc}.
 
+\newcounter{algosteps}
+
 \newenvironment{algostep}[3]
 {
+  \ifnum \value{algosteps} > 0
   \newpage
+  \fi
+  \addtocounter{algosteps}{1}
+
   \label{astep:#2}
   \item \emph{\textbf{#1}}
   

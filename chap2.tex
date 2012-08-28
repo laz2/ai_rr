@@ -798,9 +798,11 @@ SC-коде так, как показано на рис.~\ref{fig:Path_Final}. �
 
 \newenvironment{test}
 {
-  \addtocounter{ontotests}{1}
-
+  \ifnum \value{ontotests} > 0
   \newpage
+  \fi
+
+  \addtocounter{ontotests}{1}
   \subsubsection{Тест \arabic{ontotests}}
 }
 {
