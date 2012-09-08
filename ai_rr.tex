@@ -23,9 +23,18 @@
 
 \usepackage{cmap}               % Поиск по русским буквам в pdf
 
-\usepackage{hyperref}
-
 \usepackage[usenames]{color}
+
+\usepackage{hyperref}
+\definecolor{dark-red}{rgb}{0.4,0.15,0.15}
+\definecolor{dark-blue}{rgb}{0.15,0.15,0.4}
+\definecolor{medium-blue}{rgb}{0,0,0.5}
+\hypersetup{
+  colorlinks = true, %Colours links instead of ugly boxes
+  urlcolor   = blue, %Colour for external hyperlinks
+  linkcolor  = red,  %Colour of internal links
+  citecolor  = red   %Colour of citations
+}
 
 \usepackage{cite}
 
@@ -45,6 +54,7 @@
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
 
 \renewcommand{\ref}[1]{\hyperef[#1]{\ref*{#1}}}
+\renewcommand{\pageref}[1]{\hyperef[#1]{\pageref*{#1}}}
 
 % Макрос для экранирования символа _. Для меня магия, что там происходит.
 % http://tex.stackexchange.com/questions/20890/define-an-escape-underscore-environment
@@ -75,15 +85,16 @@
 \tableofcontents
 
 \part{Курс ОИИ}
-\input{chap1}
-\input{chap2}
-\input{chap3}
+\input{oii_intro}
+\input{cppalgo}
+\input{onto}
+\input{algodemo}
 
 \part{Курс ППвИС}
-\input{chap4}
-\input{chap4_libsc}
-\input{chap4_wave_find_path}
-\input{chap5}
+\input{libscalgo}
+\input{libsc}
+\input{libscprg}
+\input{scpalgo}
 
 \newpage 
 \bibliography{literature}

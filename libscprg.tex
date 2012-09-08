@@ -1,5 +1,5 @@
 \section{Созданиe программы wave\_find\_path c использованием sc-памяти}
-\label{Desc_libscprg}
+\label{sec:Desc_libscprg}
 
 В этом разделе мы будем создавать программу поиска минимального пути с
 использованием библиотеки \verb|libsc|. По примененному алгоритму
@@ -10,7 +10,7 @@
 Начнем мы с подготовки sc-памяти для работы алгоритма.
 
 \subsection{Инициализация и подготовка sc-памяти}
-\label{libscprg_init_sc_memory}
+\label{sec:libscprg_init_sc_memory}
 
 Создадим набросок функции \lstinline|main| для начала работы с
 sc-памятью:
@@ -49,7 +49,7 @@ int main(int argc, char **argv)
 у вас возникли трудности, то обратитесь к
 разделу~\ref{Begin_with_libsc}, в котором были описаны все
 использованные функции.
-
+v
 Мы получили sc-память с системными ключевыми узлами, однако для работы
 алгоритма необходимы еще и такие ключевые узлы, как
 \idtf{неориентированный граф}, \idtf{вершина\_}, \idtf{ребро\_} и др.,
@@ -1209,6 +1209,5 @@ sc_addr add_vertex_visit_to_route(sc_session *s, sc_addr route, sc_addr vertex)
 
 %%% Local Variables: 
 %%% mode: latex
-%%% TeX-master: "main"
+%%% TeX-master: "ai_rr"
 %%% End: 
-
