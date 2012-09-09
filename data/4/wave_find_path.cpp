@@ -291,13 +291,11 @@ void print_graph(sc_session *s, sc_addr graph)
 	}
 }
 
-/// Находит начало структуры маршурта @p route_struct.
+/// Находит начальное посещение в структуре маршурта @p route_struct.
 sc_addr get_route_struct_begin(sc_session *s, sc_addr route_struct)
 {
-	// Начальной считается вершина, в которую нет входящих связок.
+	// 1. Начальной считается вершина, в которую нет входящих связок.
 	// Переберем все вершины и проверим их на это свойство.
-	//
-
 	sc_iterator *it = s->create_iterator(
 		sc_constraint_new(
 			CONSTR_5_f_a_a_a_f,
@@ -307,14 +305,12 @@ sc_addr get_route_struct_begin(sc_session *s, sc_addr route_struct)
 			SC_A_CONST|SC_POS,
 			graph_theory::vertex_
 		), true);
-
 	sc_for_each (it) {
 		sc_addr vertex = it->value(2);
 
-		// Ориентированный граф структуры маршрута можно рассматривать как
+		// 2. Ориентированный граф структуры маршрута можно рассматривать как
 		// бинарное ориентированное отношение, которое связывает вершины.
 		// Это позволяет нам использовать для проверки метод sc_rel::bin_ord_at_1.
-		//
 		if (!sc_rel::bin_ord_at_1(s, route_struct, vertex))
 			return vertex;
 	}
@@ -339,8 +335,9 @@ inline sc_addr get_route_visit(sc_session *s, sc_addr route)
 /// Выводит на консоль маршрут, получив связку отношения @p route.
 void print_route(sc_session *s, sc_addr route)
 {
-	sc_addr route_struct = get_route_struct(s, route);
-	sc_addr route_visit  = get_route_visit(s, route);
+	// 1. Получим компоненты машрута: структуру маршрута и отношение посещения.
+	sc_addr route_struct = get_route_struct(s, route); // структура маршрута
+	sc_addr route_visit  = get_route_visit(s, route);  // отношение посещения
 
 	sc_addr cur_visit      = get_route_struct_begin(s, route_struct);
 	sc_addr visited_vertex = sc_rel::bin_ord_at_2(s, route_visit, cur_visit);
@@ -604,23 +601,22 @@ sc_addr find_min_path(sc_session *s, sc_segment *seg, sc_addr graph, sc_addr beg
 	for (++list_it; list_it != list_end; ++list_it) {
 		sc_addr curr_wave = *list_it;
 
+		// 9. Находим ребро, которое связывает curr_vertex с предыдущей вершиной пути.
 		sc_addr edge = find_any_edge(s, graph, curr_vertex, curr_wave);
 
-		// Получаем предыдущую вершину в пути.
-		//
+		// 10. Получаем предыдущую вершину в пути и добавляем ее посещение в структуру пути.
 		sc_addr prev_vertex = get_other_vertex_incidence_edge(s, edge, curr_vertex);
 		sc_addr prev_visit = add_vertex_visit_to_route(s, route, prev_vertex);
 
-		// Добавляем посещение ребра @p edge в путь.
-		//
+		// 11. Добавляем посещение ребра edge в путь.
 		add_connective_visit_to_route(s, route, edge, prev_visit, curr_visit);
 
+		// 12. Принимаем предыдущую вершину и ее посещение за текущие.
 		curr_vertex = prev_vertex;
 		curr_visit = prev_visit;
 	}
 
-	// Подчистим память...
-	//
+	// 13. Удалим список волн.
 	erase_waves_list(s, waves_list_head);
 
 	return route;

@@ -662,7 +662,7 @@ void run_testcase(int number, const char *graph_file, const char *beg_name,
 \lstinline|find_min_path|, которая будет описана ниже в
 разделе~\ref{sec:libscprg_find_min_path}, а после этого выведем
 маршрут при помощи функции \lstinline|print_route|
-(см. раздел~\ref{sec:libscprg_print_route}):
+(см. раздел~\ref{sec:libscprg_fmp_print_route}):
 \begin{lstlisting}[texcl]
 void run_testcase(int number, const char *graph_file, const char *beg_name,
     const char *end_name)
@@ -876,6 +876,7 @@ sc_addr find_min_path(sc_session *s, sc_segment *seg, sc_addr graph,
 Оставим на время цикл создания списка волн и рассмотрим функцию
 \lstinline|create_wave|. Для создания новой волны нам необходимо
 перебрать вершины из предыдущей волны \lstinline|wave|:
+
 \begin{lstlisting}[texcl]
 sc_addr create_wave(sc_session *s, sc_segment *seg, sc_addr graph,
     sc_addr wave, sc_addr not_checked_vertexes)
@@ -906,7 +907,8 @@ sc_addr create_wave(sc_session *s, sc_segment *seg, sc_addr graph,
 \lstinline|CONSTR_3l2_f_a_a_a_f| (см. рис.~\ref{fig:CONSTR_3l2}). 1-ым
 элементом будет \lstinline|graph|, 5-ым --- \lstinline|vertex|, все
 остальные --- нефиксированные.
-\begin{lstlisting}[texcl]
+
+\begin{lstlisting}[texcl,label={lst:create_wave_for_each_adj}]
 sc_addr create_wave(sc_session *s, sc_segment *seg, sc_addr graph,
     sc_addr wave, sc_addr not_checked_vertexes)
 {
@@ -957,6 +959,7 @@ sc_addr create_wave(sc_session *s, sc_segment *seg, sc_addr graph,
 \lstinline|not_checked_vertexes|, и исключить ее из
 \lstinline|not_checked_vertexes|. Эти действия продемонстрированы в
 листинге ниже:
+
 \begin{lstlisting}[texcl]
 sc_addr create_wave(sc_session *s, sc_segment *seg, sc_addr graph,
     sc_addr wave, sc_addr not_checked_vertexes)
@@ -987,6 +990,7 @@ sc_addr create_wave(sc_session *s, sc_segment *seg, sc_addr graph,
 остановились. Новая волна создана, но она может быть пустой. Это
 значит, что пути между вершинами не существует. Если волна пустая, то
 необходимо выйти из функции \lstinline|find_min_path|:
+
 \begin{lstlisting}[texcl]
 sc_addr find_min_path(sc_session *s, sc_segment *seg, sc_addr graph,
     sc_addr beg_vertex, sc_addr end_vertex)
@@ -1154,6 +1158,7 @@ sc_addr add_vertex_visit_to_route(sc_session *s, sc_addr route, sc_addr vertex);
 
 Прежде, чем рассматривать код этой функции, напишем две простые
 вспомогательные функции для работы с маршрутом:
+
 \begin{lstlisting}[texcl]
 /// Возвращает структуру маршрута для связки отношения \idtfm{маршрут*}.
 /// @note Структура маршрута - это компонент с атрибутом \idtfm{1\_}.
@@ -1173,6 +1178,7 @@ inline sc_addr get_route_visit(sc_session *s, sc_addr route)
 Теперь перейдем к \lstinline|add_vertex_visit_to_route|. В начале
 каждой функции для работы с маршрутом мы будем выполнять одно и то же
 действие, а именно:
+
 \begin{lstlisting}[texcl]
 sc_addr add_vertex_visit_to_route(sc_session *s, sc_addr route, sc_addr vertex)
 {
@@ -1186,6 +1192,7 @@ sc_addr add_vertex_visit_to_route(sc_session *s, sc_addr route, sc_addr vertex)
 
 Зная структуру маршрута и отношение посещения, можно создать посещение
 вершины в ориентированном графе структуры маршрута:
+
 \begin{lstlisting}[texcl]
 sc_addr add_vertex_visit_to_route(sc_session *s, sc_addr route, sc_addr vertex)
 {
@@ -1200,11 +1207,304 @@ sc_addr add_vertex_visit_to_route(sc_session *s, sc_addr route, sc_addr vertex)
 }
 \end{lstlisting}
 
-Теперь нам нужно пройтись по списку волн от конца в начало и построить найденный путь, что соответствует шагам алгоритма 
+В будущем нам понадобиться функция аналогичная
+\lstinline|add_vertex_visit_to_route|, но для добавления посещения
+ребра. Начало ее будет такое же, как и у
+\lstinline|add_vertex_visit_to_route|:
+
+\begin{lstlisting}[texcl]
+/// Создает в структуре маршрута @p \verb|route| посещение ребра/дуги @p \verb|connective|
+/// из вершины-посещения @p \verb|from_visit| в вершину-посещение @p \verb|to_visit|
+/// и возвращает это посещение.
+///
+/// @note Все элементы генерируются в сегменте связки @p \verb|route|.
+sc_addr add_connective_visit_to_route(sc_session *s, sc_addr route, sc_addr connective,
+                                      sc_addr from_visit, sc_addr to_visit)
+{
+    // 1. Получим компоненты машрута: структуру маршрута и отношение посещения.
+    sc_addr route_struct = get_route_struct(s, route); // структура маршрута
+    sc_addr route_visit  = get_route_visit(s, route);  // отношение посещения
+
+    // $\dots$
+}
+\end{lstlisting}
+
+Создадим узел посещения ребра в структуре маршрута:
+
+\begin{lstlisting}[texcl]
+sc_addr add_connective_visit_to_route(sc_session *s, sc_addr route, sc_addr connective,
+                                      sc_addr from_visit, sc_addr to_visit)
+{
+    // $\dots$
+
+    // 2. Создадим узел посещения ребра/дуги в структуре маршрута,
+    // укажем чьим посещением он является.
+    sc_addr edge_visit = s->create_el(route->seg, SC_N_CONST);
+    sc_tup::add(s, route_struct, graph_theory::arc_, edge_visit);
+    sc_rel::add_ord_tuple(s, route_visit, edge_visit, connective);
+
+   // $\dots$
+}
+\end{lstlisting}
+
+Узел посещения создали, а теперь надо указать, что посещение выходит
+из \lstinline|from_visit|, а входит в \lstinline|to_visit|:
+
+\begin{lstlisting}[texcl]
+sc_addr add_connective_visit_to_route(sc_session *s, sc_addr route, sc_addr connective,
+                                      sc_addr from_visit, sc_addr to_visit)
+{
+    // $\dots$
+
+    // 3. Укажем, что посещение ребра/дуги выходит из вершины \verb|from_visit| и
+    // входит в вершину \verb|to_visit|.
+    sc_tup::add(s, edge_visit, N1_, from_visit);
+    sc_tup::add(s, edge_visit, N2_, to_visit);
+
+    return edge_visit;
+}
+\end{lstlisting}
+
+Вернемся к построению пути. Нам нужно пройтись по списку волн от конца
+в начало и построить найденный путь, что соответствует шагам алгоритма
+на страницах~\pageref{astep:S10_Step_building_route_structure},
+\pageref{astep:S11_Step_building_route_structure_add_visits},
+\pageref{astep:S12_Step_building_route_structure},
+\pageref{astep:S13_Step_building_route_structure_add_visits},
+\pageref{astep:S14_Step_building_route_structure},
+\pageref{astep:S15_Step_building_route_structure_add_visits}. Просмотрите,
+пожалуйста, эти шаги, чтобы знать, как будут меняться значения
+переменныхю. А цикл мы организуем следующим образом:
+
+\begin{lstlisting}[texcl]
+sc_addr find_min_path(sc_session *s, sc_segment *seg, sc_addr graph,
+    sc_addr beg_vertex, sc_addr end_vertex)
+{
+    // $\dots$
+
+    // 8. Пройдем в обратном направлении по списку волн
+    // и сформируем структуру маршрута.
+
+    sc_addr curr_vertex = end_vertex;
+    sc_addr curr_visit = end_vertex_visit;
+
+    sc_list::reverse_iterator list_it(s, waves_list_tail), list_end;
+    for (++list_it; list_it != list_end; ++list_it) {
+        sc_addr curr_wave = *list_it;
+
+        // $\dots$
+    }
+
+    // $\dots$
+}
+\end{lstlisting}
+
+В начале цикла найдем ребро, которое связывает \lstinline|curr_vertex|
+с предыдущей вершиной в пути при помощи функции
+\lstinline|find_any_edge|:
+
+\begin{lstlisting}[texcl]
+sc_addr find_min_path(sc_session *s, sc_segment *seg, sc_addr graph,
+    sc_addr beg_vertex, sc_addr end_vertex)
+{
+    // $\dots$
+
+    for (++list_it; list_it != list_end; ++list_it) {
+        sc_addr curr_wave = *list_it;
+
+        // 9. Находим ребро, которое связывает \verb|curr_vertex| с предыдущей вершиной пути.
+        sc_addr edge = find_any_edge(s, graph, curr_vertex, curr_wave);
+
+        // $\dots$
+    }
+
+    // $\dots$
+}
+\end{lstlisting}
+
+Функцию \lstinline|find_any_edge| определим следующим образом (похожий
+цикл мы уже использовали в
+листинге~\ref{lst:create_wave_for_each_adj}):
+
+\begin{lstlisting}[texcl]
+/// Ищет в графе @p graph любое ребро, которое инцидентно вершине @p \verb|vertex|
+/// и любой вершине из волны @p \verb|prev_wave|.
+sc_addr find_any_edge(sc_session *s, sc_addr graph, sc_addr vertex, sc_addr prev_wave)
+{
+    sc_addr edge = 0;
+
+    // 1. Перебор всех ребер, которые инцидентны \verb|vertex|.
+    sc_iterator *it = s->create_iterator(
+        sc_constraint_new(
+            CONSTR_3l2_f_a_a_a_f,
+            graph,
+            SC_A_CONST|SC_POS,
+            SC_N_CONST,
+            SC_A_CONST|SC_POS,
+            vertex
+        ), true);
+    sc_for_each (it) {
+        sc_addr edge = it->value(2); // ребро, инцидентное  \verb|vertex|
+        sc_addr other_vertex = get_other_vertex_incidence_edge(
+            s, edge, vertex); // вершина, смежная vertex и инцидентная ребру
+
+        if(sc_set::is_in(s, other_vertex, prev_wave))
+            break;
+    }
+
+    return edge;
+}
+\end{lstlisting}
+
+Вернемся к циклу построения структуры пути. На основе найденного ребра
+\lstinline|edge| мы можем найти предыдущую вершину в пути и добавить
+ее посещение в структуру формируемого пути:
+
+\begin{lstlisting}[texcl]
+sc_addr find_min_path(sc_session *s, sc_segment *seg, sc_addr graph,
+    sc_addr beg_vertex, sc_addr end_vertex)
+{
+    // $\dots$
+
+    for (++list_it; list_it != list_end; ++list_it) {
+        // $\dots$
+
+        // 10. Получаем предыдущую вершину в пути и добавляем ее посещение в структуру пути.
+        sc_addr prev_vertex = get_other_vertex_incidence_edge(s, edge, curr_vertex);
+        sc_addr prev_visit = add_vertex_visit_to_route(s, route, prev_vertex);
+
+        // $\dots$
+    }
+
+    // $\dots$
+}
+\end{lstlisting}
+
+Не забудем при помощи функции
+\lstinline|add_connective_visit_to_route| добавить в структуру пути
+посещение ребра \lstinline|edge|:
+
+\begin{lstlisting}[texcl]
+sc_addr find_min_path(sc_session *s, sc_segment *seg, sc_addr graph,
+    sc_addr beg_vertex, sc_addr end_vertex)
+{
+    // $\dots$
+
+    for (++list_it; list_it != list_end; ++list_it) {
+        // $\dots$
+
+        // 11. Добавляем посещение ребра edge в структуру пути.
+        add_connective_visit_to_route(s, route, edge, prev_visit, curr_visit);
+
+        // $\dots$
+    }
+
+    // $\dots$
+}
+\end{lstlisting}
+
+Оканчиваем одну итерацию цикла, приняв предыдущую вершину и ее
+посещение за текущие:
+
+\begin{lstlisting}[texcl]
+sc_addr find_min_path(sc_session *s, sc_segment *seg, sc_addr graph,
+    sc_addr beg_vertex, sc_addr end_vertex)
+{
+    // $\dots$
+
+    for (++list_it; list_it != list_end; ++list_it) {
+        // $\dots$
+
+        // 12. Принимаем предыдущую вершину и ее посещение за текущие.
+        curr_vertex = prev_vertex;
+        curr_visit = prev_visit;
+    }
+
+    // $\dots$
+}
+\end{lstlisting}
+
+Итак, цикл закончился, и структура пути готова. Подчистим память, что
+соответствует шагу алгоритма на
+странице~\pageref{astep:S16_Erase_waves_list}:
+
+\begin{lstlisting}[texcl]
+sc_addr find_min_path(sc_session *s, sc_segment *seg, sc_addr graph,
+    sc_addr beg_vertex, sc_addr end_vertex)
+{
+    // $\dots$
+
+    // 13. Удалим список волн.
+    erase_waves_list(s, waves_list_head);
+
+    // $\dots$
+}
+\end{lstlisting}
+
+Вернем из функции \lstinline|find_min_path| связку \lstinline|route|,
+что соотвествует шагу алгоритма на
+странице~\pageref{astep:S17_Result}:
+
+\begin{lstlisting}[texcl]
+sc_addr find_min_path(sc_session *s, sc_segment *seg, sc_addr graph,
+    sc_addr beg_vertex, sc_addr end_vertex)
+{
+    // $\dots$
+
+    return route;
+}
+\end{lstlisting}
+
+Мы завершили функцию \lstinline|find_min_path| и у нас еще осталась
+неописанной функция \lstinline|print_route|
+(см. раздел~\ref{sec:libscprg_run_testcase}).
 
 \subsection{Вывод маршрута на консоль}
 \label{sec:libscprg_fmp_print_route}
 
+\begin{lstlisting}[texcl]
+/// Находит начальное посещение в структуре маршурта @p \verb|route_struct|.
+sc_addr get_route_struct_begin(sc_session *s, sc_addr route_struct)
+{
+    // 1. Начальной считается вершина, в которую нет входящих связок.
+    // Переберем все вершины и проверим их на это свойство.
+    sc_iterator *it = s->create_iterator(
+        sc_constraint_new(
+            CONSTR_5_f_a_a_a_f,
+            route_struct,
+            SC_A_CONST|SC_POS,
+            0,
+            SC_A_CONST|SC_POS,
+            graph_theory::vertex_
+        ), true);
+    sc_for_each (it) {
+        sc_addr vertex = it->value(2);
+
+        // $\dots$
+    }
+
+    // $\dots$
+}
+\end{lstlisting}
+
+\begin{lstlisting}[texcl]
+sc_addr get_route_struct_begin(sc_session *s, sc_addr route_struct)
+{
+    // $\dots$
+
+    sc_for_each (it) {
+        sc_addr vertex = it->value(2);
+
+        // 2. Ориентированный граф структуры маршрута можно рассматривать как
+        // бинарное ориентированное отношение, которое связывает вершины.
+        // Это позволяет нам использовать для проверки метод \verb|sc_rel::bin_ord_at_1|.
+        if (!sc_rel::bin_ord_at_1(s, route_struct, vertex))
+            return vertex;
+    }
+
+    return 0;
+}
+\end{lstlisting}
 
 
 %%% Local Variables: 
