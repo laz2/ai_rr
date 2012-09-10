@@ -291,7 +291,7 @@ void print_graph(sc_session *s, sc_addr graph)
 	}
 }
 
-/// Находит начальное посещение в структуре маршурта @p route_struct.
+/// Находит начальное посещение в структуре маршрута @p route_struct.
 sc_addr get_route_struct_begin(sc_session *s, sc_addr route_struct)
 {
 	// 1. Начальной считается вершина, в которую нет входящих связок.
@@ -339,15 +339,22 @@ void print_route(sc_session *s, sc_addr route)
 	sc_addr route_struct = get_route_struct(s, route); // структура маршрута
 	sc_addr route_visit  = get_route_visit(s, route);  // отношение посещения
 
-	sc_addr cur_visit      = get_route_struct_begin(s, route_struct);
-	sc_addr visited_vertex = sc_rel::bin_ord_at_2(s, route_visit, cur_visit);
+	// 2. Найдем начальное посещение и посещенную вершину в оригинальном графе.
+	sc_addr curr_visit     = get_route_struct_begin(s, route_struct);
+	sc_addr visited_vertex = sc_rel::bin_ord_at_2(s, route_visit, curr_visit);
 
+	// 3. Пройдем от начального посещения к конечному посещению
+	// и выведем посещенные вершины на консоль.
+	// Ориентированный граф структуры маршрута можно рассматривать как
+	// бинарное ориентированное отношение, которое связывает вершины.
+	// Это позволяет нам использовать sc_rel::bin_ord_at_2
+	// для поиска конца дуги орграфа.
 	std::cout << s->get_idtf(visited_vertex);
 	while (true) {
-		cur_visit = sc_rel::bin_ord_at_2(s, route_struct, cur_visit);
+		curr_visit = sc_rel::bin_ord_at_2(s, route_struct, curr_visit);
 
-		if (cur_visit) {
-			visited_vertex = sc_rel::bin_ord_at_2(s, route_visit, cur_visit);
+		if (curr_visit) {
+			visited_vertex = sc_rel::bin_ord_at_2(s, route_visit, curr_visit);
 			std::cout << " -> " << s->get_idtf(visited_vertex);
 		} else {
 			break;
@@ -426,7 +433,7 @@ sc_addr find_any_edge(sc_session *s, sc_addr graph, sc_addr vertex, sc_addr prev
 			vertex
 		), true);
 	sc_for_each (it) {
-		sc_addr edge = it->value(2); // ребро, инцидентное  vertex
+		edge = it->value(2); // ребро, инцидентное  vertex
 		sc_addr other_vertex = get_other_vertex_incidence_edge(
 			s, edge, vertex); // вершина, смежная vertex и инцидентная ребру
 
