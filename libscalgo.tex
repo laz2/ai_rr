@@ -47,8 +47,8 @@ sc-памяти, которая бы решала вашу теоретико-г
 sc-текстов:
 
 \begin{itemize}
-\item \verb|sc-core-0.2.5-win32.exe| работает с \texttt{MS Visual Studio 9}
-\item \verb|sc-core-0.2.5-vc10-bin-win32.exe| работает с \texttt{MS Visual Studio 10}
+\item \verb|sc-core-0.2.5-win32.exe| для \texttt{MS Visual Studio 9}
+\item \verb|sc-core-0.2.5-vc10-bin-win32.exe| для \texttt{MS Visual Studio 10}
 \end{itemize}
 
 После того, как вы скачали инсталлятор, запустите его. Желательно
@@ -86,7 +86,7 @@ sc-текстов:
 установке \texttt{sc-core}, при установке \texttt{CMake} необходимо
 выбрать опцию, которая добавит директорию исполняемых файлов в
 переменную среды окружения \verb|PATH|
-(см. рис.~\ref{Add_cmake_to_path}).
+(см. рис.~\ref{fig:Add_cmake_to_path}).
  
 \begin{figure}[h]
   \centering
@@ -101,9 +101,11 @@ sc-текстов:
 необходимо с сервера \texttt{Info} взять новую версию примера
 \verb|wave_find_path|. Для этого необходимо скопировать всю папку \verb|wave_find_path| в:
 
+\begin{framed}
 \begin{verbatim}
 %SC_CORE_HOME%\examples\wave_find_path
 \end{verbatim}
+\end{framed}
 
 Для генерации проекта примера воспользуемся консолью. Для запуска
 консоли нажимаем клавиши \verb|Win + R|, в появившемся диалоге пишем
@@ -119,10 +121,12 @@ sc-текстов:
 
 Переходим в директорию примера, используя команды:
 
+\begin{framed}
 \begin{verbatim}
 c: 
 cd %SC_CORE_HOME%\examples\wave_find_path
 \end{verbatim}
+\end{framed}
 
 \begin{figure}[h]
  \centering
@@ -138,27 +142,33 @@ cd %SC_CORE_HOME%\examples\wave_find_path
 моим именем пользователя, для вас он будет отличаться названием
 директории вашего пользователя):
 
-{\footnotesize
+{\scriptsize
+\begin{framed}
 \begin{verbatim}
 c:\Documents and Settings\lazurkin.IIT\Мои документы\Visual Studio 2008\Projects\VSMacros80\CMakeMacros
 \end{verbatim}
+\end{framed}
 }
 
 Эти файлы необходимо скопировать вручную. Для этого просто скопируйте
 содержимое
 
 {\footnotesize
+\begin{framed}
 \begin{verbatim}
 c:\Program Files\cmake2.8\share\cmake-2.8\Templates\
 \end{verbatim}
+\end{framed}
 }
 
-в
+в (путь для пользователя \texttt{lazurkin.IIT})
 
-{\footnotesize
+{\scriptsize
+\begin{framed}
 \begin{verbatim}
 c:\Documents and Settings\lazurkin.IIT\Мои документы\Visual Studio 2008\Projects\VSMacros80\CMakeMacros
 \end{verbatim}
+\end{framed}
 }
 
 При помощи следующей команды сгенерируем проект \texttt{MS Visual
@@ -167,9 +177,11 @@ c:\Documents and Settings\lazurkin.IIT\Мои документы\Visual Studio 2
 \texttt{cmake} и на консоль будет выведен список всех доступных
 генераторов):
 
+\begin{framed}
 \begin{verbatim}
 cmake -G "Visual Studio 9 2008" .
 \end{verbatim}
+\end{framed}
 
 \begin{figure}[h!]
   \centering
@@ -181,9 +193,11 @@ cmake -G "Visual Studio 9 2008" .
 Если у вас \texttt{MS Visual Studio 2010}, то можете попробовать
 команду:
 
+\begin{framed}
 \begin{verbatim}
 cmake .
 \end{verbatim}
+\end{framed}
 
 После корректной работы \texttt{CMake} в директории будет создан
 проект \verb|wave_find_path|. Открываем его при помощи \texttt{MS
@@ -191,15 +205,80 @@ cmake .
 \verb|wave_find_path| в \texttt{Solution Explorer} и выбираем пункт
 меню \texttt{"Set as StartUp Project"}. После этого название данного
 проекта будет выделено жирным цветом. Теперь можно запустить на
-исполнение пример \verb|wave_find_path| (пример вывода на
-рис.~\ref{fig:run_example}).
+исполнение пример \verb|wave_find_path|, который должен отработать со
+следующим выводом:
 
-\begin{figure}[h!]
-  \centering
-  \includegraphics[scale=0.7]{4/setup/Run_example}
-  \caption{Вывод работы программы-примера \texttt{wave\_find\_path}}
-  \label{fig:run_example}
-\end{figure}
+\begin{framed}
+\begin{verbatim}
+[Testcase 1]
+Graph:
+B -- A
+C -- B
+Find minimal path from 'A' to 'C'
+Path:
+A -> B -> C
+
+[Testcase 2]
+Graph:
+B -- A
+C -- A
+D -- B
+D -- C
+F -- D
+Find minimal path from 'A' to 'F'
+Path:
+A -> B -> D -> F
+
+[Testcase 3]
+Graph:
+B -- A
+C -- A
+D -- B
+D -- C
+F -- D
+K
+Find minimal path from 'A' to 'K'
+Path isn't exist.
+
+[Testcase 4]
+Graph:
+V2 -- V1
+V3 -- V2
+V4 -- V2
+V4 -- V3
+V5 -- V3
+V5 -- V4
+V6 -- V4
+V7 -- V5
+V7 -- V6
+V8 -- V6
+V9 -- V6
+V9 -- V8
+V10 -- V8
+V10 -- V9
+V11 -- V9
+V11 -- V10
+Find minimal path from 'V5' to 'V11'
+Path:
+V5 -> V4 -> V6 -> V9 -> V11
+
+[Testcase 5]
+Graph:
+V2 -- V1
+V3 -- V2
+V4 -- V2
+V4 -- V3
+V5 -- V3
+V5 -- V4
+V7 -- V6
+V8 -- V6
+V8 -- V7
+V9 -- V7
+V9 -- V8
+Find minimal path from 'V1' to 'V9'
+Path isn't exist.
+\end{verbatim}
+\end{framed}
 
 %%% Local Variables: 
 %%% mode: latex
