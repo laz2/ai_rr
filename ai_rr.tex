@@ -40,7 +40,8 @@
 \usepackage{cite}
 
 \usepackage{listings,fancyvrb}
-\lstset{language=C++,
+\lstset{%
+  language=C++,
   basicstyle=\small\ttfamily,
   commentstyle=\color[rgb]{0,0.5,0},
   keywordstyle=\color[rgb]{0,0,1},
@@ -50,6 +51,15 @@
   escapechar=\%,
   extendedchars=\false,
   mathescape=\true
+}
+
+\lstdefinelanguage{SCs}{%
+  morekeywords={\#include},
+  sensitive=true,
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]"
+  escapeinside=''
 }
 
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
@@ -77,6 +87,9 @@
 \newcommand{\idtfm}[1]{\textit{#1}}
 
 \newcommand{\ostisgtlink}{\href{http://ostisgraphstheo.sourceforge.net}{OSTIS GT}}
+
+\newcommand{\SCg}{\texttt{SCg}}
+\newcommand{\SCs}{\texttt{SCs}}
 
 \bibliographystyle{unsrt}
 
