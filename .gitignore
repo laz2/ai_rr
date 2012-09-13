@@ -9,3 +9,4 @@ auto/
 *.rel
 _region_.tex
 *.synctex.gz
+.idea/
