@@ -14,3 +14,5 @@ del /F /Q *.rel
 del /F /Q *.toc
 
 del /F /Q *.bak
+
+del /F /Q students_tasks.tex
