@@ -38,6 +38,7 @@
 
 \usepackage{framed}
 \usepackage{cite}
+\usepackage{enumerate}
 
 \usepackage{listings,fancyvrb}
 \lstset{%
@@ -100,6 +101,15 @@
 
 \part{Курс ОИИ}
 \input{oii_intro}
+
+\clearpage
+
+\phantomsection
+\addcontentsline{toc}{section}{Перечень теоретико-графовых задач}
+\section*{Перечень теоретико-графовых задач}
+\label{sec:tasks_list}
+\input{tasks_list}
+
 \input{cppalgo}
 \input{onto}
 \input{algodemo}
