@@ -55,15 +55,17 @@ if $PROGRAM_NAME == __FILE__
     counter = 0
 
     CSV.foreach 'students_tasks.csv', col_sep: ';' do |row|
+      puts row[0].to_s
+
       if row[1]
         counter = counter + 1
 
         tgr_num = row[1].to_i - 1
         t_num = row[2].to_i - 1
 
-        to << "  #{counter} & #{row[0]} &"
+        to << "  {\\scriptsize #{counter}} & {\\scriptsize #{row[0]}} &"
 
-        to << '{\scriptsize '
+        to << '{\tiny '
         to << "#{db.groups[tgr_num][0]}: " if tgr_num == 0 or tgr_num == 1
         to << "#{db.groups[tgr_num][1][t_num].name}"
         to << ' (' << row[3..row.size - 1].join(', ') << ')' if row[3]
@@ -100,7 +102,8 @@ if $PROGRAM_NAME == __FILE__
         to.puts '  \centering'
         to.puts '  \begin{tabularx}{\linewidth}{| c | c | X | c | c |}'
         to.puts '  \hline'
-        to.puts '  № & ФИО студента & Задание по расчетной работе & Дата получения & Подпись \\\\ \hline'
+        to << '  {\scriptsize №} & {\scriptsize ФИО студента} & {\scriptsize Задание по расчетной работе}' <<
+            '  & {\scriptsize Дата получения} & {\scriptsize Подпись} \\\\ \hline' << "\n"
         counter = 0
       end
     end
