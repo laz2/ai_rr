@@ -55,21 +55,23 @@ if $PROGRAM_NAME == __FILE__
     counter = 0
 
     CSV.foreach 'students_tasks.csv', col_sep: ';' do |row|
-      puts row[0].to_s
-
       if row[1]
         counter = counter + 1
 
-        tgr_num = row[1].to_i - 1
-        t_num = row[2].to_i - 1
-
         to << "  {\\scriptsize #{counter}} & {\\scriptsize #{row[0]}} &"
 
-        to << '{\tiny '
-        to << "#{db.groups[tgr_num][0]}: " if tgr_num == 0 or tgr_num == 1
-        to << "#{db.groups[tgr_num][1][t_num].name}"
-        to << ' (' << row[3..row.size - 1].join(', ') << ')' if row[3]
-        to << '}'
+        if row[1] == '~'
+          to << '{\tiny ~}'
+        else
+          tgr_num = row[1].to_i - 1
+          t_num = row[2].to_i - 1
+          
+          to << '{\tiny '
+          to << "#{db.groups[tgr_num][0]}: " if tgr_num == 0 or tgr_num == 1
+          to << "#{db.groups[tgr_num][1][t_num].name}"
+          to << ' (' << row[3..row.size - 1].join(', ') << ')' if row[3]
+          to << '}'
+        end
 
         to.puts ' & ~ & ~ \\\\ \hline'
         to.puts
