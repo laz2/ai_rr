@@ -1,0 +1,1095 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 14">
+<meta name=Originator content="Microsoft Word 14">
+<link rel=File-List href="process_class.files/filelist.xml">
+<link rel=Edit-Time-Data href="process_class.files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Класс операторов выборки select</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Clio</o:Author>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>lazurkin</o:LastAuthor>
+  <o:Revision>3</o:Revision>
+  <o:TotalTime>169</o:TotalTime>
+  <o:Created>2005-10-02T15:14:00Z</o:Created>
+  <o:LastSaved>2011-11-16T16:55:00Z</o:LastSaved>
+  <o:Pages>2</o:Pages>
+  <o:Words>566</o:Words>
+  <o:Characters>3228</o:Characters>
+  <o:Company>HATA</o:Company>
+  <o:Lines>26</o:Lines>
+  <o:Paragraphs>7</o:Paragraphs>
+  <o:CharactersWithSpaces>3787</o:CharactersWithSpaces>
+  <o:Version>14.00</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<link rel=themeData href="process_class.files/themedata.thmx">
+<link rel=colorSchemeMapping href="process_class.files/colorschememapping.xml">
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>110</w:Zoom>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:TrackMoves>false</w:TrackMoves>
+  <w:TrackFormatting/>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>RU</w:LidThemeOther>
+  <w:LidThemeAsian>X-NONE</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:SplitPgBreakAndParaMark/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="&#45;-"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
+  DefSemiHidden="false" DefQFormat="false" LatentStyleCount="267">
+  <w:LsdException Locked="false" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" Priority="1" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" Priority="99" Name="No List"/>
+  <w:LsdException Locked="false" Priority="99" SemiHidden="true"
+   Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="99" SemiHidden="true" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" QFormat="true"
+   Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" QFormat="true"
+   Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" QFormat="true"
+   Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" QFormat="true"
+   Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" QFormat="true"
+   Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" QFormat="true"
+   Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" SemiHidden="true"
+   UnhideWhenUsed="true" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="TOC Heading"/>
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:204;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:1627400839 -2147483648 8 0 66047 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{mso-style-unhide:no;
+	color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-unhide:no;
+	color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-unhide:no;
+	mso-style-link:"Текст выноски Знак";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";
+	mso-fareast-font-family:"Times New Roman";}
+span.a
+	{mso-style-name:"Текст выноски Знак";
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Текст выноски";
+	mso-ansi-font-size:8.0pt;
+	mso-bidi-font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";
+	mso-ascii-font-family:Tahoma;
+	mso-hansi-font-family:Tahoma;
+	mso-bidi-font-family:Tahoma;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	font-size:10.0pt;
+	mso-ansi-font-size:10.0pt;
+	mso-bidi-font-size:10.0pt;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:2.0cm 42.5pt 2.0cm 3.0cm;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:174149649;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-815865754 68747279 68747289 68747291 68747279 68747289 68747291 68747279 68747289 68747291;}
+@list l0:level1
+	{mso-level-tab-stop:54.0pt;
+	mso-level-number-position:left;
+	margin-left:54.0pt;
+	text-indent:-18.0pt;}
+@list l0:level2
+	{mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level3
+	{mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level4
+	{mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level5
+	{mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level6
+	{mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level8
+	{mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level9
+	{mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1
+	{mso-list-id:1636450624;
+	mso-list-type:hybrid;
+	mso-list-template-ids:8186044 68747279 68747289 68747291 68747279 68747289 68747291 68747279 68747289 68747291;}
+@list l1:level1
+	{mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level2
+	{mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level3
+	{mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level4
+	{mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level5
+	{mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level6
+	{mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level8
+	{mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level9
+	{mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Обычная таблица";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+table.MsoTableGrid
+	{mso-style-name:"Сетка таблицы";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-unhide:no;
+	border:solid windowtext 1.0pt;
+	mso-border-alt:solid windowtext .5pt;
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-border-insideh:.5pt solid windowtext;
+	mso-border-insidev:.5pt solid windowtext;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1026">
+  <o:colormru v:ext="edit" colors="#8b8bff"/>
+ </o:shapedefaults></xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor="#CCFFFF" lang=RU link=blue vlink=purple style='tab-interval:
+35.4pt'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal align=center style='text-align:center'><b style='mso-bidi-font-weight:
+normal'><span style='font-size:16.0pt'>Класс операторов работы с процессами</span></b><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:16.0pt;
+mso-ansi-language:EN-US'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='font-size:16.0pt;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></b></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:
+ .5pt solid windowtext;mso-border-insidev:.5pt solid windowtext'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'>Содержание
+  главы<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+  <td width="100%" style='width:100.0%;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:
+  l1 level1 lfo2;tab-stops:list 36.0pt'><![if !supportLists]><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'><span
+  style='mso-list:Ignore'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></span><![endif]><span style='font-size:14.0pt'><a
+  href="#callReturn">Оператор запуска <span class=SpellE><span lang=EN-US
+  style='mso-ansi-language:EN-US'>scp</span></span>-программ <span
+  class=SpellE><span lang=EN-US style='mso-ansi-language:EN-US'>callReturn</span></span></a></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'> <o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:
+  l1 level1 lfo2;tab-stops:list 36.0pt'><![if !supportLists]><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'><span
+  style='mso-list:Ignore'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></span><![endif]><span style='font-size:14.0pt'><a
+  href="#return">Оператор завершения <span class=SpellE><span lang=EN-US
+  style='mso-ansi-language:EN-US'>scp</span></span>-программ <span lang=EN-US
+  style='mso-ansi-language:EN-US'>return</span></a></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=center style='text-align:center'><b style='mso-bidi-font-weight:
+normal'><span style='font-size:16.0pt'><o:p>&nbsp;</o:p></span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b style='mso-bidi-font-weight:
+normal'><span style='font-size:16.0pt'><o:p>&nbsp;</o:p></span></b></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.4pt'><span
+style='font-size:14.0pt'>Данный класс представлен операторами </span><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>call</span></i><span style='font-size:14.0pt'>,<i
+style='mso-bidi-font-style:normal'> </i></span><span class=SpellE><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>callReturn</span></i></span><i style='mso-bidi-font-style:
+normal'><span style='font-size:14.0pt'>, </span></i><span class=SpellE><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>waitReturn</span></i></span><span style='font-size:
+14.0pt'>,<i style='mso-bidi-font-style:normal'> </i></span><i style='mso-bidi-font-style:
+normal'><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>return</span></i><span
+style='font-size:14.0pt'>. Предназначены для запуска процесса (</span><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>call</span></i><span style='font-size:14.0pt'>), запуска
+программы (</span><span class=SpellE><i style='mso-bidi-font-style:normal'><span
+lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>callReturn</span></i></span><span
+style='font-size:14.0pt'>), ожидание завершения (</span><span class=SpellE><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>waitReturn</span></i></span><span style='font-size:
+14.0pt'>) и завершения процесса (</span><i style='mso-bidi-font-style:normal'><span
+lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>return</span></i><span
+style='font-size:14.0pt'>). Наиболее широкое применение имеют операторы </span><span
+class=SpellE><i style='mso-bidi-font-style:normal'><span lang=EN-US
+style='font-size:14.0pt;mso-ansi-language:EN-US'>callReturn</span></i></span><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt'> </span></i><span
+style='font-size:14.0pt'>и </span><i style='mso-bidi-font-style:normal'><span
+lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>return</span></i><span
+style='font-size:14.0pt'>. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.4pt'><span
+style='font-size:14.0pt'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><a name=callReturn><b
+style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt'>Оператор
+запуска </span></b></a><span style='mso-bookmark:callReturn'><span
+class=SpellE><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='font-size:14.0pt;mso-ansi-language:EN-US'>scp</span></b></span></span><span
+style='mso-bookmark:callReturn'><b style='mso-bidi-font-weight:normal'><span
+style='font-size:14.0pt'>-программ </span></b></span><span style='mso-bookmark:
+callReturn'><span class=SpellE><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>callReturn</span></b></span></span><span
+style='mso-bookmark:callReturn'></span><b style='mso-bidi-font-weight:normal'><span
+style='font-size:14.0pt'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=BE style='font-size:14.0pt;mso-ansi-language:
+BE'>Синтаксис:<span style='mso-spacerun:yes'>  </span></span><span
+style='font-size:14.0pt'><o:p></o:p></span></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;background:#EAEAEA;border-collapse:collapse;border:none;
+ mso-border-alt:solid windowtext .5pt;mso-yfti-tbllook:480;mso-padding-alt:
+ 0cm 5.4pt 0cm 5.4pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:80.75pt'>
+  <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:80.75pt'>
+  <p class=MsoNormal><span class=GramE><span style='font-size:14.0pt;
+  font-family:"Courier New"'>с</span></span><span class=SpellE><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-US'>allReturn</span></span><span lang=BE style='font-size:14.0pt;
+  font-family:"Courier New";mso-ansi-language:BE'>([1_:</span><span lang=EN-US
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-US'> <span
+  class=SpellE>procedure_name</span></span><span lang=EN-GB style='font-size:
+  14.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'>,<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-GB'><span style='mso-spacerun:yes'>           
+  </span>2_: </span><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-US'>{[1_: param1,<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>         </span></span><span
+  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-GB'><span style='mso-spacerun:yes'>         </span></span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-US'>2_: param2,<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-GB'><span style='mso-spacerun:yes'>         </span></span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'>         </span>3_: param3]}<o:p></o:p></span></p>
+  <p class=MsoNormal style='tab-stops:90.0pt'><span lang=EN-GB
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'><span
+  style='mso-spacerun:yes'>           </span>])<o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:
+EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'>Параметры:</span><span
+style='font-size:14.0pt;mso-ansi-language:BE'> </span><span style='font-size:
+14.0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><i style='mso-bidi-font-style:
+normal'><span lang=EN-US style='font-size:15.0pt;mso-ansi-language:EN-US'>procedure</span></i><i
+style='mso-bidi-font-style:normal'><span style='font-size:15.0pt'>_</span></i><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:15.0pt;
+mso-ansi-language:EN-US'>name</span></i><span style='font-size:15.0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:72.0pt;text-align:justify'><span
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>in</span><span style='font-size:14.0pt'>] константный
+узел</span><span lang=BE style='font-size:14.0pt;mso-ansi-language:BE'>,
+который содержит путь к вызываемой процедуре</span><span style='font-size:14.0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><span class=SpellE><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:15.0pt;
+mso-ansi-language:EN-US'>param</span></i></span><i style='mso-bidi-font-style:
+normal'><span style='font-size:15.0pt'>1</span></i><span style='font-size:15.0pt'>
+<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:70.8pt;text-align:justify'><span
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>in</span><span style='font-size:14.0pt'>, </span><span
+lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>out</span><span
+style='font-size:14.0pt'>] </span><span lang=BE style='font-size:14.0pt;
+mso-ansi-language:BE'>первый параметр вызываемой процедуры </span><span
+style='font-size:14.0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><span class=SpellE><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:15.0pt;
+mso-ansi-language:EN-US'>param</span></i></span><i style='mso-bidi-font-style:
+normal'><span style='font-size:15.0pt'>2</span></i><span style='font-size:15.0pt'>
+<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:70.8pt;text-align:justify'><span
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>in</span><span style='font-size:14.0pt'>, </span><span
+lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>out</span><span
+style='font-size:14.0pt'>] </span><span lang=BE style='font-size:14.0pt;
+mso-ansi-language:BE'>второй параметр вызываемой процедуры </span><span
+style='font-size:14.0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><span class=SpellE><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:15.0pt;
+mso-ansi-language:EN-US'>param</span></i></span><i style='mso-bidi-font-style:
+normal'><span style='font-size:15.0pt'>3</span></i><span style='font-size:15.0pt'>
+<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:70.8pt;text-align:justify'><span
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>in</span><span style='font-size:14.0pt'>, </span><span
+lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>out</span><span
+style='font-size:14.0pt'>] </span><span lang=BE style='font-size:14.0pt;
+mso-ansi-language:BE'>второй параметр вызываемой процедуры</span><span
+style='font-size:14.0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><span
+class=SpellE><i style='mso-bidi-font-style:normal'><span lang=EN-GB
+style='font-size:15.0pt;mso-ansi-language:EN-GB'>proc</span></i></span><i
+style='mso-bidi-font-style:normal'><span style='font-size:15.0pt'>_</span></i><span
+class=SpellE><i style='mso-bidi-font-style:normal'><span lang=EN-GB
+style='font-size:15.0pt;mso-ansi-language:EN-GB'>descr</span></i></span><i
+style='mso-bidi-font-style:normal'><span style='font-size:15.0pt'><o:p></o:p></span></i></p>
+
+<p class=MsoNormal style='margin-left:72.0pt;text-align:justify'><span
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>in</span><span style='font-size:14.0pt'>, </span><span
+lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>out</span><span
+style='font-size:14.0pt'>]</span><span style='font-size:15.0pt'> описатель
+(далее дескриптор) создаваемого процесса<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'>Назначение:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><span
+style='font-size:14.0pt'>Оператор </span><span class=SpellE><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>callReturn</span></i></span><i style='mso-bidi-font-style:
+normal'><span lang=EN-US style='font-size:14.0pt'> </span></i><span
+style='font-size:14.0pt'>предназначен для запуска </span><span class=SpellE><span
+lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>scp</span></span><span
+style='font-size:14.0pt'>-программ. Оператору, следующему после </span><span
+class=SpellE><i style='mso-bidi-font-style:normal'><span lang=EN-US
+style='font-size:14.0pt;mso-ansi-language:EN-US'>callReturn</span></i></span><span
+style='font-size:14.0pt'>, управление передается только после завершения <span
+class=GramE>запускаемой</span> </span><span class=SpellE><span lang=EN-US
+style='font-size:14.0pt;mso-ansi-language:EN-US'>scp</span></span><span
+style='font-size:14.0pt'>-программы. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><span
+style='font-size:14.0pt'>В качестве первого параметра оператора выступает
+константный узел </span><span class=SpellE><span lang=EN-US style='font-size:
+14.0pt;mso-ansi-language:EN-US'>scp</span></span><span style='font-size:14.0pt'>-программы.
+Второй параметр – это упорядоченное множество параметров вызываемой </span><span
+class=SpellE><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>scp</span></span><span
+style='font-size:14.0pt'>-программы. При чем числовые атрибуты множества
+параметров в операторе и в вызываемой программе должны соответствовать. Каждый
+параметр оператора<span style='mso-spacerun:yes'>  </span></span><span
+class=SpellE><i style='mso-bidi-font-style:normal'><span lang=EN-US
+style='font-size:14.0pt;mso-ansi-language:EN-US'>callReturn</span></i></span><span
+style='font-size:14.0pt'> уточняется атрибутом </span><i style='mso-bidi-font-style:
+normal'><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>fixed</span></i><i
+style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>_</span></i><span
+style='font-size:14.0pt'>. Но параметры вызываемой программы уточняются только
+числовыми атрибутами. Возможен вызов </span><span class=SpellE><span
+lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>scp</span></span><span
+style='font-size:14.0pt'>-программы с не полным набором ее параметров (смотрите
+<u>Пример 2</u>).<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><span
+style='font-size:14.0pt'><o:p>&nbsp;</o:p></span></p>
+
+<div align=center>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:
+ .5pt solid windowtext;mso-border-insidev:.5pt solid windowtext'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width="8%" valign=top style='width:8.82%;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black;mso-no-proof:
+  yes'><!--[if gte vml 1]><v:shapetype id="_x0000_t75" coordsize="21600,21600"
+   o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" filled="f"
+   stroked="f">
+   <v:stroke joinstyle="miter"/>
+   <v:formulas>
+    <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+    <v:f eqn="sum @0 1 0"/>
+    <v:f eqn="sum 0 0 @1"/>
+    <v:f eqn="prod @2 1 2"/>
+    <v:f eqn="prod @3 21600 pixelWidth"/>
+    <v:f eqn="prod @3 21600 pixelHeight"/>
+    <v:f eqn="sum @0 0 1"/>
+    <v:f eqn="prod @6 1 2"/>
+    <v:f eqn="prod @7 21600 pixelWidth"/>
+    <v:f eqn="sum @8 21600 0"/>
+    <v:f eqn="prod @7 21600 pixelHeight"/>
+    <v:f eqn="sum @10 21600 0"/>
+   </v:formulas>
+   <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+   <o:lock v:ext="edit" aspectratio="t"/>
+  </v:shapetype><v:shape id="Рисунок_x0020_2" o:spid="_x0000_i1027" type="#_x0000_t75"
+   alt="Описание: Attention" style='width:37.5pt;height:23.25pt;visibility:visible;
+   mso-wrap-style:square'>
+   <v:imagedata src="process_class.files/image001.png" o:title="Attention"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=50 height=31
+  src="process_class.files/image002.gif" alt="Описание: Attention" v:shapes="Рисунок_x0020_2"><![endif]></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'><o:p></o:p></span></p>
+  </td>
+  <td width="91%" style='width:91.18%;border:solid windowtext 1.0pt;border-left:
+  none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify'><b style='mso-bidi-font-weight:
+  normal'><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'>Внимание:</span></b><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'> Для
+  корректной работы необходимо, что бы вызываемая программа имела цельную
+  последовательность числовых атрибутов параметров (1_, 2_, 3_ ... 5_). Не
+  допустимой является ситуация 1_, 3_, 4_ и так далее.</span><span
+  style='font-size:14.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width="8%" valign=top style='width:8.82%;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black;mso-no-proof:
+  yes'><!--[if gte vml 1]><v:shape id="Рисунок_x0020_3" o:spid="_x0000_i1026"
+   type="#_x0000_t75" alt="Описание: Example" style='width:45pt;height:28.5pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="process_class.files/image003.png" o:title="Example"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=60 height=38
+  src="process_class.files/image004.gif" alt="Описание: Example" v:shapes="Рисунок_x0020_3"><![endif]></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'><o:p></o:p></span></p>
+  </td>
+  <td width="91%" valign=top style='width:91.18%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify;tab-stops:54.75pt'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  12.0pt;color:black'>Пример 1</span></b><span style='font-size:14.0pt;
+  mso-bidi-font-size:12.0pt;color:black'>. </span><span style='font-size:14.0pt'>Необходимо
+  вызвать процедуру </span><i style='mso-bidi-font-style:normal'><span
+  lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>add</span></i><span
+  style='font-size:14.0pt'>, которая находится в файле </span><i
+  style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+  mso-ansi-language:EN-US'>add</span></i><i style='mso-bidi-font-style:normal'><span
+  style='font-size:14.0pt'>_</span></i><i style='mso-bidi-font-style:normal'><span
+  lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>content</span></i><span
+  lang=EN-US style='font-size:14.0pt'> </span><span style='font-size:14.0pt'>(каталоге
+  </span><span class=SpellE><i style='mso-bidi-font-style:normal'><span
+  lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>proc</span></i></span><span
+  style='font-size:14.0pt'>). Процедура </span><i style='mso-bidi-font-style:
+  normal'><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>add</span></i><span
+  lang=EN-US style='font-size:14.0pt'> </span><span style='font-size:14.0pt'>имеет
+  два параметра.<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify;tab-stops:54.75pt'><span
+  style='font-size:14.0pt'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
+  font-family:"Courier New"'>// В секции констант программы пишем<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span class=SpellE><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-US'>add_program</span></span><span lang=EN-US style='font-size:14.0pt;
+  font-family:"Courier New";mso-ansi-language:EN-US'> =”<span class=SpellE>proc</span>/<span
+  class=SpellE>add_content</span>/add”; <o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span lang=EN-US
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-US'>...<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span lang=EN-US
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-US'>//
+  </span><span style='font-size:14.0pt;font-family:"Courier New"'>Вызываем</span><span
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-US'> </span><span
+  style='font-size:14.0pt;font-family:"Courier New"'>процедуру</span><span
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-US'> <span
+  lang=EN-US>add<o:p></o:p></span></span></p>
+  <p class=MsoNormal><span class=GramE><span style='font-size:14.0pt;
+  font-family:"Courier New"'>с</span></span><span class=SpellE><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-US'>allReturn</span></span><span lang=BE style='font-size:14.0pt;
+  font-family:"Courier New";mso-ansi-language:BE'>([1_:</span><span lang=EN-US
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-US'>
+  fixed_: add</span><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-GB'>_</span><span lang=EN-US style='font-size:14.0pt;
+  font-family:"Courier New";mso-ansi-language:EN-US'>program</span><span
+  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-GB'>,<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-GB'><span style='mso-spacerun:yes'>           
+  </span>2_: </span><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-US'>fixed_: {[1_: param1,<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>         </span></span><span
+  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-GB'><span style='mso-spacerun:yes'>                 </span></span><span
+  class=GramE><span style='font-size:14.0pt;font-family:"Courier New"'>2_: </span><span
+  class=SpellE><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-US'>param</span></span><span style='font-size:14.0pt;
+  font-family:"Courier New"'>2]}</span></span><span style='font-size:14.0pt;
+  font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
+  font-family:"Courier New"'><span style='mso-spacerun:yes'>           </span>])<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt'>В
+  данном случае будет вызвана процедура </span><i style='mso-bidi-font-style:
+  normal'><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>add</span></i><span
+  style='font-size:14.0pt'> с параметрами </span><span class=SpellE><i
+  style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+  mso-ansi-language:EN-US'>param</span></i></span><i style='mso-bidi-font-style:
+  normal'><span style='font-size:14.0pt'>1</span></i><span style='font-size:
+  14.0pt'> и </span><span class=SpellE><i style='mso-bidi-font-style:normal'><span
+  lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>param</span></i></span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>2</span></i><span
+  style='font-size:14.0pt'>. Параметры могут быть как входными, так и
+  выходными.<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2;mso-yfti-lastrow:yes'>
+  <td width="8%" valign=top style='width:8.82%;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black;mso-no-proof:
+  yes'><!--[if gte vml 1]><v:shape id="Рисунок_x0020_4" o:spid="_x0000_i1025"
+   type="#_x0000_t75" alt="Описание: Example" style='width:45pt;height:28.5pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="process_class.files/image003.png" o:title="Example"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=60 height=38
+  src="process_class.files/image004.gif" alt="Описание: Example" v:shapes="Рисунок_x0020_4"><![endif]></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'><o:p></o:p></span></p>
+  </td>
+  <td width="91%" valign=top style='width:91.18%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify;tab-stops:54.75pt'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  12.0pt;color:black'>Пример 2</span></b><span style='font-size:14.0pt;
+  mso-bidi-font-size:12.0pt;color:black'>. </span><span style='font-size:14.0pt'>Необходимо
+  вызвать процедуру </span><span class=SpellE><i style='mso-bidi-font-style:
+  normal'><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>GetNext</span></i></span><span
+  style='font-size:14.0pt'>, которая находится в файле </span><span
+  class=SpellE><i style='mso-bidi-font-style:normal'><span lang=EN-US
+  style='font-size:14.0pt;mso-ansi-language:EN-US'>GetNext</span></i></span><span
+  style='font-size:14.0pt'> (каталоге </span><span class=SpellE><i
+  style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+  mso-ansi-language:EN-US'>proc</span></i></span><span style='font-size:14.0pt'>).
+  Процедура </span><span class=SpellE><i style='mso-bidi-font-style:normal'><span
+  lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>GetNext</span></i></span><span
+  lang=EN-US style='font-size:14.0pt'> </span><span style='font-size:14.0pt'>имеет
+  три параметра.<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify;tab-stops:54.75pt'><span
+  style='font-size:14.0pt'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
+  font-family:"Courier New"'>// В секции констант программы пишем<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span class=SpellE><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-US'>add_program</span></span><span lang=EN-US style='font-size:14.0pt;
+  font-family:"Courier New";mso-ansi-language:EN-US'> =”<span class=SpellE>proc</span>/<span
+  class=SpellE>GetNext</span>/<span class=SpellE>GetNext</span>”; <o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span lang=EN-US
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-US'>...<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span lang=EN-US
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-US'>//
+  </span><span style='font-size:14.0pt;font-family:"Courier New"'>Вызываем</span><span
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'> </span><span
+  style='font-size:14.0pt;font-family:"Courier New"'>процедуру</span><span
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'> </span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-US'>add<o:p></o:p></span></p>
+  <p class=MsoNormal><span class=GramE><span style='font-size:14.0pt;
+  font-family:"Courier New"'>с</span></span><span class=SpellE><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-US'>allReturn</span></span><span lang=BE style='font-size:14.0pt;
+  font-family:"Courier New";mso-ansi-language:BE'>([1_:</span><span lang=EN-US
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-US'>
+  fixed_: add</span><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-GB'>_</span><span lang=EN-US style='font-size:14.0pt;
+  font-family:"Courier New";mso-ansi-language:EN-US'>program</span><span
+  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-GB'>,<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-GB'><span style='mso-spacerun:yes'>            </span></span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-US'>2_: fixed_: {[1_: param1,<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>                          </span></span><span
+  class=GramE><span style='font-size:14.0pt;font-family:"Courier New"'>3_: </span><span
+  class=SpellE><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-US'>param</span></span><span style='font-size:14.0pt;
+  font-family:"Courier New"'>3]}</span></span><span style='font-size:14.0pt;
+  font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
+  font-family:"Courier New"'><span style='mso-spacerun:yes'>           </span>])<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt'>Пример
+  демонстрирует вызов процедуры с определенными параметрами (в этом случае –
+  это первый и третий параметры процедуры </span><span class=SpellE><i
+  style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+  mso-ansi-language:EN-US'>GetNext</span></i></span><span style='font-size:
+  14.0pt'>).<o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+</div>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:35.4pt'><b
+style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt'><o:p>&nbsp;</o:p></span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:35.4pt'><a
+name=return><b style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt'>Оператор
+завершения </span></b></a><span style='mso-bookmark:return'><span class=SpellE><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>scp</span></b></span></span><span style='mso-bookmark:
+return'><b style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt'>-программ
+</span></b></span><span style='mso-bookmark:return'><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>return</span></b></span><span
+style='mso-bookmark:return'></span><b style='mso-bidi-font-weight:normal'><span
+style='font-size:14.0pt'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=BE style='font-size:14.0pt;mso-ansi-language:
+BE'>Синтаксис:<span style='mso-spacerun:yes'>  </span></span><span
+style='font-size:14.0pt'><o:p></o:p></span></p>
+
+<div align=center>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;background:#EAEAEA;border-collapse:collapse;border:none;
+ mso-border-alt:solid windowtext .5pt;mso-yfti-tbllook:480;mso-padding-alt:
+ 0cm 5.4pt 0cm 5.4pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:25.4pt'>
+  <td width="100%" style='width:100.0%;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:25.4pt'>
+  <p class=MsoNormal style='tab-stops:90.0pt'><span lang=EN-US
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-US'>return(</span><span
+  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-GB'>)<o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+</div>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:
+EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'>Параметры:</span><span
+style='font-size:14.0pt;mso-ansi-language:BE'> </span><span style='font-size:
+14.0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><span
+style='font-size:14.0pt'>Оператор не имеет параметров<u><o:p></o:p></u></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:
+EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'>Назначение:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><span style='font-size:14.0pt'>Оператор
+</span><i style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:
+14.0pt;mso-ansi-language:EN-US'>return</span></i><i style='mso-bidi-font-style:
+normal'><span lang=EN-US style='font-size:14.0pt'> </span></i><span
+style='font-size:14.0pt'>предназначен для завершения </span><span class=SpellE><span
+lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>scp</span></span><span
+style='font-size:14.0pt'>-программ. После успешного выполнения оператора </span><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>return</span></i><i style='mso-bidi-font-style:normal'><span
+lang=EN-US style='font-size:14.0pt'> </span></i><span style='font-size:14.0pt'>происходит
+возврат управления в точку вызова данной процедуры. Так же после выполнения
+оператора формируются выходные параметры </span><span class=SpellE><span
+lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>scp</span></span><span
+style='font-size:14.0pt'>-программы. В некоторых случаях после оператора </span><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>return</span></i><i style='mso-bidi-font-style:normal'><span
+lang=EN-US style='font-size:14.0pt'> </span></i><span style='font-size:14.0pt'>следует
+<span class=GramE>ключевое</span> слова языка </span><i style='mso-bidi-font-style:
+normal'><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>end</span></i><span
+style='font-size:14.0pt'>.<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='margin-left:36.0pt;text-align:center'><b
+style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt'><o:p>&nbsp;</o:p></span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b style='mso-bidi-font-weight:
+normal'><span style='font-size:14.0pt'>Оператор параллельного запуска </span></b><span
+class=SpellE><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='font-size:14.0pt;mso-ansi-language:EN-US'>scp</span></b></span><b
+style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt'>-программ </span></b><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>call</span></b><b style='mso-bidi-font-weight:normal'><span
+style='font-size:14.0pt'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal align=center style='margin-left:36.0pt;text-align:center'><b
+style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt'><o:p>&nbsp;</o:p></span></b></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt'>Оператор
+</span><i style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:
+14.0pt;mso-ansi-language:EN-US'>call</span></i><span lang=EN-US
+style='font-size:14.0pt'> </span><span style='font-size:14.0pt'>представляет
+собой оператор запуска </span><span class=SpellE><span lang=EN-US
+style='font-size:14.0pt;mso-ansi-language:EN-US'>scp</span></span><span
+style='font-size:14.0pt'>-программ, <span class=GramE>которые</span>
+выполняются параллельно.<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='margin-left:36.0pt;text-align:center'><b
+style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt'><o:p>&nbsp;</o:p></span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b style='mso-bidi-font-weight:
+normal'><span style='font-size:14.0pt'>Оператор ожидания выполнения </span></b><span
+class=SpellE><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='font-size:14.0pt;mso-ansi-language:EN-US'>scp</span></b></span><b
+style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt'>-процесса </span></b><span
+class=SpellE><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='font-size:14.0pt;mso-ansi-language:EN-US'>waitReturn</span></b></span><b
+style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal align=center style='margin-left:36.0pt;text-align:center'><b
+style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt'><o:p>&nbsp;</o:p></span></b></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt'>Оператор
+позволяющий ожидать выполнения определенного </span><span class=SpellE><span
+lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>scp</span></span><span
+style='font-size:14.0pt'>-процесса.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><o:p>&nbsp;</o:p></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:
+ .5pt solid windowtext;mso-border-insidev:.5pt solid windowtext'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'>Содержание
+  главы<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+  <td width="100%" style='width:100.0%;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-left:54.0pt;text-indent:-18.0pt;mso-list:
+  l0 level1 lfo4;tab-stops:list 54.0pt'><![if !supportLists]><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'><span
+  style='mso-list:Ignore'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></span><![endif]><span style='font-size:14.0pt'><a
+  href="#callReturn">Оператор запуска <span class=SpellE><span lang=EN-US
+  style='mso-ansi-language:EN-US'>scp</span></span>-программ <span
+  class=SpellE><span lang=EN-US style='mso-ansi-language:EN-US'>callReturn</span></span></a></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'> <o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-left:54.0pt;text-indent:-18.0pt;mso-list:
+  l0 level1 lfo4;tab-stops:list 54.0pt'><![if !supportLists]><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'><span
+  style='mso-list:Ignore'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></span><![endif]><span style='font-size:14.0pt'><a
+  href="#return">Оператор завершения <span class=SpellE><span lang=EN-US
+  style='mso-ansi-language:EN-US'>scp</span></span>-программ <span lang=EN-US
+  style='mso-ansi-language:EN-US'>return</span></a></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><o:p>&nbsp;</o:p></p>
+
+</div>
+
+</body>
+
+</html>

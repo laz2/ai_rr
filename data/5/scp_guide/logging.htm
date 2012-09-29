@@ -1,0 +1,407 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 11">
+<meta name=Originator content="Microsoft Word 11">
+<link rel=File-List href="logging.files/filelist.xml">
+<link rel=Edit-Time-Data href="logging.files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Протокол работы scp-программы</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Memphis</o:Author>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>Memphis</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>48</o:TotalTime>
+  <o:Created>2005-10-02T15:17:00Z</o:Created>
+  <o:LastSaved>2005-10-02T15:17:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>344</o:Words>
+  <o:Characters>1962</o:Characters>
+  <o:Company>Memphis inc.</o:Company>
+  <o:Lines>16</o:Lines>
+  <o:Paragraphs>4</o:Paragraphs>
+  <o:CharactersWithSpaces>2302</o:CharactersWithSpaces>
+  <o:Version>11.5606</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:DisplayVerticalDrawingGridEvery>0</w:DisplayVerticalDrawingGridEvery>
+  <w:UseMarginsForDrawingGridOrigin/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:Compatibility>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AlignTablesRowByRow/>
+   <w:ForgetLastTabAlignment/>
+   <w:LayoutRawTableWidth/>
+   <w:LayoutTableRowsApart/>
+   <w:UseWord97LineBreakingRules/>
+   <w:SelectEntireFieldWithStartOrEnd/>
+   <w:UseWord2002TableStyleRules/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" LatentStyleCount="156">
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-style-next:Обычный;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:14.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Times New Roman";
+	color:black;
+	mso-font-kerning:0pt;
+	font-weight:normal;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+@page Section1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	mso-header-margin:36.0pt;
+	mso-footer-margin:36.0pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:1256325828;
+	mso-list-type:simple;
+	mso-list-template-ids:68747279;}
+@list l0:level1
+	{mso-level-tab-stop:18.0pt;
+	mso-level-number-position:left;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Обычная таблица";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="2050">
+  <o:colormenu v:ext="edit" fillcolor="#cff"/>
+ </o:shapedefaults></xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor="#CCFFFF" lang=RU link=blue vlink=purple style='tab-interval:
+36.0pt'>
+
+<div class=Section1>
+
+<p class=MsoNormal align=center style='text-align:center'><b style='mso-bidi-font-weight:
+normal'><span style='font-size:16.0pt;mso-bidi-font-size:10.0pt;color:black;
+layout-grid-mode:line'>Протокол работы scp-программы</span></b><b
+style='mso-bidi-font-weight:normal'><span style='font-size:16.0pt;mso-bidi-font-size:
+10.0pt;color:black'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:16.0pt;mso-bidi-font-size:10.0pt;color:black'><o:p>&nbsp;</o:p></span></b></p>
+
+<h1 style='text-align:justify'>Умение работать с протоколом работы <span
+style='layout-grid-mode:line'>scp-программы (далее для краткости будем
+называть<span style='mso-spacerun:yes'>  </span>протоколом) во многом
+определяет время локализации синтаксической или логической ошибки </span><span
+lang=EN-US style='mso-ansi-language:EN-US;layout-grid-mode:line'>scp</span><span
+style='layout-grid-mode:line'>-программы. Кроме того, протокол является важным
+средством передачи информации от </span><span lang=EN-US style='mso-ansi-language:
+EN-US;layout-grid-mode:line'>scp</span><span style='layout-grid-mode:line'>-программы
+к пользователю. Вот почему следует научиться правильно работать с протоколом.<o:p></o:p></span></h1>
+
+<p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:10.0pt'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:.5pt solid windowtext;
+ mso-border-insidev:.5pt solid windowtext'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width="12%" valign=top style='width:12.82%;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;color:black'><!--[if gte vml 1]><v:shapetype
+   id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+   path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+   <v:stroke joinstyle="miter"/>
+   <v:formulas>
+    <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+    <v:f eqn="sum @0 1 0"/>
+    <v:f eqn="sum 0 0 @1"/>
+    <v:f eqn="prod @2 1 2"/>
+    <v:f eqn="prod @3 21600 pixelWidth"/>
+    <v:f eqn="prod @3 21600 pixelHeight"/>
+    <v:f eqn="sum @0 0 1"/>
+    <v:f eqn="prod @6 1 2"/>
+    <v:f eqn="prod @7 21600 pixelWidth"/>
+    <v:f eqn="sum @8 21600 0"/>
+    <v:f eqn="prod @7 21600 pixelHeight"/>
+    <v:f eqn="sum @10 21600 0"/>
+   </v:formulas>
+   <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+   <o:lock v:ext="edit" aspectratio="t"/>
+  </v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:37.5pt;
+   height:23.25pt' fillcolor="window">
+   <v:imagedata src="logging.files/image001.png" o:title="Question"/>
+  </v:shape><![endif]--><![if !vml]><img width=50 height=31
+  src="logging.files/image002.gif" v:shapes="_x0000_i1025"><![endif]><o:p></o:p></span></p>
+  </td>
+  <td width="87%" style='width:87.18%;border:solid windowtext 1.0pt;border-left:
+  none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify'><b style='mso-bidi-font-weight:
+  normal'><span style='font-size:14.0pt;mso-bidi-font-size:10.0pt;color:black'>Рекомендация:</span></b><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;color:black'> при отладке </span><span
+  lang=EN-US style='font-size:14.0pt;mso-bidi-font-size:10.0pt;color:black;
+  mso-ansi-language:EN-US'>scp</span><span style='font-size:14.0pt;mso-bidi-font-size:
+  10.0pt;color:black'>-программы приходится большое количество раз
+  просматривать протокол и анализировать его сообщения. Этап анализа пропустить
+  никак нельзя (хотя и можно сократить затрачиваемое время, о чём будет
+  написано ниже). А вот этап просмотра протокола с целью нахождения среди
+  колоссального количества системных сообщений нескольких строк
+  пользовательских сообщений можно существенно сократить по времени. Для этого
+  необходимо совершить следующие операции: <o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-left:18.0pt;text-align:justify;text-indent:
+  -18.0pt;mso-list:l0 level1 lfo1;tab-stops:list 18.0pt'><![if !supportLists]><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;color:black'><span
+  style='mso-list:Ignore'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></span><![endif]><span style='font-size:14.0pt;mso-bidi-font-size:
+  10.0pt;color:black'>создать константный узел с текстовым сообщением, которое
+  сразу бросается в глаза (например, строка из 80 знаков умножения ‘*’);<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-left:18.0pt;text-align:justify;text-indent:
+  -18.0pt;mso-list:l0 level1 lfo1;tab-stops:list 18.0pt'><![if !supportLists]><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;color:black'><span
+  style='mso-list:Ignore'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></span><![endif]><span style='font-size:14.0pt;mso-bidi-font-size:
+  10.0pt;color:black'>в начале </span><span lang=EN-US style='font-size:14.0pt;
+  mso-bidi-font-size:10.0pt;color:black;mso-ansi-language:EN-US'>scp</span><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;color:black'>-программы или
+  перед сомнительным участком кода написать оператор </span><i
+  style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+  mso-bidi-font-size:10.0pt;color:black;mso-ansi-language:EN-US'>printNl</span></i><span
+  lang=EN-US style='font-size:14.0pt;mso-bidi-font-size:10.0pt;color:black'> </span><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;color:black'>для вывода
+  текстового содержимого созданного константного узла;<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-left:18.0pt;text-align:justify;text-indent:
+  -18.0pt;mso-list:l0 level1 lfo1;tab-stops:list 18.0pt'><![if !supportLists]><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;color:black'><span
+  style='mso-list:Ignore'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></span><![endif]><span style='font-size:14.0pt;mso-bidi-font-size:
+  10.0pt;color:black'>в результате искомый участок протокола будет чётко
+  выделен среди остального текста, и найти пользовательские сообщения не
+  составит большого труда;<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-left:18.0pt;text-align:justify;text-indent:
+  -18.0pt;mso-list:l0 level1 lfo1;tab-stops:list 18.0pt'><![if !supportLists]><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;color:black'><span
+  style='mso-list:Ignore'>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></span><![endif]><span style='font-size:14.0pt;mso-bidi-font-size:
+  10.0pt;color:black'>после того, как программа полностью откорректирована,
+  можно (и нужно) удалить созданный ранее константный узел-индикатор и все
+  операторы </span><i style='mso-bidi-font-style:normal'><span lang=EN-US
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;color:black;mso-ansi-language:
+  EN-US'>printNl</span></i><span style='font-size:14.0pt;mso-bidi-font-size:
+  10.0pt;color:black'>, вызывающие его.<o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:16.0pt;mso-bidi-font-size:10.0pt;color:black'><o:p>&nbsp;</o:p></span></b></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
+mso-bidi-font-size:10.0pt;color:black'>Приведём список операторов, которые так
+или иначе могут помочь пользователю при работе с протоколом. Также будут
+приведены краткие пояснения (более подробно о </span><span lang=EN-US
+style='font-size:14.0pt;mso-bidi-font-size:10.0pt;color:black;mso-ansi-language:
+EN-US'>scp</span><span style='font-size:14.0pt;mso-bidi-font-size:10.0pt;
+color:black'>-операторах смотрите в главе «<a
+href="../Source/II.%20Основная%20часть/operators.htm"><span style='color:black'>Операторы
+языка</span></a>»).<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
+mso-bidi-font-size:10.0pt;color:black'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:.5pt solid windowtext;
+ mso-border-insidev:.5pt solid windowtext'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width="26%" valign=top style='width:26.08%;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b
+  style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:14.0pt;
+  mso-bidi-font-size:10.0pt;color:black;mso-ansi-language:EN-US'>Scp-</span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  10.0pt;color:black'>оператор<o:p></o:p></span></b></p>
+  </td>
+  <td width="73%" valign=top style='width:73.92%;border:solid windowtext 1.0pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+  solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <h1 align=center style='text-align:center'><b style='mso-bidi-font-weight:
+  normal'>Пояснение<o:p></o:p></b></h1>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width="26%" valign=top style='width:26.08%;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><i
+  style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+  mso-bidi-font-size:10.0pt;color:black;mso-ansi-language:EN-US'>printEl<o:p></o:p></span></i></p>
+  </td>
+  <td width="73%" valign=top style='width:73.92%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
+  mso-bidi-font-size:10.0pt;color:black'>Выводит в протокол имя операнда, имена
+  исходящих из операнда и входящих в операнд дуг.<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2'>
+  <td width="26%" valign=top style='width:26.08%;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><i
+  style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+  mso-bidi-font-size:10.0pt;color:black;mso-ansi-language:EN-US'>printNl<o:p></o:p></span></i></p>
+  </td>
+  <td width="73%" valign=top style='width:73.92%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
+  mso-bidi-font-size:10.0pt;color:black'>Выводит в протокол тестовое содержимое
+  операнда и символ окончания строки (перевод каретки ‘\</span><span
+  lang=EN-US style='font-size:14.0pt;mso-bidi-font-size:10.0pt;color:black;
+  mso-ansi-language:EN-US'>n</span><span style='font-size:14.0pt;mso-bidi-font-size:
+  10.0pt;color:black'>’).<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3'>
+  <td width="26%" valign=top style='width:26.08%;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><i
+  style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+  mso-bidi-font-size:10.0pt;color:black;mso-ansi-language:EN-US'>print<o:p></o:p></span></i></p>
+  </td>
+  <td width="73%" valign=top style='width:73.92%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
+  mso-bidi-font-size:10.0pt;color:black'>Выводит в протокол тестовое содержимое
+  операнда без символа окончания строки (перевода каретки ‘\</span><span
+  lang=EN-US style='font-size:14.0pt;mso-bidi-font-size:10.0pt;color:black;
+  mso-ansi-language:EN-US'>n</span><span style='font-size:14.0pt;mso-bidi-font-size:
+  10.0pt;color:black'>’).<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:4'>
+  <td width="26%" valign=top style='width:26.08%;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><i
+  style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+  mso-bidi-font-size:10.0pt;color:black;mso-ansi-language:EN-US'>to_Str<o:p></o:p></span></i></p>
+  </td>
+  <td width="73%" valign=top style='width:73.92%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
+  mso-bidi-font-size:10.0pt;color:black'>Преобразует числовое содержимое
+  второго операнда в текстовое содержимое первого. Это необходимо для вывода
+  чисел в протокол.<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:5;mso-yfti-lastrow:yes'>
+  <td width="26%" valign=top style='width:26.08%;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  10.0pt;color:black'>idtfMove<o:p></o:p></span></i></p>
+  </td>
+  <td width="73%" valign=top style='width:73.92%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
+  mso-bidi-font-size:10.0pt;color:black'>Преобразует идентификатор второго
+  операнда в текстовое содержимое первого. Это необходимо для вывода идентификаторов
+  узлов в протокол.<o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

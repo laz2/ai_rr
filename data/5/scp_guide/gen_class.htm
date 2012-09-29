@@ -1,0 +1,1392 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 11">
+<meta name=Originator content="Microsoft Word 11">
+<link rel=File-List href="gen_class.files/filelist.xml">
+<link rel=Edit-Time-Data href="gen_class.files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Операторы генерации</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Clio</o:Author>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>Memphis</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>208</o:TotalTime>
+  <o:Created>2005-10-02T15:06:00Z</o:Created>
+  <o:LastSaved>2005-10-02T15:06:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>996</o:Words>
+  <o:Characters>5679</o:Characters>
+  <o:Company>HATA</o:Company>
+  <o:Lines>47</o:Lines>
+  <o:Paragraphs>13</o:Paragraphs>
+  <o:CharactersWithSpaces>6662</o:CharactersWithSpaces>
+  <o:Version>11.5606</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" LatentStyleCount="156">
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+@page Section1
+	{size:595.3pt 841.9pt;
+	margin:2.0cm 42.5pt 2.0cm 3.0cm;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:428162382;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1472632956 68747279 68747289 68747291 68747279 68747289 68747291 68747279 68747289 68747291;}
+@list l0:level1
+	{mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1
+	{mso-list-id:509416244;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1077494238 68747279 68747289 68747291 68747279 68747289 68747291 68747279 68747289 68747291;}
+@list l1:level1
+	{mso-level-tab-stop:53.4pt;
+	mso-level-number-position:left;
+	margin-left:53.4pt;
+	text-indent:-18.0pt;}
+@list l2
+	{mso-list-id:1372804164;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-623074164 68747279 68747289 68747291 68747279 68747289 68747291 68747279 68747289 68747291;}
+@list l2:level1
+	{mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l3
+	{mso-list-id:1636450624;
+	mso-list-type:hybrid;
+	mso-list-template-ids:8186044 68747279 68747289 68747291 68747279 68747289 68747291 68747279 68747289 68747291;}
+@list l3:level1
+	{mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Обычная таблица";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+table.MsoTableGrid
+	{mso-style-name:"Сетка таблицы";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	border:solid windowtext 1.0pt;
+	mso-border-alt:solid windowtext .5pt;
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-border-insideh:.5pt solid windowtext;
+	mso-border-insidev:.5pt solid windowtext;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="2050">
+  <o:colormenu v:ext="edit" fillcolor="#cff"/>
+ </o:shapedefaults></xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor="#CCFFFF" lang=RU link=blue vlink=purple style='tab-interval:
+35.4pt'>
+
+<div class=Section1>
+
+<p class=MsoNormal align=center style='text-align:center'><b style='mso-bidi-font-weight:
+normal'><span style='font-size:16.0pt'>Класс операторов генерации <span
+class=SpellE>gen</span></span></b><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='font-size:16.0pt;mso-ansi-language:EN-US'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='font-size:16.0pt;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></b></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:.5pt solid windowtext;
+ mso-border-insidev:.5pt solid windowtext'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'>Содержание
+  главы<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+  <td width="100%" style='width:100.0%;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:
+  l0 level1 lfo3;tab-stops:list 36.0pt'><![if !supportLists]><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'><span
+  style='mso-list:Ignore'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></span><![endif]><span style='font-size:14.0pt'><a href="#genEl">Оператор
+  генерации элемента <span class=SpellE><span lang=EN-US style='mso-ansi-language:
+  EN-US'>genEl</span></span></a></span><span style='font-size:14.0pt;
+  mso-bidi-font-size:12.0pt;color:black'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:
+  l0 level1 lfo3;tab-stops:list 36.0pt'><![if !supportLists]><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'><span
+  style='mso-list:Ignore'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></span><![endif]><span style='font-size:14.0pt'><a
+  href="#genElStr3">Оператор генерации трёхэлементной конструкции genElStr3</a></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:
+  l0 level1 lfo3;tab-stops:list 36.0pt'><![if !supportLists]><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'><span
+  style='mso-list:Ignore'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></span><![endif]><span style='font-size:14.0pt'><a
+  href="#genElStr5">Оператор генерации пятиэлементной конструкции genElStr5</a></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=center style='text-align:center'><b style='mso-bidi-font-weight:
+normal'><i style='mso-bidi-font-style:normal'><span style='font-size:16.0pt'><o:p>&nbsp;</o:p></span></i></b></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.4pt'><span
+style='font-size:14.0pt'>Операторы генерации необходимы для создания
+(генерации) элементов в памяти </span><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>SCP</span><span lang=EN-US style='font-size:14.0pt'> </span><span
+style='font-size:14.0pt'>машины. При помощи данного класса операторов можно создавать
+как один элемент (</span><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:
+EN-US'>genEl</span><span style='font-size:14.0pt'>), так и базовые конструкции
+языка (</span><span class=SpellE><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>genElStr</span></span><span style='font-size:14.0pt'>3,
+</span><span class=SpellE><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:
+EN-US'>genElStr</span></span><span style='font-size:14.0pt'>5). <o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:14.0pt'><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:171.75pt;
+ height:124.5pt'>
+ <v:imagedata src="gen_class.files/image001.gif" o:title="gen_class"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=229 height=166
+src="gen_class.files/image001.gif" v:shapes="_x0000_i1025"><![endif]></span><!--[if gte vml 1]><v:group
+ id="_x0000_s1037" editas="canvas" style='position:absolute;left:0;
+ text-align:left;margin-left:0;margin-top:0;width:.05pt;height:.05pt;z-index:-1;
+ mso-position-horizontal:left;mso-position-horizontal-relative:text;
+ mso-position-vertical-relative:text' coordorigin="1789,1870" coordsize="9180,5580"
+ wrapcoords="1 1 1 1 1 1 1 1 1 1">
+ <o:lock v:ext="edit" aspectratio="t"/>
+ <v:shape id="_x0000_s1038" type="#_x0000_t75" style='position:absolute;left:1789;
+  top:1870;width:9180;height:5580' o:preferrelative="f">
+  <v:fill o:detectmouseclick="t"/>
+  <v:path o:extrusionok="t" o:connecttype="none"/>
+  <o:lock v:ext="edit" text="t"/>
+ </v:shape><w:wrap type="square"/>
+</v:group><![endif]--><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:
+EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
+style='font-size:14.0pt;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;tab-stops:54.75pt'><a
+name=genEl><b style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt'>Оператор
+генерации элемента </span></b></a><span style='mso-bookmark:genEl'><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>genEl</span></b></span><span style='mso-bookmark:genEl'></span><b
+style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span lang=BE style='font-size:14.0pt;mso-ansi-language:
+BE'>Синтаксис:<span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;background:#EAEAEA;border-collapse:collapse;mso-yfti-tbllook:
+ 480;mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width="100%" valign=top style='width:100.0%;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span class=SpellE><span lang=EN-US style='font-size:14.0pt;
+  font-family:"Courier New";mso-ansi-language:EN-US'>genEl</span></span><span
+  lang=BE style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
+  BE'>([</span><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-US'><span style='mso-tab-count:2'>         </span></span><span
+  lang=BE style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
+  BE'>1_: </span><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-US'>element<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>    </span><span
+  style='mso-spacerun:yes'>  </span>], </span><span class=SpellE><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-US'>goto_yes</span></span><span lang=EN-GB style='font-size:14.0pt;
+  font-family:"Courier New";mso-ansi-language:EN-GB'>, </span><span
+  class=SpellE><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-US'>goto_no</span></span><span lang=EN-GB
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'>, </span><span
+  class=SpellE><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-US'>goto_error</span></span><span lang=EN-GB
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'>)</span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-US'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span style='font-size:14.0pt'>Параметры</span><span
+lang=EN-GB style='font-size:14.0pt;mso-ansi-language:EN-GB'>:</span><span
+lang=EN-GB style='font-size:14.0pt;mso-ansi-language:BE'> </span><span
+lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><span class=GramE><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>element</span></i></span><span lang=EN-GB
+style='font-size:14.0pt;mso-ansi-language:EN-GB'> <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:70.8pt;text-align:justify'><span
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>out</span><span style='font-size:14.0pt'>] </span><span
+lang=BE style='font-size:14.0pt;mso-ansi-language:BE'>элемент генерации</span><span
+style='font-size:14.0pt'> (уточняется <u>атрибутами</u>, смотри примеры ниже)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><span class=SpellE><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>goto</span></i></span><i style='mso-bidi-font-style:
+normal'><span style='font-size:14.0pt'>_</span></i><i style='mso-bidi-font-style:
+normal'><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>yes</span></i><span
+style='font-size:14.0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;text-indent:
+35.4pt'><u><span style='font-size:14.0pt'>метка</span></u><span
+style='font-size:14.0pt'> успешного выполнения, если элемент создан<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><span class=SpellE><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>goto</span></i></span><i style='mso-bidi-font-style:
+normal'><span style='font-size:14.0pt'>_</span></i><i style='mso-bidi-font-style:
+normal'><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>no</span></i><span
+style='font-size:14.0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;text-indent:
+35.4pt'><u><span style='font-size:14.0pt'>метка</span></u><span
+style='font-size:14.0pt'> безуспешного выполнения, если элемент не создан<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><span class=SpellE><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>goto</span></i></span><i style='mso-bidi-font-style:
+normal'><span style='font-size:14.0pt'>_</span></i><i style='mso-bidi-font-style:
+normal'><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>error</span></i><span
+style='font-size:14.0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:72.0pt;text-align:justify'><u><span
+style='font-size:14.0pt'>метка</span></u><span style='font-size:14.0pt'>
+ошибочного выполнения, если в ходе генерации возникла ошибка<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'>Назначение:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;tab-stops:54.75pt'><span
+style='font-size:14.0pt'>Данный оператор позволяет сгенерировать элемент (узел,
+дугу или элемент неопределенного типа). Рассматриваемый оператор создает только
+один элемент. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;tab-stops:54.75pt'><span
+style='font-size:14.0pt'>Обязательным атрибутом является <i style='mso-bidi-font-style:
+normal'>1_</i>. Все остальные атрибуты являются не обязательными. Порядок
+следования атрибутов не влияет на результат генерации.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;tab-stops:54.75pt'><span
+style='font-size:14.0pt'>Как правило, первым атрибутом является </span><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>assign</span></i><i style='mso-bidi-font-style:normal'><span
+style='font-size:14.0pt'>_ </span></i><span style='font-size:14.0pt'>или </span><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>fixed</span></i><i style='mso-bidi-font-style:normal'><span
+style='font-size:14.0pt'>_.<o:p></o:p></span></i></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;tab-stops:54.75pt'><span
+style='font-size:14.0pt'>В случае </span><i style='mso-bidi-font-style:normal'><span
+lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>assign</span></i><i
+style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>_</span></i><span
+style='font-size:14.0pt'>, если элемент с данным идентификатором </span><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>element</span></i><span style='font-size:14.0pt'> не
+существует в памяти, то он будет создан. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;tab-stops:54.75pt'><span
+style='font-size:14.0pt'>Атрибут </span><i style='mso-bidi-font-style:normal'><span
+lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>fixed</span></i><i
+style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>_: </span></i><span
+style='font-size:14.0pt'>не имеет смысла устанавливать для данного оператора. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;tab-stops:54.75pt'><span
+style='font-size:14.0pt'>При создании дуги операнд может уточняться атрибутами </span><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>arc</span></i><i style='mso-bidi-font-style:normal'><span
+style='font-size:14.0pt'>_:</span></i><span style='font-size:14.0pt'>, </span><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>pos</span></i><i style='mso-bidi-font-style:normal'><span
+style='font-size:14.0pt'>_:</span></i><span style='font-size:14.0pt'>, </span><span
+class=SpellE><i style='mso-bidi-font-style:normal'><span lang=EN-US
+style='font-size:14.0pt;mso-ansi-language:EN-US'>neg</span></i></span><i
+style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>_:</span></i><span
+style='font-size:14.0pt'>, </span><span class=SpellE><i style='mso-bidi-font-style:
+normal'><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>fuz</span></i></span><i
+style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>_:</span></i><span
+style='font-size:14.0pt'>, </span><span class=SpellE><i style='mso-bidi-font-style:
+normal'><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>var</span></i></span><i
+style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>_:</span></i><span
+style='font-size:14.0pt'>, </span><i style='mso-bidi-font-style:normal'><span
+lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>const</span></i><i
+style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>_:</span></i><span
+style='font-size:14.0pt'>. Если же создаётся узел, то можно использовать </span><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>node</span></i><i style='mso-bidi-font-style:normal'><span
+style='font-size:14.0pt'>_:</span></i><span style='font-size:14.0pt'>, </span><span
+class=SpellE><i style='mso-bidi-font-style:normal'><span lang=EN-US
+style='font-size:14.0pt;mso-ansi-language:EN-US'>var</span></i></span><i
+style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>_:</span></i><span
+style='font-size:14.0pt'>, </span><i style='mso-bidi-font-style:normal'><span
+lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>const</span></i><i
+style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>_:</span></i><span
+style='font-size:14.0pt'>. Атрибут </span><span class=SpellE><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>undf</span></i></span><i style='mso-bidi-font-style:
+normal'><span style='font-size:14.0pt'>_: </span></i><span style='font-size:
+14.0pt'>говорит о том, что необходимо создать <u>элемент неопределённого типа</u>,
+который может уточняться атрибутами узла или дуги.<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:54.75pt'><span style='font-size:14.0pt'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:.5pt solid windowtext;
+ mso-border-insidev:.5pt solid windowtext'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width="16%" valign=top style='width:16.7%;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:14.0pt;color:black'><!--[if gte vml 1]><v:shape id="_x0000_i1034"
+   type="#_x0000_t75" style='width:45pt;height:28.5pt' fillcolor="window">
+   <v:imagedata src="gen_class.files/image002.png" o:title="Example"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=60 height=38
+  src="gen_class.files/image003.gif" v:shapes="_x0000_i1034"><![endif]><o:p></o:p></span></p>
+  </td>
+  <td width="83%" valign=top style='width:83.3%;border:solid windowtext 1.0pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+  solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify;tab-stops:54.75pt'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;color:black'>Пример
+  1</span></b><span style='font-size:14.0pt;color:black'>. </span><span
+  style='font-size:14.0pt'>Необходимо сгенерировать константный узел.<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span class=SpellE><span
+  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-GB'>genEl</span></span><span lang=BE style='font-size:14.0pt;font-family:
+  "Courier New";mso-ansi-language:BE'>([<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span lang=EN-US
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-US'><span
+  style='mso-tab-count:2'>         </span></span><span lang=BE
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:BE'>1_:</span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-US'> assign_:</span><span lang=EN-US style='font-size:14.0pt;font-family:
+  "Courier New";mso-ansi-language:BE'> </span><span lang=EN-US
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-US'>node_:
+  const_: node</span><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span lang=EN-US
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-US'><span
+  style='mso-tab-count:1'>    </span><span style='mso-spacerun:yes'>  </span></span><span
+  style='font-size:14.0pt;font-family:"Courier New"'>])<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-left:35.55pt;text-align:justify'><i
+  style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+  mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+  <td width="16%" valign=top style='width:16.7%;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:14.0pt;color:black'><!--[if gte vml 1]><v:shape id="_x0000_i1035"
+   type="#_x0000_t75" style='width:45pt;height:28.5pt' fillcolor="window">
+   <v:imagedata src="gen_class.files/image002.png" o:title="Example"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=60 height=38
+  src="gen_class.files/image003.gif" v:shapes="_x0000_i1035"><![endif]><o:p></o:p></span></p>
+  </td>
+  <td width="83%" valign=top style='width:83.3%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify;tab-stops:54.75pt'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;color:black'>Пример
+  2</span></b><span style='font-size:14.0pt;color:black'>. </span><span
+  style='font-size:14.0pt'>Необходимо сгенерировать переменную нечеткую дугу.<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span class=SpellE><span
+  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-GB'>genEl</span></span><span lang=BE style='font-size:14.0pt;font-family:
+  "Courier New";mso-ansi-language:BE'>([<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span lang=EN-US
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-US'><span
+  style='mso-tab-count:2'>         </span></span><span lang=BE
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:BE'>1_: </span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-US'>assign_:</span><span lang=EN-US style='font-size:14.0pt;font-family:
+  "Courier New";mso-ansi-language:BE'> </span><span lang=EN-US
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-US'>arc_:
+  <span class=SpellE>var</span>_: <span class=SpellE>fuz</span>_: <span
+  class=SpellE>arc_elem</span></span><span lang=EN-GB style='font-size:14.0pt;
+  font-family:"Courier New";mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span lang=EN-GB
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'><span
+  style='mso-tab-count:1'>    </span><span style='mso-spacerun:yes'>  </span>])</span><i
+  style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+  mso-ansi-language:EN-US'><o:p></o:p></span></i></p>
+  <p class=MsoNormal style='margin-left:35.55pt;text-align:justify'><i
+  style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+  mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></i></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='tab-stops:54.75pt'><span lang=EN-US style='font-size:
+14.0pt;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:54.75pt'><span lang=EN-US style='font-size:
+14.0pt;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;tab-stops:54.75pt'><a
+name=genElStr3><b style='mso-bidi-font-weight:normal'><span style='font-size:
+14.0pt'>Оператор генерации трёхэлементной <o:p></o:p></span></b></a></p>
+
+<p class=MsoNormal align=center style='text-align:center;tab-stops:54.75pt'><span
+style='mso-bookmark:genElStr3'><b style='mso-bidi-font-weight:normal'><span
+style='font-size:14.0pt'>конструкции</span></b></span><span style='mso-bookmark:
+genElStr3'><span style='font-size:14.0pt'> <b style='mso-bidi-font-weight:normal'>genElStr3</b></span></span><b
+style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><u><span lang=BE style='font-size:14.0pt;mso-ansi-language:
+BE'><o:p><span style='text-decoration:none'>&nbsp;</span></o:p></span></u></p>
+
+<p class=MsoNormal><span lang=BE style='font-size:14.0pt;mso-ansi-language:
+BE'>Синтаксис:<span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;background:#EAEAEA;border-collapse:collapse;mso-yfti-tbllook:
+ 480;mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:80.75pt'>
+  <td width="100%" valign=top style='width:100.0%;padding:0cm 5.4pt 0cm 5.4pt;
+  height:80.75pt'>
+  <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-GB'>genElStr3</span><span lang=BE style='font-size:14.0pt;
+  font-family:"Courier New";mso-ansi-language:BE'>([</span><span lang=BE
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-US'> </span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-US'><span style='mso-tab-count:3'>             </span></span><span
+  lang=BE style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
+  BE'>1_:</span><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-US'> node,<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-US'><span style='mso-tab-count:3'>             </span>2_:
+  arc,<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-US'><span style='mso-tab-count:3'>             </span>3_:
+  element<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-GB'><span style='mso-tab-count:2'>         </span><span
+  style='mso-spacerun:yes'>  </span>], </span><span class=SpellE><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-US'>goto_yes</span></span><span lang=EN-GB style='font-size:14.0pt;
+  font-family:"Courier New";mso-ansi-language:EN-GB'>, </span><span
+  class=SpellE><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-US'>goto_no</span></span><span lang=EN-GB
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'>, </span><span
+  class=SpellE><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-US'>goto_error</span></span><span lang=EN-GB
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'>)</span><i
+  style='mso-bidi-font-style:normal'><span lang=BE style='font-size:14.0pt;
+  mso-ansi-language:BE'><o:p></o:p></span></i></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='margin-left:35.4pt'><i style='mso-bidi-font-style:
+normal'><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></i></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'>Параметры:</span><span
+style='font-size:14.0pt;mso-ansi-language:BE'> </span><span lang=EN-US
+style='font-size:14.0pt;mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><span class=GramE><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>node</span></i></span><span style='font-size:14.0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:70.8pt;text-align:justify'><span
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>in</span><span style='font-size:14.0pt'>, </span><span
+lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>out</span><span
+style='font-size:14.0pt'>] узел </span><span lang=BE style='font-size:14.0pt;
+mso-ansi-language:BE'>генерации, который является первым элементом в трёхэлементной
+конструкции </span><span style='font-size:14.0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><span class=GramE><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>arc</span></i></span><span style='font-size:14.0pt'> <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:70.8pt;text-align:justify'><span
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>in</span><span style='font-size:14.0pt'>, </span><span
+lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>out</span><span
+style='font-size:14.0pt'>] </span><span lang=BE style='font-size:14.0pt;
+mso-ansi-language:BE'>дуга генерации, которая является вторым элементом в
+трёхэлементной конструкции</span><span style='font-size:14.0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><span class=GramE><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>element</span></i></span><span style='font-size:14.0pt'>
+<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:70.8pt;text-align:justify'><span
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>in</span><span style='font-size:14.0pt'>, </span><span
+lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>out</span><span
+style='font-size:14.0pt'>] </span><span lang=BE style='font-size:14.0pt;
+mso-ansi-language:BE'>элемент генерации, который является третьим элементом в
+трёхэлементной конструкции</span><span style='font-size:14.0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><span class=SpellE><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>goto</span></i></span><i style='mso-bidi-font-style:
+normal'><span style='font-size:14.0pt'>_</span></i><i style='mso-bidi-font-style:
+normal'><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>yes</span></i><span
+style='font-size:14.0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;text-indent:
+35.4pt'><u><span style='font-size:14.0pt'>метка</span></u><span
+style='font-size:14.0pt'> успешного выполнения, если конструкция создана<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><span class=SpellE><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>goto</span></i></span><i style='mso-bidi-font-style:
+normal'><span style='font-size:14.0pt'>_</span></i><i style='mso-bidi-font-style:
+normal'><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>no</span></i><span
+style='font-size:14.0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;text-indent:
+35.4pt'><u><span style='font-size:14.0pt'>метка</span></u><span
+style='font-size:14.0pt'> безуспешного выполнения, если конструкция не создана<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><span class=SpellE><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>goto</span></i></span><i style='mso-bidi-font-style:
+normal'><span style='font-size:14.0pt'>_</span></i><i style='mso-bidi-font-style:
+normal'><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>error</span></i><span
+style='font-size:14.0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;text-indent:
+35.4pt'><u><span style='font-size:14.0pt'>метка</span></u><span
+style='font-size:14.0pt'> ошибочного выполнения, если в ходе генерации возникла
+ошибка<o:p></o:p></span></p>
+
+<p class=MsoNormal><u><span style='font-size:14.0pt'><o:p><span
+ style='text-decoration:none'>&nbsp;</span></o:p></span></u></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'>Назначение:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;tab-stops:54.75pt'><span
+style='font-size:14.0pt'>Оператор<span style='mso-spacerun:yes'> 
+</span>осуществляет генерацию трёхэлементной конструкции. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;tab-stops:54.75pt'><span
+style='font-size:14.0pt'>Числовые атрибуты (<i style='mso-bidi-font-style:normal'>1_</i>,
+<i style='mso-bidi-font-style:normal'>2_</i>, <i style='mso-bidi-font-style:
+normal'>3_</i>) являются обязательными. Порядок следования атрибутов операндов
+не влияет на результат генерации.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;tab-stops:54.75pt'><span
+style='font-size:14.0pt'>Как правило, первым атрибутом любого из операндов является
+</span><i style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:
+14.0pt;mso-ansi-language:EN-US'>assign</span></i><i style='mso-bidi-font-style:
+normal'><span style='font-size:14.0pt'>_ </span></i><span style='font-size:
+14.0pt'>или </span><i style='mso-bidi-font-style:normal'><span lang=EN-US
+style='font-size:14.0pt;mso-ansi-language:EN-US'>fixed</span></i><i
+style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>_.<o:p></o:p></span></i></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;tab-stops:54.75pt'><span
+style='font-size:14.0pt'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:.5pt solid windowtext;
+ mso-border-insidev:.5pt solid windowtext'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width="16%" valign=top style='width:16.7%;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:14.0pt;color:black'><!--[if gte vml 1]><v:shape id="_x0000_i1026"
+   type="#_x0000_t75" style='width:45pt;height:28.5pt' fillcolor="window">
+   <v:imagedata src="gen_class.files/image002.png" o:title="Example"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=60 height=38
+  src="gen_class.files/image004.gif" v:shapes="_x0000_i1026"><![endif]><o:p></o:p></span></p>
+  </td>
+  <td width="83%" valign=top style='width:83.3%;border:solid windowtext 1.0pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+  solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify'><b style='mso-bidi-font-weight:
+  normal'><span style='font-size:14.0pt;color:black'>Пример 3</span></b><span
+  style='font-size:14.0pt;color:black'>. У нас есть множество </span><i
+  style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+  color:black;mso-ansi-language:EN-US'>A</span></i><span style='font-size:14.0pt;
+  color:black'>(в своем составе имеет элементы </span><span class=SpellE><i
+  style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+  color:black;mso-ansi-language:EN-US'>elem</span></i></span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;color:black'>_1</span></i><span
+  style='font-size:14.0pt;color:black'>, </span><span class=SpellE><i
+  style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+  color:black;mso-ansi-language:EN-US'>elem</span></i></span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;color:black'>_2</span></i><span
+  style='font-size:14.0pt;color:black'>) и есть элемент(</span><span
+  class=SpellE><i style='mso-bidi-font-style:normal'><span lang=EN-US
+  style='font-size:14.0pt;color:black;mso-ansi-language:EN-US'>elmn</span></i></span><span
+  style='font-size:14.0pt;color:black'>), не принадлежащий этому множеству. </span><span
+  lang=EN-US style='font-size:14.0pt;color:black;mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
+  style='font-size:14.0pt;color:black;mso-ansi-language:EN-US'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1027" type="#_x0000_t75" style='width:166.5pt;height:116.25pt'>
+   <v:imagedata src="gen_class.files/image005.emz" o:title="gen_Ex1_1" gain="0"
+    blacklevel="-.5"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=222 height=155
+  src="gen_class.files/image006.gif" v:shapes="_x0000_i1027"><![endif]><o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span lang=EN-US
+  style='font-size:14.0pt;color:black;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
+  color:black'>Для того, что добавить элемент </span><span class=SpellE><i
+  style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+  color:black;mso-ansi-language:EN-US'>elmn</span></i></span><span
+  style='font-size:14.0pt;color:black'> во множество </span><i
+  style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+  color:black;mso-ansi-language:EN-US'>A</span></i><span style='font-size:14.0pt;
+  color:black'>, необходимо сгенерировать дугу, выходящую из </span><i
+  style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+  color:black;mso-ansi-language:EN-US'>A</span></i><span style='font-size:14.0pt;
+  color:black'> и входящую в </span><span class=SpellE><i style='mso-bidi-font-style:
+  normal'><span lang=EN-US style='font-size:14.0pt;color:black;mso-ansi-language:
+  EN-US'>elmn</span></i></span><span style='font-size:14.0pt;color:black'>.
+  Такое действие можно осуществить при помощи оператора <i style='mso-bidi-font-style:
+  normal'>genElStr3</i>.<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";
+  color:black;mso-ansi-language:EN-GB'>genElStr3([</span><span
+  style='font-size:14.0pt;font-family:"Courier New";color:black'><o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";
+  color:black;mso-ansi-language:EN-GB'><span style='mso-tab-count:3'>             </span>1_:
+  fixed_: A,<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";
+  color:black;mso-ansi-language:EN-GB'><span style='mso-tab-count:3'>             </span>2_:
+  assign_: const_: pos_: arc,<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span lang=EN-GB
+  style='font-size:14.0pt;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-GB'><span style='mso-tab-count:3'>             </span>3_:<span
+  style='mso-spacerun:yes'>  </span>fixed_: <span class=SpellE>elmn</span></span><span
+  style='font-size:14.0pt;font-family:"Courier New";color:black'><o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span lang=EN-GB
+  style='font-size:14.0pt;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-GB'><span style='mso-tab-count:2'>         </span><span
+  style='mso-spacerun:yes'>  </span>])</span><i style='mso-bidi-font-style:
+  normal'><span lang=EN-GB style='font-size:14.0pt;color:black;mso-ansi-language:
+  EN-GB'><o:p></o:p></span></i></p>
+  <p class=MsoNormal align=center style='margin-left:35.55pt;text-align:center'><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1028" type="#_x0000_t75" style='width:166.5pt;height:116.25pt'>
+   <v:imagedata src="gen_class.files/image007.emz" o:title="gen_Ex1_2"
+    blacklevel="-31456f"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=222 height=155
+  src="gen_class.files/image008.gif" v:shapes="_x0000_i1028"><![endif]><o:p></o:p></span></i></p>
+  <p class=MsoNormal align=center style='margin-left:35.55pt;text-align:center'><span
+  lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt'>Операнды
+  </span><i style='mso-bidi-font-style:normal'><span lang=EN-US
+  style='font-size:14.0pt;mso-ansi-language:EN-US'>A</span></i><span
+  style='font-size:14.0pt'> и </span><span class=SpellE><i style='mso-bidi-font-style:
+  normal'><span lang=EN-GB style='font-size:14.0pt;mso-ansi-language:EN-GB'>elmn</span></i></span><span
+  style='font-size:14.0pt'> отмечены атрибутами <span class=SpellE><i
+  style='mso-bidi-font-style:normal'>fixed</i></span><i style='mso-bidi-font-style:
+  normal'>_ </i>так, как эти операнды нам известны. В случае второго операнда (<i
+  style='mso-bidi-font-style:normal'>2_</i>), атрибут </span><i
+  style='mso-bidi-font-style:normal'><span lang=EN-GB style='font-size:14.0pt;
+  mso-ansi-language:EN-GB'>assign</span></i><i style='mso-bidi-font-style:normal'><span
+  style='font-size:14.0pt'>_</span></i><span style='font-size:14.0pt'> говорит
+  о том, чтобы в последствии была сгенерирована дуга </span><span lang=EN-GB
+  style='font-size:14.0pt;mso-ansi-language:EN-GB'>arc</span><span
+  style='font-size:14.0pt'>, в данном примере константная и позитивная
+  (атрибуты </span><i style='mso-bidi-font-style:normal'><span lang=EN-US
+  style='font-size:14.0pt;mso-ansi-language:EN-US'>const</span></i><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>_ </span></i><span
+  style='font-size:14.0pt'>и </span><i style='mso-bidi-font-style:normal'><span
+  lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>pos</span></i><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>_</span></i><span
+  style='font-size:14.0pt'>).<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width="16%" valign=top style='width:16.7%;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:14.0pt;color:black'><!--[if gte vml 1]><v:shape id="_x0000_i1029"
+   type="#_x0000_t75" style='width:45pt;height:28.5pt' fillcolor="window">
+   <v:imagedata src="gen_class.files/image002.png" o:title="Example"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=60 height=38
+  src="gen_class.files/image004.gif" v:shapes="_x0000_i1029"><![endif]><o:p></o:p></span></p>
+  </td>
+  <td width="83%" valign=top style='width:83.3%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify;tab-stops:54.75pt'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;color:black'>Пример
+  4</span></b><span style='font-size:14.0pt;color:black'>. </span><span
+  style='font-size:14.0pt'>Предположим у нас есть множество </span><i
+  style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+  mso-ansi-language:EN-US'>A</span></i><i style='mso-bidi-font-style:normal'><span
+  lang=EN-US style='font-size:14.0pt'> </span></i><span style='font-size:14.0pt'>и
+  ходим добавить к нему узел, но этот узел пока не существует в памяти, в
+  отличи<span class=GramE>и</span> от предыдущего примера.<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";
+  color:black;mso-ansi-language:EN-GB'>genElStr3([<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";
+  color:black;mso-ansi-language:EN-GB'><span style='mso-tab-count:3'>             </span>1_:
+  fixed_: A,<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";
+  color:black;mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>    </span><span
+  style='mso-tab-count:2'>         </span>2_: assign_: const_: pos_: arc,<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span lang=EN-GB
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'><span
+  style='mso-tab-count:3'>             </span>3_: assign _: </span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-US'>node</span><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-GB'>_</span><span lang=EN-US style='font-size:14.0pt;
+  font-family:"Courier New";mso-ansi-language:EN-US'>:</span><span lang=EN-GB
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'> <span
+  class=SpellE>elmn</span></span><span style='font-size:14.0pt;font-family:
+  "Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span lang=EN-US
+  style='font-size:14.0pt;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'><span style='mso-tab-count:2'>         </span><span
+  style='mso-spacerun:yes'>  </span></span><span style='font-size:14.0pt;
+  font-family:"Courier New";color:black'>])</span><i style='mso-bidi-font-style:
+  normal'><span style='font-size:14.0pt;color:black'><o:p></o:p></span></i></p>
+  <p class=MsoNormal style='margin-left:35.55pt;text-align:justify'><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'><o:p>&nbsp;</o:p></span></i></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt'>При
+  успешном выполнении такого оператора будет сгенерированная константная
+  позитивная дуга и узел </span><span class=SpellE><i style='mso-bidi-font-style:
+  normal'><span lang=EN-GB style='font-size:14.0pt;mso-ansi-language:EN-GB'>elmn</span></i></span><span
+  style='font-size:14.0pt'>.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-left:35.55pt;text-align:justify'><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'><o:p>&nbsp;</o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2;mso-yfti-lastrow:yes'>
+  <td width="16%" valign=top style='width:16.7%;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:14.0pt;color:black'><!--[if gte vml 1]><v:shape id="_x0000_i1032"
+   type="#_x0000_t75" style='width:45pt;height:28.5pt' fillcolor="window">
+   <v:imagedata src="gen_class.files/image002.png" o:title="Example"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=60 height=38
+  src="gen_class.files/image004.gif" v:shapes="_x0000_i1032"><![endif]><o:p></o:p></span></p>
+  </td>
+  <td width="83%" valign=top style='width:83.3%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify;tab-stops:54.75pt'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;color:black'>Пример
+  5</span></b><span style='font-size:14.0pt;color:black'>.</span><span
+  style='font-size:14.0pt'> Есть множество </span><span lang=EN-US
+  style='font-size:14.0pt;mso-ansi-language:EN-US'>A</span><span
+  style='font-size:14.0pt'>, содержащее </span><span class=SpellE><i
+  style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+  mso-ansi-language:EN-US'>elem</span></i></span><i style='mso-bidi-font-style:
+  normal'><span style='font-size:14.0pt'>_1</span></i><span style='font-size:
+  14.0pt'>, </span><span class=SpellE><i style='mso-bidi-font-style:normal'><span
+  lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>elem</span></i></span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>_2 </span></i><span
+  style='font-size:14.0pt'>и </span><span class=SpellE><i style='mso-bidi-font-style:
+  normal'><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>elmn</span></i></span><span
+  style='font-size:14.0pt'>.<span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;tab-stops:54.75pt'><span
+  style='font-size:14.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1030"
+   type="#_x0000_t75" style='width:166.5pt;height:116.25pt'>
+   <v:imagedata src="gen_class.files/image009.emz" o:title="gen_Ex5_1"
+    blacklevel="-31456f"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=222 height=155
+  src="gen_class.files/image008.gif" v:shapes="_x0000_i1030"><![endif]><o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify;tab-stops:54.75pt'><span
+  lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='text-align:justify;tab-stops:54.75pt'><span
+  style='font-size:14.0pt'>Нам необходимо уточнить<span
+  style='mso-spacerun:yes'>  </span></span><span class=SpellE><i
+  style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+  mso-ansi-language:EN-US'>elmn</span></i></span><span style='font-size:14.0pt'>
+  атрибутом </span><i style='mso-bidi-font-style:normal'><span lang=EN-US
+  style='font-size:14.0pt;mso-ansi-language:EN-US'>new</span></i><span
+  style='font-size:14.0pt'>.<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify;tab-stops:54.75pt'><span
+  style='font-size:14.0pt'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;tab-stops:54.75pt'><span
+  style='font-size:14.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1031"
+   type="#_x0000_t75" style='width:166.5pt;height:133.5pt'>
+   <v:imagedata src="gen_class.files/image010.emz" o:title="gen_Ex5_2"
+    blacklevel="-29490f"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=222 height=178
+  src="gen_class.files/image011.gif" v:shapes="_x0000_i1031"><![endif]><o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";
+  color:black;mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";
+  color:black;mso-ansi-language:EN-GB'>genElStr3([<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-GB'><span style='mso-tab-count:3'>             </span>1_:
+  assign _: new,<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-GB'><span style='mso-tab-count:3'>             </span>2_:
+  assign_: const_: pos_: <span class=SpellE>arc_at</span>,<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span lang=EN-GB
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'><span
+  style='mso-tab-count:3'>             </span>3_:<span
+  style='mso-spacerun:yes'>  </span>fixed _: </span><span lang=EN-US
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-US'>arc</span><span
+  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-GB'>_ : arc<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span lang=EN-GB
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'><span
+  style='mso-tab-count:2'>         </span><span style='mso-spacerun:yes'> 
+  </span><span style='color:black'>])</span></span><i style='mso-bidi-font-style:
+  normal'><span lang=EN-GB style='font-size:14.0pt;color:black;mso-ansi-language:
+  EN-GB'><o:p></o:p></span></i></p>
+  <p class=MsoNormal style='text-align:justify;tab-stops:54.75pt'><b
+  style='mso-bidi-font-weight:normal'><span lang=EN-GB style='font-size:14.0pt;
+  color:black;mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></b></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;mso-ansi-language:
+EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><a name=genElStr5><b
+style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt'>Оператор
+генерации пятиэлементной конструкции genElStr5</span></b></a><span
+style='mso-bookmark:genElStr5'></span><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span lang=BE style='font-size:14.0pt;mso-ansi-language:
+BE'>Синтаксис:<span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;background:#EAEAEA;border-collapse:collapse;mso-yfti-tbllook:
+ 480;mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:113.25pt'>
+  <td width="100%" valign=top style='width:100.0%;padding:0cm 5.4pt 0cm 5.4pt;
+  height:113.25pt'>
+  <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-GB'>genElStr5</span><span lang=BE style='font-size:14.0pt;
+  font-family:"Courier New";mso-ansi-language:BE'>([<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-US'><span style='mso-tab-count:3'>             </span></span><span
+  lang=BE style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
+  BE'>1_:</span><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-US'> node</span><span lang=EN-GB style='font-size:14.0pt;
+  font-family:"Courier New";mso-ansi-language:EN-GB'>,<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-GB'><span style='mso-tab-count:3'>             </span>2_:
+  </span><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-US'>arc,<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-US'><span style='mso-tab-count:2'>         </span><span
+  style='mso-tab-count:1'>    </span>3_: element</span><span lang=EN-GB
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'>,<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-US'><span style='mso-tab-count:3'>             </span>4_:
+  <span class=SpellE>attr_arc</span>,<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-US'><span style='mso-tab-count:3'>             </span>5_:
+  <span class=SpellE>attr_node</span> <o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-GB'><span style='mso-tab-count:2'>         </span><span
+  style='mso-spacerun:yes'>  </span>], </span><span class=SpellE><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-US'>goto_yes</span></span><span lang=EN-GB style='font-size:14.0pt;
+  font-family:"Courier New";mso-ansi-language:EN-GB'>, </span><span
+  class=SpellE><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-US'>goto_no</span></span><span lang=EN-GB
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'>, </span><span
+  class=SpellE><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-US'>goto_error</span></span><span lang=EN-GB
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'>)</span><i
+  style='mso-bidi-font-style:normal'><span lang=BE style='font-size:14.0pt;
+  mso-ansi-language:BE'><o:p></o:p></span></i></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='margin-left:35.4pt'><i style='mso-bidi-font-style:
+normal'><span lang=EN-GB style='font-size:14.0pt;mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></i></p>
+
+<p class=MsoNormal style='margin-left:35.4pt'><i style='mso-bidi-font-style:
+normal'><span lang=EN-GB style='font-size:14.0pt;mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></i></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'>Параметры:</span><span
+lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><span class=GramE><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>node</span></i></span><span style='font-size:14.0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:70.8pt;text-align:justify'><span
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>in</span><span style='font-size:14.0pt'>, </span><span
+lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>out</span><span
+style='font-size:14.0pt'>] узел </span><span lang=BE style='font-size:14.0pt;
+mso-ansi-language:BE'>генерации, который является первым элементом в </span><span
+style='font-size:14.0pt'>пятиэлементной </span><span lang=BE style='font-size:
+14.0pt;mso-ansi-language:BE'>конструкции </span><span style='font-size:14.0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><span class=GramE><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>arc</span></i></span><span style='font-size:14.0pt'> <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:70.8pt;text-align:justify'><span
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>in</span><span style='font-size:14.0pt'>, </span><span
+lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>out</span><span
+style='font-size:14.0pt'>] </span><span lang=BE style='font-size:14.0pt;
+mso-ansi-language:BE'>дуга генерации, которая является вторым элементом в пятиэлементной
+конструкции</span><span style='font-size:14.0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><span class=GramE><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>element</span></i></span><span style='font-size:14.0pt'>
+<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:70.8pt;text-align:justify'><span
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>in</span><span style='font-size:14.0pt'>, </span><span
+lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>out</span><span
+style='font-size:14.0pt'>] </span><span lang=BE style='font-size:14.0pt;
+mso-ansi-language:BE'>элемент генерации, который является третьим элементом в пятиэлементной
+конструкции<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><span class=SpellE><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>attr</span></i></span><i style='mso-bidi-font-style:
+normal'><span style='font-size:14.0pt'>_</span></i><i style='mso-bidi-font-style:
+normal'><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>arc</span></i><span
+style='font-size:14.0pt'> <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:70.8pt;text-align:justify'><span
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>in</span><span style='font-size:14.0pt'>, </span><span
+lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>out</span><span
+style='font-size:14.0pt'>] </span><span lang=BE style='font-size:14.0pt;
+mso-ansi-language:BE'>дуга генерации, которая является четвёртым элементом в
+пятиэлементной конструкции<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><span class=SpellE><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>attr</span></i></span><i style='mso-bidi-font-style:
+normal'><span style='font-size:14.0pt'>_</span></i><i style='mso-bidi-font-style:
+normal'><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>node</span></i><span
+style='font-size:14.0pt'> <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:70.8pt;text-align:justify'><span
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>in</span><span style='font-size:14.0pt'>, </span><span
+lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>out</span><span
+style='font-size:14.0pt'>] узел </span><span lang=BE style='font-size:14.0pt;
+mso-ansi-language:BE'>генерации, который является пятым элементом в </span><span
+style='font-size:14.0pt'>пятиэлементной </span><span lang=BE style='font-size:
+14.0pt;mso-ansi-language:BE'>конструкции</span><span style='font-size:14.0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><span class=SpellE><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>goto</span></i></span><i style='mso-bidi-font-style:
+normal'><span style='font-size:14.0pt'>_</span></i><i style='mso-bidi-font-style:
+normal'><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>yes</span></i><span
+style='font-size:14.0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;text-indent:
+35.4pt'><u><span style='font-size:14.0pt'>метка</span></u><span
+style='font-size:14.0pt'> успешного выполнения, если конструкция создана<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><span class=SpellE><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>goto</span></i></span><i style='mso-bidi-font-style:
+normal'><span style='font-size:14.0pt'>_</span></i><i style='mso-bidi-font-style:
+normal'><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>no</span></i><span
+style='font-size:14.0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;text-indent:
+35.4pt'><u><span style='font-size:14.0pt'>метка</span></u><span
+style='font-size:14.0pt'> безуспешного выполнения, если конструкция не создана<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><span class=SpellE><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>goto</span></i></span><i style='mso-bidi-font-style:
+normal'><span style='font-size:14.0pt'>_</span></i><i style='mso-bidi-font-style:
+normal'><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>error</span></i><span
+style='font-size:14.0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;text-indent:
+35.4pt'><u><span style='font-size:14.0pt'>метка</span></u><span
+style='font-size:14.0pt'> ошибочного выполнения, если в ходе генерации возникла
+ошибка<o:p></o:p></span></p>
+
+<p class=MsoNormal><u><span style='font-size:14.0pt'><o:p><span
+ style='text-decoration:none'>&nbsp;</span></o:p></span></u></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'>Назначение:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;tab-stops:54.75pt'><span
+style='font-size:14.0pt'>Оператор<span style='mso-spacerun:yes'> 
+</span>осуществляет генерацию </span><span lang=BE style='font-size:14.0pt;
+mso-ansi-language:BE'>пятиэлементной </span><span style='font-size:14.0pt'>конструкции.
+<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;tab-stops:54.75pt'><span
+style='font-size:14.0pt'>Числовые атрибуты (<i style='mso-bidi-font-style:normal'>1_</i>,
+<i style='mso-bidi-font-style:normal'>... </i>, 5<i style='mso-bidi-font-style:
+normal'>_</i>) являются обязательными. Порядок следования атрибутов операндов
+не влияет на результат генерации.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:35.4pt'><span style='font-size:14.0pt'>Как
+правило, первым атрибутом любого из операндов является </span><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>assign</span></i><i style='mso-bidi-font-style:normal'><span
+style='font-size:14.0pt'>_ </span></i><span style='font-size:14.0pt'>или </span><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>fixed</span></i><i style='mso-bidi-font-style:normal'><span
+style='font-size:14.0pt'>_. <o:p></o:p></span></i></p>
+
+<p class=MsoNormal><i style='mso-bidi-font-style:normal'><span
+style='font-size:14.0pt'><o:p>&nbsp;</o:p></span></i></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:.5pt solid windowtext;
+ mso-border-insidev:.5pt solid windowtext'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width="16%" valign=top style='width:16.7%;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:14.0pt;color:black'><!--[if gte vml 1]><v:shape id="_x0000_i1033"
+   type="#_x0000_t75" style='width:45pt;height:28.5pt' fillcolor="window">
+   <v:imagedata src="gen_class.files/image002.png" o:title="Example"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=60 height=38
+  src="gen_class.files/image003.gif" v:shapes="_x0000_i1033"><![endif]><o:p></o:p></span></p>
+  </td>
+  <td width="83%" valign=top style='width:83.3%;border:solid windowtext 1.0pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+  solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify'><b style='mso-bidi-font-weight:
+  normal'><span style='font-size:14.0pt;color:black'>Пример 6</span></b><span
+  style='font-size:14.0pt;color:black'>. </span><span style='font-size:14.0pt'>Необходимо
+  в это множество </span><i style='mso-bidi-font-style:normal'><span
+  lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>set</span></i><span
+  style='font-size:14.0pt'> добавить элемент </span><span class=SpellE><i
+  style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+  mso-ansi-language:EN-US'>elmn</span></i></span><span style='font-size:14.0pt'>,
+  уточненный атрибутом </span><span class=SpellE><span lang=EN-US
+  style='font-size:14.0pt;mso-ansi-language:EN-US'>a<i style='mso-bidi-font-style:
+  normal'>ttr</i></span></span><span lang=EN-US style='font-size:14.0pt'> </span><span
+  style='font-size:14.0pt'>(решение примеров 4 и 5 при помощи одного
+  оператора).<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span lang=EN-GB
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span lang=EN-GB
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'>genElStr5([</span><span
+  style='font-size:14.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span lang=EN-GB
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'><span
+  style='mso-tab-count:3'>             </span>1_: fixed _: </span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-US'>const</span><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-GB'>_: </span><span lang=EN-US style='font-size:14.0pt;
+  font-family:"Courier New";mso-ansi-language:EN-US'>set</span><span
+  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-GB'>,<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span lang=EN-GB
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'><span
+  style='mso-tab-count:3'>             </span>2_: assign_: const_: pos_: arc,<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span lang=EN-GB
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'><span
+  style='mso-tab-count:3'>             </span>3_: assign_: </span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-US'>node</span><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-GB'>_ : <span class=SpellE>elmn</span>,<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span lang=EN-GB
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'><span
+  style='mso-tab-count:3'>             </span>4_:</span><span lang=EN-GB
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-US'> </span><span
+  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-GB'>assign_: const_: pos_: <span class=SpellE>attr_arc</span>,</span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span lang=EN-US
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-US'><span
+  style='mso-tab-count:3'>             </span></span><span style='font-size:
+  14.0pt;font-family:"Courier New"'>5_: </span><span lang=EN-GB
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'>assign</span><span
+  style='font-size:14.0pt;font-family:"Courier New"'>_: </span><span
+  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-GB'>const</span><span style='font-size:14.0pt;font-family:"Courier New"'>_:
+  </span><span class=SpellE><span lang=EN-US style='font-size:14.0pt;
+  font-family:"Courier New";mso-ansi-language:EN-US'>attr</span></span><span
+  style='font-size:14.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span lang=EN-US
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-US'><span
+  style='mso-tab-count:2'>         </span><span style='mso-spacerun:yes'> 
+  </span></span><span style='font-size:14.0pt;font-family:"Courier New"'>])</span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span lang=EN-US
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt'>(<i
+  style='mso-bidi-font-style:normal'>1_</i>) Первый операнд – узел исходного
+  множества </span><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:
+  EN-US'>s<i style='mso-bidi-font-style:normal'>et</i></span><span
+  style='font-size:14.0pt'>, он нам известен, поэтому атрибут<span
+  style='mso-spacerun:yes'>  </span></span><i style='mso-bidi-font-style:normal'><span
+  lang=EN-GB style='font-size:14.0pt;mso-ansi-language:EN-GB'>fixed</span></i><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>_</span></i><span
+  style='font-size:14.0pt'>, узел константный (атрибут </span><i
+  style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+  mso-ansi-language:EN-US'>const</span></i><i style='mso-bidi-font-style:normal'><span
+  style='font-size:14.0pt'>_</span></i><span style='font-size:14.0pt'>).<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt'>(<i
+  style='mso-bidi-font-style:normal'>2_</i>) Генерация константной позитивной
+  дуги (</span><i style='mso-bidi-font-style:normal'><span lang=EN-GB
+  style='font-size:14.0pt;mso-ansi-language:EN-GB'>assign</span></i><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>_</span></i><span
+  style='font-size:14.0pt'>, </span><i style='mso-bidi-font-style:normal'><span
+  lang=EN-GB style='font-size:14.0pt;mso-ansi-language:EN-GB'>const</span></i><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>_</span></i><span
+  style='font-size:14.0pt'>,<i style='mso-bidi-font-style:normal'> </i></span><i
+  style='mso-bidi-font-style:normal'><span lang=EN-GB style='font-size:14.0pt;
+  mso-ansi-language:EN-GB'>pos</span></i><i style='mso-bidi-font-style:normal'><span
+  style='font-size:14.0pt'>_</span></i><span style='font-size:14.0pt'>)<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt'>(<i
+  style='mso-bidi-font-style:normal'>3_</i>) Генерация узла (</span><i
+  style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+  mso-ansi-language:EN-US'>node</span></i><i style='mso-bidi-font-style:normal'><span
+  style='font-size:14.0pt'>_</span></i><span style='font-size:14.0pt'>),
+  добавление элемента </span><span class=SpellE><i style='mso-bidi-font-style:
+  normal'><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>elmn</span></i></span><i
+  style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt'>
+  </span></i><span style='font-size:14.0pt'>во множество </span><span
+  lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>s<i
+  style='mso-bidi-font-style:normal'>et</i></span><span style='font-size:14.0pt'><o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt'>(<i
+  style='mso-bidi-font-style:normal'>4_</i>) Генерация константной позитивной
+  дуги атрибута (</span><i style='mso-bidi-font-style:normal'><span lang=EN-GB
+  style='font-size:14.0pt;mso-ansi-language:EN-GB'>assign</span></i><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>_</span></i><span
+  style='font-size:14.0pt'>, </span><span lang=EN-GB style='font-size:14.0pt;
+  mso-ansi-language:EN-GB'>const</span><span style='font-size:14.0pt'>_, </span><i
+  style='mso-bidi-font-style:normal'><span lang=EN-GB style='font-size:14.0pt;
+  mso-ansi-language:EN-GB'>pos</span></i><i style='mso-bidi-font-style:normal'><span
+  style='font-size:14.0pt'>_</span></i><span style='font-size:14.0pt'>)<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt'>(<i
+  style='mso-bidi-font-style:normal'>5_</i>) Генерация константного узла атрибута
+  </span><span class=SpellE><span lang=EN-US style='font-size:14.0pt;
+  mso-ansi-language:EN-US'>a<i style='mso-bidi-font-style:normal'>ttr</i></span></span><span
+  lang=EN-US style='font-size:14.0pt'> </span><span style='font-size:14.0pt'>(</span><i
+  style='mso-bidi-font-style:normal'><span lang=EN-GB style='font-size:14.0pt;
+  mso-ansi-language:EN-GB'>assign</span></i><i style='mso-bidi-font-style:normal'><span
+  style='font-size:14.0pt'>_</span></i><span style='font-size:14.0pt'>, </span><i
+  style='mso-bidi-font-style:normal'><span lang=EN-GB style='font-size:14.0pt;
+  mso-ansi-language:EN-GB'>const</span></i><i style='mso-bidi-font-style:normal'><span
+  style='font-size:14.0pt'>_</span></i><span style='font-size:14.0pt'>)<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt'>В
+  приведенном примере, как и в любом из случаев пятиэлементной конструкции
+  операнды <i style='mso-bidi-font-style:normal'>1_</i> и <i style='mso-bidi-font-style:
+  normal'>5_</i> не требуют уточнения атрибутом </span><i style='mso-bidi-font-style:
+  normal'><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>node</span></i><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>_</span></i><span
+  style='font-size:14.0pt'>, так как для данной конструкции это всегда узлы (</span><i
+  style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+  mso-ansi-language:EN-US'>node</span></i><i style='mso-bidi-font-style:normal'><span
+  style='font-size:14.0pt'>_</span></i><span style='font-size:14.0pt'>). По
+  этой же причине в атрибуте </span><i style='mso-bidi-font-style:normal'><span
+  lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>arc</span></i><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>_</span></i><span
+  style='font-size:14.0pt'> для операндов <i style='mso-bidi-font-style:normal'>2_</i>
+  и <i style='mso-bidi-font-style:normal'>4_</i> нет необходимости.<i
+  style='mso-bidi-font-style:normal'><o:p></o:p></i></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:
+EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:.5pt solid windowtext;
+ mso-border-insidev:.5pt solid windowtext'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'>Содержание
+  главы<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+  <td width="100%" style='width:100.0%;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-left:53.4pt;text-indent:-18.0pt;mso-list:
+  l1 level1 lfo4;tab-stops:list 53.4pt'><![if !supportLists]><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'><span
+  style='mso-list:Ignore'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></span><![endif]><span style='font-size:14.0pt'><a href="#genEl">Оператор
+  генерации элемента <span class=SpellE><span lang=EN-US style='mso-ansi-language:
+  EN-US'>genEl</span></span></a></span><span style='font-size:14.0pt;
+  mso-bidi-font-size:12.0pt;color:black'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-left:53.4pt;text-indent:-18.0pt;mso-list:
+  l1 level1 lfo4;tab-stops:list 53.4pt'><![if !supportLists]><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'><span
+  style='mso-list:Ignore'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></span><![endif]><span style='font-size:14.0pt'><a
+  href="#genElStr3">Оператор генерации трёхэлементной конструкции genElStr3</a></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-left:53.4pt;text-indent:-18.0pt;mso-list:
+  l1 level1 lfo4;tab-stops:list 53.4pt'><![if !supportLists]><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'><span
+  style='mso-list:Ignore'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></span><![endif]><span style='font-size:14.0pt'><a
+  href="#genElStr5">Оператор генерации пятиэлементной конструкции genElStr5</a></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><o:p>&nbsp;</o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

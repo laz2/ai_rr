@@ -1,0 +1,813 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 11">
+<meta name=Originator content="Microsoft Word 11">
+<link rel=File-List href="print_class.files/filelist.xml">
+<link rel=Edit-Time-Data href="print_class.files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Класс операторов вывода информации в протокол print</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Clio</o:Author>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>Memphis</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>86</o:TotalTime>
+  <o:Created>2005-10-02T15:10:00Z</o:Created>
+  <o:LastSaved>2005-10-02T15:10:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>421</o:Words>
+  <o:Characters>2406</o:Characters>
+  <o:Company>HATA</o:Company>
+  <o:Lines>20</o:Lines>
+  <o:Paragraphs>5</o:Paragraphs>
+  <o:CharactersWithSpaces>2822</o:CharactersWithSpaces>
+  <o:Version>11.5606</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" LatentStyleCount="156">
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+@page Section1
+	{size:595.3pt 841.9pt;
+	margin:2.0cm 42.5pt 2.0cm 3.0cm;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:812068235;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-332599852 68747279 68747289 68747291 68747279 68747289 68747291 68747279 68747289 68747291;}
+@list l0:level1
+	{mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1
+	{mso-list-id:992682532;
+	mso-list-type:hybrid;
+	mso-list-template-ids:83120984 68747279 68747289 68747291 68747279 68747289 68747291 68747279 68747289 68747291;}
+@list l1:level1
+	{mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Обычная таблица";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+table.MsoTableGrid
+	{mso-style-name:"Сетка таблицы";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	border:solid windowtext 1.0pt;
+	mso-border-alt:solid windowtext .5pt;
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-border-insideh:.5pt solid windowtext;
+	mso-border-insidev:.5pt solid windowtext;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="2050">
+  <o:colormenu v:ext="edit" fillcolor="#cff"/>
+ </o:shapedefaults></xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor="#CCFFFF" lang=RU link=blue vlink=purple style='tab-interval:
+35.4pt'>
+
+<div class=Section1>
+
+<p class=MsoNormal align=center style='text-align:center'><b style='mso-bidi-font-weight:
+normal'><span style='font-size:16.0pt'>Класс операторов вывода информации в
+протокол <span class=SpellE>print</span></span></b><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='font-size:16.0pt;mso-ansi-language:EN-US'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='font-size:16.0pt;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></b></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:.5pt solid windowtext;
+ mso-border-insidev:.5pt solid windowtext'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'>Содержание
+  главы<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+  <td width="100%" style='width:100.0%;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:
+  l1 level1 lfo1;tab-stops:list 36.0pt'><![if !supportLists]><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'><span
+  style='mso-list:Ignore'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></span><![endif]><span style='font-size:14.0pt'><a href="#print">Оператор
+  вывода информации в протокол <span class=SpellE>print</span></a><a
+  href="#genEl"></a></span><span style='font-size:14.0pt;mso-bidi-font-size:
+  12.0pt;color:black'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:
+  l1 level1 lfo1;tab-stops:list 36.0pt'><![if !supportLists]><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'><span
+  style='mso-list:Ignore'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></span><![endif]><span style='font-size:14.0pt'><a
+  href="#printNl">Оператор вывода информации в протокол <span class=SpellE>print<span
+  lang=EN-US style='mso-ansi-language:EN-US'>Nl</span></span></a></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:
+  l1 level1 lfo1;tab-stops:list 36.0pt'><![if !supportLists]><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'><span
+  style='mso-list:Ignore'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></span><![endif]><span style='font-size:14.0pt'><a
+  href="#printEl">Оператор вывода информации в протокол <span class=SpellE>print</span><span
+  lang=EN-US style='mso-ansi-language:EN-US'>El</span></a></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:14.0pt'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.4pt'><span
+style='font-size:14.0pt'>Данный класс предназначен для непосредственного вывода
+информации в <u>файл протоколирования</u>. В протокол может выводиться
+информация как <span class=GramE>о</span> элементе (окрестность элемента по
+входящим и выходящим дугам), так и о его содержимом.<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:35.4pt'><span
+style='font-size:14.0pt'><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:141.75pt;
+ height:117.75pt'>
+ <v:imagedata src="print_class.files/image001.emz" o:title="print_class"
+  cropbottom="8728f" cropright="-1679f" blacklevel="-27524f"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=189 height=157
+src="print_class.files/image002.gif" v:shapes="_x0000_i1025"><![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><a name=print><b
+style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt'>Оператор
+вывода информации в протокол </span></b></a><span class=SpellE><span
+style='mso-bookmark:print'><b style='mso-bidi-font-weight:normal'><span
+style='font-size:14.0pt'>print</span></b></span></span><span style='mso-bookmark:
+print'></span><b style='mso-bidi-font-weight:normal'><span style='font-size:
+14.0pt'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:35.4pt'><b
+style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt'><o:p>&nbsp;</o:p></span></b></p>
+
+<p class=MsoNormal><span lang=BE style='font-size:14.0pt;mso-ansi-language:
+BE'>Синтаксис:<span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;background:#EAEAEA;border-collapse:collapse;mso-yfti-tbllook:
+ 480;mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:51.95pt'>
+  <td width="100%" valign=top style='width:100.0%;padding:0cm 5.4pt 0cm 5.4pt;
+  height:51.95pt'>
+  <p class=MsoNormal><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-GB'>print</span><span lang=BE style='font-size:15.0pt;
+  font-family:"Courier New";mso-ansi-language:BE'>([<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New";
+  mso-ansi-language:BE'><span style='mso-tab-count:2'>        </span>1_: </span><span
+  lang=EN-US style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-US'>element</span><span lang=BE style='font-size:15.0pt;font-family:"Courier New";
+  mso-ansi-language:BE'><o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New";
+  mso-ansi-language:BE'><span style='mso-tab-count:1'>    </span><span
+  style='mso-spacerun:yes'>   </span>], </span><span class=SpellE><span
+  lang=EN-US style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-US'>goto</span></span><span lang=BE style='font-size:15.0pt;font-family:
+  "Courier New";mso-ansi-language:BE'>_</span><span lang=EN-US
+  style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:EN-US'>yes</span><span
+  lang=BE style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:
+  BE'>, </span><span class=SpellE><span lang=EN-US style='font-size:15.0pt;
+  font-family:"Courier New";mso-ansi-language:EN-US'>goto</span></span><span
+  lang=BE style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:
+  BE'>_</span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-US'>no</span><span lang=BE style='font-size:14.0pt;
+  font-family:"Courier New";mso-ansi-language:BE'>, </span><span class=SpellE><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-US'>goto</span></span><span lang=BE style='font-size:14.0pt;font-family:
+  "Courier New";mso-ansi-language:BE'>_</span><span lang=EN-US
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-US'>error</span><span
+  lang=BE style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:
+  BE'>)<o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='margin-left:35.4pt'><span lang=BE style='font-size:
+14.0pt;mso-ansi-language:BE'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=BE style='font-size:14.0pt;mso-ansi-language:
+BE'>Параметры: <o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><span class=GramE><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:15.0pt;
+mso-ansi-language:EN-US'>element</span></i></span><span lang=BE
+style='font-size:15.0pt;mso-ansi-language:BE'> <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:70.8pt;text-align:justify'><span
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>in</span><span style='font-size:14.0pt'>] </span><span
+lang=BE style='font-size:14.0pt;mso-ansi-language:BE'>элемент вывода (может не
+уточняться атрибутами)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><span class=SpellE><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:15.0pt;
+mso-ansi-language:EN-US'>goto</span></i></span><i style='mso-bidi-font-style:
+normal'><span lang=BE style='font-size:15.0pt;mso-ansi-language:BE'>_</span></i><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:15.0pt;
+mso-ansi-language:EN-US'>yes</span></i><span lang=BE style='font-size:15.0pt;
+mso-ansi-language:BE'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;text-indent:
+35.4pt'><u><span lang=BE style='font-size:14.0pt;mso-ansi-language:BE'>метка</span></u><span
+lang=BE style='font-size:14.0pt;mso-ansi-language:BE'> успешного выполнения<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><span class=SpellE><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:15.0pt;
+mso-ansi-language:EN-US'>goto</span></i></span><i style='mso-bidi-font-style:
+normal'><span lang=BE style='font-size:15.0pt;mso-ansi-language:BE'>_</span></i><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:15.0pt;
+mso-ansi-language:EN-US'>no</span></i><span lang=BE style='font-size:15.0pt;
+mso-ansi-language:BE'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;text-indent:
+35.4pt'><u><span lang=BE style='font-size:14.0pt;mso-ansi-language:BE'>метка</span></u><span
+lang=BE style='font-size:14.0pt;mso-ansi-language:BE'> безус</span><span
+class=SpellE><span style='font-size:14.0pt'>пешного</span></span><span
+style='font-size:14.0pt'> выполнения<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><span class=SpellE><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>goto</span></i></span><i style='mso-bidi-font-style:
+normal'><span style='font-size:14.0pt'>_</span></i><i style='mso-bidi-font-style:
+normal'><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>error</span></i><span
+style='font-size:14.0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;text-indent:
+35.4pt'><u><span style='font-size:14.0pt'>метка</span></u><span
+style='font-size:14.0pt'> ошибочного выполнения, если в ходе вывода информации
+возникла ошибка<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'>Назначение:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><span
+style='font-size:14.0pt'>Действия оператора </span><i style='mso-bidi-font-style:
+normal'><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>print</span></i><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt'> </span></i><span
+style='font-size:14.0pt'>аналогичны действиям оператора </span><span
+class=SpellE><i style='mso-bidi-font-style:normal'><span lang=EN-US
+style='font-size:14.0pt;mso-ansi-language:EN-US'>printNl</span></i></span><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt'> </span></i><span
+style='font-size:14.0pt'>(смотрите ниже), за исключением того, что </span><span
+class=SpellE><i style='mso-bidi-font-style:normal'><span lang=EN-US
+style='font-size:14.0pt;mso-ansi-language:EN-US'>printNl</span></i></span><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt'> </span></i><span
+style='font-size:14.0pt'>переводит каретку на следующую строку в файле
+протоколирования. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;tab-stops:54.75pt'><span
+lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:35.4pt'><a
+name=printNl><b style='mso-bidi-font-weight:normal'><span style='font-size:
+14.0pt'>Оператор вывода информации в протокол </span></b></a><span
+class=SpellE><span style='mso-bookmark:printNl'><b style='mso-bidi-font-weight:
+normal'><span style='font-size:14.0pt'>print</span></b></span><span
+style='mso-bookmark:printNl'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>Nl</span></b></span></span><span
+style='mso-bookmark:printNl'></span><b style='mso-bidi-font-weight:normal'><span
+style='font-size:14.0pt'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span lang=BE style='font-size:14.0pt;mso-ansi-language:
+BE'>Синтаксис:<span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;background:#EAEAEA;border-collapse:collapse;mso-yfti-tbllook:
+ 480;mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:51.95pt'>
+  <td width="100%" valign=top style='width:100.0%;padding:0cm 5.4pt 0cm 5.4pt;
+  height:51.95pt'>
+  <p class=MsoNormal><span class=SpellE><span lang=EN-GB style='font-size:15.0pt;
+  font-family:"Courier New";mso-ansi-language:EN-GB'>printNl</span></span><span
+  lang=BE style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:
+  BE'>([<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New";
+  mso-ansi-language:BE'><span style='mso-tab-count:3'>            </span>1_: </span><span
+  lang=EN-US style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-US'>element<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'><span
+  style='mso-tab-count:2'>        </span></span><span style='font-size:15.0pt;
+  font-family:"Courier New";mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'> </span></span><span lang=EN-GB style='font-size:
+  15.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'>], </span><span
+  class=SpellE><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-US'>goto_yes</span></span><span lang=EN-GB
+  style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'>, </span><span
+  class=SpellE><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-US'>goto_no</span></span><span lang=BE style='font-size:
+  14.0pt;font-family:"Courier New";mso-ansi-language:BE'>, </span><span
+  class=SpellE><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-US'>goto</span></span><span lang=BE style='font-size:
+  14.0pt;font-family:"Courier New";mso-ansi-language:BE'>_</span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-US'>error</span><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-GB'>)</span><span lang=BE style='font-size:15.0pt;
+  font-family:"Courier New";mso-ansi-language:BE'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='margin-left:35.4pt'><i style='mso-bidi-font-style:
+normal'><span lang=EN-GB style='font-size:15.0pt;mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></i></p>
+
+<p class=MsoNormal style='margin-left:35.4pt'><span lang=EN-GB
+style='font-size:14.0pt;mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'>Параметры:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><span class=GramE><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:15.0pt;
+mso-ansi-language:EN-US'>element</span></i></span><span style='font-size:15.0pt'>
+<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:70.8pt;text-align:justify'><span
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>in</span><span style='font-size:14.0pt'>] </span><span
+lang=BE style='font-size:14.0pt;mso-ansi-language:BE'>элемент </span><span
+style='font-size:14.0pt'>вывода (может не уточняться атрибутами)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><span class=SpellE><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:15.0pt;
+mso-ansi-language:EN-US'>goto</span></i></span><i style='mso-bidi-font-style:
+normal'><span style='font-size:15.0pt'>_</span></i><i style='mso-bidi-font-style:
+normal'><span lang=EN-US style='font-size:15.0pt;mso-ansi-language:EN-US'>yes</span></i><span
+style='font-size:15.0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;text-indent:
+35.4pt'><u><span style='font-size:14.0pt'>метка</span></u><span
+style='font-size:14.0pt'> успешного выполнения<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><span class=SpellE><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:15.0pt;
+mso-ansi-language:EN-US'>goto</span></i></span><i style='mso-bidi-font-style:
+normal'><span style='font-size:15.0pt'>_</span></i><i style='mso-bidi-font-style:
+normal'><span lang=EN-US style='font-size:15.0pt;mso-ansi-language:EN-US'>no</span></i><span
+style='font-size:15.0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;text-indent:
+35.4pt'><u><span style='font-size:14.0pt'>метка</span></u><span
+style='font-size:14.0pt'> безуспешного выполнения<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><span class=SpellE><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>goto</span></i></span><i style='mso-bidi-font-style:
+normal'><span style='font-size:14.0pt'>_</span></i><i style='mso-bidi-font-style:
+normal'><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>error</span></i><span
+style='font-size:14.0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;text-indent:
+35.4pt'><u><span style='font-size:14.0pt'>метка</span></u><span
+style='font-size:14.0pt'> ошибочного выполнения, если в ходе вывода информации
+возникла ошибка<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'>Назначение:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;tab-stops:54.75pt'><span
+style='font-size:14.0pt'>Данный оператор позволяет вывести в файл протоколирования
+содержимое (строковое или числовое) операнда. Обязательным атрибутом является <i
+style='mso-bidi-font-style:normal'>1_</i>. Все остальные атрибуты являются не
+обязательными.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;tab-stops:54.75pt'><span
+style='font-size:14.0pt'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:.5pt solid windowtext;
+ mso-border-insidev:.5pt solid windowtext'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width="12%" valign=top style='width:12.56%;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1026" type="#_x0000_t75" style='width:37.5pt;height:23.25pt'
+   fillcolor="window">
+   <v:imagedata src="print_class.files/image003.png" o:title="Attention"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=50 height=31
+  src="print_class.files/image004.gif" v:shapes="_x0000_i1026"><![endif]><o:p></o:p></span></p>
+  </td>
+  <td width="87%" style='width:87.44%;border:solid windowtext 1.0pt;border-left:
+  none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify'><b style='mso-bidi-font-weight:
+  normal'><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'>Внимание:</span></b><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'> Операнд,
+  перед выводом в протокол должен быть найден. <o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+  <td width="12%" valign=top style='width:12.56%;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1027" type="#_x0000_t75" style='width:45pt;height:28.5pt'
+   fillcolor="window">
+   <v:imagedata src="print_class.files/image005.png" o:title="Example"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=60 height=38
+  src="print_class.files/image006.gif" v:shapes="_x0000_i1027"><![endif]><o:p></o:p></span></p>
+  </td>
+  <td width="87%" valign=top style='width:87.44%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify;tab-stops:54.75pt'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  12.0pt;color:black'>Пример 1</span></b><span style='font-size:14.0pt;
+  mso-bidi-font-size:12.0pt;color:black'>. </span><span style='font-size:14.0pt'>Необходимо
+  вывести содержимое узла </span><i style='mso-bidi-font-style:normal'><span
+  lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>node</span></i><span
+  style='font-size:14.0pt'>.</span><span lang=EN-US style='font-size:14.0pt;
+  mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify;tab-stops:54.75pt'><span
+  lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span lang=EN-US
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-US'>print</span><span
+  class=SpellE><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-GB'>Nl</span></span><span lang=BE style='font-size:14.0pt;
+  font-family:"Courier New";mso-ansi-language:BE'>([<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-left:62.55pt;text-align:justify'><span
+  lang=BE style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
+  BE'><span style='mso-tab-count:1'> </span><span style='mso-tab-count:1'>    </span>1_:</span><span
+  lang=BE style='font-size:14.0pt;font-family:"Courier New"'> </span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-US'>node</span><span style='font-size:14.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
+  font-family:"Courier New"'><span style='mso-tab-count:1'>    </span><span
+  style='mso-spacerun:yes'>     </span>])</span><span style='font-size:14.0pt'>
+  <i style='mso-bidi-font-style:normal'><o:p></o:p></i></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:35.4pt'><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:35.4pt'><a
+name=printEl><b style='mso-bidi-font-weight:normal'><span style='font-size:
+14.0pt'>Оператор вывода информации в протокол </span></b></a><span
+class=SpellE><span style='mso-bookmark:printEl'><b style='mso-bidi-font-weight:
+normal'><span style='font-size:14.0pt'>print</span></b></span></span><span
+style='mso-bookmark:printEl'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>El</span></b></span><span
+style='mso-bookmark:printEl'></span><b style='mso-bidi-font-weight:normal'><span
+style='font-size:14.0pt'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:35.4pt'><b
+style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt'><o:p>&nbsp;</o:p></span></b></p>
+
+<p class=MsoNormal><span lang=BE style='font-size:14.0pt;mso-ansi-language:
+BE'>Синтаксис:<span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;background:#EAEAEA;border-collapse:collapse;mso-yfti-tbllook:
+ 480;mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:51.95pt'>
+  <td width="100%" valign=top style='width:100.0%;padding:0cm 5.4pt 0cm 5.4pt;
+  height:51.95pt'>
+  <p class=MsoNormal><span class=SpellE><span lang=EN-GB style='font-size:15.0pt;
+  font-family:"Courier New";mso-ansi-language:EN-GB'>printEl</span></span><span
+  lang=BE style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:
+  BE'>([<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New";
+  mso-ansi-language:BE'><span style='mso-tab-count:3'>            </span>1_: </span><span
+  lang=EN-US style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-US'>element<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'><span
+  style='mso-tab-count:2'>        </span></span><span style='font-size:15.0pt;
+  font-family:"Courier New";mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'> </span><span lang=EN-US>], <span class=SpellE>goto_yes</span>,
+  <span class=SpellE>goto_no</span></span></span><span lang=BE
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:BE'>, </span><span
+  class=SpellE><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-US'>goto</span></span><span lang=BE style='font-size:
+  14.0pt;font-family:"Courier New";mso-ansi-language:BE'>_</span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-US'>error</span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-US'>)</span><span lang=BE style='font-size:15.0pt;
+  font-family:"Courier New";mso-ansi-language:BE'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='margin-left:35.4pt'><i style='mso-bidi-font-style:
+normal'><span lang=EN-US style='font-size:15.0pt;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></i></p>
+
+<p class=MsoNormal style='margin-left:35.4pt'><span lang=EN-US
+style='font-size:14.0pt;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'>Параметры:</span><span
+style='font-size:14.0pt;mso-ansi-language:BE'> </span><span style='font-size:
+14.0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><span class=GramE><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:15.0pt;
+mso-ansi-language:EN-US'>element</span></i></span><span style='font-size:15.0pt'>
+<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:70.8pt;text-align:justify'><span
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>in</span><span style='font-size:14.0pt'>] </span><span
+lang=BE style='font-size:14.0pt;mso-ansi-language:BE'>элемент </span><span
+style='font-size:14.0pt'>вывода (может не уточняться атрибутами)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><span class=SpellE><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:15.0pt;
+mso-ansi-language:EN-US'>goto</span></i></span><i style='mso-bidi-font-style:
+normal'><span style='font-size:15.0pt'>_</span></i><i style='mso-bidi-font-style:
+normal'><span lang=EN-US style='font-size:15.0pt;mso-ansi-language:EN-US'>yes</span></i><span
+style='font-size:15.0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;text-indent:
+35.4pt'><u><span style='font-size:14.0pt'>метка</span></u><span
+style='font-size:14.0pt'> успешного выполнения<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><span class=SpellE><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:15.0pt;
+mso-ansi-language:EN-US'>goto</span></i></span><i style='mso-bidi-font-style:
+normal'><span style='font-size:15.0pt'>_</span></i><i style='mso-bidi-font-style:
+normal'><span lang=EN-US style='font-size:15.0pt;mso-ansi-language:EN-US'>no</span></i><span
+style='font-size:15.0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;text-indent:
+35.4pt'><u><span style='font-size:14.0pt'>метка</span></u><span
+style='font-size:14.0pt'> безуспешного выполнения<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><span class=SpellE><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+mso-ansi-language:EN-US'>goto</span></i></span><i style='mso-bidi-font-style:
+normal'><span style='font-size:14.0pt'>_</span></i><i style='mso-bidi-font-style:
+normal'><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>error</span></i><span
+style='font-size:14.0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;text-indent:
+35.4pt'><u><span style='font-size:14.0pt'>метка</span></u><span
+style='font-size:14.0pt'> ошибочного выполнения, если в ходе вывода информации
+возникла ошибка<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'>Назначение:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;tab-stops:54.75pt'><span
+style='font-size:14.0pt'>Данный оператор позволяет вывести в файл
+протоколирования информацию об операнде, а именно его окрестность по входящим и
+выходящим дугам. Обязательным атрибутом является <i style='mso-bidi-font-style:
+normal'>1_</i>. Все остальные атрибуты являются не обязательными.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;tab-stops:54.75pt'><span
+style='font-size:14.0pt'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:.5pt solid windowtext;
+ mso-border-insidev:.5pt solid windowtext'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width="12%" valign=top style='width:12.82%;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1028" type="#_x0000_t75" style='width:37.5pt;height:23.25pt'
+   fillcolor="window">
+   <v:imagedata src="print_class.files/image003.png" o:title="Attention"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=50 height=31
+  src="print_class.files/image004.gif" v:shapes="_x0000_i1028"><![endif]><o:p></o:p></span></p>
+  </td>
+  <td width="87%" style='width:87.18%;border:solid windowtext 1.0pt;border-left:
+  none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify'><b style='mso-bidi-font-weight:
+  normal'><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'>Внимание:</span></b><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'> Операнд,
+  перед выводом в протокол должен быть найден. <o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+  <td width="12%" valign=top style='width:12.82%;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1029" type="#_x0000_t75" style='width:45pt;height:28.5pt'
+   fillcolor="window">
+   <v:imagedata src="print_class.files/image005.png" o:title="Example"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=60 height=38
+  src="print_class.files/image007.gif" v:shapes="_x0000_i1029"><![endif]><o:p></o:p></span></p>
+  </td>
+  <td width="87%" valign=top style='width:87.18%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify;tab-stops:54.75pt'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  12.0pt;color:black'>Пример 1</span></b><span style='font-size:14.0pt;
+  mso-bidi-font-size:12.0pt;color:black'>. </span><span style='font-size:14.0pt'>Необходимо
+  вывести информацию об узле </span><i style='mso-bidi-font-style:normal'><span
+  lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>set</span></i><span
+  style='font-size:14.0pt'>.<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify;tab-stops:54.75pt'><span
+  style='font-size:14.0pt'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span lang=EN-US
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-US'>print</span><span
+  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-GB'>El</span><span lang=BE style='font-size:14.0pt;font-family:"Courier New";
+  mso-ansi-language:BE'>([<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span lang=BE style='font-size:
+  14.0pt;font-family:"Courier New";mso-ansi-language:BE'><span
+  style='mso-tab-count:3'>             </span>1_:</span><span lang=BE
+  style='font-size:14.0pt;font-family:"Courier New"'> </span><span lang=EN-US
+  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-US'>set</span><span
+  style='font-size:14.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
+  font-family:"Courier New"'><span style='mso-tab-count:2'>         </span>])</span><span
+  style='font-size:14.0pt'> <i style='mso-bidi-font-style:normal'><o:p></o:p></i></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;tab-stops:54.75pt'><span
+lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:.5pt solid windowtext;
+ mso-border-insidev:.5pt solid windowtext'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'>Содержание
+  главы<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+  <td width="100%" style='width:100.0%;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:
+  l0 level1 lfo2;tab-stops:list 36.0pt'><![if !supportLists]><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'><span
+  style='mso-list:Ignore'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></span><![endif]><span style='font-size:14.0pt'><a href="#print">Оператор
+  вывода информации в протокол <span class=SpellE>print</span></a><a
+  href="#genEl"></a></span><span style='font-size:14.0pt;mso-bidi-font-size:
+  12.0pt;color:black'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:
+  l0 level1 lfo2;tab-stops:list 36.0pt'><![if !supportLists]><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'><span
+  style='mso-list:Ignore'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></span><![endif]><span style='font-size:14.0pt'><a
+  href="#printNl">Оператор вывода информации в протокол <span class=SpellE>print<span
+  lang=EN-US style='mso-ansi-language:EN-US'>Nl</span></span></a></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:
+  l0 level1 lfo2;tab-stops:list 36.0pt'><![if !supportLists]><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'><span
+  style='mso-list:Ignore'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></span><![endif]><span style='font-size:14.0pt'><a
+  href="#printEl">Оператор вывода информации в протокол <span class=SpellE>print</span><span
+  lang=EN-US style='mso-ansi-language:EN-US'>El</span></a></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;tab-stops:54.75pt'><span
+style='font-size:14.0pt'><o:p>&nbsp;</o:p></span></p>
+
+</div>
+
+</body>
+
+</html>
