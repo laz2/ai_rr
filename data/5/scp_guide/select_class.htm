@@ -1,1550 +1,1026 @@
-<html xmlns:v="urn:schemas-microsoft-com:vml"
-xmlns:o="urn:schemas-microsoft-com:office:office"
-xmlns:w="urn:schemas-microsoft-com:office:word"
-xmlns="http://www.w3.org/TR/REC-html40">
+<html>
 
 <head>
 <meta http-equiv=Content-Type content="text/html; charset=windows-1251">
-<meta name=ProgId content=Word.Document>
-<meta name=Generator content="Microsoft Word 11">
-<meta name=Originator content="Microsoft Word 11">
-<link rel=File-List href="select_class.files/filelist.xml">
-<link rel=Edit-Time-Data href="select_class.files/editdata.mso">
-<!--[if !mso]>
-<style>
-v\:* {behavior:url(#default#VML);}
-o\:* {behavior:url(#default#VML);}
-w\:* {behavior:url(#default#VML);}
-.shape {behavior:url(#default#VML);}
-</style>
-<![endif]-->
+<meta name=Generator content="Microsoft Word 14 (filtered)">
 <title>Класс операторов выборки select</title>
-<!--[if gte mso 9]><xml>
- <o:DocumentProperties>
-  <o:Author>Clio</o:Author>
-  <o:Template>Normal</o:Template>
-  <o:LastAuthor>Memphis</o:LastAuthor>
-  <o:Revision>2</o:Revision>
-  <o:TotalTime>160</o:TotalTime>
-  <o:Created>2005-10-02T15:09:00Z</o:Created>
-  <o:LastSaved>2005-10-02T15:09:00Z</o:LastSaved>
-  <o:Pages>1</o:Pages>
-  <o:Words>1227</o:Words>
-  <o:Characters>6995</o:Characters>
-  <o:Company>HATA</o:Company>
-  <o:Lines>58</o:Lines>
-  <o:Paragraphs>16</o:Paragraphs>
-  <o:CharactersWithSpaces>8206</o:CharactersWithSpaces>
-  <o:Version>11.5606</o:Version>
- </o:DocumentProperties>
-</xml><![endif]--><!--[if gte mso 9]><xml>
- <w:WordDocument>
-  <w:SpellingState>Clean</w:SpellingState>
-  <w:GrammarState>Clean</w:GrammarState>
-  <w:PunctuationKerning/>
-  <w:ValidateAgainstSchemas/>
-  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
-  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
-  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
-  <w:Compatibility>
-   <w:BreakWrappedTables/>
-   <w:SnapToGridInCell/>
-   <w:WrapTextWithPunct/>
-   <w:UseAsianBreakRules/>
-   <w:DontGrowAutofit/>
-  </w:Compatibility>
-  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
- </w:WordDocument>
-</xml><![endif]--><!--[if gte mso 9]><xml>
- <w:LatentStyles DefLockedState="false" LatentStyleCount="156">
- </w:LatentStyles>
-</xml><![endif]-->
 <style>
 <!--
  /* Style Definitions */
  p.MsoNormal, li.MsoNormal, div.MsoNormal
-	{mso-style-parent:"";
-	margin:0cm;
+	{margin:0cm;
 	margin-bottom:.0001pt;
-	mso-pagination:widow-orphan;
 	font-size:12.0pt;
-	font-family:"Times New Roman";
-	mso-fareast-font-family:"Times New Roman";}
+	font-family:"Times New Roman","serif";}
 a:link, span.MsoHyperlink
 	{color:blue;
-	text-decoration:underline;
-	text-underline:single;}
+	text-decoration:underline;}
 a:visited, span.MsoHyperlinkFollowed
 	{color:purple;
-	text-decoration:underline;
-	text-underline:single;}
-span.SpellE
-	{mso-style-name:"";
-	mso-spl-e:yes;}
-span.GramE
-	{mso-style-name:"";
-	mso-gram-e:yes;}
-@page Section1
+	text-decoration:underline;}
+.MsoChpDefault
+	{font-size:10.0pt;}
+@page WordSection1
 	{size:595.3pt 841.9pt;
-	margin:2.0cm 42.5pt 2.0cm 3.0cm;
-	mso-header-margin:35.4pt;
-	mso-footer-margin:35.4pt;
-	mso-paper-source:0;}
-div.Section1
-	{page:Section1;}
+	margin:2.0cm 42.5pt 2.0cm 3.0cm;}
+div.WordSection1
+	{page:WordSection1;}
  /* List Definitions */
- @list l0
-	{mso-list-id:560598871;
-	mso-list-type:hybrid;
-	mso-list-template-ids:1729119572 68747279 68747289 68747291 68747279 68747289 68747291 68747279 68747289 68747291;}
-@list l0:level1
-	{mso-level-tab-stop:36.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;}
-@list l1
-	{mso-list-id:992682532;
-	mso-list-type:hybrid;
-	mso-list-template-ids:83120984 68747279 68747289 68747291 68747279 68747289 68747291 68747279 68747289 68747291;}
-@list l1:level1
-	{mso-level-tab-stop:36.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;}
-ol
+ ol
 	{margin-bottom:0cm;}
 ul
 	{margin-bottom:0cm;}
 -->
 </style>
-<!--[if gte mso 10]>
-<style>
- /* Style Definitions */
- table.MsoNormalTable
-	{mso-style-name:"Обычная таблица";
-	mso-tstyle-rowband-size:0;
-	mso-tstyle-colband-size:0;
-	mso-style-noshow:yes;
-	mso-style-parent:"";
-	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
-	mso-para-margin:0cm;
-	mso-para-margin-bottom:.0001pt;
-	mso-pagination:widow-orphan;
-	font-size:10.0pt;
-	font-family:"Times New Roman";
-	mso-ansi-language:#0400;
-	mso-fareast-language:#0400;
-	mso-bidi-language:#0400;}
-table.MsoTableGrid
-	{mso-style-name:"Сетка таблицы";
-	mso-tstyle-rowband-size:0;
-	mso-tstyle-colband-size:0;
-	border:solid windowtext 1.0pt;
-	mso-border-alt:solid windowtext .5pt;
-	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
-	mso-border-insideh:.5pt solid windowtext;
-	mso-border-insidev:.5pt solid windowtext;
-	mso-para-margin:0cm;
-	mso-para-margin-bottom:.0001pt;
-	mso-pagination:widow-orphan;
-	font-size:10.0pt;
-	font-family:"Times New Roman";
-	mso-ansi-language:#0400;
-	mso-fareast-language:#0400;
-	mso-bidi-language:#0400;}
-</style>
-<![endif]--><!--[if gte mso 9]><xml>
- <o:shapedefaults v:ext="edit" spidmax="2050">
-  <o:colormenu v:ext="edit" fillcolor="#cff"/>
- </o:shapedefaults></xml><![endif]--><!--[if gte mso 9]><xml>
- <o:shapelayout v:ext="edit">
-  <o:idmap v:ext="edit" data="1"/>
- </o:shapelayout></xml><![endif]-->
+
 </head>
 
-<body bgcolor="#CCFFFF" lang=RU link=blue vlink=purple style='tab-interval:
-35.4pt'>
+<body bgcolor="#CCFFFF" lang=RU link=blue vlink=purple>
 
-<div class=Section1>
+<div class=WordSection1>
 
-<p class=MsoNormal align=center style='text-align:center'><b style='mso-bidi-font-weight:
-normal'><span style='font-size:16.0pt'>Класс операторов выборки </span></b><b
-style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:16.0pt;
-mso-ansi-language:EN-US'>select<o:p></o:p></span></b></p>
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-size:16.0pt'>Класс операторов выборки </span></b><b><span
+lang=EN-US style='font-size:16.0pt'>select</span></b></p>
 
-<p class=MsoNormal align=center style='text-align:center'><b style='mso-bidi-font-weight:
-normal'><span lang=EN-US style='font-size:16.0pt;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></b></p>
+<p class=MsoNormal align=center style='text-align:center'><b><span lang=EN-US
+style='font-size:16.0pt'>&nbsp;</span></b></p>
 
 <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
- mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:.5pt solid windowtext;
- mso-border-insidev:.5pt solid windowtext'>
- <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+ style='width:100.0%;border-collapse:collapse;border:none'>
+ <tr>
   <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'>Содержание
-  главы<o:p></o:p></span></p>
+  style='font-size:14.0pt;color:black'>Содержание главы</span></p>
   </td>
  </tr>
- <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+ <tr>
   <td width="100%" style='width:100.0%;border:solid windowtext 1.0pt;
-  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
-  padding:0cm 5.4pt 0cm 5.4pt'>
-  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:
-  l1 level1 lfo2;tab-stops:list 36.0pt'><![if !supportLists]><span
-  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'><span
-  style='mso-list:Ignore'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span></span><![endif]><span style='font-size:14.0pt'><a
-  href="#selectYStr3">Оператор выборки <span lang=EN-US style='mso-ansi-language:
-  EN-US'>selectYStr3</span></a><a href="#genEl"></a></span><span
-  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'><o:p></o:p></span></p>
-  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:
-  l1 level1 lfo2;tab-stops:list 36.0pt'><![if !supportLists]><span
-  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'><span
-  style='mso-list:Ignore'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span></span><![endif]><span style='font-size:14.0pt'><a
-  href="#selectNStr3">Оператор выборки <span class=SpellE><span lang=EN-US
-  style='mso-ansi-language:EN-US'>selectNStr</span></span>3</a></span><span
-  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'><o:p></o:p></span></p>
-  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:
-  l1 level1 lfo2;tab-stops:list 36.0pt'><![if !supportLists]><span
-  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'><span
-  style='mso-list:Ignore'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span></span><![endif]><span style='font-size:14.0pt'><a
-  href="#selectYStr5">Оператор выборки <span lang=EN-US style='mso-ansi-language:
-  EN-US'>selectYStr5</span></a></span><span style='font-size:14.0pt;mso-bidi-font-size:
-  12.0pt;color:black'><o:p></o:p></span></p>
-  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:
-  l1 level1 lfo2;tab-stops:list 36.0pt'><![if !supportLists]><span
-  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'><span
-  style='mso-list:Ignore'>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span></span><![endif]><span style='font-size:14.0pt'><a
-  href="#selectNStr5">Оператор выборки <span lang=EN-US style='mso-ansi-language:
-  EN-US'>selectNStr5</span></a></span><span style='font-size:14.0pt;mso-bidi-font-size:
-  12.0pt;color:black'><o:p></o:p></span></p>
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
+  style='font-size:14.0pt;color:black'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span style='font-size:14.0pt'><a href="#selectYStr3">Оператор
+  выборки <span lang=EN-US>selectYStr3</span></a></span></p>
+  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
+  style='font-size:14.0pt;color:black'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span style='font-size:14.0pt'><a href="#selectNStr3">Оператор
+  выборки <span lang=EN-US>selectNStr</span>3</a></span></p>
+  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
+  style='font-size:14.0pt;color:black'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span style='font-size:14.0pt'><a href="#selectYStr5">Оператор
+  выборки <span lang=EN-US>selectYStr5</span></a></span></p>
+  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
+  style='font-size:14.0pt;color:black'>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span style='font-size:14.0pt'><a href="#selectNStr5">Оператор
+  выборки <span lang=EN-US>selectNStr5</span></a></span></p>
   </td>
  </tr>
 </table>
 
-<p class=MsoNormal align=center style='text-align:center'><b style='mso-bidi-font-weight:
-normal'><span style='font-size:16.0pt'><o:p>&nbsp;</o:p></span></b></p>
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-size:16.0pt'>&nbsp;</span></b></p>
 
-<p class=MsoNormal align=center style='text-align:center'><b style='mso-bidi-font-weight:
-normal'><span style='font-size:16.0pt'><o:p>&nbsp;</o:p></span></b></p>
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-size:16.0pt'>&nbsp;</span></b></p>
 
 <p class=MsoNormal style='text-align:justify;text-indent:35.4pt'><span
 style='font-size:14.0pt'>Операторы данного класса позволяют обрабатывать два
-множества элементов, а именно проводить выборку по заданному условию. Операторы,
-которые в составе своего названия имеют </span><span lang=EN-US
-style='font-size:14.0pt;mso-ansi-language:EN-US'>Y</span><span
-style='font-size:14.0pt'> (</span><span lang=EN-US style='font-size:14.0pt;
-mso-ansi-language:EN-US'>selectYStr</span><span style='font-size:14.0pt'>3, </span><span
-lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>selectYStr</span><span
+множества элементов, а именно проводить выборку по заданному условию.
+Операторы, которые в составе своего названия имеют </span><span lang=EN-US
+style='font-size:14.0pt'>Y</span><span style='font-size:14.0pt'> (</span><span
+lang=EN-US style='font-size:14.0pt'>selectYStr</span><span style='font-size:
+14.0pt'>3, </span><span lang=EN-US style='font-size:14.0pt'>selectYStr</span><span
 style='font-size:14.0pt'>5), позволяют сформировать или дополнить множество из
 указанных значений операндов, удовлетворяющим заданному условию. Соответственно
-</span><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>N</span><span
+</span><span lang=EN-US style='font-size:14.0pt'>N</span><span
 style='font-size:14.0pt'>, если условие не выполняется. Более подробно каждый
-из операторов выборки рассмотрим отдельно.<o:p></o:p></span></p>
+из операторов выборки рассмотрим отдельно.</span></p>
 
 <p class=MsoNormal style='text-align:justify;text-indent:35.4pt'><span
-style='font-size:14.0pt'><o:p>&nbsp;</o:p></span></p>
+style='font-size:14.0pt'>&nbsp;</span></p>
 
 <p class=MsoNormal style='text-align:justify;text-indent:35.4pt'><span
-style='font-size:14.0pt'><o:p>&nbsp;</o:p></span></p>
+style='font-size:14.0pt'>&nbsp;</span></p>
 
-<p class=MsoNormal align=center style='text-align:center'><a name=selectYStr3><b
-style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt'>Оператор
-выборки </span></b></a><span style='mso-bookmark:selectYStr3'><b
-style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:14.0pt;
-mso-ansi-language:EN-US'>selectYStr3</span></b></span><b style='mso-bidi-font-weight:
-normal'><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'><o:p></o:p></span></b></p>
+<p class=MsoNormal align=center style='text-align:center'><a name=selectYStr3><b><span
+style='font-size:14.0pt'>Оператор выборки </span></b></a><b><span lang=EN-US
+style='font-size:14.0pt'>selectYStr3</span></b></p>
 
-<p class=MsoNormal><span lang=BE style='font-size:14.0pt;mso-ansi-language:
-BE'>Синтаксис:<span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:  </span></p>
 
-<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;background:#EAEAEA;border-collapse:collapse;mso-yfti-tbllook:
- 480;mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
- <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
-  height:139.35pt'>
-  <td width="100%" valign=top style='width:100.0%;padding:0cm 5.4pt 0cm 5.4pt;
-  height:139.35pt'>
-  <p class=MsoNormal><span class=SpellE><span lang=EN-GB style='font-size:15.0pt;
-  font-family:"Courier New";mso-ansi-language:EN-GB'>selectY</span><span
-  lang=EN-US style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:
-  EN-US'>Str</span></span><span lang=EN-GB style='font-size:15.0pt;font-family:
-  "Courier New";mso-ansi-language:EN-GB'>3</span><span lang=BE
-  style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:BE'>([<o:p></o:p></span></p>
-  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New";
-  mso-ansi-language:BE'><span style='mso-tab-count:4'>                </span>1_:</span><span
-  lang=EN-US style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:
-  EN-US'> node</span><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New";
-  mso-ansi-language:EN-GB'>,<o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'><span
-  style='mso-tab-count:4'>                </span></span><span lang=EN-GB
-  style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'>2_:
-  </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New";
-  mso-ansi-language:EN-US'>arc,<o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'><span
-  style='mso-tab-count:4'>                </span></span><span lang=EN-US
-  style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:EN-US'>3_:
-  element,<o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'><span
-  style='mso-tab-count:4'>                </span></span><span lang=EN-US
-  style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:EN-US'>set1_:
-  resultSet1,<o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'><span
-  style='mso-tab-count:4'>                </span></span><span lang=EN-US
-  style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:EN-US'>set2_:
-  resultSet2,<o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'><span
-  style='mso-tab-count:4'>                </span></span><span lang=EN-US
-  style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:EN-US'>set3_:
-  resultSet3<o:p></o:p></span></p>
-  <p class=MsoNormal style='tab-stops:90.0pt'><span style='font-size:15.0pt;
-  font-family:"Courier New"'><span style='mso-tab-count:2'>            </span></span><span
-  style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:EN-US'><span
-  style='mso-spacerun:yes'> </span></span><span lang=EN-GB style='font-size:
-  15.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'>], </span><span
-  class=SpellE><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New";
-  mso-ansi-language:EN-US'>goto_yes</span></span><span lang=EN-GB
-  style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'>, </span><span
-  class=SpellE><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New";
-  mso-ansi-language:EN-US'>goto_no</span></span><span lang=EN-GB
-  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'>, </span><span
-  class=SpellE><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New";
-  mso-ansi-language:EN-US'>goto_error</span></span><span lang=EN-GB
-  style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'>)</span><span
-  lang=BE style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:
-  BE'><o:p></o:p></span></p>
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;background:#EAEAEA;border-collapse:collapse;border:none'>
+ <tr style='height:139.35pt'>
+  <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:139.35pt'>
+  <p class=MsoNormal><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>selectY</span><span
+  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>Str</span><span
+  lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>3</span><span
+  lang=BE style='font-size:15.0pt;font-family:"Courier New"'>([</span></p>
+  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New"'>                1_:</span><span
+  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'> node</span><span
+  lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>,</span></p>
+  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'>                </span><span
+  lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>2_: </span><span
+  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>arc,</span></p>
+  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'>                </span><span
+  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>3_: element,</span></p>
+  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'>                </span><span
+  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>set1_:
+  resultSet1,</span></p>
+  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'>                </span><span
+  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>set2_:
+  resultSet2,</span></p>
+  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'>                </span><span
+  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>set3_:
+  resultSet3</span></p>
+  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'>            </span><span
+  style='font-size:15.0pt;font-family:"Courier New"'> </span><span lang=EN-GB
+  style='font-size:15.0pt;font-family:"Courier New"'>], </span><span
+  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>goto_yes</span><span
+  lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>, </span><span
+  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>goto_no</span><span
+  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>, </span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>goto_error</span><span
+  lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>)</span></p>
   </td>
  </tr>
 </table>
 
-<p class=MsoNormal style='margin-left:81.0pt;tab-stops:90.0pt'><i
-style='mso-bidi-font-style:normal'><span lang=BE style='font-size:15.0pt;
-mso-ansi-language:BE'><o:p>&nbsp;</o:p></span></i></p>
+<p class=MsoNormal style='margin-left:81.0pt'><i><span lang=BE
+style='font-size:15.0pt'>&nbsp;</span></i></p>
 
 <p class=MsoNormal style='margin-left:35.4pt'><span lang=EN-GB
-style='font-size:14.0pt;mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+style='font-size:14.0pt'>&nbsp;</span></p>
 
 <p class=MsoNormal><span style='font-size:14.0pt'>Параметры</span><span
-lang=EN-GB style='font-size:14.0pt;mso-ansi-language:EN-GB'>:</span><span
-lang=EN-GB style='font-size:14.0pt;mso-ansi-language:BE'> </span><span
-lang=EN-GB style='font-size:14.0pt;mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+lang=EN-GB style='font-size:14.0pt'>:</span><span lang=EN-GB style='font-size:
+14.0pt'> </span></p>
 
-<p class=MsoNormal style='text-indent:35.4pt'><span class=GramE><i
-style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:15.0pt;
-mso-ansi-language:EN-US'>node</span></i></span><span style='font-size:15.0pt'><o:p></o:p></span></p>
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:15.0pt'>node</span></i></p>
 
 <p class=MsoNormal style='margin-left:70.8pt;text-align:justify'><span
-style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
-mso-ansi-language:EN-US'>in</span><span style='font-size:14.0pt'>] узел</span><span
-lang=BE style='font-size:14.0pt;mso-ansi-language:BE'>, который является первым
-элементом в трёхэлементной конструкции. Данная конструкция </span><span
-style='font-size:14.0pt'>является шаблоном для поиска </span><span
-style='font-size:14.0pt;mso-ansi-language:BE'><span
-style='mso-spacerun:yes'> </span></span><span style='font-size:14.0pt'><o:p></o:p></span></p>
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>in</span><span
+style='font-size:14.0pt'>] узел</span><span lang=BE style='font-size:14.0pt'>,
+который является первым элементом в трёхэлементной конструкции. Данная
+конструкция </span><span style='font-size:14.0pt'>является шаблоном для поиска </span><span
+style='font-size:14.0pt'> </span></p>
 
-<p class=MsoNormal style='text-indent:35.4pt'><span class=GramE><i
-style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:15.0pt;
-mso-ansi-language:EN-US'>arc</span></i></span><span style='font-size:15.0pt'> <o:p></o:p></span></p>
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:15.0pt'>arc</span></i><span lang=EN-US style='font-size:15.0pt'>
+</span></p>
 
 <p class=MsoNormal style='margin-left:70.8pt;text-align:justify'><span
-style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
-mso-ansi-language:EN-US'>in</span><span style='font-size:14.0pt'>] </span><span
-lang=BE style='font-size:14.0pt;mso-ansi-language:BE'>дуга, которая является
-вторым элементом в трёхэлементной конструкции</span><span style='font-size:
-14.0pt'><o:p></o:p></span></p>
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>in</span><span
+style='font-size:14.0pt'>] </span><span lang=BE style='font-size:14.0pt'>дуга,
+которая является вторым элементом в трёхэлементной конструкции</span></p>
 
-<p class=MsoNormal style='text-indent:35.4pt'><span class=GramE><i
-style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:15.0pt;
-mso-ansi-language:EN-US'>element</span></i></span><span style='font-size:15.0pt'>
-<o:p></o:p></span></p>
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:15.0pt'>element</span></i><span lang=EN-US style='font-size:
+15.0pt'> </span></p>
 
 <p class=MsoNormal style='margin-left:70.8pt;text-align:justify'><span
-style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
-mso-ansi-language:EN-US'>in</span><span style='font-size:14.0pt'>, </span><span
-lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>out</span><span
-style='font-size:14.0pt'>] </span><span lang=BE style='font-size:14.0pt;
-mso-ansi-language:BE'>элемент, который является третьим элементом в
-трёхэлементной конструкции</span><span style='font-size:14.0pt'><o:p></o:p></span></p>
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>in</span><span
+style='font-size:14.0pt'>, </span><span lang=EN-US style='font-size:14.0pt'>out</span><span
+style='font-size:14.0pt'>] </span><span lang=BE style='font-size:14.0pt'>элемент,
+который является третьим элементом в трёхэлементной конструкции</span></p>
 
-<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><span
-class=SpellE><i style='mso-bidi-font-style:normal'><span lang=EN-US
-style='font-size:15.0pt;mso-ansi-language:EN-US'>resultSet</span></i></span><i
-style='mso-bidi-font-style:normal'><span style='font-size:15.0pt'>1<o:p></o:p></span></i></p>
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><i><span
+lang=EN-US style='font-size:15.0pt'>resultSet</span></i><i><span
+style='font-size:15.0pt'>1</span></i></p>
 
 <p class=MsoNormal style='margin-left:72.0pt;text-align:justify'><span
-style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
-mso-ansi-language:EN-US'>out</span><span style='font-size:14.0pt'>] </span><span
-style='font-size:15.0pt'>множество, в котором остаются первые элементы конструкций,
-удовлетворяющие шаблону поиска<o:p></o:p></span></p>
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>out</span><span
+style='font-size:14.0pt'>] </span><span style='font-size:15.0pt'>множество, в
+котором остаются первые элементы конструкций, удовлетворяющие шаблону поиска</span></p>
 
-<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><span
-class=SpellE><i style='mso-bidi-font-style:normal'><span lang=EN-US
-style='font-size:15.0pt;mso-ansi-language:EN-US'>resultSet</span></i></span><i
-style='mso-bidi-font-style:normal'><span style='font-size:15.0pt'>2<o:p></o:p></span></i></p>
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><i><span
+lang=EN-US style='font-size:15.0pt'>resultSet</span></i><i><span
+style='font-size:15.0pt'>2</span></i></p>
 
 <p class=MsoNormal style='margin-left:72.0pt;text-align:justify'><span
-style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
-mso-ansi-language:EN-US'>out</span><span style='font-size:14.0pt'>] </span><span
-style='font-size:15.0pt'>множество, в котором остаются вторые элементы
-конструкций, удовлетворяющие шаблону поиска<o:p></o:p></span></p>
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>out</span><span
+style='font-size:14.0pt'>] </span><span style='font-size:15.0pt'>множество, в
+котором остаются вторые элементы конструкций, удовлетворяющие шаблону поиска</span></p>
 
-<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><span
-class=SpellE><i style='mso-bidi-font-style:normal'><span lang=EN-US
-style='font-size:15.0pt;mso-ansi-language:EN-US'>resultSet</span></i></span><i
-style='mso-bidi-font-style:normal'><span style='font-size:15.0pt'>3<o:p></o:p></span></i></p>
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><i><span
+lang=EN-US style='font-size:15.0pt'>resultSet</span></i><i><span
+style='font-size:15.0pt'>3</span></i></p>
 
 <p class=MsoNormal style='margin-left:72.0pt;text-align:justify'><span
-style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
-mso-ansi-language:EN-US'>out</span><span style='font-size:14.0pt'>] </span><span
-style='font-size:15.0pt'>множество, в котором остаются третьи элементы
-конструкций, удовлетворяющие шаблону поиска<o:p></o:p></span></p>
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>out</span><span
+style='font-size:14.0pt'>] </span><span style='font-size:15.0pt'>множество, в
+котором остаются третьи элементы конструкций, удовлетворяющие шаблону поиска</span></p>
 
-<p class=MsoNormal style='text-indent:35.4pt'><span class=SpellE><i
-style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:15.0pt;
-mso-ansi-language:EN-US'>goto</span></i></span><i style='mso-bidi-font-style:
-normal'><span style='font-size:15.0pt'>_</span></i><i style='mso-bidi-font-style:
-normal'><span lang=EN-US style='font-size:15.0pt;mso-ansi-language:EN-US'>yes</span></i><span
-style='font-size:15.0pt'><o:p></o:p></span></p>
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:15.0pt'>goto</span></i><i><span style='font-size:15.0pt'>_</span></i><i><span
+lang=EN-US style='font-size:15.0pt'>yes</span></i></p>
 
 <p class=MsoNormal style='margin-left:72.0pt;text-align:justify;text-indent:
 .6pt'><u><span style='font-size:15.0pt'>метка</span></u><span style='font-size:
 15.0pt'> успешного выполнения, если найдены конструкции, удовлетворяющие
-шаблону поиска <o:p></o:p></span></p>
+шаблону поиска </span></p>
 
-<p class=MsoNormal style='text-indent:35.4pt'><span class=SpellE><i
-style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:15.0pt;
-mso-ansi-language:EN-US'>goto</span></i></span><i style='mso-bidi-font-style:
-normal'><span style='font-size:15.0pt'>_</span></i><i style='mso-bidi-font-style:
-normal'><span lang=EN-US style='font-size:15.0pt;mso-ansi-language:EN-US'>no</span></i><span
-style='font-size:15.0pt'><o:p></o:p></span></p>
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:15.0pt'>goto</span></i><i><span style='font-size:15.0pt'>_</span></i><i><span
+lang=EN-US style='font-size:15.0pt'>no</span></i></p>
 
 <p class=MsoNormal style='margin-left:72.0pt;text-align:justify;text-indent:
 .6pt'><u><span style='font-size:15.0pt'>метка</span></u><span style='font-size:
 15.0pt'> безуспешного выполнения, если не найдены конструкции, удовлетворяющие
-шаблону поиска<o:p></o:p></span></p>
+шаблону поиска</span></p>
 
-<p class=MsoNormal style='text-indent:35.4pt'><span class=SpellE><i
-style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
-mso-ansi-language:EN-US'>goto</span></i></span><i style='mso-bidi-font-style:
-normal'><span style='font-size:14.0pt'>_</span></i><i style='mso-bidi-font-style:
-normal'><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>error</span></i><span
-style='font-size:14.0pt'><o:p></o:p></span></p>
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:14.0pt'>goto</span></i><i><span style='font-size:14.0pt'>_</span></i><i><span
+lang=EN-US style='font-size:14.0pt'>error</span></i></p>
 
 <p class=MsoNormal style='margin-left:72.0pt;text-align:justify;text-indent:
 .6pt'><u><span style='font-size:14.0pt'>метка</span></u><span style='font-size:
 14.0pt'> ошибочного выполнения, если в ходе выполнения операции возникла ошибка</span><span
-style='font-size:15.0pt'> <o:p></o:p></span></p>
+style='font-size:15.0pt'> </span></p>
 
 <p class=MsoNormal style='margin-left:35.4pt;text-align:justify;text-indent:
-35.4pt'><u><span style='font-size:14.0pt'><o:p><span style='text-decoration:
- none'>&nbsp;</span></o:p></span></u></p>
+35.4pt'><u><span style='font-size:14.0pt'><span style='text-decoration:none'>&nbsp;</span></span></u></p>
 
-<p class=MsoNormal><span style='font-size:14.0pt'>Назначение:<o:p></o:p></span></p>
+<p class=MsoNormal><span style='font-size:14.0pt'>Назначение:</span></p>
 
 <p class=MsoNormal style='margin-left:35.4pt;text-align:justify'><span
-style='font-size:15.0pt'>Под шаблоном поиска пониматься трехэлементная
-конструкция. После успешного выполнения оператора во множестве </span><span
-class=SpellE><i style='mso-bidi-font-style:normal'><span lang=EN-US
-style='font-size:15.0pt;mso-ansi-language:EN-US'>resultSet</span></i></span><i
-style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:15.0pt'> </span></i><span
-style='font-size:15.0pt'>(</span><span class=SpellE><i style='mso-bidi-font-style:
-normal'><span lang=EN-US style='font-size:15.0pt;mso-ansi-language:EN-US'>resultSet</span></i></span><i
-style='mso-bidi-font-style:normal'><span style='font-size:15.0pt'>1, ... , </span></i><span
-class=SpellE><i style='mso-bidi-font-style:normal'><span lang=EN-US
-style='font-size:15.0pt;mso-ansi-language:EN-US'>resultSet</span></i></span><i
-style='mso-bidi-font-style:normal'><span style='font-size:15.0pt'>3</span></i><span
+style='font-size:15.0pt'>Под шаблоном поиска пониматься трехэлементная конструкция.
+После успешного выполнения оператора во множестве </span><i><span lang=EN-US
+style='font-size:15.0pt'>resultSet </span></i><span style='font-size:15.0pt'>(</span><i><span
+lang=EN-US style='font-size:15.0pt'>resultSet</span></i><i><span
+style='font-size:15.0pt'>1, ... , </span></i><i><span lang=EN-US
+style='font-size:15.0pt'>resultSet</span></i><i><span style='font-size:15.0pt'>3</span></i><span
 style='font-size:15.0pt'>) остаются только те элементы, которые удовлетворяют
-шаблону поиска. <o:p></o:p></span></p>
+шаблону поиска. </span></p>
 
 <p class=MsoNormal style='margin-left:72.0pt;text-align:justify'><span
-style='font-size:15.0pt'><o:p>&nbsp;</o:p></span></p>
+style='font-size:15.0pt'>&nbsp;</span></p>
 
 <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
- mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:.5pt solid windowtext;
- mso-border-insidev:.5pt solid windowtext'>
- <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+ style='width:100.0%;border-collapse:collapse;border:none'>
+ <tr>
   <td width="16%" valign=top style='width:16.7%;border:solid windowtext 1.0pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'><!--[if gte vml 1]><v:shapetype
-   id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
-   path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
-   <v:stroke joinstyle="miter"/>
-   <v:formulas>
-    <v:f eqn="if lineDrawn pixelLineWidth 0"/>
-    <v:f eqn="sum @0 1 0"/>
-    <v:f eqn="sum 0 0 @1"/>
-    <v:f eqn="prod @2 1 2"/>
-    <v:f eqn="prod @3 21600 pixelWidth"/>
-    <v:f eqn="prod @3 21600 pixelHeight"/>
-    <v:f eqn="sum @0 0 1"/>
-    <v:f eqn="prod @6 1 2"/>
-    <v:f eqn="prod @7 21600 pixelWidth"/>
-    <v:f eqn="sum @8 21600 0"/>
-    <v:f eqn="prod @7 21600 pixelHeight"/>
-    <v:f eqn="sum @10 21600 0"/>
-   </v:formulas>
-   <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
-   <o:lock v:ext="edit" aspectratio="t"/>
-  </v:shapetype><v:shape id="_x0000_i1027" type="#_x0000_t75" style='width:45pt;
-   height:28.5pt' fillcolor="window">
-   <v:imagedata src="select_class.files/image001.png" o:title="Example"/>
-  </v:shape><![endif]--><![if !vml]><img border=0 width=60 height=38
-  src="select_class.files/image002.gif" v:shapes="_x0000_i1027"><![endif]><o:p></o:p></span></p>
+  style='font-size:14.0pt;color:black'><img border=0 width=60 height=38
+  id="Рисунок 1" src="select_class.files/image001.gif" alt="Описание: Example"></span></p>
   </td>
   <td width="83%" valign=top style='width:83.3%;border:solid windowtext 1.0pt;
-  border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
-  solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
-  <p class=MsoNormal style='text-align:justify'><b style='mso-bidi-font-weight:
-  normal'><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'>Пример
-  1</span></b><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt;
-  color:black'>. </span><span style='font-size:14.0pt'>Во множестве </span><i
-  style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
-  mso-ansi-language:EN-US'>set</span></i><i style='mso-bidi-font-style:normal'><span
-  style='font-size:14.0pt'>_</span></i><i style='mso-bidi-font-style:normal'><span
-  lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>b</span></i><span
-  style='font-size:14.0pt'>, <span style='mso-spacerun:yes'> </span>содержащем
-  элементы </span><span class=SpellE><i style='mso-bidi-font-style:normal'><span
-  lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>elem</span></i></span><i
-  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>1</span></i><span
-  style='font-size:14.0pt'>, </span><span class=SpellE><i style='mso-bidi-font-style:
-  normal'><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>elem</span></i></span><i
-  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>2</span></i><span
-  style='font-size:14.0pt'>, </span><span class=SpellE><i style='mso-bidi-font-style:
-  normal'><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>elem</span></i></span><i
-  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>3 </span></i><span
-  style='font-size:14.0pt'>необходимо оставить только те элементы, которые
-  входят во множество </span><i style='mso-bidi-font-style:normal'><span
-  lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>set</span></i><i
-  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>_</span></i><i
-  style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
-  mso-ansi-language:EN-US'>a</span></i><span style='font-size:14.0pt'>. Множество
-  </span><i style='mso-bidi-font-style:normal'><span lang=EN-US
-  style='font-size:14.0pt;mso-ansi-language:EN-US'>set</span></i><i
-  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>_</span></i><i
-  style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
-  mso-ansi-language:EN-US'>a</span></i><i style='mso-bidi-font-style:normal'><span
-  lang=EN-US style='font-size:14.0pt'> </span></i><span style='font-size:14.0pt'>состоит
-  из </span><span class=SpellE><i style='mso-bidi-font-style:normal'><span
-  lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>elem</span></i></span><i
-  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>3</span></i><span
-  style='font-size:14.0pt'>, </span><span class=SpellE><i style='mso-bidi-font-style:
-  normal'><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>elem</span></i></span><i
-  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>4.</span></i><span
-  style='font-size:14.0pt'><o:p></o:p></span></p>
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify'><b><span style='font-size:14.0pt;
+  color:black'>Пример 1</span></b><span style='font-size:14.0pt;color:black'>. </span><span
+  style='font-size:14.0pt'>Во множестве </span><i><span lang=EN-US
+  style='font-size:14.0pt'>set</span></i><i><span style='font-size:14.0pt'>_</span></i><i><span
+  lang=EN-US style='font-size:14.0pt'>b</span></i><span style='font-size:14.0pt'>, 
+  содержащем элементы </span><i><span lang=EN-US style='font-size:14.0pt'>elem</span></i><i><span
+  style='font-size:14.0pt'>1</span></i><span style='font-size:14.0pt'>, </span><i><span
+  lang=EN-US style='font-size:14.0pt'>elem</span></i><i><span style='font-size:
+  14.0pt'>2</span></i><span style='font-size:14.0pt'>, </span><i><span
+  lang=EN-US style='font-size:14.0pt'>elem</span></i><i><span style='font-size:
+  14.0pt'>3 </span></i><span style='font-size:14.0pt'>необходимо оставить
+  только те элементы, которые входят во множество </span><i><span lang=EN-US
+  style='font-size:14.0pt'>set</span></i><i><span style='font-size:14.0pt'>_</span></i><i><span
+  lang=EN-US style='font-size:14.0pt'>a</span></i><span style='font-size:14.0pt'>.
+  Множество </span><i><span lang=EN-US style='font-size:14.0pt'>set</span></i><i><span
+  style='font-size:14.0pt'>_</span></i><i><span lang=EN-US style='font-size:
+  14.0pt'>a </span></i><span style='font-size:14.0pt'>состоит из </span><i><span
+  lang=EN-US style='font-size:14.0pt'>elem</span></i><i><span style='font-size:
+  14.0pt'>3</span></i><span style='font-size:14.0pt'>, </span><i><span
+  lang=EN-US style='font-size:14.0pt'>elem</span></i><i><span style='font-size:
+  14.0pt'>4.</span></i></p>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1025"
-   type="#_x0000_t75" style='width:192pt;height:138.75pt'>
-   <v:imagedata src="select_class.files/image003.gif" o:title="select_Ex1_1"/>
-  </v:shape><![endif]--><![if !vml]><img border=0 width=256 height=185
-  src="select_class.files/image003.gif" v:shapes="_x0000_i1025"><![endif]></span><span
-  lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  style='font-size:14.0pt'><img border=0 width=256 height=185 id="Рисунок 2"
+  src="select_class.files/image002.gif" alt="Описание: select_Ex1_1"></span></p>
   <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-size:14.0pt;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
-  <p class=MsoNormal style='text-align:justify'><span class=SpellE><span
-  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
-  EN-GB'>selectYStr</span></span><span lang=EN-US style='font-size:14.0pt;
-  font-family:"Courier New";mso-ansi-language:EN-US'>3([<o:p></o:p></span></p>
+  style='font-size:14.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='text-align:justify'><span lang=EN-GB
+  style='font-size:14.0pt;font-family:"Courier New"'>selectYStr</span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>3([</span></p>
   <p class=MsoNormal style='text-align:justify'><span lang=EN-US
-  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-US'><span
-  style='mso-tab-count:4'>                 </span></span><span lang=EN-GB
-  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'>1_:
-  fixed _: </span><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New";
-  mso-ansi-language:EN-US'>set_</span><span style='font-size:14.0pt;font-family:
-  "Courier New"'>а</span><span lang=EN-GB style='font-size:14.0pt;font-family:
-  "Courier New";mso-ansi-language:EN-GB'>,<o:p></o:p></span></p>
+  style='font-size:14.0pt;font-family:"Courier New"'>                 </span><span
+  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>1_: fixed _: </span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>set_</span><span
+  style='font-size:14.0pt;font-family:"Courier New"'>а</span><span lang=EN-GB
+  style='font-size:14.0pt;font-family:"Courier New"'>,</span></p>
   <p class=MsoNormal style='text-align:justify'><span lang=EN-US
-  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-US'><span
-  style='mso-tab-count:4'>                 </span></span><span lang=EN-GB
-  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'>2_:
-  assign_: const_: pos_: arc,<o:p></o:p></span></p>
+  style='font-size:14.0pt;font-family:"Courier New"'>                 </span><span
+  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>2_: assign_:
+  const_: pos_: arc,</span></p>
   <p class=MsoNormal style='text-align:justify'><span lang=EN-US
-  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-US'><span
-  style='mso-tab-count:4'>                 </span></span><span lang=EN-GB
-  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'>3_:
-  assign_: </span><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New";
-  mso-ansi-language:EN-US'>node</span><span lang=EN-GB style='font-size:14.0pt;
-  font-family:"Courier New";mso-ansi-language:EN-GB'>_ : </span><span
-  lang=EN-US style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
-  EN-US'>node</span><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";
-  mso-ansi-language:EN-GB'>,<o:p></o:p></span></p>
+  style='font-size:14.0pt;font-family:"Courier New"'>                 </span><span
+  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>3_: assign_: </span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>node</span><span
+  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>_ : </span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>node</span><span
+  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>,</span></p>
   <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
-  font-family:"Courier New"'><span style='mso-tab-count:4'>                 </span></span><span
-  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
-  EN-GB'>set</span><span style='font-size:14.0pt;font-family:"Courier New"'>3_:
-  </span><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";
-  mso-ansi-language:EN-GB'>assign_:</span><span lang=EN-GB style='font-size:
-  14.0pt;font-family:"Courier New"'> </span><span lang=EN-US style='font-size:
-  14.0pt;font-family:"Courier New";mso-ansi-language:EN-US'>set</span><span
+  font-family:"Courier New"'>                 </span><span lang=EN-GB
+  style='font-size:14.0pt;font-family:"Courier New"'>set</span><span
+  style='font-size:14.0pt;font-family:"Courier New"'>3_: </span><span
+  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>assign_: </span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>set</span><span
   style='font-size:14.0pt;font-family:"Courier New"'>_</span><span lang=EN-US
-  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-US'>b</span><span
-  style='font-size:14.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  style='font-size:14.0pt;font-family:"Courier New"'>b</span></p>
   <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
-  font-family:"Courier New"'><span style='mso-tab-count:3'>             </span><span
-  style='mso-spacerun:yes'> </span>])<o:p></o:p></span></p>
+  font-family:"Courier New"'>              ])</span></p>
   <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
-  font-family:"Courier New"'><o:p>&nbsp;</o:p></span></p>
+  font-family:"Courier New"'>&nbsp;</span></p>
   <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt'>После
-  успешной работы оператора, множество </span><i style='mso-bidi-font-style:
-  normal'><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>set</span></i><i
-  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>_</span></i><i
-  style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
-  mso-ansi-language:EN-US'>b</span></i><i style='mso-bidi-font-style:normal'><span
-  lang=EN-US style='font-size:14.0pt'> </span></i><span style='font-size:14.0pt'>выглядит
-  следующим образом:</span><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:
-  EN-US'><o:p></o:p></span></p>
+  успешной работы оператора, множество </span><i><span lang=EN-US
+  style='font-size:14.0pt'>set</span></i><i><span style='font-size:14.0pt'>_</span></i><i><span
+  lang=EN-US style='font-size:14.0pt'>b </span></i><span style='font-size:14.0pt'>выглядит
+  следующим образом:</span></p>
   <p class=MsoNormal style='text-align:justify'><span lang=EN-US
-  style='font-size:14.0pt;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
-  <p class=MsoNormal align=center style='text-align:center'><i
-  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'><!--[if gte vml 1]><v:shape
-   id="_x0000_i1026" type="#_x0000_t75" style='width:57pt;height:140.25pt'>
-   <v:imagedata src="select_class.files/image004.gif" o:title="select_Ex1_2"/>
-  </v:shape><![endif]--><![if !vml]><img border=0 width=76 height=187
-  src="select_class.files/image004.gif" v:shapes="_x0000_i1026"><![endif]><o:p></o:p></span></i></p>
+  style='font-size:14.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><i><span
+  style='font-size:14.0pt'><img border=0 width=76 height=187 id="Рисунок 3"
+  src="select_class.files/image003.gif" alt="Описание: select_Ex1_2"></span></i></p>
   </td>
  </tr>
 </table>
 
-<p class=MsoNormal align=center style='text-align:center;text-indent:35.4pt'><b
-style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt'><o:p>&nbsp;</o:p></span></b></p>
+<p class=MsoNormal align=center style='text-align:center;text-indent:35.4pt'><b><span
+style='font-size:14.0pt'>&nbsp;</span></b></p>
 
 <p class=MsoNormal style='text-align:justify;text-indent:35.4pt'><span
-style='font-size:14.0pt'><o:p>&nbsp;</o:p></span></p>
+style='font-size:14.0pt'>&nbsp;</span></p>
 
-<p class=MsoNormal align=center style='text-align:center'><a name=selectNStr3><b
-style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt'>Оператор
-выборки </span></b></a><span style='mso-bookmark:selectNStr3'><span
-class=SpellE><b style='mso-bidi-font-weight:normal'><span lang=EN-US
-style='font-size:14.0pt;mso-ansi-language:EN-US'>selectNStr</span></b></span></span><span
-style='mso-bookmark:selectNStr3'><b style='mso-bidi-font-weight:normal'><span
-style='font-size:14.0pt'>3</span></b></span><b style='mso-bidi-font-weight:
-normal'><span style='font-size:14.0pt'><o:p></o:p></span></b></p>
+<p class=MsoNormal align=center style='text-align:center'><a name=selectNStr3><b><span
+style='font-size:14.0pt'>Оператор выборки </span></b></a><b><span lang=EN-US
+style='font-size:14.0pt'>selectNStr</span></b><b><span style='font-size:14.0pt'>3</span></b></p>
 
-<p class=MsoNormal><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:
-EN-US'><o:p>&nbsp;</o:p></span></p>
+<p class=MsoNormal><span lang=EN-US style='font-size:14.0pt'>&nbsp;</span></p>
 
-<p class=MsoNormal><span lang=BE style='font-size:14.0pt;mso-ansi-language:
-BE'>Синтаксис:<span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:  </span></p>
 
-<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;background:#EAEAEA;border-collapse:collapse;mso-yfti-tbllook:
- 480;mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
- <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
-  height:135.5pt'>
-  <td width="100%" valign=top style='width:100.0%;padding:0cm 5.4pt 0cm 5.4pt;
-  height:135.5pt'>
-  <p class=MsoNormal><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New";
-  mso-ansi-language:EN-GB'>select</span><span lang=EN-US style='font-size:15.0pt;
-  font-family:"Courier New";mso-ansi-language:EN-US'>NStr3</span><span lang=BE
-  style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:BE'>([<o:p></o:p></span></p>
-  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New";
-  mso-ansi-language:BE'><span style='mso-tab-count:4'>                </span>1_:</span><span
-  lang=EN-US style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:
-  EN-US'> node,<o:p></o:p></span></p>
-  <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New";
-  mso-ansi-language:EN-US'><span style='mso-tab-count:4'>                </span>2_:
-  arc,<o:p></o:p></span></p>
-  <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New";
-  mso-ansi-language:EN-US'><span style='mso-tab-count:4'>                </span>3_:
-  element,<o:p></o:p></span></p>
-  <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New";
-  mso-ansi-language:EN-US'><span style='mso-tab-count:4'>                </span>set1_:
-  resultSet1,<o:p></o:p></span></p>
-  <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New";
-  mso-ansi-language:EN-US'><span style='mso-tab-count:4'>                </span>set2_:
-  resultSet2,<o:p></o:p></span></p>
-  <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New";
-  mso-ansi-language:EN-US'><span style='mso-tab-count:4'>                </span>set3_:
-  resultSet3<o:p></o:p></span></p>
-  <p class=MsoNormal style='tab-stops:90.0pt'><span lang=EN-US
-  style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:EN-US'><span
-  style='mso-tab-count:2'>            </span><span
-  style='mso-spacerun:yes'> </span></span><span lang=EN-GB style='font-size:
-  15.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'>], </span><span
-  class=SpellE><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New";
-  mso-ansi-language:EN-US'>goto_yes</span></span><span lang=EN-GB
-  style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'>, </span><span
-  class=SpellE><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New";
-  mso-ansi-language:EN-US'>goto_no</span></span><span lang=EN-GB
-  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'>, </span><span
-  class=SpellE><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New";
-  mso-ansi-language:EN-US'>goto_error</span></span><span lang=EN-GB
-  style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'>)</span><span
-  lang=BE style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:
-  BE'><o:p></o:p></span></p>
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;background:#EAEAEA;border-collapse:collapse;border:none'>
+ <tr style='height:135.5pt'>
+  <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:135.5pt'>
+  <p class=MsoNormal><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>select</span><span
+  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>NStr3</span><span
+  lang=BE style='font-size:15.0pt;font-family:"Courier New"'>([</span></p>
+  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New"'>                1_:</span><span
+  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'> node,</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>                2_:
+  arc,</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>                3_:
+  element,</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>                set1_:
+  resultSet1,</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>                set2_:
+  resultSet2,</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>                set3_:
+  resultSet3</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>             </span><span
+  lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>], </span><span
+  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>goto_yes</span><span
+  lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>, </span><span
+  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>goto_no</span><span
+  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>, </span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>goto_error</span><span
+  lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>)</span></p>
   </td>
  </tr>
 </table>
 
-<p class=MsoNormal style='tab-stops:90.0pt'><i style='mso-bidi-font-style:normal'><span
-lang=EN-GB style='font-size:15.0pt;mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></i></p>
+<p class=MsoNormal><i><span lang=EN-GB style='font-size:15.0pt'>&nbsp;</span></i></p>
 
 <p class=MsoNormal style='margin-left:35.4pt'><span lang=EN-GB
-style='font-size:14.0pt;mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+style='font-size:14.0pt'>&nbsp;</span></p>
 
 <p class=MsoNormal><span style='font-size:14.0pt'>Параметры</span><span
-lang=EN-GB style='font-size:14.0pt;mso-ansi-language:EN-GB'>:</span><span
-lang=EN-GB style='font-size:14.0pt;mso-ansi-language:BE'> </span><span
-lang=EN-GB style='font-size:14.0pt;mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+lang=EN-GB style='font-size:14.0pt'>:</span><span lang=EN-GB style='font-size:
+14.0pt'> </span></p>
 
-<p class=MsoNormal style='text-indent:35.4pt'><span class=GramE><i
-style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:15.0pt;
-mso-ansi-language:EN-US'>node</span></i></span><span lang=EN-US
-style='font-size:15.0pt;mso-ansi-language:EN-US'><o:p></o:p></span></p>
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:15.0pt'>node</span></i></p>
 
 <p class=MsoNormal style='margin-left:70.8pt;text-align:justify'><span
-style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
-mso-ansi-language:EN-US'>in</span><span style='font-size:14.0pt'>] узел</span><span
-lang=BE style='font-size:14.0pt;mso-ansi-language:BE'>, который является первым
-элементом в трёхэлементной конструкции. Данная конструкция </span><span
-style='font-size:14.0pt'>является шаблоном для поиска </span><span
-style='font-size:14.0pt;mso-ansi-language:BE'><span
-style='mso-spacerun:yes'> </span></span><span style='font-size:14.0pt'><o:p></o:p></span></p>
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>in</span><span
+style='font-size:14.0pt'>] узел</span><span lang=BE style='font-size:14.0pt'>,
+который является первым элементом в трёхэлементной конструкции. Данная
+конструкция </span><span style='font-size:14.0pt'>является шаблоном для поиска </span><span
+style='font-size:14.0pt'> </span></p>
 
-<p class=MsoNormal style='text-indent:35.4pt'><span class=GramE><i
-style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:15.0pt;
-mso-ansi-language:EN-US'>arc</span></i></span><span style='font-size:15.0pt'> <o:p></o:p></span></p>
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:15.0pt'>arc</span></i><span lang=EN-US style='font-size:15.0pt'>
+</span></p>
 
 <p class=MsoNormal style='margin-left:70.8pt;text-align:justify'><span
-style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
-mso-ansi-language:EN-US'>in</span><span style='font-size:14.0pt'>] </span><span
-lang=BE style='font-size:14.0pt;mso-ansi-language:BE'>дуга, которая является
-вторым элементом в трёхэлементной конструкции</span><span style='font-size:
-14.0pt'><o:p></o:p></span></p>
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>in</span><span
+style='font-size:14.0pt'>] </span><span lang=BE style='font-size:14.0pt'>дуга,
+которая является вторым элементом в трёхэлементной конструкции</span></p>
 
-<p class=MsoNormal style='text-indent:35.4pt'><span class=GramE><i
-style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:15.0pt;
-mso-ansi-language:EN-US'>element</span></i></span><span style='font-size:15.0pt'>
-<o:p></o:p></span></p>
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:15.0pt'>element</span></i><span lang=EN-US style='font-size:
+15.0pt'> </span></p>
 
 <p class=MsoNormal style='margin-left:70.8pt;text-align:justify'><span
-style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
-mso-ansi-language:EN-US'>in</span><span style='font-size:14.0pt'>, </span><span
-lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>out</span><span
-style='font-size:14.0pt'>] </span><span lang=BE style='font-size:14.0pt;
-mso-ansi-language:BE'>элемент, который является третьим элементом в
-трёхэлементной конструкции</span><span style='font-size:14.0pt'><o:p></o:p></span></p>
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>in</span><span
+style='font-size:14.0pt'>, </span><span lang=EN-US style='font-size:14.0pt'>out</span><span
+style='font-size:14.0pt'>] </span><span lang=BE style='font-size:14.0pt'>элемент,
+который является третьим элементом в трёхэлементной конструкции</span></p>
 
-<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><span
-class=SpellE><i style='mso-bidi-font-style:normal'><span lang=EN-US
-style='font-size:15.0pt;mso-ansi-language:EN-US'>resultSet</span></i></span><i
-style='mso-bidi-font-style:normal'><span style='font-size:15.0pt'>1<o:p></o:p></span></i></p>
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><i><span
+lang=EN-US style='font-size:15.0pt'>resultSet</span></i><i><span
+style='font-size:15.0pt'>1</span></i></p>
 
 <p class=MsoNormal style='margin-left:72.0pt;text-align:justify'><span
-style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
-mso-ansi-language:EN-US'>out</span><span style='font-size:14.0pt'>] </span><span
-style='font-size:15.0pt'>множество, в котором остаются первые элементы
-конструкций, не удовлетворяющие шаблону поиска<o:p></o:p></span></p>
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>out</span><span
+style='font-size:14.0pt'>] </span><span style='font-size:15.0pt'>множество, в
+котором остаются первые элементы конструкций, не удовлетворяющие шаблону поиска</span></p>
 
-<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><span
-class=SpellE><i style='mso-bidi-font-style:normal'><span lang=EN-US
-style='font-size:15.0pt;mso-ansi-language:EN-US'>resultSet</span></i></span><i
-style='mso-bidi-font-style:normal'><span style='font-size:15.0pt'>2<o:p></o:p></span></i></p>
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><i><span
+lang=EN-US style='font-size:15.0pt'>resultSet</span></i><i><span
+style='font-size:15.0pt'>2</span></i></p>
 
 <p class=MsoNormal style='margin-left:72.0pt;text-align:justify'><span
-style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
-mso-ansi-language:EN-US'>out</span><span style='font-size:14.0pt'>] </span><span
-style='font-size:15.0pt'>множество, в котором остаются вторые элементы
-конструкций, не удовлетворяющие шаблону поиска<o:p></o:p></span></p>
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>out</span><span
+style='font-size:14.0pt'>] </span><span style='font-size:15.0pt'>множество, в
+котором остаются вторые элементы конструкций, не удовлетворяющие шаблону поиска</span></p>
 
-<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><span
-class=SpellE><i style='mso-bidi-font-style:normal'><span lang=EN-US
-style='font-size:15.0pt;mso-ansi-language:EN-US'>resultSet</span></i></span><i
-style='mso-bidi-font-style:normal'><span style='font-size:15.0pt'>3<o:p></o:p></span></i></p>
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><i><span
+lang=EN-US style='font-size:15.0pt'>resultSet</span></i><i><span
+style='font-size:15.0pt'>3</span></i></p>
 
 <p class=MsoNormal style='margin-left:72.0pt;text-align:justify'><span
-style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
-mso-ansi-language:EN-US'>out</span><span style='font-size:14.0pt'>] </span><span
-style='font-size:15.0pt'>множество, в котором остаются третьи элементы
-конструкций, не удовлетворяющие шаблону поиска<o:p></o:p></span></p>
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>out</span><span
+style='font-size:14.0pt'>] </span><span style='font-size:15.0pt'>множество, в
+котором остаются третьи элементы конструкций, не удовлетворяющие шаблону поиска</span></p>
 
-<p class=MsoNormal style='text-indent:35.4pt'><span class=SpellE><i
-style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:15.0pt;
-mso-ansi-language:EN-US'>goto</span></i></span><i style='mso-bidi-font-style:
-normal'><span style='font-size:15.0pt'>_</span></i><i style='mso-bidi-font-style:
-normal'><span lang=EN-US style='font-size:15.0pt;mso-ansi-language:EN-US'>yes</span></i><span
-style='font-size:15.0pt'><o:p></o:p></span></p>
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:15.0pt'>goto</span></i><i><span style='font-size:15.0pt'>_</span></i><i><span
+lang=EN-US style='font-size:15.0pt'>yes</span></i></p>
 
 <p class=MsoNormal style='margin-left:72.0pt;text-align:justify'><u><span
 style='font-size:15.0pt'>метка</span></u><span style='font-size:15.0pt'>
 успешного выполнения, если найдены конструкции, не удовлетворяющие шаблону
-поиска <o:p></o:p></span></p>
+поиска </span></p>
 
-<p class=MsoNormal style='text-indent:35.4pt'><span class=SpellE><i
-style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:15.0pt;
-mso-ansi-language:EN-US'>goto</span></i></span><i style='mso-bidi-font-style:
-normal'><span style='font-size:15.0pt'>_</span></i><i style='mso-bidi-font-style:
-normal'><span lang=EN-US style='font-size:15.0pt;mso-ansi-language:EN-US'>no</span></i><span
-style='font-size:15.0pt'><o:p></o:p></span></p>
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:15.0pt'>goto</span></i><i><span style='font-size:15.0pt'>_</span></i><i><span
+lang=EN-US style='font-size:15.0pt'>no</span></i></p>
 
 <p class=MsoNormal style='margin-left:72.0pt;text-align:justify'><u><span
 style='font-size:15.0pt'>метка</span></u><span style='font-size:15.0pt'>
-безуспешного выполнения, если не удовлетворяющие шаблону поиска конструкции не найдены<o:p></o:p></span></p>
+безуспешного выполнения, если не удовлетворяющие шаблону поиска конструкции не
+найдены</span></p>
 
-<p class=MsoNormal style='text-indent:35.4pt'><span class=SpellE><i
-style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
-mso-ansi-language:EN-US'>goto</span></i></span><i style='mso-bidi-font-style:
-normal'><span style='font-size:14.0pt'>_</span></i><i style='mso-bidi-font-style:
-normal'><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>error</span></i><span
-style='font-size:14.0pt'><o:p></o:p></span></p>
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:14.0pt'>goto</span></i><i><span style='font-size:14.0pt'>_</span></i><i><span
+lang=EN-US style='font-size:14.0pt'>error</span></i></p>
 
 <p class=MsoNormal style='margin-left:72.0pt;text-align:justify'><u><span
 style='font-size:14.0pt'>метка</span></u><span style='font-size:14.0pt'>
-ошибочного выполнения, если в ходе выполнения операции возникла ошибка<o:p></o:p></span></p>
+ошибочного выполнения, если в ходе выполнения операции возникла ошибка</span></p>
 
 <p class=MsoNormal style='margin-left:72.0pt;text-align:justify'><u><span
-style='font-size:14.0pt'><o:p><span style='text-decoration:none'>&nbsp;</span></o:p></span></u></p>
+style='font-size:14.0pt'><span style='text-decoration:none'>&nbsp;</span></span></u></p>
 
-<p class=MsoNormal><span style='font-size:14.0pt'>Назначение:<o:p></o:p></span></p>
+<p class=MsoNormal><span style='font-size:14.0pt'>Назначение:</span></p>
 
 <p class=MsoNormal style='margin-left:35.4pt;text-align:justify'><span
 style='font-size:15.0pt'>Под шаблоном поиска пониматься трехэлементная
-конструкция. После успешного выполнения оператора во множестве </span><span
-class=SpellE><i style='mso-bidi-font-style:normal'><span lang=EN-US
-style='font-size:15.0pt;mso-ansi-language:EN-US'>resultSet</span></i></span><i
-style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:15.0pt'> </span></i><span
-style='font-size:15.0pt'>(</span><span class=SpellE><i style='mso-bidi-font-style:
-normal'><span lang=EN-US style='font-size:15.0pt;mso-ansi-language:EN-US'>resultSet</span></i></span><i
-style='mso-bidi-font-style:normal'><span style='font-size:15.0pt'>1, ... , </span></i><span
-class=SpellE><i style='mso-bidi-font-style:normal'><span lang=EN-US
-style='font-size:15.0pt;mso-ansi-language:EN-US'>resultSet</span></i></span><i
-style='mso-bidi-font-style:normal'><span style='font-size:15.0pt'>3</span></i><span
-style='font-size:15.0pt'>) остаются только те элементы, которые не удовлетворяют
-шаблону поиска. <o:p></o:p></span></p>
+конструкция. После успешного выполнения оператора во множестве </span><i><span
+lang=EN-US style='font-size:15.0pt'>resultSet </span></i><span
+style='font-size:15.0pt'>(</span><i><span lang=EN-US style='font-size:15.0pt'>resultSet</span></i><i><span
+style='font-size:15.0pt'>1, ... , </span></i><i><span lang=EN-US
+style='font-size:15.0pt'>resultSet</span></i><i><span style='font-size:15.0pt'>3</span></i><span
+style='font-size:15.0pt'>) остаются только те элементы, которые не
+удовлетворяют шаблону поиска. </span></p>
 
 <p class=MsoNormal style='margin-left:72.0pt;text-align:justify'><span
-style='font-size:15.0pt'><o:p>&nbsp;</o:p></span></p>
+style='font-size:15.0pt'>&nbsp;</span></p>
 
 <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
- mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:.5pt solid windowtext;
- mso-border-insidev:.5pt solid windowtext'>
- <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+ style='width:100.0%;border-collapse:collapse;border:none'>
+ <tr>
   <td width="16%" valign=top style='width:16.7%;border:solid windowtext 1.0pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'><!--[if gte vml 1]><v:shape
-   id="_x0000_i1028" type="#_x0000_t75" style='width:45pt;height:28.5pt'
-   fillcolor="window">
-   <v:imagedata src="select_class.files/image001.png" o:title="Example"/>
-  </v:shape><![endif]--><![if !vml]><img border=0 width=60 height=38
-  src="select_class.files/image005.gif" v:shapes="_x0000_i1028"><![endif]><o:p></o:p></span></p>
+  style='font-size:14.0pt;color:black'><img border=0 width=60 height=38
+  id="Рисунок 4" src="select_class.files/image001.gif" alt="Описание: Example"></span></p>
   </td>
   <td width="83%" valign=top style='width:83.3%;border:solid windowtext 1.0pt;
-  border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
-  solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
-  <p class=MsoNormal style='text-align:justify'><b style='mso-bidi-font-weight:
-  normal'><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'>Пример
-  2</span></b><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt;
-  color:black'>. </span><span style='font-size:14.0pt'>Во множестве </span><i
-  style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
-  mso-ansi-language:EN-US'>set</span></i><i style='mso-bidi-font-style:normal'><span
-  style='font-size:14.0pt'>_</span></i><i style='mso-bidi-font-style:normal'><span
-  lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>b</span></i><span
-  style='font-size:14.0pt'>, <span style='mso-spacerun:yes'> </span>содержащем
-  элементы </span><span class=SpellE><i style='mso-bidi-font-style:normal'><span
-  lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>elem</span></i></span><i
-  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>1</span></i><span
-  style='font-size:14.0pt'>, </span><span class=SpellE><i style='mso-bidi-font-style:
-  normal'><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>elem</span></i></span><i
-  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>2</span></i><span
-  style='font-size:14.0pt'>, </span><span class=SpellE><i style='mso-bidi-font-style:
-  normal'><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>elem</span></i></span><i
-  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>3 </span></i><span
-  style='font-size:14.0pt'>необходимо оставить только те элементы, которые не
-  входят во множество </span><i style='mso-bidi-font-style:normal'><span
-  lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>set</span></i><i
-  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>_</span></i><i
-  style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
-  mso-ansi-language:EN-US'>a</span></i><span style='font-size:14.0pt'>. Множество
-  </span><i style='mso-bidi-font-style:normal'><span lang=EN-US
-  style='font-size:14.0pt;mso-ansi-language:EN-US'>set</span></i><i
-  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>_</span></i><i
-  style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
-  mso-ansi-language:EN-US'>b</span></i><i style='mso-bidi-font-style:normal'><span
-  lang=EN-US style='font-size:14.0pt'> </span></i><span style='font-size:14.0pt'>состоит
-  из </span><span class=SpellE><i style='mso-bidi-font-style:normal'><span
-  lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>elem</span></i></span><i
-  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>3</span></i><span
-  style='font-size:14.0pt'>, </span><span class=SpellE><i style='mso-bidi-font-style:
-  normal'><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>elem</span></i></span><i
-  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>4.</span></i><span
-  style='font-size:14.0pt'><o:p></o:p></span></p>
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify'><b><span style='font-size:14.0pt;
+  color:black'>Пример 2</span></b><span style='font-size:14.0pt;color:black'>. </span><span
+  style='font-size:14.0pt'>Во множестве </span><i><span lang=EN-US
+  style='font-size:14.0pt'>set</span></i><i><span style='font-size:14.0pt'>_</span></i><i><span
+  lang=EN-US style='font-size:14.0pt'>b</span></i><span style='font-size:14.0pt'>, 
+  содержащем элементы </span><i><span lang=EN-US style='font-size:14.0pt'>elem</span></i><i><span
+  style='font-size:14.0pt'>1</span></i><span style='font-size:14.0pt'>, </span><i><span
+  lang=EN-US style='font-size:14.0pt'>elem</span></i><i><span style='font-size:
+  14.0pt'>2</span></i><span style='font-size:14.0pt'>, </span><i><span
+  lang=EN-US style='font-size:14.0pt'>elem</span></i><i><span style='font-size:
+  14.0pt'>3 </span></i><span style='font-size:14.0pt'>необходимо оставить
+  только те элементы, которые не входят во множество </span><i><span
+  lang=EN-US style='font-size:14.0pt'>set</span></i><i><span style='font-size:
+  14.0pt'>_</span></i><i><span lang=EN-US style='font-size:14.0pt'>a</span></i><span
+  style='font-size:14.0pt'>. Множество </span><i><span lang=EN-US
+  style='font-size:14.0pt'>set</span></i><i><span style='font-size:14.0pt'>_</span></i><i><span
+  lang=EN-US style='font-size:14.0pt'>b </span></i><span style='font-size:14.0pt'>состоит
+  из </span><i><span lang=EN-US style='font-size:14.0pt'>elem</span></i><i><span
+  style='font-size:14.0pt'>3</span></i><span style='font-size:14.0pt'>, </span><i><span
+  lang=EN-US style='font-size:14.0pt'>elem</span></i><i><span style='font-size:
+  14.0pt'>4.</span></i></p>
   <p class=MsoNormal style='text-align:justify'><span lang=EN-GB
-  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;</span></p>
   <p class=MsoNormal style='text-align:justify'><span lang=EN-GB
-  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'>selectNStr3([<o:p></o:p></span></p>
+  style='font-size:14.0pt;font-family:"Courier New"'>selectNStr3([</span></p>
   <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
-  font-family:"Courier New"'><span style='mso-tab-count:4'>                 </span></span><span
-  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
-  EN-GB'>1_: fixed _: </span><span lang=EN-US style='font-size:14.0pt;
-  font-family:"Courier New";mso-ansi-language:EN-US'>set</span><span
-  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
-  EN-GB'>_</span><span style='font-size:14.0pt;font-family:"Courier New"'>а</span><span
-  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
-  EN-GB'>,<o:p></o:p></span></p>
+  font-family:"Courier New"'>                 </span><span lang=EN-GB
+  style='font-size:14.0pt;font-family:"Courier New"'>1_: fixed _: </span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>set</span><span
+  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>_</span><span
+  style='font-size:14.0pt;font-family:"Courier New"'>а</span><span lang=EN-GB
+  style='font-size:14.0pt;font-family:"Courier New"'>,</span></p>
   <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
-  font-family:"Courier New"'><span style='mso-tab-count:4'>                 </span></span><span
-  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
-  EN-GB'>2_: assign_: const_: pos_: arc,<o:p></o:p></span></p>
+  font-family:"Courier New"'>                 </span><span lang=EN-GB
+  style='font-size:14.0pt;font-family:"Courier New"'>2_: assign_: const_: pos_:
+  arc,</span></p>
   <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
-  font-family:"Courier New"'><span style='mso-tab-count:4'>                 </span></span><span
-  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
-  EN-GB'>3_: assign_: </span><span lang=EN-US style='font-size:14.0pt;
-  font-family:"Courier New";mso-ansi-language:EN-US'>node</span><span
-  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
-  EN-GB'>_ : </span><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New";
-  mso-ansi-language:EN-US'>node</span><span lang=EN-GB style='font-size:14.0pt;
-  font-family:"Courier New";mso-ansi-language:EN-GB'>,<o:p></o:p></span></p>
+  font-family:"Courier New"'>                 </span><span lang=EN-GB
+  style='font-size:14.0pt;font-family:"Courier New"'>3_: assign_: </span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>node</span><span
+  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>_ : </span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>node</span><span
+  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>,</span></p>
   <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
-  font-family:"Courier New"'><span style='mso-tab-count:4'>                 </span></span><span
-  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
-  EN-GB'>set</span><span style='font-size:14.0pt;font-family:"Courier New"'>3_:
-  </span><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";
-  mso-ansi-language:EN-GB'>fixed</span><span style='font-size:14.0pt;
-  font-family:"Courier New"'>_: </span><span lang=EN-US style='font-size:14.0pt;
-  font-family:"Courier New";mso-ansi-language:EN-US'>set</span><span
+  font-family:"Courier New"'>                 </span><span lang=EN-GB
+  style='font-size:14.0pt;font-family:"Courier New"'>set</span><span
+  style='font-size:14.0pt;font-family:"Courier New"'>3_: </span><span
+  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>fixed</span><span
+  style='font-size:14.0pt;font-family:"Courier New"'>_: </span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>set</span><span
   style='font-size:14.0pt;font-family:"Courier New"'>_</span><span lang=EN-US
-  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-US'>b</span><span
-  style='font-size:14.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  style='font-size:14.0pt;font-family:"Courier New"'>b</span></p>
   <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
-  font-family:"Courier New"'><span style='mso-tab-count:3'>             </span>])</span></p>
-  <p class=MsoNormal style='text-align:justify'><i style='mso-bidi-font-style:
-  normal'><span style='font-size:14.0pt'><o:p>&nbsp;</o:p></span></i></p>
+  font-family:"Courier New"'>             ])</span></p>
+  <p class=MsoNormal style='text-align:justify'><i><span style='font-size:14.0pt'>&nbsp;</span></i></p>
   </td>
  </tr>
 </table>
 
 <p class=MsoNormal style='text-align:justify;text-indent:35.4pt'><span
-lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+lang=EN-US style='font-size:14.0pt'>&nbsp;</span></p>
 
 <p class=MsoNormal align=center style='text-align:center;text-indent:35.4pt'><a
-name=selectYStr5><b style='mso-bidi-font-weight:normal'><span style='font-size:
-14.0pt'>Оператор выборки </span></b></a><span style='mso-bookmark:selectYStr5'><b
-style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:14.0pt;
-mso-ansi-language:EN-US'>selectYStr5</span></b></span><span style='mso-bookmark:
-selectYStr5'><span lang=BE style='font-size:14.0pt;mso-ansi-language:BE'><o:p></o:p></span></span></p>
+name=selectYStr5><b><span style='font-size:14.0pt'>Оператор выборки </span></b></a><b><span
+lang=EN-US style='font-size:14.0pt'>selectYStr5</span></b></p>
 
-<span style='mso-bookmark:selectYStr5'></span>
+<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:  </span></p>
 
-<p class=MsoNormal><span lang=BE style='font-size:14.0pt;mso-ansi-language:
-BE'>Синтаксис:<span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
-
-<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;background:#EAEAEA;border-collapse:collapse;mso-yfti-tbllook:
- 480;mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
- <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
-  height:203.5pt'>
-  <td width="100%" valign=top style='width:100.0%;padding:0cm 5.4pt 0cm 5.4pt;
-  height:203.5pt'>
-  <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New";
-  mso-ansi-language:EN-US'>selectYStr5</span><span lang=BE style='font-size:
-  15.0pt;font-family:"Courier New";mso-ansi-language:BE'> ([<o:p></o:p></span></p>
-  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New";
-  mso-ansi-language:BE'><span style='mso-tab-count:4'>                </span>1_:</span><span
-  lang=EN-US style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:
-  EN-US'> node</span><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New";
-  mso-ansi-language:EN-GB'>,<o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'><span
-  style='mso-tab-count:4'>                </span></span><span lang=EN-GB
-  style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'>2_:
-  </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New";
-  mso-ansi-language:EN-US'>arc,<o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'><span
-  style='mso-tab-count:4'>                </span></span><span lang=EN-US
-  style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:EN-US'>3_:
-  element</span><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New";
-  mso-ansi-language:EN-GB'>,<o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'><span
-  style='mso-tab-count:4'>                </span></span><span lang=EN-US
-  style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:EN-US'>4_:
-  <span class=SpellE>attr_arc</span>,<o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'><span
-  style='mso-tab-count:4'>                </span></span><span lang=EN-US
-  style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:EN-US'>5_:
-  <span class=SpellE>attr_node</span></span><span lang=EN-GB style='font-size:
-  15.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'>,</span><span
-  lang=EN-GB style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:
-  EN-US'> </span><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New";
-  mso-ansi-language:EN-GB'><o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'><span
-  style='mso-tab-count:4'>                </span></span><span lang=EN-US
-  style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:EN-US'>set1_:
-  resultSet1,<o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'><span
-  style='mso-tab-count:4'>                </span></span><span lang=EN-US
-  style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:EN-US'>set2_:
-  resultSet2,<o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'><span
-  style='mso-tab-count:4'>                </span></span><span lang=EN-US
-  style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:EN-US'>set3_:
-  resultSet3</span><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New";
-  mso-ansi-language:EN-GB'>,<o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'><span
-  style='mso-tab-count:4'>                </span></span><span lang=EN-US
-  style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:EN-US'>set3_:
-  resultSet4</span><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New";
-  mso-ansi-language:EN-GB'>,<o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'><span
-  style='mso-tab-count:4'>                </span></span><span lang=EN-US
-  style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:EN-US'>set3_:
-  resultSet5</span><span style='font-size:15.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
-  <p class=MsoNormal style='tab-stops:90.0pt'><span style='font-size:15.0pt;
-  font-family:"Courier New"'><span style='mso-tab-count:2'>            </span></span><span
-  lang=EN-US style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:
-  EN-US'><span style='mso-spacerun:yes'>  </span></span><span lang=EN-GB
-  style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'>],
-  </span><span class=SpellE><span lang=EN-US style='font-size:15.0pt;
-  font-family:"Courier New";mso-ansi-language:EN-US'>goto_yes</span></span><span
-  lang=EN-GB style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:
-  EN-GB'>, </span><span class=SpellE><span lang=EN-US style='font-size:15.0pt;
-  font-family:"Courier New";mso-ansi-language:EN-US'>goto_no</span></span><span
-  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:
-  EN-GB'>, </span><span class=SpellE><span lang=EN-US style='font-size:14.0pt;
-  font-family:"Courier New";mso-ansi-language:EN-US'>goto_error</span></span><span
-  lang=EN-GB style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:
-  EN-GB'>)</span><span lang=BE style='font-size:15.0pt;font-family:"Courier New";
-  mso-ansi-language:BE'><o:p></o:p></span></p>
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;background:#EAEAEA;border-collapse:collapse;border:none'>
+ <tr style='height:203.5pt'>
+  <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:203.5pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>selectYStr5</span><span
+  lang=BE style='font-size:15.0pt;font-family:"Courier New"'> ([</span></p>
+  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New"'>                1_:</span><span
+  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'> node</span><span
+  lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>,</span></p>
+  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'>                </span><span
+  lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>2_: </span><span
+  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>arc,</span></p>
+  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'>                </span><span
+  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>3_: element</span><span
+  lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>,</span></p>
+  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'>                </span><span
+  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>4_: attr_arc,</span></p>
+  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'>                </span><span
+  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>5_: attr_node</span><span
+  lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>,</span><span
+  lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'> </span></p>
+  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'>                </span><span
+  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>set1_:
+  resultSet1,</span></p>
+  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'>                </span><span
+  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>set2_:
+  resultSet2,</span></p>
+  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'>                </span><span
+  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>set3_:
+  resultSet3</span><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>,</span></p>
+  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'>                </span><span
+  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>set3_:
+  resultSet4</span><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>,</span></p>
+  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'>                </span><span
+  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>set3_:
+  resultSet5</span></p>
+  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'>            </span><span
+  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>  </span><span
+  lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>], </span><span
+  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>goto_yes</span><span
+  lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>, </span><span
+  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>goto_no</span><span
+  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>, </span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>goto_error</span><span
+  lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>)</span></p>
   </td>
  </tr>
 </table>
 
-<p class=MsoNormal style='margin-left:81.0pt;tab-stops:90.0pt'><i
-style='mso-bidi-font-style:normal'><span lang=EN-GB style='font-size:15.0pt;
-mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></i></p>
+<p class=MsoNormal style='margin-left:81.0pt'><i><span lang=EN-GB
+style='font-size:15.0pt'>&nbsp;</span></i></p>
 
 <p class=MsoNormal style='margin-left:35.4pt'><span lang=EN-GB
-style='font-size:14.0pt;mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+style='font-size:14.0pt'>&nbsp;</span></p>
 
 <p class=MsoNormal><span style='font-size:14.0pt'>Параметры:</span><span
-style='font-size:14.0pt;mso-ansi-language:BE'> </span><span style='font-size:
-14.0pt'><o:p></o:p></span></p>
+style='font-size:14.0pt'> </span></p>
 
-<p class=MsoNormal style='text-indent:35.4pt'><span class=GramE><i
-style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:15.0pt;
-mso-ansi-language:EN-US'>node</span></i></span><span style='font-size:15.0pt'><o:p></o:p></span></p>
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:15.0pt'>node</span></i></p>
 
 <p class=MsoNormal style='margin-left:70.8pt;text-align:justify'><span
-style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
-mso-ansi-language:EN-US'>in</span><span style='font-size:14.0pt'>] узел</span><span
-lang=BE style='font-size:14.0pt;mso-ansi-language:BE'>, который является первым
-элементом в </span><span style='font-size:15.0pt'>пятиэлементной</span><span
-style='font-size:14.0pt'> </span><span lang=BE style='font-size:14.0pt;
-mso-ansi-language:BE'>конструкции. Данная конструкция </span><span
-style='font-size:14.0pt'>является шаблоном для поиска </span><span
-style='font-size:14.0pt;mso-ansi-language:BE'><span
-style='mso-spacerun:yes'> </span></span><span style='font-size:14.0pt'><o:p></o:p></span></p>
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>in</span><span
+style='font-size:14.0pt'>] узел</span><span lang=BE style='font-size:14.0pt'>,
+который является первым элементом в </span><span style='font-size:15.0pt'>пятиэлементной</span><span
+style='font-size:14.0pt'> </span><span lang=BE style='font-size:14.0pt'>конструкции.
+Данная конструкция </span><span style='font-size:14.0pt'>является шаблоном для
+поиска </span><span style='font-size:14.0pt'> </span></p>
 
-<p class=MsoNormal style='text-indent:35.4pt'><span class=GramE><i
-style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:15.0pt;
-mso-ansi-language:EN-US'>arc</span></i></span><span style='font-size:15.0pt'> <o:p></o:p></span></p>
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:15.0pt'>arc</span></i><span lang=EN-US style='font-size:15.0pt'>
+</span></p>
 
 <p class=MsoNormal style='margin-left:70.8pt;text-align:justify'><span
-style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
-mso-ansi-language:EN-US'>in</span><span style='font-size:14.0pt'>] </span><span
-lang=BE style='font-size:14.0pt;mso-ansi-language:BE'>дуга, которая является
-вторым элементом в </span><span style='font-size:15.0pt'>пятиэлементной</span><span
-lang=BE style='font-size:14.0pt;mso-ansi-language:BE'> конструкции</span><span
-style='font-size:14.0pt'><o:p></o:p></span></p>
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>in</span><span
+style='font-size:14.0pt'>] </span><span lang=BE style='font-size:14.0pt'>дуга,
+которая является вторым элементом в </span><span style='font-size:15.0pt'>пятиэлементной</span><span
+lang=BE style='font-size:14.0pt'> конструкции</span></p>
 
-<p class=MsoNormal style='text-indent:35.4pt'><span class=GramE><i
-style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:15.0pt;
-mso-ansi-language:EN-US'>element</span></i></span><span style='font-size:15.0pt'>
-<o:p></o:p></span></p>
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:15.0pt'>element</span></i><span lang=EN-US style='font-size:
+15.0pt'> </span></p>
 
 <p class=MsoNormal style='margin-left:70.8pt;text-align:justify'><span
-style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
-mso-ansi-language:EN-US'>in</span><span style='font-size:14.0pt'>, </span><span
-lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>out</span><span
-style='font-size:14.0pt'>] </span><span lang=BE style='font-size:14.0pt;
-mso-ansi-language:BE'>элемент, который является третьим элементом в </span><span
-style='font-size:15.0pt'>пятиэлементной</span><span lang=BE style='font-size:
-14.0pt;mso-ansi-language:BE'> конструкции<o:p></o:p></span></p>
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>in</span><span
+style='font-size:14.0pt'>, </span><span lang=EN-US style='font-size:14.0pt'>out</span><span
+style='font-size:14.0pt'>] </span><span lang=BE style='font-size:14.0pt'>элемент,
+который является третьим элементом в </span><span style='font-size:15.0pt'>пятиэлементной</span><span
+lang=BE style='font-size:14.0pt'> конструкции</span></p>
 
-<p class=MsoNormal style='text-indent:35.4pt'><span class=SpellE><i
-style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:15.0pt;
-mso-ansi-language:EN-US'>attr</span></i></span><i style='mso-bidi-font-style:
-normal'><span style='font-size:15.0pt'>_</span></i><i style='mso-bidi-font-style:
-normal'><span lang=EN-US style='font-size:15.0pt;mso-ansi-language:EN-US'>arc</span></i><span
-style='font-size:15.0pt'> <o:p></o:p></span></p>
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:15.0pt'>attr</span></i><i><span style='font-size:15.0pt'>_</span></i><i><span
+lang=EN-US style='font-size:15.0pt'>arc</span></i><span lang=EN-US
+style='font-size:15.0pt'> </span></p>
 
 <p class=MsoNormal style='margin-left:70.8pt;text-align:justify'><span
-style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
-mso-ansi-language:EN-US'>in</span><span style='font-size:14.0pt'>] </span><span
-lang=BE style='font-size:14.0pt;mso-ansi-language:BE'>дуга, которая является
-четвёртым элементом в </span><span style='font-size:15.0pt'>пятиэлементной</span><span
-lang=BE style='font-size:14.0pt;mso-ansi-language:BE'> конструкции<o:p></o:p></span></p>
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>in</span><span
+style='font-size:14.0pt'>] </span><span lang=BE style='font-size:14.0pt'>дуга,
+которая является четвёртым элементом в </span><span style='font-size:15.0pt'>пятиэлементной</span><span
+lang=BE style='font-size:14.0pt'> конструкции</span></p>
 
-<p class=MsoNormal style='text-indent:35.4pt'><span class=SpellE><i
-style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:15.0pt;
-mso-ansi-language:EN-US'>attr</span></i></span><i style='mso-bidi-font-style:
-normal'><span style='font-size:15.0pt'>_</span></i><i style='mso-bidi-font-style:
-normal'><span lang=EN-US style='font-size:15.0pt;mso-ansi-language:EN-US'>node</span></i><span
-style='font-size:15.0pt'> <o:p></o:p></span></p>
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:15.0pt'>attr</span></i><i><span style='font-size:15.0pt'>_</span></i><i><span
+lang=EN-US style='font-size:15.0pt'>node</span></i><span lang=EN-US
+style='font-size:15.0pt'> </span></p>
 
 <p class=MsoNormal style='margin-left:70.8pt;text-align:justify'><span
-style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
-mso-ansi-language:EN-US'>in</span><span style='font-size:14.0pt'>, </span><span
-lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>out</span><span
-style='font-size:14.0pt'>] узел</span><span lang=BE style='font-size:14.0pt;
-mso-ansi-language:BE'>, который является пятым элементом в </span><span
-style='font-size:15.0pt'>пятиэлементной</span><span lang=BE style='font-size:
-14.0pt;mso-ansi-language:BE'> конструкции</span><span style='font-size:14.0pt'><o:p></o:p></span></p>
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>in</span><span
+style='font-size:14.0pt'>, </span><span lang=EN-US style='font-size:14.0pt'>out</span><span
+style='font-size:14.0pt'>] узел</span><span lang=BE style='font-size:14.0pt'>,
+который является пятым элементом в </span><span style='font-size:15.0pt'>пятиэлементной</span><span
+lang=BE style='font-size:14.0pt'> конструкции</span></p>
 
-<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><span
-class=SpellE><i style='mso-bidi-font-style:normal'><span lang=EN-US
-style='font-size:15.0pt;mso-ansi-language:EN-US'>resultSet</span></i></span><i
-style='mso-bidi-font-style:normal'><span style='font-size:15.0pt'>1<o:p></o:p></span></i></p>
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><i><span
+lang=EN-US style='font-size:15.0pt'>resultSet</span></i><i><span
+style='font-size:15.0pt'>1</span></i></p>
 
 <p class=MsoNormal style='margin-left:72.0pt;text-align:justify'><span
-style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
-mso-ansi-language:EN-US'>out</span><span style='font-size:14.0pt'>] </span><span
-style='font-size:15.0pt'>множество, в котором остаются первые элементы
-конструкций, удовлетворяющие шаблону поиска<o:p></o:p></span></p>
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>out</span><span
+style='font-size:14.0pt'>] </span><span style='font-size:15.0pt'>множество, в
+котором остаются первые элементы конструкций, удовлетворяющие шаблону поиска</span></p>
 
-<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><span
-class=SpellE><i style='mso-bidi-font-style:normal'><span lang=EN-US
-style='font-size:15.0pt;mso-ansi-language:EN-US'>resultSet</span></i></span><i
-style='mso-bidi-font-style:normal'><span style='font-size:15.0pt'>2<o:p></o:p></span></i></p>
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><i><span
+lang=EN-US style='font-size:15.0pt'>resultSet</span></i><i><span
+style='font-size:15.0pt'>2</span></i></p>
 
 <p class=MsoNormal style='margin-left:72.0pt;text-align:justify'><span
-style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
-mso-ansi-language:EN-US'>out</span><span style='font-size:14.0pt'>] </span><span
-style='font-size:15.0pt'>множество, в котором остаются вторые элементы
-конструкций, удовлетворяющие шаблону поиска<o:p></o:p></span></p>
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>out</span><span
+style='font-size:14.0pt'>] </span><span style='font-size:15.0pt'>множество, в
+котором остаются вторые элементы конструкций, удовлетворяющие шаблону поиска</span></p>
 
-<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><span
-class=SpellE><i style='mso-bidi-font-style:normal'><span lang=EN-US
-style='font-size:15.0pt;mso-ansi-language:EN-US'>resultSet</span></i></span><i
-style='mso-bidi-font-style:normal'><span style='font-size:15.0pt'>3<o:p></o:p></span></i></p>
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><i><span
+lang=EN-US style='font-size:15.0pt'>resultSet</span></i><i><span
+style='font-size:15.0pt'>3</span></i></p>
 
 <p class=MsoNormal style='margin-left:72.0pt;text-align:justify'><span
-style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
-mso-ansi-language:EN-US'>out</span><span style='font-size:14.0pt'>] </span><span
-style='font-size:15.0pt'>множество, в котором остаются третьи элементы
-конструкций, удовлетворяющие шаблону поиска<o:p></o:p></span></p>
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>out</span><span
+style='font-size:14.0pt'>] </span><span style='font-size:15.0pt'>множество, в
+котором остаются третьи элементы конструкций, удовлетворяющие шаблону поиска</span></p>
 
-<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><span
-class=SpellE><i style='mso-bidi-font-style:normal'><span lang=EN-US
-style='font-size:15.0pt;mso-ansi-language:EN-US'>resultSet</span></i></span><i
-style='mso-bidi-font-style:normal'><span style='font-size:15.0pt'>4<o:p></o:p></span></i></p>
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><i><span
+lang=EN-US style='font-size:15.0pt'>resultSet</span></i><i><span
+style='font-size:15.0pt'>4</span></i></p>
 
 <p class=MsoNormal style='margin-left:72.0pt;text-align:justify'><span
-style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
-mso-ansi-language:EN-US'>out</span><span style='font-size:14.0pt'>] </span><span
-style='font-size:15.0pt'>множество, в котором остаются четвертые элементы
-конструкций, удовлетворяющие шаблону поиска<o:p></o:p></span></p>
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>out</span><span
+style='font-size:14.0pt'>] </span><span style='font-size:15.0pt'>множество, в
+котором остаются четвертые элементы конструкций, удовлетворяющие шаблону поиска</span></p>
 
-<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><span
-class=SpellE><i style='mso-bidi-font-style:normal'><span lang=EN-US
-style='font-size:15.0pt;mso-ansi-language:EN-US'>resultSet</span></i></span><i
-style='mso-bidi-font-style:normal'><span style='font-size:15.0pt'>5<o:p></o:p></span></i></p>
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><i><span
+lang=EN-US style='font-size:15.0pt'>resultSet</span></i><i><span
+style='font-size:15.0pt'>5</span></i></p>
 
 <p class=MsoNormal style='margin-left:72.0pt;text-align:justify'><span
-style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
-mso-ansi-language:EN-US'>out</span><span style='font-size:14.0pt'>] </span><span
-style='font-size:15.0pt'>множество, в котором остаются пятые элементы
-конструкций, удовлетворяющие шаблону поиска<o:p></o:p></span></p>
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>out</span><span
+style='font-size:14.0pt'>] </span><span style='font-size:15.0pt'>множество, в
+котором остаются пятые элементы конструкций, удовлетворяющие шаблону поиска</span></p>
 
-<p class=MsoNormal style='text-indent:35.4pt'><span class=SpellE><i
-style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:15.0pt;
-mso-ansi-language:EN-US'>goto</span></i></span><i style='mso-bidi-font-style:
-normal'><span style='font-size:15.0pt'>_</span></i><i style='mso-bidi-font-style:
-normal'><span lang=EN-US style='font-size:15.0pt;mso-ansi-language:EN-US'>yes</span></i><span
-style='font-size:15.0pt'><o:p></o:p></span></p>
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:15.0pt'>goto</span></i><i><span style='font-size:15.0pt'>_</span></i><i><span
+lang=EN-US style='font-size:15.0pt'>yes</span></i></p>
 
 <p class=MsoNormal style='margin-left:72.0pt'><u><span style='font-size:15.0pt'>метка</span></u><span
 style='font-size:15.0pt'> успешного выполнения, если найдены конструкции, не
-удовлетворяющие шаблону поиска <o:p></o:p></span></p>
+удовлетворяющие шаблону поиска </span></p>
 
-<p class=MsoNormal style='margin-left:36.0pt'><span class=SpellE><i
-style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:15.0pt;
-mso-ansi-language:EN-US'>goto</span></i></span><i style='mso-bidi-font-style:
-normal'><span style='font-size:15.0pt'>_</span></i><i style='mso-bidi-font-style:
-normal'><span lang=EN-US style='font-size:15.0pt;mso-ansi-language:EN-US'>no</span></i><span
-style='font-size:15.0pt'><o:p></o:p></span></p>
+<p class=MsoNormal style='margin-left:36.0pt'><i><span lang=EN-US
+style='font-size:15.0pt'>goto</span></i><i><span style='font-size:15.0pt'>_</span></i><i><span
+lang=EN-US style='font-size:15.0pt'>no</span></i></p>
 
 <p class=MsoNormal style='margin-left:72.0pt;text-align:justify;text-indent:
 .6pt'><u><span style='font-size:15.0pt'>метка</span></u><span style='font-size:
 15.0pt'> безуспешного выполнения, если не найдены конструкции, удовлетворяющие
-шаблону поиска<o:p></o:p></span></p>
+шаблону поиска</span></p>
 
-<p class=MsoNormal style='text-indent:35.4pt'><span class=SpellE><i
-style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
-mso-ansi-language:EN-US'>goto</span></i></span><i style='mso-bidi-font-style:
-normal'><span style='font-size:14.0pt'>_</span></i><i style='mso-bidi-font-style:
-normal'><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>error</span></i><span
-style='font-size:14.0pt'><o:p></o:p></span></p>
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:14.0pt'>goto</span></i><i><span style='font-size:14.0pt'>_</span></i><i><span
+lang=EN-US style='font-size:14.0pt'>error</span></i></p>
 
 <p class=MsoNormal style='margin-left:72.0pt;text-align:justify;text-indent:
 .6pt'><u><span style='font-size:14.0pt'>метка</span></u><span style='font-size:
-14.0pt'> ошибочного выполнения, если в ходе выполнения операции возникла ошибка<o:p></o:p></span></p>
+14.0pt'> ошибочного выполнения, если в ходе выполнения операции возникла ошибка</span></p>
 
 <p class=MsoNormal style='margin-left:72.0pt;text-align:justify;text-indent:
-.6pt'><span style='font-size:15.0pt'><span style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+.6pt'><span style='font-size:15.0pt'> </span></p>
 
-<p class=MsoNormal><span style='font-size:14.0pt'>Назначение:<o:p></o:p></span></p>
+<p class=MsoNormal><span style='font-size:14.0pt'>Назначение:</span></p>
 
 <p class=MsoNormal style='margin-left:35.4pt;text-align:justify'><span
-style='font-size:15.0pt'>Под шаблоном поиска пониматься <span class=GramE>пятиэлементной</span></span><span
-style='font-size:14.0pt;mso-ansi-language:BE'> </span><span style='font-size:
-15.0pt'>конструкция. После успешного выполнения оператора во множестве </span><span
-class=SpellE><i style='mso-bidi-font-style:normal'><span lang=EN-US
-style='font-size:15.0pt;mso-ansi-language:EN-US'>resultSet</span></i></span><i
-style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:15.0pt'> </span></i><span
-style='font-size:15.0pt'>(</span><span class=SpellE><i style='mso-bidi-font-style:
-normal'><span lang=EN-US style='font-size:15.0pt;mso-ansi-language:EN-US'>resultSet</span></i></span><i
-style='mso-bidi-font-style:normal'><span style='font-size:15.0pt'>1, ... , </span></i><span
-class=SpellE><i style='mso-bidi-font-style:normal'><span lang=EN-US
-style='font-size:15.0pt;mso-ansi-language:EN-US'>resultSet</span></i></span><i
-style='mso-bidi-font-style:normal'><span style='font-size:15.0pt'>5</span></i><span
+style='font-size:15.0pt'>Под шаблоном поиска пониматься пятиэлементной</span><span
+style='font-size:14.0pt'> </span><span style='font-size:15.0pt'>конструкция.
+После успешного выполнения оператора во множестве </span><i><span lang=EN-US
+style='font-size:15.0pt'>resultSet </span></i><span style='font-size:15.0pt'>(</span><i><span
+lang=EN-US style='font-size:15.0pt'>resultSet</span></i><i><span
+style='font-size:15.0pt'>1, ... , </span></i><i><span lang=EN-US
+style='font-size:15.0pt'>resultSet</span></i><i><span style='font-size:15.0pt'>5</span></i><span
 style='font-size:15.0pt'>) остаются только те элементы, которые удовлетворяют
-шаблону поиска. <o:p></o:p></span></p>
+шаблону поиска. </span></p>
 
 <p class=MsoNormal style='text-align:justify;text-indent:35.4pt'><span
-style='font-size:14.0pt'><o:p>&nbsp;</o:p></span></p>
+style='font-size:14.0pt'>&nbsp;</span></p>
 
 <p class=MsoNormal align=center style='text-align:center;text-indent:35.4pt'><a
-name=selectNStr5><b style='mso-bidi-font-weight:normal'><span style='font-size:
-14.0pt'>Оператор выборки </span></b></a><span style='mso-bookmark:selectNStr5'><span
-class=SpellE><b style='mso-bidi-font-weight:normal'><span lang=EN-US
-style='font-size:14.0pt;mso-ansi-language:EN-US'>selectNStr</span></b></span></span><span
-style='mso-bookmark:selectNStr5'><b style='mso-bidi-font-weight:normal'><span
-style='font-size:14.0pt'>5</span></b></span><span style='mso-bookmark:selectNStr5'></span><span
-lang=BE style='font-size:14.0pt;mso-ansi-language:BE'><o:p></o:p></span></p>
+name=selectNStr5><b><span style='font-size:14.0pt'>Оператор выборки </span></b></a><b><span
+lang=EN-US style='font-size:14.0pt'>selectNStr</span></b><b><span
+style='font-size:14.0pt'>5</span></b></p>
 
-<p class=MsoNormal><span lang=BE style='font-size:14.0pt;mso-ansi-language:
-BE'>Синтаксис:<span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:  </span></p>
 
-<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;background:#EAEAEA;border-collapse:collapse;mso-yfti-tbllook:
- 480;mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
- <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
-  height:203.5pt'>
-  <td width="100%" valign=top style='width:100.0%;padding:0cm 5.4pt 0cm 5.4pt;
-  height:203.5pt'>
-  <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New";
-  mso-ansi-language:EN-US'>selectNStr5</span><span lang=BE style='font-size:
-  15.0pt;font-family:"Courier New";mso-ansi-language:BE'> ([<o:p></o:p></span></p>
-  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New";
-  mso-ansi-language:BE'><span style='mso-tab-count:4'>                </span>1_:</span><span
-  lang=EN-US style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:
-  EN-US'> node</span><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New";
-  mso-ansi-language:EN-GB'>,<o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'><span
-  style='mso-tab-count:4'>                </span></span><span lang=EN-GB
-  style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'>2_:
-  </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New";
-  mso-ansi-language:EN-US'>arc,<o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'><span
-  style='mso-tab-count:4'>                </span></span><span lang=EN-US
-  style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:EN-US'>3_:
-  element</span><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New";
-  mso-ansi-language:EN-GB'>,<o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'><span
-  style='mso-tab-count:4'>                </span></span><span lang=EN-US
-  style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:EN-US'>4_:
-  <span class=SpellE>attr_arc</span>,<o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'><span
-  style='mso-tab-count:4'>                </span></span><span lang=EN-US
-  style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:EN-US'>5_:
-  <span class=SpellE>attr_node</span></span><span lang=EN-GB style='font-size:
-  15.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'>,</span><span
-  lang=EN-GB style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:
-  EN-US'> </span><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New";
-  mso-ansi-language:EN-GB'><o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'><span
-  style='mso-tab-count:4'>                </span></span><span lang=EN-US
-  style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:EN-US'>set1_:
-  resultSet1,<o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'><span
-  style='mso-tab-count:4'>                </span></span><span lang=EN-US
-  style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:EN-US'>set2_:
-  resultSet2,<o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'><span
-  style='mso-tab-count:4'>                </span></span><span lang=EN-US
-  style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:EN-US'>set3_:
-  resultSet3</span><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New";
-  mso-ansi-language:EN-GB'>,<o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'><span
-  style='mso-tab-count:4'>                </span></span><span lang=EN-US
-  style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:EN-US'>set3_:
-  resultSet4</span><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New";
-  mso-ansi-language:EN-GB'>,<o:p></o:p></span></p>
-  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'><span
-  style='mso-tab-count:4'>                </span></span><span lang=EN-US
-  style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:EN-US'>set3_:
-  resultSet5<o:p></o:p></span></p>
-  <p class=MsoNormal style='tab-stops:90.0pt'><span lang=EN-US
-  style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:EN-US'><span
-  style='mso-tab-count:2'>            </span><span
-  style='mso-spacerun:yes'> </span></span><span lang=EN-GB style='font-size:
-  15.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'>], </span><span
-  class=SpellE><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New";
-  mso-ansi-language:EN-US'>goto_yes</span></span><span lang=EN-GB
-  style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'>, </span><span
-  class=SpellE><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New";
-  mso-ansi-language:EN-US'>goto_no</span></span><span lang=EN-GB
-  style='font-size:14.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'>, </span><span
-  class=SpellE><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New";
-  mso-ansi-language:EN-US'>goto_error</span></span><span lang=EN-GB
-  style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'>)</span><span
-  lang=BE style='font-size:15.0pt;font-family:"Courier New";mso-ansi-language:
-  BE'><o:p></o:p></span></p>
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;background:#EAEAEA;border-collapse:collapse;border:none'>
+ <tr style='height:203.5pt'>
+  <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:203.5pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>selectNStr5</span><span
+  lang=BE style='font-size:15.0pt;font-family:"Courier New"'> ([</span></p>
+  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New"'>                1_:</span><span
+  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'> node</span><span
+  lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>,</span></p>
+  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'>                </span><span
+  lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>2_: </span><span
+  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>arc,</span></p>
+  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'>                </span><span
+  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>3_: element</span><span
+  lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>,</span></p>
+  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'>                </span><span
+  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>4_: attr_arc,</span></p>
+  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'>                </span><span
+  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>5_: attr_node</span><span
+  lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>,</span><span
+  lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'> </span></p>
+  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'>                </span><span
+  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>set1_:
+  resultSet1,</span></p>
+  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'>                </span><span
+  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>set2_:
+  resultSet2,</span></p>
+  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'>                </span><span
+  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>set3_:
+  resultSet3</span><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>,</span></p>
+  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'>                </span><span
+  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>set3_:
+  resultSet4</span><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>,</span></p>
+  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'>                </span><span
+  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>set3_:
+  resultSet5</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>             </span><span
+  lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>], </span><span
+  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>goto_yes</span><span
+  lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>, </span><span
+  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>goto_no</span><span
+  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>, </span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>goto_error</span><span
+  lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>)</span></p>
   </td>
  </tr>
 </table>
 
-<p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;mso-ansi-language:
-EN-GB'><o:p>&nbsp;</o:p></span></p>
+<p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt'>&nbsp;</span></p>
 
 <p class=MsoNormal><span style='font-size:14.0pt'>Параметры</span><span
-lang=EN-GB style='font-size:14.0pt;mso-ansi-language:EN-GB'>:</span><span
-lang=EN-GB style='font-size:14.0pt;mso-ansi-language:BE'> </span><span
-lang=EN-GB style='font-size:14.0pt;mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+lang=EN-GB style='font-size:14.0pt'>:</span><span lang=EN-GB style='font-size:
+14.0pt'> </span></p>
 
-<p class=MsoNormal style='text-indent:35.4pt'><span class=GramE><i
-style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:15.0pt;
-mso-ansi-language:EN-US'>node</span></i></span><span style='font-size:15.0pt'><o:p></o:p></span></p>
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:15.0pt'>node</span></i></p>
 
 <p class=MsoNormal style='margin-left:70.8pt;text-align:justify'><span
-style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
-mso-ansi-language:EN-US'>in</span><span style='font-size:14.0pt'>] узел</span><span
-lang=BE style='font-size:14.0pt;mso-ansi-language:BE'>, который является первым
-элементом в </span><span style='font-size:15.0pt'>пятиэлементной</span><span
-style='font-size:14.0pt'> </span><span lang=BE style='font-size:14.0pt;
-mso-ansi-language:BE'>конструкции. Данная конструкция </span><span
-style='font-size:14.0pt'>является шаблоном для поиска </span><span
-style='font-size:14.0pt;mso-ansi-language:BE'><span
-style='mso-spacerun:yes'> </span></span><span style='font-size:14.0pt'><o:p></o:p></span></p>
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>in</span><span
+style='font-size:14.0pt'>] узел</span><span lang=BE style='font-size:14.0pt'>,
+который является первым элементом в </span><span style='font-size:15.0pt'>пятиэлементной</span><span
+style='font-size:14.0pt'> </span><span lang=BE style='font-size:14.0pt'>конструкции.
+Данная конструкция </span><span style='font-size:14.0pt'>является шаблоном для
+поиска </span><span style='font-size:14.0pt'> </span></p>
 
-<p class=MsoNormal style='text-indent:35.4pt'><span class=GramE><i
-style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:15.0pt;
-mso-ansi-language:EN-US'>arc</span></i></span><span style='font-size:15.0pt'> <o:p></o:p></span></p>
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:15.0pt'>arc</span></i><span lang=EN-US style='font-size:15.0pt'>
+</span></p>
 
 <p class=MsoNormal style='margin-left:70.8pt;text-align:justify'><span
-style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
-mso-ansi-language:EN-US'>in</span><span style='font-size:14.0pt'>] </span><span
-lang=BE style='font-size:14.0pt;mso-ansi-language:BE'>дуга, которая является
-вторым элементом в </span><span style='font-size:15.0pt'>пятиэлементной</span><span
-lang=BE style='font-size:14.0pt;mso-ansi-language:BE'> конструкции</span><span
-style='font-size:14.0pt'><o:p></o:p></span></p>
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>in</span><span
+style='font-size:14.0pt'>] </span><span lang=BE style='font-size:14.0pt'>дуга,
+которая является вторым элементом в </span><span style='font-size:15.0pt'>пятиэлементной</span><span
+lang=BE style='font-size:14.0pt'> конструкции</span></p>
 
-<p class=MsoNormal style='text-indent:35.4pt'><span class=GramE><i
-style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:15.0pt;
-mso-ansi-language:EN-US'>element</span></i></span><span style='font-size:15.0pt'>
-<o:p></o:p></span></p>
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:15.0pt'>element</span></i><span lang=EN-US style='font-size:
+15.0pt'> </span></p>
 
 <p class=MsoNormal style='margin-left:70.8pt;text-align:justify'><span
-style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
-mso-ansi-language:EN-US'>in</span><span style='font-size:14.0pt'>, </span><span
-lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>out</span><span
-style='font-size:14.0pt'>] </span><span lang=BE style='font-size:14.0pt;
-mso-ansi-language:BE'>элемент, который является третьим элементом в </span><span
-style='font-size:15.0pt'>пятиэлементной</span><span lang=BE style='font-size:
-14.0pt;mso-ansi-language:BE'> конструкции<o:p></o:p></span></p>
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>in</span><span
+style='font-size:14.0pt'>, </span><span lang=EN-US style='font-size:14.0pt'>out</span><span
+style='font-size:14.0pt'>] </span><span lang=BE style='font-size:14.0pt'>элемент,
+который является третьим элементом в </span><span style='font-size:15.0pt'>пятиэлементной</span><span
+lang=BE style='font-size:14.0pt'> конструкции</span></p>
 
-<p class=MsoNormal style='text-indent:35.4pt'><span class=SpellE><i
-style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:15.0pt;
-mso-ansi-language:EN-US'>attr</span></i></span><i style='mso-bidi-font-style:
-normal'><span style='font-size:15.0pt'>_</span></i><i style='mso-bidi-font-style:
-normal'><span lang=EN-US style='font-size:15.0pt;mso-ansi-language:EN-US'>arc</span></i><span
-style='font-size:15.0pt'> <o:p></o:p></span></p>
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:15.0pt'>attr</span></i><i><span style='font-size:15.0pt'>_</span></i><i><span
+lang=EN-US style='font-size:15.0pt'>arc</span></i><span lang=EN-US
+style='font-size:15.0pt'> </span></p>
 
 <p class=MsoNormal style='margin-left:70.8pt;text-align:justify'><span
-style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
-mso-ansi-language:EN-US'>in</span><span style='font-size:14.0pt'>] </span><span
-lang=BE style='font-size:14.0pt;mso-ansi-language:BE'>дуга, которая является
-четвёртым элементом в </span><span style='font-size:15.0pt'>пятиэлементной</span><span
-lang=BE style='font-size:14.0pt;mso-ansi-language:BE'> конструкции<o:p></o:p></span></p>
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>in</span><span
+style='font-size:14.0pt'>] </span><span lang=BE style='font-size:14.0pt'>дуга,
+которая является четвёртым элементом в </span><span style='font-size:15.0pt'>пятиэлементной</span><span
+lang=BE style='font-size:14.0pt'> конструкции</span></p>
 
-<p class=MsoNormal style='text-indent:35.4pt'><span class=SpellE><i
-style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:15.0pt;
-mso-ansi-language:EN-US'>attr</span></i></span><i style='mso-bidi-font-style:
-normal'><span style='font-size:15.0pt'>_</span></i><i style='mso-bidi-font-style:
-normal'><span lang=EN-US style='font-size:15.0pt;mso-ansi-language:EN-US'>node</span></i><span
-style='font-size:15.0pt'> <o:p></o:p></span></p>
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:15.0pt'>attr</span></i><i><span style='font-size:15.0pt'>_</span></i><i><span
+lang=EN-US style='font-size:15.0pt'>node</span></i><span lang=EN-US
+style='font-size:15.0pt'> </span></p>
 
 <p class=MsoNormal style='margin-left:70.8pt;text-align:justify'><span
-style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
-mso-ansi-language:EN-US'>in</span><span style='font-size:14.0pt'>, </span><span
-lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>out</span><span
-style='font-size:14.0pt'>] узел</span><span lang=BE style='font-size:14.0pt;
-mso-ansi-language:BE'>, который является пятым элементом в </span><span
-style='font-size:15.0pt'>пятиэлементной</span><span lang=BE style='font-size:
-14.0pt;mso-ansi-language:BE'> конструкции</span><span style='font-size:14.0pt'><o:p></o:p></span></p>
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>in</span><span
+style='font-size:14.0pt'>, </span><span lang=EN-US style='font-size:14.0pt'>out</span><span
+style='font-size:14.0pt'>] узел</span><span lang=BE style='font-size:14.0pt'>,
+который является пятым элементом в </span><span style='font-size:15.0pt'>пятиэлементной</span><span
+style='font-size:14.0pt'> <span lang=BE>конструкции</span></span></p>
 
-<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><span
-class=SpellE><i style='mso-bidi-font-style:normal'><span lang=EN-US
-style='font-size:15.0pt;mso-ansi-language:EN-US'>resultSet</span></i></span><i
-style='mso-bidi-font-style:normal'><span style='font-size:15.0pt'>1<o:p></o:p></span></i></p>
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><i><span
+lang=EN-US style='font-size:15.0pt'>resultSet</span></i><i><span
+style='font-size:15.0pt'>1</span></i></p>
 
 <p class=MsoNormal style='margin-left:72.0pt;text-align:justify'><span
-style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
-mso-ansi-language:EN-US'>out</span><span style='font-size:14.0pt'>] </span><span
-style='font-size:15.0pt'>множество, в котором остаются первые элементы
-конструкций, не удовлетворяющие шаблону поиска<o:p></o:p></span></p>
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>out</span><span
+style='font-size:14.0pt'>] </span><span style='font-size:15.0pt'>множество, в
+котором остаются первые элементы конструкций, не удовлетворяющие шаблону поиска</span></p>
 
-<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><span
-class=SpellE><i style='mso-bidi-font-style:normal'><span lang=EN-US
-style='font-size:15.0pt;mso-ansi-language:EN-US'>resultSet</span></i></span><i
-style='mso-bidi-font-style:normal'><span style='font-size:15.0pt'>2<o:p></o:p></span></i></p>
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><i><span
+lang=EN-US style='font-size:15.0pt'>resultSet</span></i><i><span
+style='font-size:15.0pt'>2</span></i></p>
 
 <p class=MsoNormal style='margin-left:72.0pt;text-align:justify'><span
-style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
-mso-ansi-language:EN-US'>out</span><span style='font-size:14.0pt'>] </span><span
-style='font-size:15.0pt'>множество, в котором остаются вторые элементы
-конструкций, не удовлетворяющие шаблону поиска<o:p></o:p></span></p>
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>out</span><span
+style='font-size:14.0pt'>] </span><span style='font-size:15.0pt'>множество, в
+котором остаются вторые элементы конструкций, не удовлетворяющие шаблону поиска</span></p>
 
-<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><span
-class=SpellE><i style='mso-bidi-font-style:normal'><span lang=EN-US
-style='font-size:15.0pt;mso-ansi-language:EN-US'>resultSet</span></i></span><i
-style='mso-bidi-font-style:normal'><span style='font-size:15.0pt'>3<o:p></o:p></span></i></p>
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><i><span
+lang=EN-US style='font-size:15.0pt'>resultSet</span></i><i><span
+style='font-size:15.0pt'>3</span></i></p>
 
 <p class=MsoNormal style='margin-left:72.0pt;text-align:justify'><span
-style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
-mso-ansi-language:EN-US'>out</span><span style='font-size:14.0pt'>] </span><span
-style='font-size:15.0pt'>множество, в котором остаются третьи элементы
-конструкций, не удовлетворяющие шаблону поиска<o:p></o:p></span></p>
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>out</span><span
+style='font-size:14.0pt'>] </span><span style='font-size:15.0pt'>множество, в
+котором остаются третьи элементы конструкций, не удовлетворяющие шаблону поиска</span></p>
 
-<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><span
-class=SpellE><i style='mso-bidi-font-style:normal'><span lang=EN-US
-style='font-size:15.0pt;mso-ansi-language:EN-US'>resultSet</span></i></span><i
-style='mso-bidi-font-style:normal'><span style='font-size:15.0pt'>4<o:p></o:p></span></i></p>
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><i><span
+lang=EN-US style='font-size:15.0pt'>resultSet</span></i><i><span
+style='font-size:15.0pt'>4</span></i></p>
 
 <p class=MsoNormal style='margin-left:72.0pt;text-align:justify'><span
-style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
-mso-ansi-language:EN-US'>out</span><span style='font-size:14.0pt'>] </span><span
-style='font-size:15.0pt'>множество, в котором остаются четвертые элементы
-конструкций, не удовлетворяющие шаблону поиска<o:p></o:p></span></p>
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>out</span><span
+style='font-size:14.0pt'>] </span><span style='font-size:15.0pt'>множество, в
+котором остаются четвертые элементы конструкций, не удовлетворяющие шаблону
+поиска</span></p>
 
-<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><span
-class=SpellE><i style='mso-bidi-font-style:normal'><span lang=EN-US
-style='font-size:15.0pt;mso-ansi-language:EN-US'>resultSet</span></i></span><i
-style='mso-bidi-font-style:normal'><span style='font-size:15.0pt'>5<o:p></o:p></span></i></p>
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><i><span
+lang=EN-US style='font-size:15.0pt'>resultSet</span></i><i><span
+style='font-size:15.0pt'>5</span></i></p>
 
 <p class=MsoNormal style='margin-left:72.0pt;text-align:justify'><span
-style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt;
-mso-ansi-language:EN-US'>out</span><span style='font-size:14.0pt'>] </span><span
-style='font-size:15.0pt'>множество, в котором остаются пятые элементы
-конструкций, не удовлетворяющие шаблону поиска<o:p></o:p></span></p>
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>out</span><span
+style='font-size:14.0pt'>] </span><span style='font-size:15.0pt'>множество, в
+котором остаются пятые элементы конструкций, не удовлетворяющие шаблону поиска</span></p>
 
-<p class=MsoNormal style='text-indent:35.4pt'><span class=SpellE><i
-style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:15.0pt;
-mso-ansi-language:EN-US'>goto</span></i></span><i style='mso-bidi-font-style:
-normal'><span style='font-size:15.0pt'>_</span></i><i style='mso-bidi-font-style:
-normal'><span lang=EN-US style='font-size:15.0pt;mso-ansi-language:EN-US'>yes</span></i><span
-style='font-size:15.0pt'><o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-left:72.0pt;text-align:justify'><u><span
-style='font-size:15.0pt'>метка</span></u><span style='font-size:15.0pt'> успешного
-выполнения, если найдены конструкции, не удовлетворяющие шаблону поиска <o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-left:36.0pt'><span class=SpellE><i
-style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:15.0pt;
-mso-ansi-language:EN-US'>goto</span></i></span><i style='mso-bidi-font-style:
-normal'><span style='font-size:15.0pt'>_</span></i><i style='mso-bidi-font-style:
-normal'><span lang=EN-US style='font-size:15.0pt;mso-ansi-language:EN-US'>no</span></i><span
-style='font-size:15.0pt'><o:p></o:p></span></p>
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:15.0pt'>goto</span></i><i><span style='font-size:15.0pt'>_</span></i><i><span
+lang=EN-US style='font-size:15.0pt'>yes</span></i></p>
 
 <p class=MsoNormal style='margin-left:72.0pt;text-align:justify'><u><span
 style='font-size:15.0pt'>метка</span></u><span style='font-size:15.0pt'>
-безуспешного выполнения, если не удовлетворяющие шаблону поиска конструкции не найдены<o:p></o:p></span></p>
+успешного выполнения, если найдены конструкции, не удовлетворяющие шаблону
+поиска </span></p>
 
-<p class=MsoNormal style='text-indent:35.4pt'><span class=SpellE><i
-style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
-mso-ansi-language:EN-US'>goto</span></i></span><i style='mso-bidi-font-style:
-normal'><span style='font-size:14.0pt'>_</span></i><i style='mso-bidi-font-style:
-normal'><span lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>error</span></i><span
-style='font-size:14.0pt'><o:p></o:p></span></p>
+<p class=MsoNormal style='margin-left:36.0pt'><i><span lang=EN-US
+style='font-size:15.0pt'>goto</span></i><i><span style='font-size:15.0pt'>_</span></i><i><span
+lang=EN-US style='font-size:15.0pt'>no</span></i></p>
+
+<p class=MsoNormal style='margin-left:72.0pt;text-align:justify'><u><span
+style='font-size:15.0pt'>метка</span></u><span style='font-size:15.0pt'>
+безуспешного выполнения, если не удовлетворяющие шаблону поиска конструкции не
+найдены</span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:14.0pt'>goto</span></i><i><span style='font-size:14.0pt'>_</span></i><i><span
+lang=EN-US style='font-size:14.0pt'>error</span></i></p>
 
 <p class=MsoNormal style='margin-left:72.0pt;text-align:justify'><u><span
 style='font-size:14.0pt'>метка</span></u><span style='font-size:14.0pt'>
-ошибочного выполнения, если в ходе выполнения операции возникла ошибка<o:p></o:p></span></p>
+ошибочного выполнения, если в ходе выполнения операции возникла ошибка</span></p>
 
 <p class=MsoNormal style='margin-left:72.0pt;text-align:justify'><u><span
-style='font-size:14.0pt'><o:p><span style='text-decoration:none'>&nbsp;</span></o:p></span></u></p>
+style='font-size:14.0pt'><span style='text-decoration:none'>&nbsp;</span></span></u></p>
 
-<p class=MsoNormal><span style='font-size:14.0pt'>Назначение:<o:p></o:p></span></p>
+<p class=MsoNormal><span style='font-size:14.0pt'>Назначение:</span></p>
 
 <p class=MsoNormal style='margin-left:35.4pt;text-align:justify'><span
-style='font-size:15.0pt'>Под шаблоном поиска пониматься <span class=GramE>пятиэлементной</span></span><span
-style='font-size:14.0pt;mso-ansi-language:BE'> </span><span style='font-size:
-15.0pt'>конструкция. После успешного выполнения оператора во множестве </span><span
-class=SpellE><i style='mso-bidi-font-style:normal'><span lang=EN-US
-style='font-size:15.0pt;mso-ansi-language:EN-US'>resultSet</span></i></span><i
-style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:15.0pt'> </span></i><span
-style='font-size:15.0pt'>(</span><span class=SpellE><i style='mso-bidi-font-style:
-normal'><span lang=EN-US style='font-size:15.0pt;mso-ansi-language:EN-US'>resultSet</span></i></span><i
-style='mso-bidi-font-style:normal'><span style='font-size:15.0pt'>1, ... , </span></i><span
-class=SpellE><i style='mso-bidi-font-style:normal'><span lang=EN-US
-style='font-size:15.0pt;mso-ansi-language:EN-US'>resultSet</span></i></span><i
-style='mso-bidi-font-style:normal'><span style='font-size:15.0pt'>5</span></i><span
+style='font-size:15.0pt'>Под шаблоном поиска пониматься пятиэлементной</span><span
+style='font-size:14.0pt'> </span><span style='font-size:15.0pt'>конструкция.
+После успешного выполнения оператора во множестве </span><i><span lang=EN-US
+style='font-size:15.0pt'>resultSet </span></i><span style='font-size:15.0pt'>(</span><i><span
+lang=EN-US style='font-size:15.0pt'>resultSet</span></i><i><span
+style='font-size:15.0pt'>1, ... , </span></i><i><span lang=EN-US
+style='font-size:15.0pt'>resultSet</span></i><i><span style='font-size:15.0pt'>5</span></i><span
 style='font-size:15.0pt'>) остаются только те элементы, которые удовлетворяют
-шаблону поиска.</span><span lang=EN-US style='font-size:15.0pt;mso-ansi-language:
-EN-US'><o:p></o:p></span></p>
+шаблону поиска.</span></p>
 
 <p class=MsoNormal style='margin-left:35.4pt;text-align:justify'><span
-lang=EN-US style='font-size:15.0pt;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+lang=EN-US style='font-size:15.0pt'>&nbsp;</span></p>
 
 <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
- mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:.5pt solid windowtext;
- mso-border-insidev:.5pt solid windowtext'>
- <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+ style='width:100.0%;border-collapse:collapse;border:none'>
+ <tr>
   <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'>Содержание
-  главы<o:p></o:p></span></p>
+  style='font-size:14.0pt;color:black'>Содержание главы</span></p>
   </td>
  </tr>
- <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+ <tr>
   <td width="100%" style='width:100.0%;border:solid windowtext 1.0pt;
-  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
-  padding:0cm 5.4pt 0cm 5.4pt'>
-  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:
-  l1 level1 lfo2;tab-stops:list 36.0pt'><![if !supportLists]><span
-  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'><span
-  style='mso-list:Ignore'>5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span></span><![endif]><span style='font-size:14.0pt'><a
-  href="#selectYStr3">Оператор выборки <span lang=EN-US style='mso-ansi-language:
-  EN-US'>selectYStr3</span></a><a href="#genEl"></a></span><span
-  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'><o:p></o:p></span></p>
-  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:
-  l1 level1 lfo2;tab-stops:list 36.0pt'><![if !supportLists]><span
-  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'><span
-  style='mso-list:Ignore'>6.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span></span><![endif]><span style='font-size:14.0pt'><a
-  href="#selectNStr3">Оператор выборки <span class=SpellE><span lang=EN-US
-  style='mso-ansi-language:EN-US'>selectNStr</span></span>3</a></span><span
-  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'><o:p></o:p></span></p>
-  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:
-  l1 level1 lfo2;tab-stops:list 36.0pt'><![if !supportLists]><span
-  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'><span
-  style='mso-list:Ignore'>7.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span></span><![endif]><span style='font-size:14.0pt'><a
-  href="#selectYStr5">Оператор выборки <span lang=EN-US style='mso-ansi-language:
-  EN-US'>selectYStr5</span></a></span><span style='font-size:14.0pt;mso-bidi-font-size:
-  12.0pt;color:black'><o:p></o:p></span></p>
-  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:
-  l1 level1 lfo2;tab-stops:list 36.0pt'><![if !supportLists]><span
-  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;color:black'><span
-  style='mso-list:Ignore'>8.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span></span><![endif]><span style='font-size:14.0pt'><a
-  href="#selectNStr5">Оператор выборки <span lang=EN-US style='mso-ansi-language:
-  EN-US'>selectNStr5</span></a></span><span style='font-size:14.0pt;mso-bidi-font-size:
-  12.0pt;color:black'><o:p></o:p></span></p>
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
+  style='font-size:14.0pt;color:black'>5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span style='font-size:14.0pt'><a href="#selectYStr3">Оператор
+  выборки <span lang=EN-US>selectYStr3</span></a></span></p>
+  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
+  style='font-size:14.0pt;color:black'>6.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span style='font-size:14.0pt'><a href="#selectNStr3">Оператор
+  выборки <span lang=EN-US>selectNStr</span>3</a></span></p>
+  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
+  style='font-size:14.0pt;color:black'>7.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span style='font-size:14.0pt'><a href="#selectYStr5">Оператор
+  выборки <span lang=EN-US>selectYStr5</span></a></span></p>
+  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
+  style='font-size:14.0pt;color:black'>8.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span style='font-size:14.0pt'><a href="#selectNStr5">Оператор
+  выборки <span lang=EN-US>selectNStr5</span></a></span></p>
   </td>
  </tr>
 </table>
 
 <p class=MsoNormal style='margin-left:35.4pt;text-align:justify'><span
-lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+lang=EN-US style='font-size:14.0pt'>&nbsp;</span></p>
 
 </div>
 

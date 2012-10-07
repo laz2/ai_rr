@@ -1,0 +1,46 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=scp_guide.chm
+Contents file=toc.hhc
+Default topic=introduction.htm
+Display compile progress=No
+Enhanced decompilation=Yes
+Language=0x419 Русский
+Title=Руководство по программированию на языке SCP
+
+
+[FILES]
+user_manual.htm
+about.htm
+attributes.htm
+basic_ideas.htm
+code_optimize.htm
+comments.htm
+conclusion.htm
+erase_class.htm
+errors_description.htm
+first_program.htm
+fork_algorithm.htm
+framework_setting.htm
+fs_repo_src_description.htm
+gen_class.htm
+glossary.htm
+if_class.htm
+install_framework.htm
+introduction.htm
+labels.htm
+literature.htm
+logging.htm
+math_class.htm
+print_class.htm
+process_class.htm
+program_run.htm
+program_structure.htm
+programming_tips.htm
+scp_operators.htm
+search_class.htm
+select_class.htm
+test_and_debug.htm
+
+[INFOTYPES]
+
