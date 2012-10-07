@@ -89,18 +89,60 @@
 			<param name="Name" value="&Ecirc;&euml;&agrave;&ntilde;&ntilde; &icirc;&iuml;&aring;&eth;&agrave;&ograve;&icirc;&eth;&icirc;&acirc; &oacute;&auml;&agrave;&euml;&aring;&iacute;&egrave;&yuml; erase">
 			<param name="Local" value="erase_class.htm">
 			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="eraseEl">
+				<param name="Local" value="erase_class.htm#eraseEl">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="eraseElStr3">
+				<param name="Local" value="erase_class.htm#eraseElStr3">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="eraseElStr5">
+				<param name="Local" value="erase_class.htm#eraseElStr5">
+				</OBJECT>
+		</UL>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="&Ecirc;&euml;&agrave;&ntilde;&ntilde; &icirc;&iuml;&aring;&eth;&agrave;&ograve;&icirc;&eth;&icirc;&acirc; &acirc;&ucirc;&aacute;&icirc;&eth;&ecirc;&egrave; select">
 			<param name="Local" value="select_class.htm">
 			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="selectYStr3">
+				<param name="Local" value="select_class.htm#selectYStr3">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="selectNStr3">
+				<param name="Local" value="select_class.htm#selectNStr3">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="selectYStr5">
+				<param name="Local" value="select_class.htm#selectYStr5">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="selectNStr5">
+				<param name="Local" value="select_class.htm#selectNStr5">
+				</OBJECT>
+		</UL>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="&Ecirc;&euml;&agrave;&ntilde;&ntilde; &icirc;&iuml;&aring;&eth;&agrave;&ograve;&icirc;&eth;&icirc;&acirc; &acirc;&ucirc;&acirc;&icirc;&auml;&agrave; &egrave;&iacute;&ocirc;&icirc;&eth;&igrave;&agrave;&ouml;&egrave;&egrave; &acirc; &iuml;&eth;&icirc;&ograve;&icirc;&ecirc;&icirc;&euml; print">
 			<param name="Local" value="print_class.htm">
 			</OBJECT>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="&Ecirc;&euml;&agrave;&ntilde;&ntilde; &icirc;&iuml;&aring;&eth;&agrave;&ograve;&icirc;&eth;&icirc;&acirc; &iuml;&eth;&icirc;&acirc;&aring;&eth;&ecirc;&egrave; &oacute;&ntilde;&euml;&icirc;&acirc;&egrave;&eacute; if">
-			<param name="Local" value="if_class.htm">
-			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="print">
+				<param name="Local" value="print_class.htm#print">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="printNl">
+				<param name="Local" value="print_class.htm#printNl">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="printEl">
+				<param name="Local" value="print_class.htm#printEl">
+				</OBJECT>
+		</UL>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="&Ecirc;&euml;&agrave;&ntilde;&ntilde; &icirc;&iuml;&aring;&eth;&agrave;&ograve;&icirc;&eth;&icirc;&acirc; &iuml;&eth;&icirc;&acirc;&aring;&eth;&ecirc;&egrave; &oacute;&ntilde;&euml;&icirc;&acirc;&egrave;&eacute; if">
 			<param name="Local" value="if_class.htm">
@@ -151,10 +193,50 @@
 			<param name="Name" value="&Ecirc;&euml;&agrave;&ntilde;&ntilde; &icirc;&iuml;&aring;&eth;&agrave;&ograve;&icirc;&eth;&icirc;&acirc; &igrave;&agrave;&ograve;&aring;&igrave;&agrave;&ograve;&egrave;&divide;&aring;&ntilde;&ecirc;&egrave;&otilde; &auml;&aring;&eacute;&ntilde;&ograve;&acirc;&egrave;&eacute;">
 			<param name="Local" value="math_class.htm">
 			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="add">
+				<param name="Local" value="math_class.htm#add">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="sub">
+				<param name="Local" value="math_class.htm#sub">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="mult">
+				<param name="Local" value="math_class.htm#mult">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="div">
+				<param name="Local" value="math_class.htm#div">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="pow">
+				<param name="Local" value="math_class.htm#pow">
+				</OBJECT>
+		</UL>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="&Ecirc;&euml;&agrave;&ntilde;&ntilde; &icirc;&iuml;&aring;&eth;&agrave;&ograve;&icirc;&eth;&icirc;&acirc; &eth;&agrave;&aacute;&icirc;&ograve;&ucirc; &ntilde; &iuml;&eth;&icirc;&ouml;&aring;&ntilde;&ntilde;&agrave;&igrave;&egrave;">
 			<param name="Local" value="process_class.htm">
 			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="callReturn">
+				<param name="Local" value="process_class.htm#callReturn">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="return">
+				<param name="Local" value="process_class.htm#return">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="call">
+				<param name="Local" value="process_class.htm#call">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="waitReturn">
+				<param name="Local" value="process_class.htm#waitReturn">
+				</OBJECT>
+		</UL>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="&Ntilde;&iuml;&icirc;&ntilde;&icirc;&aacute;&ucirc; &acirc;&aring;&ograve;&acirc;&euml;&aring;&iacute;&egrave;&yuml; &agrave;&euml;&atilde;&icirc;&eth;&egrave;&ograve;&igrave;&agrave; scp-&iuml;&eth;&icirc;&atilde;&eth;&agrave;&igrave;&igrave;&ucirc;">

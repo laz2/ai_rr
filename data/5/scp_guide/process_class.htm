@@ -32,6 +32,12 @@ span.a
 	{mso-style-name:"Текст выноски Знак";
 	mso-style-link:"Текст выноски";
 	font-family:"Tahoma","sans-serif";}
+p.msochpdefault, li.msochpdefault, div.msochpdefault
+	{mso-style-name:msochpdefault;
+	margin-right:0cm;
+	margin-left:0cm;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
 .MsoChpDefault
 	{font-size:10.0pt;}
 @page WordSection1
@@ -39,11 +45,6 @@ span.a
 	margin:2.0cm 42.5pt 2.0cm 3.0cm;}
 div.WordSection1
 	{page:WordSection1;}
- /* List Definitions */
- ol
-	{margin-bottom:0cm;}
-ul
-	{margin-bottom:0cm;}
 -->
 </style>
 
@@ -57,37 +58,6 @@ ul
 style='font-size:16.0pt'>Класс операторов работы с процессами</span></b></p>
 
 <p class=MsoNormal align=center style='text-align:center'><b><span lang=EN-US
-style='font-size:16.0pt'>&nbsp;</span></b></p>
-
-<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;border-collapse:collapse;border:none'>
- <tr>
-  <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
-  padding:0cm 5.4pt 0cm 5.4pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'>Содержание главы</span></p>
-  </td>
- </tr>
- <tr>
-  <td width="100%" style='width:100.0%;border:solid windowtext 1.0pt;
-  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
-  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
-  style='font-size:14.0pt;color:black'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span style='font-size:14.0pt'><a href="#callReturn">Оператор
-  запуска <span lang=EN-US>scp</span>-программ <span lang=EN-US>callReturn</span></a></span><span
-  style='font-size:14.0pt;color:black'> </span></p>
-  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
-  style='font-size:14.0pt;color:black'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span style='font-size:14.0pt'><a href="#return">Оператор
-  завершения <span lang=EN-US>scp</span>-программ <span lang=EN-US>return</span></a></span></p>
-  </td>
- </tr>
-</table>
-
-<p class=MsoNormal align=center style='text-align:center'><b><span
-style='font-size:16.0pt'>&nbsp;</span></b></p>
-
-<p class=MsoNormal align=center style='text-align:center'><b><span
 style='font-size:16.0pt'>&nbsp;</span></b></p>
 
 <p class=MsoNormal style='text-align:justify;text-indent:35.4pt'><span
@@ -104,9 +74,10 @@ style='font-size:14.0pt'>), ожидание завершения (</span><i><span lang=EN-US
 style='font-size:14.0pt'>waitReturn</span></i><span style='font-size:14.0pt'>)
 и завершения процесса (</span><i><span lang=EN-US style='font-size:14.0pt'>return</span></i><span
 style='font-size:14.0pt'>). Наиболее широкое применение имеют операторы </span><i><span
-lang=EN-US style='font-size:14.0pt'>callReturn </span></i><span
-style='font-size:14.0pt'>и </span><i><span lang=EN-US style='font-size:14.0pt'>return</span></i><span
-style='font-size:14.0pt'>. </span></p>
+lang=EN-US style='font-size:14.0pt'>callReturn</span></i><i><span lang=EN-US
+style='font-size:14.0pt'> </span></i><span style='font-size:14.0pt'>и </span><i><span
+lang=EN-US style='font-size:14.0pt'>return</span></i><span style='font-size:
+14.0pt'>. </span></p>
 
 <p class=MsoNormal style='text-align:justify;text-indent:35.4pt'><span
 style='font-size:14.0pt'>&nbsp;</span></p>
@@ -118,10 +89,10 @@ style='font-size:14.0pt'>scp</span></b><b><span style='font-size:14.0pt'>-програ
 
 <p class=MsoNormal><span style='font-size:14.0pt'>&nbsp;</span></p>
 
-<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:  </span></p>
+<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:&nbsp; </span></p>
 
-<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;background:#EAEAEA;border-collapse:collapse;border:none'>
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;background:#EAEAEA;border-collapse:collapse'>
  <tr style='height:80.75pt'>
   <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt;height:80.75pt'>
@@ -130,16 +101,16 @@ style='font-size:14.0pt'>scp</span></b><b><span style='font-size:14.0pt'>-програ
   lang=BE style='font-size:14.0pt;font-family:"Courier New"'>([1_:</span><span
   lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'> procedure_name</span><span
   lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>,</span></p>
-  <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>           
+  <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   2_: </span><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>{[1_:
   param1,</span></p>
-  <p class=MsoNormal><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>        
-  </span><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>         </span><span
+  <p class=MsoNormal><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
   lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>2_: param2,</span></p>
-  <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>        
-  </span><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>         3_:
+  <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3_:
   param3]}</span></p>
-  <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>          
+  <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   ])</span></p>
   </td>
  </tr>
@@ -147,8 +118,7 @@ style='font-size:14.0pt'>scp</span></b><b><span style='font-size:14.0pt'>-програ
 
 <p class=MsoNormal><span lang=EN-US style='font-size:14.0pt'>&nbsp;</span></p>
 
-<p class=MsoNormal><span style='font-size:14.0pt'>Параметры:</span><span
-style='font-size:14.0pt'> </span></p>
+<p class=MsoNormal><span style='font-size:14.0pt'>Параметры: </span></p>
 
 <p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
 style='font-size:15.0pt'>procedure</span></i><i><span style='font-size:15.0pt'>_</span></i><i><span
@@ -196,8 +166,8 @@ lang=EN-GB style='font-size:15.0pt'>proc</span></i><i><span style='font-size:
 <p class=MsoNormal style='margin-left:72.0pt;text-align:justify'><span
 style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>in</span><span
 style='font-size:14.0pt'>, </span><span lang=EN-US style='font-size:14.0pt'>out</span><span
-style='font-size:14.0pt'>]</span><span style='font-size:15.0pt'> описатель (далее
-дескриптор) создаваемого процесса</span></p>
+style='font-size:14.0pt'>]</span><span style='font-size:15.0pt'> описатель
+(далее дескриптор) создаваемого процесса</span></p>
 
 <p class=MsoNormal><span style='font-size:14.0pt'>Назначение:</span></p>
 
@@ -218,7 +188,7 @@ style='font-size:14.0pt'>-программы. Второй параметр – это упорядоченное
 множество параметров вызываемой </span><span lang=EN-US style='font-size:14.0pt'>scp</span><span
 style='font-size:14.0pt'>-программы. При чем числовые атрибуты множества
 параметров в операторе и в вызываемой программе должны соответствовать. Каждый
-параметр оператора  </span><i><span lang=EN-US style='font-size:14.0pt'>callReturn</span></i><span
+параметр оператора&nbsp; </span><i><span lang=EN-US style='font-size:14.0pt'>callReturn</span></i><span
 style='font-size:14.0pt'> уточняется атрибутом </span><i><span lang=EN-US
 style='font-size:14.0pt'>fixed</span></i><i><span style='font-size:14.0pt'>_</span></i><span
 style='font-size:14.0pt'>. Но параметры вызываемой программы уточняются только
@@ -231,15 +201,15 @@ style='font-size:14.0pt'>&nbsp;</span></p>
 
 <div align=center>
 
-<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;border-collapse:collapse;border:none'>
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;border-collapse:collapse'>
  <tr>
   <td width="8%" valign=top style='width:8.82%;border:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'><img border=0 width=50 height=31
-  id="Рисунок 2" src="process_class.files/image001.gif"
-  alt="Описание: Описание: Attention"></span></p>
+  style='font-size:14.0pt;color:black'><img width=50 height=31
+  src="process_class.files/image001.gif"
+  alt="Описание: Описание: Описание: Описание: Attention"></span></p>
   </td>
   <td width="91%" style='width:91.18%;border:solid windowtext 1.0pt;border-left:
   none;padding:0cm 5.4pt 0cm 5.4pt'>
@@ -254,9 +224,9 @@ style='font-size:14.0pt'>&nbsp;</span></p>
   <td width="8%" valign=top style='width:8.82%;border:solid windowtext 1.0pt;
   border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'><img border=0 width=60 height=38
-  id="Рисунок 3" src="process_class.files/image002.gif"
-  alt="Описание: Описание: Example"></span></p>
+  style='font-size:14.0pt;color:black'><img width=60 height=38
+  src="process_class.files/image002.gif"
+  alt="Описание: Описание: Описание: Описание: Example"></span></p>
   </td>
   <td width="91%" valign=top style='width:91.18%;border-top:none;border-left:
   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
@@ -277,8 +247,18 @@ style='font-size:14.0pt'>&nbsp;</span></p>
   <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
   font-family:"Courier New"'>// В секции констант программы пишем</span></p>
   <p class=MsoNormal style='text-align:justify'><span lang=EN-US
-  style='font-size:14.0pt;font-family:"Courier New"'>add_program
-  =”proc/add_content/add”; </span></p>
+  style='font-size:14.0pt;font-family:"Courier New"'>add</span><span
+  style='font-size:14.0pt;font-family:"Courier New"'>_</span><span lang=EN-US
+  style='font-size:14.0pt;font-family:"Courier New"'>program</span><span
+  style='font-size:14.0pt;font-family:"Courier New"'> =”</span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>proc</span><span
+  style='font-size:14.0pt;font-family:"Courier New"'>/</span><span lang=EN-US
+  style='font-size:14.0pt;font-family:"Courier New"'>add</span><span
+  style='font-size:14.0pt;font-family:"Courier New"'>_</span><span lang=EN-US
+  style='font-size:14.0pt;font-family:"Courier New"'>content</span><span
+  style='font-size:14.0pt;font-family:"Courier New"'>/</span><span lang=EN-US
+  style='font-size:14.0pt;font-family:"Courier New"'>add</span><span
+  style='font-size:14.0pt;font-family:"Courier New"'>”; </span></p>
   <p class=MsoNormal style='text-align:justify'><span lang=EN-US
   style='font-size:14.0pt;font-family:"Courier New"'>...</span></p>
   <p class=MsoNormal style='text-align:justify'><span lang=EN-US
@@ -294,16 +274,21 @@ style='font-size:14.0pt'>&nbsp;</span></p>
   lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>_</span><span
   lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>program</span><span
   lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>,</span></p>
-  <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>           
-  2_: </span><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>fixed_:
-  {[1_: param1,</span></p>
-  <p class=MsoNormal><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>        
-  </span><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>                 </span><span
+  <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='font-size:14.0pt;font-family:"Courier New"'>2_: </span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>fixed</span><span
+  style='font-size:14.0pt;font-family:"Courier New"'>_: {[1_: </span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>param</span><span
+  style='font-size:14.0pt;font-family:"Courier New"'>1,</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'> </span><span
+  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
   style='font-size:14.0pt;font-family:"Courier New"'>2_: </span><span
   lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>param</span><span
   style='font-size:14.0pt;font-family:"Courier New"'>2]}</span></p>
   <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
-  font-family:"Courier New"'>           ])</span></p>
+  font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  ])</span></p>
   <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt'>В
   данном случае будет вызвана процедура </span><i><span lang=EN-US
   style='font-size:14.0pt'>add</span></i><span style='font-size:14.0pt'> с
@@ -318,9 +303,9 @@ style='font-size:14.0pt'>&nbsp;</span></p>
   <td width="8%" valign=top style='width:8.82%;border:solid windowtext 1.0pt;
   border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'><img border=0 width=60 height=38
-  id="Рисунок 4" src="process_class.files/image002.gif"
-  alt="Описание: Описание: Example"></span></p>
+  style='font-size:14.0pt;color:black'><img width=60 height=38
+  src="process_class.files/image002.gif"
+  alt="Описание: Описание: Описание: Описание: Example"></span></p>
   </td>
   <td width="91%" valign=top style='width:91.18%;border-top:none;border-left:
   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
@@ -339,8 +324,16 @@ style='font-size:14.0pt'>&nbsp;</span></p>
   <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
   font-family:"Courier New"'>// В секции констант программы пишем</span></p>
   <p class=MsoNormal style='text-align:justify'><span lang=EN-US
-  style='font-size:14.0pt;font-family:"Courier New"'>add_program
-  =”proc/GetNext/GetNext”; </span></p>
+  style='font-size:14.0pt;font-family:"Courier New"'>add</span><span
+  style='font-size:14.0pt;font-family:"Courier New"'>_</span><span lang=EN-US
+  style='font-size:14.0pt;font-family:"Courier New"'>program</span><span
+  style='font-size:14.0pt;font-family:"Courier New"'> =”</span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>proc</span><span
+  style='font-size:14.0pt;font-family:"Courier New"'>/</span><span lang=EN-US
+  style='font-size:14.0pt;font-family:"Courier New"'>GetNext</span><span
+  style='font-size:14.0pt;font-family:"Courier New"'>/</span><span lang=EN-US
+  style='font-size:14.0pt;font-family:"Courier New"'>GetNext</span><span
+  style='font-size:14.0pt;font-family:"Courier New"'>”; </span></p>
   <p class=MsoNormal style='text-align:justify'><span lang=EN-US
   style='font-size:14.0pt;font-family:"Courier New"'>...</span></p>
   <p class=MsoNormal style='text-align:justify'><span lang=EN-US
@@ -348,8 +341,7 @@ style='font-size:14.0pt'>&nbsp;</span></p>
   style='font-size:14.0pt;font-family:"Courier New"'>Вызываем</span><span
   style='font-size:14.0pt;font-family:"Courier New"'> </span><span
   style='font-size:14.0pt;font-family:"Courier New"'>процедуру</span><span
-  style='font-size:14.0pt;font-family:"Courier New"'> </span><span lang=EN-US
-  style='font-size:14.0pt;font-family:"Courier New"'>add</span></p>
+  style='font-size:14.0pt;font-family:"Courier New"'> <span lang=EN-US>add</span></span></p>
   <p class=MsoNormal><span style='font-size:14.0pt;font-family:"Courier New"'>с</span><span
   lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>allReturn</span><span
   lang=BE style='font-size:14.0pt;font-family:"Courier New"'>([1_:</span><span
@@ -357,15 +349,20 @@ style='font-size:14.0pt'>&nbsp;</span></p>
   lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>_</span><span
   lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>program</span><span
   lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>,</span></p>
-  <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>           
-  </span><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>2_:
-  fixed_: {[1_: param1,</span></p>
-  <p class=MsoNormal><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>                         
-  </span><span style='font-size:14.0pt;font-family:"Courier New"'>3_: </span><span
+  <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='font-size:14.0pt;font-family:"Courier New"'>2_: </span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>fixed</span><span
+  style='font-size:14.0pt;font-family:"Courier New"'>_: {[1_: </span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>param</span><span
+  style='font-size:14.0pt;font-family:"Courier New"'>1,</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'> </span><span
+  style='font-size:14.0pt;font-family:"Courier New"'>3_: </span><span
   lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>param</span><span
   style='font-size:14.0pt;font-family:"Courier New"'>3]}</span></p>
   <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
-  font-family:"Courier New"'>           ])</span></p>
+  font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  ])</span></p>
   <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt'>Пример
   демонстрирует вызов процедуры с определенными параметрами (в этом случае –
   это первый и третий параметры процедуры </span><i><span lang=EN-US
@@ -386,12 +383,12 @@ lang=EN-US style='font-size:14.0pt'>scp</span></b><b><span style='font-size:
 
 <p class=MsoNormal><span style='font-size:14.0pt'>&nbsp;</span></p>
 
-<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:  </span></p>
+<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:&nbsp; </span></p>
 
 <div align=center>
 
-<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;background:#EAEAEA;border-collapse:collapse;border:none'>
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;background:#EAEAEA;border-collapse:collapse'>
  <tr style='height:25.4pt'>
   <td width="100%" style='width:100.0%;border:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt;height:25.4pt'>
@@ -405,8 +402,7 @@ lang=EN-US style='font-size:14.0pt'>scp</span></b><b><span style='font-size:
 
 <p class=MsoNormal><span lang=EN-US style='font-size:14.0pt'>&nbsp;</span></p>
 
-<p class=MsoNormal><span style='font-size:14.0pt'>Параметры:</span><span
-style='font-size:14.0pt'> </span></p>
+<p class=MsoNormal><span style='font-size:14.0pt'>Параметры: </span></p>
 
 <p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><span
 style='font-size:14.0pt'>Оператор не имеет параметров</span></p>
@@ -433,8 +429,8 @@ lang=EN-US style='font-size:14.0pt'>end</span></i><span style='font-size:14.0pt'
 <p class=MsoNormal align=center style='margin-left:36.0pt;text-align:center'><b><span
 style='font-size:14.0pt'>&nbsp;</span></b></p>
 
-<p class=MsoNormal align=center style='text-align:center'><b><span
-style='font-size:14.0pt'>Оператор параллельного запуска </span></b><b><span
+<p class=MsoNormal align=center style='text-align:center'><a name=call><b><span
+style='font-size:14.0pt'>Оператор параллельного запуска </span></b></a><b><span
 lang=EN-US style='font-size:14.0pt'>scp</span></b><b><span style='font-size:
 14.0pt'>-программ </span></b><b><span lang=EN-US style='font-size:14.0pt'>call</span></b></p>
 
@@ -450,8 +446,8 @@ style='font-size:14.0pt'>-программ, которые выполняются параллельно.</span></p>
 <p class=MsoNormal align=center style='margin-left:36.0pt;text-align:center'><b><span
 style='font-size:14.0pt'>&nbsp;</span></b></p>
 
-<p class=MsoNormal align=center style='text-align:center'><b><span
-style='font-size:14.0pt'>Оператор ожидания выполнения </span></b><b><span
+<p class=MsoNormal align=center style='text-align:center'><a name=waitReturn><b><span
+style='font-size:14.0pt'>Оператор ожидания выполнения </span></b></a><b><span
 lang=EN-US style='font-size:14.0pt'>scp</span></b><b><span style='font-size:
 14.0pt'>-процесса </span></b><b><span lang=EN-US style='font-size:14.0pt'>waitReturn</span></b></p>
 
@@ -460,36 +456,7 @@ style='font-size:14.0pt'>&nbsp;</span></b></p>
 
 <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt'>Оператор
 позволяющий ожидать выполнения определенного </span><span lang=EN-US
-style='font-size:14.0pt'>scp</span><span style='font-size:14.0pt'>-процесса.</span></p>
-
-<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'>&nbsp;</p>
-
-<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;border-collapse:collapse;border:none'>
- <tr>
-  <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
-  padding:0cm 5.4pt 0cm 5.4pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'>Содержание главы</span></p>
-  </td>
- </tr>
- <tr>
-  <td width="100%" style='width:100.0%;border:solid windowtext 1.0pt;
-  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
-  <p class=MsoNormal style='margin-left:54.0pt;text-indent:-18.0pt'><span
-  style='font-size:14.0pt;color:black'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span style='font-size:14.0pt'><a href="#callReturn">Оператор
-  запуска <span lang=EN-US>scp</span>-программ <span lang=EN-US>callReturn</span></a></span><span
-  style='font-size:14.0pt;color:black'> </span></p>
-  <p class=MsoNormal style='margin-left:54.0pt;text-indent:-18.0pt'><span
-  style='font-size:14.0pt;color:black'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span style='font-size:14.0pt'><a href="#return">Оператор
-  завершения <span lang=EN-US>scp</span>-программ <span lang=EN-US>return</span></a></span></p>
-  </td>
- </tr>
-</table>
-
-<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'>&nbsp;</p>
+style='font-size:14.0pt'>scp</span><span style='font-size:14.0pt'>-процесса.</span>&nbsp;</p>
 
 </div>
 

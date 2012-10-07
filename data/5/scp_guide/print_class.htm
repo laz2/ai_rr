@@ -32,6 +32,12 @@ span.a
 	{mso-style-name:"Текст выноски Знак";
 	mso-style-link:"Текст выноски";
 	font-family:"Tahoma","sans-serif";}
+p.msochpdefault, li.msochpdefault, div.msochpdefault
+	{mso-style-name:msochpdefault;
+	margin-right:0cm;
+	margin-left:0cm;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
 .MsoChpDefault
 	{font-size:10.0pt;}
 @page WordSection1
@@ -39,11 +45,6 @@ span.a
 	margin:2.0cm 42.5pt 2.0cm 3.0cm;}
 div.WordSection1
 	{page:WordSection1;}
- /* List Definitions */
- ol
-	{margin-bottom:0cm;}
-ul
-	{margin-bottom:0cm;}
 -->
 </style>
 
@@ -59,46 +60,13 @@ style='font-size:16.0pt'>Класс операторов вывода информации в протокол print</sp
 <p class=MsoNormal align=center style='text-align:center'><b><span lang=EN-US
 style='font-size:16.0pt'>&nbsp;</span></b></p>
 
-<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;border-collapse:collapse;border:none'>
- <tr>
-  <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
-  padding:0cm 5.4pt 0cm 5.4pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'>Содержание главы</span></p>
-  </td>
- </tr>
- <tr>
-  <td width="100%" style='width:100.0%;border:solid windowtext 1.0pt;
-  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
-  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
-  style='font-size:14.0pt;color:black'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span style='font-size:14.0pt'><a href="#print">Оператор вывода
-  информации в протокол print</a></span></p>
-  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
-  style='font-size:14.0pt;color:black'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span style='font-size:14.0pt'><a href="#printNl">Оператор
-  вывода информации в протокол print<span lang=EN-US>Nl</span></a></span></p>
-  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
-  style='font-size:14.0pt;color:black'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span style='font-size:14.0pt'><a href="#printEl">Оператор
-  вывода информации в протокол print<span lang=EN-US>El</span></a></span></p>
-  </td>
- </tr>
-</table>
-
-<p class=MsoNormal align=center style='text-align:center'><span
-style='font-size:14.0pt'>&nbsp;</span></p>
-
 <p class=MsoNormal style='text-align:justify;text-indent:35.4pt'><span
 style='font-size:14.0pt'>Данный класс предназначен для непосредственного вывода
 информации в <u>файл протоколирования</u>. В протокол может выводиться
 информация как о элементе (окрестность элемента по входящим и выходящим дугам),
 так и о его содержимом.</span></p>
 
-<p class=MsoNormal align=center style='text-align:center;text-indent:35.4pt'><span
-style='font-size:14.0pt'><img border=0 width=189 height=157 id="Рисунок 1"
-src="print_class.files/image001.gif" alt="Описание: print_class"></span></p>
+<p class=MsoNormal align=center style='text-align:center;text-indent:35.4pt'>&nbsp;</p>
 
 <p class=MsoNormal align=center style='text-align:center'><a name=print><b><span
 style='font-size:14.0pt'>Оператор вывода информации в протокол print</span></b></a></p>
@@ -106,30 +74,31 @@ style='font-size:14.0pt'>Оператор вывода информации в протокол print</span></b><
 <p class=MsoNormal align=center style='text-align:center;text-indent:35.4pt'><b><span
 style='font-size:14.0pt'>&nbsp;</span></b></p>
 
-<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:  </span></p>
+<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:&nbsp; </span></p>
 
-<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;background:#EAEAEA;border-collapse:collapse;border:none'>
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;background:#EAEAEA;border-collapse:collapse'>
  <tr style='height:51.95pt'>
   <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt;height:51.95pt'>
   <p class=MsoNormal><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>print</span><span
   lang=BE style='font-size:15.0pt;font-family:"Courier New"'>([</span></p>
-  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New"'>        1_:
-  </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>element</span></p>
-  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New"'>      
-  ], </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>goto</span><span
-  lang=BE style='font-size:15.0pt;font-family:"Courier New"'>_</span><span
-  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>yes</span><span
-  lang=BE style='font-size:15.0pt;font-family:"Courier New"'>, </span><span
-  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>goto</span><span
-  lang=BE style='font-size:15.0pt;font-family:"Courier New"'>_</span><span
-  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>no</span><span
-  lang=BE style='font-size:14.0pt;font-family:"Courier New"'>, </span><span
-  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>goto</span><span
-  lang=BE style='font-size:14.0pt;font-family:"Courier New"'>_</span><span
-  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>error</span><span
-  lang=BE style='font-size:15.0pt;font-family:"Courier New"'>)</span></p>
+  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  1_: </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>element</span></p>
+  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp; ], </span><span lang=EN-US style='font-size:15.0pt;font-family:
+  "Courier New"'>goto</span><span lang=BE style='font-size:15.0pt;font-family:
+  "Courier New"'>_</span><span lang=EN-US style='font-size:15.0pt;font-family:
+  "Courier New"'>yes</span><span lang=BE style='font-size:15.0pt;font-family:
+  "Courier New"'>, </span><span lang=EN-US style='font-size:15.0pt;font-family:
+  "Courier New"'>goto</span><span lang=BE style='font-size:15.0pt;font-family:
+  "Courier New"'>_</span><span lang=EN-US style='font-size:15.0pt;font-family:
+  "Courier New"'>no</span><span lang=BE style='font-size:14.0pt;font-family:
+  "Courier New"'>, </span><span lang=EN-US style='font-size:14.0pt;font-family:
+  "Courier New"'>goto</span><span lang=BE style='font-size:14.0pt;font-family:
+  "Courier New"'>_</span><span lang=EN-US style='font-size:14.0pt;font-family:
+  "Courier New"'>error</span><span lang=BE style='font-size:15.0pt;font-family:
+  "Courier New"'>)</span></p>
   </td>
  </tr>
 </table>
@@ -180,10 +149,12 @@ style='font-size:14.0pt'> ошибочного выполнения, если в ходе вывода информации
 
 <p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><span
 style='font-size:14.0pt'>Действия оператора </span><i><span lang=EN-US
-style='font-size:14.0pt'>print </span></i><span style='font-size:14.0pt'>аналогичны
-действиям оператора </span><i><span lang=EN-US style='font-size:14.0pt'>printNl
-</span></i><span style='font-size:14.0pt'>(смотрите ниже), за исключением того,
-что </span><i><span lang=EN-US style='font-size:14.0pt'>printNl </span></i><span
+style='font-size:14.0pt'>print</span></i><i><span lang=EN-US style='font-size:
+14.0pt'> </span></i><span style='font-size:14.0pt'>аналогичны действиям
+оператора </span><i><span lang=EN-US style='font-size:14.0pt'>printNl</span></i><i><span
+lang=EN-US style='font-size:14.0pt'> </span></i><span style='font-size:14.0pt'>(смотрите
+ниже), за исключением того, что </span><i><span lang=EN-US style='font-size:
+14.0pt'>printNl</span></i><i><span lang=EN-US style='font-size:14.0pt'> </span></i><span
 style='font-size:14.0pt'>переводит каретку на следующую строку в файле
 протоколирования. </span></p>
 
@@ -194,21 +165,20 @@ style='font-size:14.0pt'>&nbsp;</span></p>
 name=printNl><b><span style='font-size:14.0pt'>Оператор вывода информации в
 протокол print</span></b></a><b><span lang=EN-US style='font-size:14.0pt'>Nl</span></b></p>
 
-<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:  </span></p>
+<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:&nbsp; </span></p>
 
-<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;background:#EAEAEA;border-collapse:collapse;border:none'>
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;background:#EAEAEA;border-collapse:collapse'>
  <tr style='height:51.95pt'>
   <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt;height:51.95pt'>
   <p class=MsoNormal><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>printNl</span><span
   lang=BE style='font-size:15.0pt;font-family:"Courier New"'>([</span></p>
-  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New"'>            1_:
-  </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>element</span></p>
-  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'>        </span><span
-  style='font-size:15.0pt;font-family:"Courier New"'> </span><span lang=EN-GB
-  style='font-size:15.0pt;font-family:"Courier New"'>], </span><span
-  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>goto_yes</span><span
+  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  1_: </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>element</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;</span><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>],
+  </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>goto_yes</span><span
   lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>, </span><span
   lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>goto_no</span><span
   lang=BE style='font-size:14.0pt;font-family:"Courier New"'>, </span><span
@@ -259,8 +229,8 @@ lang=EN-US style='font-size:14.0pt'>error</span></i></p>
 
 <p class=MsoNormal style='margin-left:35.4pt;text-align:justify;text-indent:
 35.4pt'><u><span style='font-size:14.0pt'>метка</span></u><span
-style='font-size:14.0pt'> ошибочного выполнения, если в ходе вывода информации возникла
-ошибка</span></p>
+style='font-size:14.0pt'> ошибочного выполнения, если в ходе вывода информации
+возникла ошибка</span></p>
 
 <p class=MsoNormal><span style='font-size:14.0pt'>&nbsp;</span></p>
 
@@ -274,14 +244,14 @@ style='font-size:14.0pt'>Данный оператор позволяет вывести в файл
 <p class=MsoNormal style='margin-left:35.4pt;text-align:justify'><span
 style='font-size:14.0pt'>&nbsp;</span></p>
 
-<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;border-collapse:collapse;border:none'>
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;border-collapse:collapse'>
  <tr>
   <td width="12%" valign=top style='width:12.56%;border:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'><img border=0 width=50 height=31
-  id="Рисунок 2" src="print_class.files/image002.gif" alt="Описание: Attention"></span></p>
+  style='font-size:14.0pt;color:black'><img width=50 height=31
+  src="print_class.files/image002.gif" alt="Описание: Описание: Attention"></span></p>
   </td>
   <td width="87%" style='width:87.44%;border:solid windowtext 1.0pt;border-left:
   none;padding:0cm 5.4pt 0cm 5.4pt'>
@@ -294,8 +264,8 @@ style='font-size:14.0pt'>&nbsp;</span></p>
   <td width="12%" valign=top style='width:12.56%;border:solid windowtext 1.0pt;
   border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'><img border=0 width=60 height=38
-  id="Рисунок 3" src="print_class.files/image003.gif" alt="Описание: Example"></span></p>
+  style='font-size:14.0pt;color:black'><img width=60 height=38
+  src="print_class.files/image003.gif" alt="Описание: Описание: Example"></span></p>
   </td>
   <td width="87%" valign=top style='width:87.44%;border-top:none;border-left:
   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
@@ -312,10 +282,11 @@ style='font-size:14.0pt'>&nbsp;</span></p>
   lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>Nl</span><span
   lang=BE style='font-size:14.0pt;font-family:"Courier New"'>([</span></p>
   <p class=MsoNormal style='margin-left:62.55pt;text-align:justify'><span
-  lang=BE style='font-size:14.0pt;font-family:"Courier New"'>     1_: </span><span
-  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>node</span></p>
+  lang=BE style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;
+  1_: </span><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>node</span></p>
   <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
-  font-family:"Courier New"'>         ])</span><span style='font-size:14.0pt'> </span></p>
+  font-family:"Courier New"'>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; ])</span><span
+  style='font-size:14.0pt'> </span></p>
   </td>
  </tr>
 </table>
@@ -330,24 +301,24 @@ name=printEl><b><span style='font-size:14.0pt'>Оператор вывода информации в
 <p class=MsoNormal align=center style='text-align:center;text-indent:35.4pt'><b><span
 style='font-size:14.0pt'>&nbsp;</span></b></p>
 
-<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:  </span></p>
+<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:&nbsp; </span></p>
 
-<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;background:#EAEAEA;border-collapse:collapse;border:none'>
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;background:#EAEAEA;border-collapse:collapse'>
  <tr style='height:51.95pt'>
   <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt;height:51.95pt'>
   <p class=MsoNormal><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>printEl</span><span
   lang=BE style='font-size:15.0pt;font-family:"Courier New"'>([</span></p>
-  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New"'>            1_:
-  </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>element</span></p>
-  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'>        </span><span
-  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'> ], goto_yes,
-  goto_no</span><span lang=BE style='font-size:14.0pt;font-family:"Courier New"'>,
-  </span><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>goto</span><span
-  lang=BE style='font-size:14.0pt;font-family:"Courier New"'>_</span><span
-  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>error</span><span
-  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>)</span></p>
+  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  1_: </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>element</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;], goto_yes, goto_no</span><span lang=BE style='font-size:14.0pt;
+  font-family:"Courier New"'>, </span><span lang=EN-US style='font-size:14.0pt;
+  font-family:"Courier New"'>goto</span><span lang=BE style='font-size:14.0pt;
+  font-family:"Courier New"'>_</span><span lang=EN-US style='font-size:14.0pt;
+  font-family:"Courier New"'>error</span><span lang=EN-US style='font-size:
+  15.0pt;font-family:"Courier New"'>)</span></p>
   </td>
  </tr>
 </table>
@@ -358,8 +329,7 @@ style='font-size:15.0pt'>&nbsp;</span></i></p>
 <p class=MsoNormal style='margin-left:35.4pt'><span lang=EN-US
 style='font-size:14.0pt'>&nbsp;</span></p>
 
-<p class=MsoNormal><span style='font-size:14.0pt'>Параметры:</span><span
-style='font-size:14.0pt'> </span></p>
+<p class=MsoNormal><span style='font-size:14.0pt'>Параметры: </span></p>
 
 <p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
 style='font-size:15.0pt'>element</span></i><span lang=EN-US style='font-size:
@@ -392,8 +362,8 @@ lang=EN-US style='font-size:14.0pt'>error</span></i></p>
 
 <p class=MsoNormal style='margin-left:35.4pt;text-align:justify;text-indent:
 35.4pt'><u><span style='font-size:14.0pt'>метка</span></u><span
-style='font-size:14.0pt'> ошибочного выполнения, если в ходе вывода информации возникла
-ошибка</span></p>
+style='font-size:14.0pt'> ошибочного выполнения, если в ходе вывода информации
+возникла ошибка</span></p>
 
 <p class=MsoNormal><span style='font-size:14.0pt'>&nbsp;</span></p>
 
@@ -408,14 +378,14 @@ style='font-size:14.0pt'>Данный оператор позволяет вывести в файл
 <p class=MsoNormal style='margin-left:35.4pt;text-align:justify'><span
 style='font-size:14.0pt'>&nbsp;</span></p>
 
-<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;border-collapse:collapse;border:none'>
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;border-collapse:collapse'>
  <tr>
   <td width="12%" valign=top style='width:12.82%;border:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'><img border=0 width=50 height=31
-  id="Рисунок 4" src="print_class.files/image004.gif" alt="Описание: Attention"></span></p>
+  style='font-size:14.0pt;color:black'><img width=50 height=31
+  src="print_class.files/image004.gif" alt="Описание: Описание: Attention"></span></p>
   </td>
   <td width="87%" style='width:87.18%;border:solid windowtext 1.0pt;border-left:
   none;padding:0cm 5.4pt 0cm 5.4pt'>
@@ -428,8 +398,8 @@ style='font-size:14.0pt'>&nbsp;</span></p>
   <td width="12%" valign=top style='width:12.82%;border:solid windowtext 1.0pt;
   border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'><img border=0 width=60 height=38
-  id="Рисунок 5" src="print_class.files/image003.gif" alt="Описание: Example"></span></p>
+  style='font-size:14.0pt;color:black'><img width=60 height=38
+  src="print_class.files/image003.gif" alt="Описание: Описание: Example"></span></p>
   </td>
   <td width="87%" valign=top style='width:87.18%;border-top:none;border-left:
   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
@@ -445,47 +415,16 @@ style='font-size:14.0pt'>&nbsp;</span></p>
   lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>El</span><span
   lang=BE style='font-size:14.0pt;font-family:"Courier New"'>([</span></p>
   <p class=MsoNormal style='text-align:justify'><span lang=BE style='font-size:
-  14.0pt;font-family:"Courier New"'>             1_: </span><span lang=EN-US
-  style='font-size:14.0pt;font-family:"Courier New"'>set</span></p>
+  14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  1_: </span><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>set</span></p>
   <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
-  font-family:"Courier New"'>         ])</span><span style='font-size:14.0pt'> </span></p>
+  font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  ])</span><span style='font-size:14.0pt'> </span></p>
   </td>
  </tr>
 </table>
 
-<p class=MsoNormal style='margin-left:35.4pt;text-align:justify'><span
-lang=EN-US style='font-size:14.0pt'>&nbsp;</span></p>
-
-<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;border-collapse:collapse;border:none'>
- <tr>
-  <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
-  padding:0cm 5.4pt 0cm 5.4pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'>Содержание главы</span></p>
-  </td>
- </tr>
- <tr>
-  <td width="100%" style='width:100.0%;border:solid windowtext 1.0pt;
-  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
-  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
-  style='font-size:14.0pt;color:black'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span style='font-size:14.0pt'><a href="#print">Оператор вывода
-  информации в протокол print</a></span></p>
-  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
-  style='font-size:14.0pt;color:black'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span style='font-size:14.0pt'><a href="#printNl">Оператор
-  вывода информации в протокол print<span lang=EN-US>Nl</span></a></span></p>
-  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
-  style='font-size:14.0pt;color:black'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span style='font-size:14.0pt'><a href="#printEl">Оператор
-  вывода информации в протокол print<span lang=EN-US>El</span></a></span></p>
-  </td>
- </tr>
-</table>
-
-<p class=MsoNormal style='margin-left:35.4pt;text-align:justify'><span
-style='font-size:14.0pt'>&nbsp;</span></p>
+<p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt'>&nbsp;</span></p>
 
 </div>
 

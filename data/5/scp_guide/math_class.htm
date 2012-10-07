@@ -32,6 +32,12 @@ span.a
 	{mso-style-name:"Текст выноски Знак";
 	mso-style-link:"Текст выноски";
 	font-family:"Tahoma","sans-serif";}
+p.msochpdefault, li.msochpdefault, div.msochpdefault
+	{mso-style-name:msochpdefault;
+	margin-right:0cm;
+	margin-left:0cm;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
 .MsoChpDefault
 	{font-size:10.0pt;}
 @page WordSection1
@@ -39,11 +45,6 @@ span.a
 	margin:2.0cm 42.5pt 2.0cm 3.0cm;}
 div.WordSection1
 	{page:WordSection1;}
- /* List Definitions */
- ol
-	{margin-bottom:0cm;}
-ul
-	{margin-bottom:0cm;}
 -->
 </style>
 
@@ -58,47 +59,6 @@ style='font-size:16.0pt'>Класс операторов математических действий</span></b></p>
 
 <p class=MsoNormal align=center style='text-align:center;text-indent:35.4pt'><b><span
 lang=EN-US style='font-size:16.0pt'>&nbsp;</span></b></p>
-
-<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;border-collapse:collapse;border:none'>
- <tr>
-  <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
-  padding:0cm 5.4pt 0cm 5.4pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'>Содержание главы</span></p>
-  </td>
- </tr>
- <tr>
-  <td width="100%" style='width:100.0%;border:solid windowtext 1.0pt;
-  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
-  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
-  style='font-size:14.0pt;color:black'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span style='font-size:14.0pt'><a href="#add">Оператор сложения
-  содержимого <i><span lang=EN-US>add</span></i></a></span><span
-  style='font-size:14.0pt;color:black'> </span></p>
-  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
-  style='font-size:14.0pt;color:black'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span style='font-size:14.0pt'><a href="#sub">Оператор
-  вычитания численного содержимого <i><span lang=EN-US>sub</span></i></a></span><span
-  style='font-size:14.0pt;color:black'> </span></p>
-  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
-  style='font-size:14.0pt;color:black'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span style='font-size:14.0pt'><a href="#mult">Оператор
-  умножения численного содержимого <i><span lang=EN-US>mult</span></i></a></span></p>
-  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
-  style='font-size:14.0pt;color:black'>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span style='font-size:14.0pt'><a href="#div">Оператор деления
-  численного содержимого <i><span lang=EN-US>div</span></i></a></span></p>
-  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
-  style='font-size:14.0pt;color:black'>5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span style='font-size:14.0pt'><a href="#pow">Оператор
-  возведения в степень численного содержимого <i><span lang=EN-US>pow</span></i></a></span></p>
-  </td>
- </tr>
-</table>
-
-<p class=MsoNormal style='text-align:justify;text-indent:35.4pt'><span
-style='font-size:14.0pt'>&nbsp;</span></p>
 
 <p class=MsoNormal style='text-align:justify;text-indent:35.4pt'><span
 style='font-size:14.0pt'>Данный класс операторов предназначен для проведения
@@ -116,22 +76,22 @@ style='font-size:14.0pt'>&nbsp;</span></b></p>
 
 <p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:</span></p>
 
-<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;background:#EAEAEA;border-collapse:collapse;border:none'>
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;background:#EAEAEA;border-collapse:collapse'>
  <tr style='height:80.75pt'>
   <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt;height:80.75pt'>
   <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>add</span><span
   lang=BE style='font-size:15.0pt;font-family:"Courier New"'>([</span></p>
-  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New"'>     
+  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   1_: </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>result,</span></p>
-  <p class=MsoNormal><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>     
+  <p class=MsoNormal><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>2_:
   node1,</span></p>
-  <p class=MsoNormal><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>     
+  <p class=MsoNormal><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>3_:
   node2</span></p>
-  <p class=MsoNormal><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>    
+  <p class=MsoNormal><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;
   ], </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>goto_yes</span><span
   lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>, </span><span
   lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>goto_no</span><span
@@ -144,8 +104,7 @@ style='font-size:14.0pt'>&nbsp;</span></b></p>
 
 <p class=MsoNormal><span lang=EN-US style='font-size:14.0pt'>&nbsp;</span></p>
 
-<p class=MsoNormal><span style='font-size:14.0pt'>Параметры:</span><span
-style='font-size:14.0pt'> </span></p>
+<p class=MsoNormal><span style='font-size:14.0pt'>Параметры: </span></p>
 
 <p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
 style='font-size:14.0pt'>result</span></i></p>
@@ -161,8 +120,7 @@ style='font-size:15.0pt'> </span></p>
 
 <p class=MsoNormal style='margin-left:70.8pt;text-align:justify'><span
 style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>in</span><span
-style='font-size:14.0pt'>] узел, содержимое которого является первым слагаемым</span><span
-style='font-size:14.0pt'> </span></p>
+style='font-size:14.0pt'>] узел, содержимое которого является первым слагаемым </span></p>
 
 <p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
 style='font-size:14.0pt'>node</span></i><i><span style='font-size:15.0pt'>2</span></i><span
@@ -170,8 +128,7 @@ style='font-size:15.0pt'> </span></p>
 
 <p class=MsoNormal style='margin-left:70.8pt;text-align:justify'><span
 style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>in</span><span
-style='font-size:14.0pt'>] узел, содержимое которого является вторым слагаемым</span><span
-style='font-size:14.0pt'> </span></p>
+style='font-size:14.0pt'>] узел, содержимое которого является вторым слагаемым </span></p>
 
 <p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
 style='font-size:15.0pt'>goto</span></i><i><span style='font-size:15.0pt'>_</span></i><i><span
@@ -180,8 +137,8 @@ lang=EN-US style='font-size:15.0pt'>yes</span></i></p>
 <p class=MsoNormal style='margin-left:72.0pt;text-align:justify;text-indent:
 .6pt'><u><span style='font-size:14.0pt'>метка</span></u><span style='font-size:
 14.0pt'> перехода, если операция успешно завершена (содержимое </span><i><span
-lang=EN-US style='font-size:14.0pt'>result </span></i><span style='font-size:
-14.0pt'>сформировано)</span></p>
+lang=EN-US style='font-size:14.0pt'>result</span></i><i><span lang=EN-US
+style='font-size:14.0pt'> </span></i><span style='font-size:14.0pt'>сформировано)</span></p>
 
 <p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
 style='font-size:15.0pt'>goto</span></i><i><span style='font-size:15.0pt'>_</span></i><i><span
@@ -204,12 +161,12 @@ lang=EN-US style='font-size:15.0pt'>error</span></i></p>
 
 <p class=MsoNormal style='margin-left:35.4pt;text-align:justify'><span
 style='font-size:14.0pt'>Оператор осуществляет сложение двух чисел, являющихся
-содержимым  узлов </span><i><span lang=EN-US style='font-size:14.0pt'>node</span></i><i><span
-style='font-size:14.0pt'>1</span></i><span style='font-size:14.0pt'>,</span><span
-style='font-size:14.0pt'> </span><i><span lang=EN-US style='font-size:14.0pt'>node</span></i><i><span
-style='font-size:14.0pt'>2</span></i><span style='font-size:14.0pt'>. После
-успешного выполнения оператора содержимым узла </span><i><span lang=EN-US
-style='font-size:14.0pt'>result </span></i><span style='font-size:14.0pt'>будет
+содержимым&nbsp; узлов </span><i><span lang=EN-US style='font-size:14.0pt'>node</span></i><i><span
+style='font-size:14.0pt'>1</span></i><span style='font-size:14.0pt'>, </span><i><span
+lang=EN-US style='font-size:14.0pt'>node</span></i><i><span style='font-size:
+14.0pt'>2</span></i><span style='font-size:14.0pt'>. После успешного выполнения
+оператора содержимым узла </span><i><span lang=EN-US style='font-size:14.0pt'>result</span></i><i><span
+lang=EN-US style='font-size:14.0pt'> </span></i><span style='font-size:14.0pt'>будет
 результат суммирования.</span></p>
 
 <p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><span
@@ -218,47 +175,46 @@ style='font-size:14.0pt'>При организации циклов необходимы счётчики –
 позволяет делать оператор </span><i><span lang=EN-US style='font-size:14.0pt'>add</span></i><span
 style='font-size:14.0pt'>. Но оператор </span><span lang=EN-US
 style='font-size:14.0pt'>add</span><span style='font-size:14.0pt'> может
-использоваться и для  <u>конкатенации</u> (сложения) строкового содержимого
-узлов </span><i><span lang=EN-US style='font-size:14.0pt'>node</span></i><i><span
-style='font-size:14.0pt'>1 </span></i><span style='font-size:14.0pt'>и</span><span
-style='font-size:14.0pt'> </span><i><span lang=EN-US style='font-size:14.0pt'>node</span></i><i><span
-style='font-size:14.0pt'>2</span></i><span style='font-size:14.0pt'>.</span></p>
+использоваться и для&nbsp; <u>конкатенации</u> (сложения) строкового
+содержимого узлов </span><i><span lang=EN-US style='font-size:14.0pt'>node</span></i><i><span
+style='font-size:14.0pt'>1 </span></i><span style='font-size:14.0pt'>и </span><i><span
+lang=EN-US style='font-size:14.0pt'>node</span></i><i><span style='font-size:
+14.0pt'>2</span></i><span style='font-size:14.0pt'>.</span></p>
 
 <p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><span
 style='font-size:14.0pt'>&nbsp;</span></p>
 
-<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;border-collapse:collapse;border:none'>
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;border-collapse:collapse'>
  <tr>
   <td width="12%" valign=top style='width:12.56%;border:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'><img border=0 width=50 height=31
-  id="Рисунок 1" src="math_class.files/image001.gif" alt="Описание: Attention"></span></p>
+  style='font-size:14.0pt;color:black'><img width=50 height=31
+  src="math_class.files/image001.gif" alt="Описание: Описание: Attention"></span></p>
   </td>
   <td width="87%" style='width:87.44%;border:solid windowtext 1.0pt;border-left:
   none;padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal style='text-align:justify'><b><span style='font-size:14.0pt;
-  color:black'>Внимание:</span></b><span style='font-size:14.0pt;color:black'> </span><span
-  style='font-size:14.0pt;color:black'>Довольно часто необходимо переменную увеличить
-  на какое-то значение, то есть результат нужно занести не в отдельный узел, а
-  в слагаемое. Для этого не нужно использовать промежуточную переменную.
-  Операнд можно помечать атрибутом </span><i><span lang=EN-US style='font-size:
-  14.0pt;color:black'>fixed</span></i><i><span style='font-size:14.0pt;
-  color:black'>_</span></i><span style='font-size:14.0pt;color:black'>, но его
-  значение перед выполнением оператора должно быть найдено. Иначе возникнет
-  ошибка, так как атрибутом </span><i><span lang=EN-US style='font-size:14.0pt;
-  color:black'>fixed</span></i><i><span style='font-size:14.0pt;color:black'>_ </span></i><span
-  style='font-size:14.0pt;color:black'>можно помечать только операнд с
-  найденным значением.</span></p>
+  color:black'>Внимание:</span></b><span style='font-size:14.0pt;color:black'>
+  Довольно часто необходимо переменную увеличить на какое-то значение, то есть
+  результат нужно занести не в отдельный узел, а в слагаемое. Для этого не
+  нужно использовать промежуточную переменную. Операнд можно помечать атрибутом
+  </span><i><span lang=EN-US style='font-size:14.0pt;color:black'>fixed</span></i><i><span
+  style='font-size:14.0pt;color:black'>_</span></i><span style='font-size:14.0pt;
+  color:black'>, но его значение перед выполнением оператора должно быть
+  найдено. Иначе возникнет ошибка, так как атрибутом </span><i><span
+  lang=EN-US style='font-size:14.0pt;color:black'>fixed</span></i><i><span
+  style='font-size:14.0pt;color:black'>_ </span></i><span style='font-size:
+  14.0pt;color:black'>можно помечать только операнд с найденным значением.</span></p>
   </td>
  </tr>
  <tr>
   <td width="12%" valign=top style='width:12.56%;border:solid windowtext 1.0pt;
   border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'><img border=0 width=50 height=31
-  id="Рисунок 2" src="math_class.files/image002.gif" alt="Описание: Attention"></span></p>
+  style='font-size:14.0pt;color:black'><img width=50 height=31
+  src="math_class.files/image002.gif" alt="Описание: Описание: Attention"></span></p>
   </td>
   <td width="87%" style='width:87.44%;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
@@ -267,21 +223,20 @@ style='font-size:14.0pt'>&nbsp;</span></p>
   color:black'>Внимание:</span></b><span style='font-size:14.0pt;color:black'> </span><span
   style='font-size:14.0pt'>При использовании атрибута </span><i><span
   lang=EN-US style='font-size:14.0pt'>fixed</span></i><i><span
-  style='font-size:14.0pt'>_</span></i><span style='font-size:14.0pt'>
-  (применительно к первому операнду оператора </span><i><span lang=EN-US
-  style='font-size:14.0pt'>add</span></i><span style='font-size:14.0pt'>)
-  содержимое узла будет дополнено. В случае </span><i><span lang=EN-US
-  style='font-size:14.0pt'>assign_</span></i><span lang=EN-US style='font-size:
-  14.0pt'> </span><span style='font-size:14.0pt'>содержимое будет сформировано
-  заново.</span></p>
+  style='font-size:14.0pt'>_</span></i><span style='font-size:14.0pt'> (применительно
+  к первому операнду оператора </span><i><span lang=EN-US style='font-size:
+  14.0pt'>add</span></i><span style='font-size:14.0pt'>) содержимое узла будет
+  дополнено. В случае </span><i><span lang=EN-US style='font-size:14.0pt'>assign_</span></i><span
+  lang=EN-US style='font-size:14.0pt'> </span><span style='font-size:14.0pt'>содержимое
+  будет сформировано заново.</span></p>
   </td>
  </tr>
  <tr>
   <td width="12%" valign=top style='width:12.56%;border:solid windowtext 1.0pt;
   border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'><img border=0 width=60 height=38
-  id="Рисунок 3" src="math_class.files/image003.gif" alt="Описание: Example"></span></p>
+  style='font-size:14.0pt;color:black'><img width=60 height=38
+  src="math_class.files/image003.gif" alt="Описание: Описание: Example"></span></p>
   </td>
   <td width="87%" valign=top style='width:87.44%;border-top:none;border-left:
   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
@@ -303,29 +258,32 @@ style='font-size:14.0pt'>&nbsp;</span></p>
   style='font-size:14.0pt;font-family:"Courier New"'>= 1;</span></p>
   <p class=MsoNormal style='text-align:justify'><span lang=EN-GB
   style='font-size:14.0pt;font-family:"Courier New"'>two</span><span
-  style='font-size:14.0pt;font-family:"Courier New"'> =</span><span lang=EN-GB
-  style='font-size:14.0pt;font-family:"Courier New"'>n</span><span
-  style='font-size:14.0pt;font-family:"Courier New"'>= 2; </span></p>
-  <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
-  font-family:"Courier New"'>...</span></p>
-  <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
-  font-family:"Courier New"'>// Вызываем оператор </span><span lang=EN-US
-  style='font-size:14.0pt;font-family:"Courier New"'>add</span></p>
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'> =</span><span
+  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>n</span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>= 2; </span></p>
+  <p class=MsoNormal style='text-align:justify'><span lang=EN-US
+  style='font-size:14.0pt;font-family:"Courier New"'>...</span></p>
+  <p class=MsoNormal style='text-align:justify'><span lang=EN-US
+  style='font-size:14.0pt;font-family:"Courier New"'>// </span><span
+  style='font-size:14.0pt;font-family:"Courier New"'>Вызываем</span><span
+  style='font-size:14.0pt;font-family:"Courier New"'> </span><span
+  style='font-size:14.0pt;font-family:"Courier New"'>оператор</span><span
+  style='font-size:14.0pt;font-family:"Courier New"'> <span lang=EN-US>add</span></span></p>
   <p class=MsoNormal><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>add</span><span
-  lang=BE style='font-size:14.0pt;font-family:"Courier New"'>([1_:</span><span
-  lang=BE style='font-size:14.0pt;font-family:"Courier New"'> </span><span
+  lang=BE style='font-size:14.0pt;font-family:"Courier New"'>([1_: </span><span
   lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>assign</span><span
   lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>_: </span><span
   lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>result</span><span
   lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>,</span></p>
-  <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>    
-  2_: </span><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'> fixed</span><span
-  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>_: </span><span
+  <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='font-size:14.0pt;font-family:"Courier New"'>2_: </span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;fixed</span><span
+  style='font-size:14.0pt;font-family:"Courier New"'>_: </span><span
   lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>one</span><span
-  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>,</span></p>
+  style='font-size:14.0pt;font-family:"Courier New"'>,</span></p>
   <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
-  font-family:"Courier New"'>     3_:  </span><span lang=EN-US
-  style='font-size:14.0pt;font-family:"Courier New"'>fixed</span><span
+  font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp; 3_:&nbsp; </span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>fixed</span><span
   style='font-size:14.0pt;font-family:"Courier New"'>_: </span><span
   lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>two</span><span
   style='font-size:14.0pt;font-family:"Courier New"'>])</span></p>
@@ -339,8 +297,8 @@ style='font-size:14.0pt'>&nbsp;</span></p>
   <td width="12%" valign=top style='width:12.56%;border:solid windowtext 1.0pt;
   border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'><img border=0 width=60 height=38
-  id="Рисунок 4" src="math_class.files/image004.gif" alt="Описание: Example"></span></p>
+  style='font-size:14.0pt;color:black'><img width=60 height=38
+  src="math_class.files/image004.gif" alt="Описание: Описание: Example"></span></p>
   </td>
   <td width="87%" valign=top style='width:87.44%;border-top:none;border-left:
   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
@@ -357,23 +315,22 @@ style='font-size:14.0pt'>&nbsp;</span></p>
   <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
   font-family:"Courier New"'>1 =</span><span lang=EN-GB style='font-size:14.0pt;
   font-family:"Courier New"'>n</span><span style='font-size:14.0pt;font-family:
-  "Courier New"'>= 1;</span><span style='font-size:14.0pt;font-family:"Courier New"'>
-  </span></p>
-  <p class=MsoNormal style='text-align:justify'><span lang=EN-US
-  style='font-size:14.0pt;font-family:"Courier New"'>...</span></p>
+  "Courier New"'>= 1; </span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
+  font-family:"Courier New"'>...</span></p>
   <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
   font-family:"Courier New"'>// Вызываем оператор </span><span lang=EN-US
   style='font-size:14.0pt;font-family:"Courier New"'>add</span></p>
   <p class=MsoNormal><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>add</span><span
   lang=BE style='font-size:14.0pt;font-family:"Courier New"'>([1_: </span><span
-  style='font-size:14.0pt;font-family:"Courier New"'>2_:  </span><span
+  style='font-size:14.0pt;font-family:"Courier New"'>2_:&nbsp; </span><span
   lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>fixed</span><span
   style='font-size:14.0pt;font-family:"Courier New"'>_: </span><span
   lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>i</span><span
   style='font-size:14.0pt;font-family:"Courier New"'>,</span></p>
   <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
-  font-family:"Courier New"'>     3_:  </span><span lang=EN-US
-  style='font-size:14.0pt;font-family:"Courier New"'>fixed</span><span
+  font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp; 3_:&nbsp; </span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>fixed</span><span
   style='font-size:14.0pt;font-family:"Courier New"'>_: 1])</span></p>
   <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt'>То
   есть в качестве одного слагаемого выступает результат самого сложения.
@@ -393,24 +350,24 @@ name=sub><b><span style='font-size:14.0pt'>Оператор вычитания численного
 
 <p class=MsoNormal><span lang=BE style='font-size:14.0pt'>&nbsp;</span></p>
 
-<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:  </span></p>
+<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:&nbsp; </span></p>
 
-<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;background:#EAEAEA;border-collapse:collapse;border:none'>
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;background:#EAEAEA;border-collapse:collapse'>
  <tr style='height:80.75pt'>
   <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt;height:80.75pt'>
   <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>sub</span><span
   lang=BE style='font-size:15.0pt;font-family:"Courier New"'>([</span></p>
-  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New"'>     
+  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   1_: </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>result,</span></p>
-  <p class=MsoNormal><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>     
+  <p class=MsoNormal><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>2_:
   node1,</span></p>
-  <p class=MsoNormal><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>     
+  <p class=MsoNormal><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>3_:
   node2</span></p>
-  <p class=MsoNormal><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>    
+  <p class=MsoNormal><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;
   ], </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>goto_yes</span><span
   lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>, </span><span
   lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>goto_no</span><span
@@ -421,10 +378,9 @@ name=sub><b><span style='font-size:14.0pt'>Оператор вычитания численного
  </tr>
 </table>
 
-<p class=MsoNormal><span style='font-size:14.0pt'>&nbsp;</span></p>
+<p class=MsoNormal><span lang=EN-US style='font-size:14.0pt'>&nbsp;</span></p>
 
-<p class=MsoNormal><span style='font-size:14.0pt'>Параметры:</span><span
-style='font-size:14.0pt'> </span></p>
+<p class=MsoNormal><span style='font-size:14.0pt'>Параметры: </span></p>
 
 <p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
 style='font-size:14.0pt'>result</span></i></p>
@@ -457,8 +413,8 @@ lang=EN-US style='font-size:15.0pt'>yes</span></i></p>
 <p class=MsoNormal style='margin-left:72.0pt;text-align:justify;text-indent:
 .6pt'><u><span style='font-size:14.0pt'>метка</span></u><span style='font-size:
 14.0pt'> перехода, если операция успешно завершена (содержимое </span><i><span
-lang=EN-US style='font-size:14.0pt'>result </span></i><span style='font-size:
-14.0pt'>сформировано)</span></p>
+lang=EN-US style='font-size:14.0pt'>result</span></i><i><span lang=EN-US
+style='font-size:14.0pt'> </span></i><span style='font-size:14.0pt'>сформировано)</span></p>
 
 <p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
 style='font-size:15.0pt'>goto</span></i><i><span style='font-size:15.0pt'>_</span></i><i><span
@@ -480,24 +436,24 @@ lang=EN-US style='font-size:15.0pt'>error</span></i></p>
 <p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><span
 style='font-size:14.0pt'>Оператор позволяет находить разность двух чисел. После
 успешного выполнения оператора в содержимое узла </span><i><span lang=EN-US
-style='font-size:14.0pt'>result </span></i><span style='font-size:14.0pt'>будет
-помещена разность двух числовых содержимых узлов  </span><i><span lang=EN-US
-style='font-size:14.0pt'>node</span></i><i><span style='font-size:14.0pt'>1 </span></i><span
-style='font-size:14.0pt'>и</span><span style='font-size:14.0pt'> </span><i><span
-lang=EN-US style='font-size:14.0pt'>node</span></i><i><span style='font-size:
-14.0pt'>2</span></i><span style='font-size:14.0pt'>.</span></p>
+style='font-size:14.0pt'>result</span></i><i><span lang=EN-US style='font-size:
+14.0pt'> </span></i><span style='font-size:14.0pt'>будет помещена разность двух
+числовых содержимых узлов&nbsp; </span><i><span lang=EN-US style='font-size:
+14.0pt'>node</span></i><i><span style='font-size:14.0pt'>1 </span></i><span
+style='font-size:14.0pt'>и </span><i><span lang=EN-US style='font-size:14.0pt'>node</span></i><i><span
+style='font-size:14.0pt'>2</span></i><span style='font-size:14.0pt'>.</span></p>
 
 <p class=MsoNormal><span style='font-size:14.0pt'><br clear=all>
 </span></p>
 
-<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;border-collapse:collapse;border:none'>
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;border-collapse:collapse'>
  <tr>
   <td width="12%" valign=top style='width:12.56%;border:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'><img border=0 width=50 height=31
-  id="Рисунок 5" src="math_class.files/image001.gif" alt="Описание: Attention"></span></p>
+  style='font-size:14.0pt;color:black'><img width=50 height=31
+  src="math_class.files/image001.gif" alt="Описание: Описание: Attention"></span></p>
   </td>
   <td width="87%" style='width:87.44%;border:solid windowtext 1.0pt;border-left:
   none;padding:0cm 5.4pt 0cm 5.4pt'>
@@ -510,29 +466,29 @@ lang=EN-US style='font-size:14.0pt'>node</span></i><i><span style='font-size:
   style='font-size:14.0pt'>sub</span></i><span style='font-size:14.0pt'>)
   содержимое узла будет дополнено (уменьшено). В случае </span><i><span
   lang=EN-US style='font-size:14.0pt'>assign</span></i><i><span
-  style='font-size:14.0pt'>_</span></i><span style='font-size:14.0pt'> содержимое
-  будет сформировано заново.</span><span style='font-size:14.0pt;color:black'> </span></p>
+  style='font-size:14.0pt'>_</span></i><span style='font-size:14.0pt'>
+  содержимое будет сформировано заново.<span style='color:black'> </span></span></p>
   </td>
  </tr>
  <tr>
   <td width="12%" valign=top style='width:12.56%;border:solid windowtext 1.0pt;
   border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'><img border=0 width=60 height=38
-  id="Рисунок 6" src="math_class.files/image003.gif" alt="Описание: Example"></span></p>
+  style='font-size:14.0pt;color:black'><img width=60 height=38
+  src="math_class.files/image003.gif" alt="Описание: Описание: Example"></span></p>
   </td>
   <td width="87%" valign=top style='width:87.44%;border-top:none;border-left:
   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal style='text-align:justify'><b><span style='font-size:14.0pt;
   color:black'>Пример 3</span></b><span style='font-size:14.0pt;color:black'>. </span><span
-  style='font-size:14.0pt'>Разность  двух чисел, которые являются содержимым
+  style='font-size:14.0pt'>Разность&nbsp; двух чисел, которые являются содержимым
   константных узлов </span><i><span lang=EN-US style='font-size:14.0pt'>one</span></i><span
   lang=EN-US style='font-size:14.0pt'> </span><span style='font-size:14.0pt'>и </span><i><span
   lang=EN-US style='font-size:14.0pt'>two</span></i><span style='font-size:
   14.0pt'>. Результат помещаем в содержимое переменной </span><i><span
-  lang=EN-US style='font-size:14.0pt'>result</span></i><span lang=EN-US
-  style='font-size:14.0pt'>. </span></p>
+  lang=EN-US style='font-size:14.0pt'>result</span></i><span style='font-size:
+  14.0pt'>. </span></p>
   <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt'>&nbsp;</span></p>
   <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
   font-family:"Courier New"'>// В секции констант программы пишем</span></p>
@@ -542,32 +498,33 @@ lang=EN-US style='font-size:14.0pt'>node</span></i><i><span style='font-size:
   style='font-size:14.0pt;font-family:"Courier New"'>n</span><span
   style='font-size:14.0pt;font-family:"Courier New"'>= 1;</span></p>
   <p class=MsoNormal style='text-align:justify'><span lang=EN-GB
-  style='font-size:14.0pt;font-family:"Courier New"'>two =n= 2; </span></p>
-  <p class=MsoNormal style='text-align:justify'><span lang=EN-GB
-  style='font-size:14.0pt;font-family:"Courier New"'>...</span></p>
-  <p class=MsoNormal style='text-align:justify'><span lang=EN-GB
-  style='font-size:14.0pt;font-family:"Courier New"'>// </span><span
-  style='font-size:14.0pt;font-family:"Courier New"'>Вызываем</span><span
-  style='font-size:14.0pt;font-family:"Courier New"'> </span><span
-  style='font-size:14.0pt;font-family:"Courier New"'>оператор</span><span
-  style='font-size:14.0pt;font-family:"Courier New"'> </span><span lang=EN-US
+  style='font-size:14.0pt;font-family:"Courier New"'>two</span><span
+  style='font-size:14.0pt;font-family:"Courier New"'> =</span><span lang=EN-GB
+  style='font-size:14.0pt;font-family:"Courier New"'>n</span><span
+  style='font-size:14.0pt;font-family:"Courier New"'>= 2; </span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
+  font-family:"Courier New"'>...</span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
+  font-family:"Courier New"'>// Вызываем оператор </span><span lang=EN-US
   style='font-size:14.0pt;font-family:"Courier New"'>add</span></p>
   <p class=MsoNormal><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>sub</span><span
-  lang=BE style='font-size:14.0pt;font-family:"Courier New"'>([1_:</span><span
-  lang=BE style='font-size:14.0pt;font-family:"Courier New"'> </span><span
+  lang=BE style='font-size:14.0pt;font-family:"Courier New"'>([1_: </span><span
   lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>assign</span><span
   lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>_: </span><span
   lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>result</span><span
   lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>,</span></p>
-  <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>    
-  2_:  </span><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>fixed</span><span
+  <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;
+  2_:&nbsp; </span><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>fixed</span><span
   lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>_: two,</span></p>
   <p class=MsoNormal style='text-align:justify'><span lang=EN-GB
-  style='font-size:14.0pt;font-family:"Courier New"'>     3_:  </span><span
+  style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='font-size:14.0pt;font-family:"Courier New"'>3_:</span><span
+  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;</span><span
+  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'> </span><span
   lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>fixed</span><span
-  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>_: </span><span
+  style='font-size:14.0pt;font-family:"Courier New"'>_: </span><span
   lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>one</span><span
-  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>])</span></p>
+  style='font-size:14.0pt;font-family:"Courier New"'>])</span></p>
   <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt'>В
   результате выполнения данного оператора будет сформировано числовое
   содержимое узла </span><i><span lang=EN-US style='font-size:14.0pt'>result</span></i><span
@@ -585,24 +542,24 @@ name=mult><b><span style='font-size:14.0pt'>Оператор умножения численного
 
 <p class=MsoNormal><span lang=BE style='font-size:14.0pt'>&nbsp;</span></p>
 
-<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:  </span></p>
+<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:&nbsp; </span></p>
 
-<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;background:#EAEAEA;border-collapse:collapse;border:none'>
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;background:#EAEAEA;border-collapse:collapse'>
  <tr style='height:80.75pt'>
   <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt;height:80.75pt'>
   <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>mult</span><span
   lang=BE style='font-size:15.0pt;font-family:"Courier New"'>([</span></p>
-  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New"'>     
+  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   1_: </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>result,</span></p>
-  <p class=MsoNormal><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>     
+  <p class=MsoNormal><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>2_:
   node1,</span></p>
-  <p class=MsoNormal><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>     
+  <p class=MsoNormal><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>3_:
   node2</span></p>
-  <p class=MsoNormal><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>     
+  <p class=MsoNormal><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   ], </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>goto_yes</span><span
   lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>, </span><span
   lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>goto_no</span><span
@@ -613,10 +570,9 @@ name=mult><b><span style='font-size:14.0pt'>Оператор умножения численного
  </tr>
 </table>
 
-<p class=MsoNormal><span style='font-size:14.0pt'>&nbsp;</span></p>
+<p class=MsoNormal><span lang=EN-US style='font-size:14.0pt'>&nbsp;</span></p>
 
-<p class=MsoNormal><span style='font-size:14.0pt'>Параметры:</span><span
-style='font-size:14.0pt'> </span></p>
+<p class=MsoNormal><span style='font-size:14.0pt'>Параметры: </span></p>
 
 <p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
 style='font-size:14.0pt'>result</span></i></p>
@@ -633,7 +589,7 @@ style='font-size:15.0pt'> </span></p>
 <p class=MsoNormal style='margin-left:70.8pt;text-align:justify'><span
 style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>in</span><span
 style='font-size:14.0pt'>] узел, содержимое которого <span style='color:black'>является
-первый множитель</span></span><span style='font-size:14.0pt'> </span></p>
+первый множитель</span> </span></p>
 
 <p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
 style='font-size:14.0pt'>node</span></i><i><span style='font-size:15.0pt'>2</span></i><span
@@ -651,8 +607,8 @@ lang=EN-US style='font-size:15.0pt'>yes</span></i></p>
 <p class=MsoNormal style='margin-left:72.0pt;text-align:justify;text-indent:
 .6pt'><u><span style='font-size:14.0pt'>метка</span></u><span style='font-size:
 14.0pt'> перехода, если операция успешно завершена (содержимое </span><i><span
-lang=EN-US style='font-size:14.0pt'>result </span></i><span style='font-size:
-14.0pt'>сформировано)</span></p>
+lang=EN-US style='font-size:14.0pt'>result</span></i><i><span lang=EN-US
+style='font-size:14.0pt'> </span></i><span style='font-size:14.0pt'>сформировано)</span></p>
 
 <p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
 style='font-size:15.0pt'>goto</span></i><i><span style='font-size:15.0pt'>_</span></i><i><span
@@ -674,16 +630,16 @@ lang=EN-US style='font-size:15.0pt'>error</span></i></p>
 <p class=MsoNormal><span style='font-size:14.0pt'>Назначение:</span></p>
 
 <p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><span
-style='font-size:14.0pt'>Оператор используется для умножения численного содержимого
-узлов </span><i><span lang=EN-US style='font-size:14.0pt'>node</span></i><i><span
-style='font-size:14.0pt'>1 </span></i><span style='font-size:14.0pt'>и</span><span
-style='font-size:14.0pt'> </span><i><span lang=EN-US style='font-size:14.0pt'>node</span></i><i><span
-style='font-size:14.0pt'>2</span></i><span style='font-size:14.0pt'>. Результат
-операции заносится в содержимое узла </span><i><span lang=EN-US
-style='font-size:14.0pt'>result</span></i><i><span style='font-size:14.0pt'>. </span></i><span
-style='font-size:14.0pt'>Для данного оператора справедливы все правила и
-ограничения операторов </span><i><span lang=EN-US style='font-size:14.0pt'>add</span></i><span
-lang=EN-US style='font-size:14.0pt'> </span><span style='font-size:14.0pt'>и </span><i><span
+style='font-size:14.0pt'>Оператор используется для умножения численного
+содержимого узлов </span><i><span lang=EN-US style='font-size:14.0pt'>node</span></i><i><span
+style='font-size:14.0pt'>1 </span></i><span style='font-size:14.0pt'>и </span><i><span
+lang=EN-US style='font-size:14.0pt'>node</span></i><i><span style='font-size:
+14.0pt'>2</span></i><span style='font-size:14.0pt'>. Результат операции
+заносится в содержимое узла </span><i><span lang=EN-US style='font-size:14.0pt'>result</span></i><i><span
+style='font-size:14.0pt'>. </span></i><span style='font-size:14.0pt'>Для
+данного оператора справедливы все правила и ограничения операторов </span><i><span
+lang=EN-US style='font-size:14.0pt'>add</span></i><span lang=EN-US
+style='font-size:14.0pt'> </span><span style='font-size:14.0pt'>и </span><i><span
 lang=EN-US style='font-size:14.0pt'>sub</span></i><span style='font-size:14.0pt'>.</span></p>
 
 <p class=MsoNormal align=center style='text-align:center;text-indent:35.4pt'><a
@@ -692,24 +648,25 @@ name=div><b><span style='font-size:14.0pt'>Оператор деления численного
 
 <p class=MsoNormal><span lang=BE style='font-size:14.0pt'>&nbsp;</span></p>
 
-<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:  </span></p>
+<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:&nbsp; </span></p>
 
-<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;background:#EAEAEA;border-collapse:collapse;border:none'>
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;background:#EAEAEA;border-collapse:collapse'>
  <tr style='height:80.75pt'>
   <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt;height:80.75pt'>
   <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>div</span><span
   lang=BE style='font-size:15.0pt;font-family:"Courier New"'>([</span></p>
-  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New"'>     
+  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   1_: </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>result,</span></p>
-  <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'> </span><span
-  lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>     </span><span
-  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>2_: node1,</span></p>
-  <p class=MsoNormal><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>     
+  <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;</span><span
+  lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>2_:
+  node1,</span></p>
+  <p class=MsoNormal><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>3_:
   node2</span></p>
-  <p class=MsoNormal><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>    
+  <p class=MsoNormal><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;
   ], </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>goto_yes</span><span
   lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>, </span><span
   lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>goto_no</span><span
@@ -720,10 +677,9 @@ name=div><b><span style='font-size:14.0pt'>Оператор деления численного
  </tr>
 </table>
 
-<p class=MsoNormal><span style='font-size:14.0pt'>&nbsp;</span></p>
+<p class=MsoNormal><span lang=EN-US style='font-size:14.0pt'>&nbsp;</span></p>
 
-<p class=MsoNormal><span style='font-size:14.0pt'>Параметры:</span><span
-style='font-size:14.0pt'> </span></p>
+<p class=MsoNormal><span style='font-size:14.0pt'>Параметры: </span></p>
 
 <p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
 style='font-size:14.0pt'>result</span></i></p>
@@ -740,7 +696,7 @@ style='font-size:15.0pt'> </span></p>
 <p class=MsoNormal style='margin-left:70.8pt;text-align:justify'><span
 style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>in</span><span
 style='font-size:14.0pt'>] узел, содержимое которого <span style='color:black'>является
-делимое</span></span><span style='font-size:14.0pt'> </span></p>
+делимое</span> </span></p>
 
 <p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
 style='font-size:14.0pt'>node</span></i><i><span style='font-size:15.0pt'>2</span></i><span
@@ -758,16 +714,15 @@ lang=EN-US style='font-size:15.0pt'>yes</span></i></p>
 <p class=MsoNormal style='margin-left:72.0pt;text-align:justify;text-indent:
 .6pt'><u><span style='font-size:14.0pt'>метка</span></u><span style='font-size:
 14.0pt'> перехода, если операция успешно завершена (содержимое </span><i><span
-lang=EN-US style='font-size:14.0pt'>result </span></i><span style='font-size:
-14.0pt'>сформировано)</span></p>
+lang=EN-US style='font-size:14.0pt'>result</span></i><i><span lang=EN-US
+style='font-size:14.0pt'> </span></i><span style='font-size:14.0pt'>сформировано)</span></p>
 
 <p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
 style='font-size:15.0pt'>goto</span></i><i><span style='font-size:15.0pt'>_</span></i><i><span
 lang=EN-US style='font-size:15.0pt'>no</span></i></p>
 
 <p class=MsoNormal style='margin-left:72.0pt;text-align:justify;text-indent:
-.6pt'><span style='font-size:14.0pt'>метка перехода, безуспешное завершение
-операции</span></p>
+.6pt'><span style='font-size:14.0pt'>метка перехода, безуспешное завершение операции</span></p>
 
 <p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
 style='font-size:15.0pt'>goto</span></i><i><span style='font-size:15.0pt'>_</span></i><i><span
@@ -781,14 +736,14 @@ lang=EN-US style='font-size:15.0pt'>error</span></i></p>
 <p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><span
 style='font-size:14.0pt'>Оператор используется для деления численного
 содержимого узлов </span><i><span lang=EN-US style='font-size:14.0pt'>node</span></i><i><span
-style='font-size:14.0pt'>1 </span></i><span style='font-size:14.0pt'>и</span><span
-style='font-size:14.0pt'> </span><i><span lang=EN-US style='font-size:14.0pt'>node</span></i><i><span
-style='font-size:14.0pt'>2</span></i><span style='font-size:14.0pt'>. Результат
-операции заносится в содержимое узла </span><i><span lang=EN-US
-style='font-size:14.0pt'>result</span></i><i><span style='font-size:14.0pt'>. </span></i><span
-style='font-size:14.0pt'>Для данного оператора справедливы все правила и
-ограничения операторов </span><i><span lang=EN-US style='font-size:14.0pt'>add</span></i><span
-lang=EN-US style='font-size:14.0pt'> </span><span style='font-size:14.0pt'>и </span><i><span
+style='font-size:14.0pt'>1 </span></i><span style='font-size:14.0pt'>и </span><i><span
+lang=EN-US style='font-size:14.0pt'>node</span></i><i><span style='font-size:
+14.0pt'>2</span></i><span style='font-size:14.0pt'>. Результат операции
+заносится в содержимое узла </span><i><span lang=EN-US style='font-size:14.0pt'>result</span></i><i><span
+style='font-size:14.0pt'>. </span></i><span style='font-size:14.0pt'>Для
+данного оператора справедливы все правила и ограничения операторов </span><i><span
+lang=EN-US style='font-size:14.0pt'>add</span></i><span lang=EN-US
+style='font-size:14.0pt'> </span><span style='font-size:14.0pt'>и </span><i><span
 lang=EN-US style='font-size:14.0pt'>sub</span></i><span style='font-size:14.0pt'>,
 </span><i><span lang=EN-US style='font-size:14.0pt'>mult</span></i><span
 style='font-size:14.0pt'>.</span></p>
@@ -803,24 +758,24 @@ name=pow><b><span style='font-size:14.0pt'>Оператор возведения в степень
 
 <p class=MsoNormal><span lang=BE style='font-size:14.0pt'>&nbsp;</span></p>
 
-<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:  </span></p>
+<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:&nbsp; </span></p>
 
-<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;background:#EAEAEA;border-collapse:collapse;border:none'>
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;background:#EAEAEA;border-collapse:collapse'>
  <tr style='height:80.75pt'>
   <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt;height:80.75pt'>
   <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>pow</span><span
   lang=BE style='font-size:15.0pt;font-family:"Courier New"'>([</span></p>
-  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New"'>     
+  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   1_: </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>result,</span></p>
-  <p class=MsoNormal><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>     
+  <p class=MsoNormal><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>2_:
   node1,</span></p>
-  <p class=MsoNormal><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>     
+  <p class=MsoNormal><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>3_:
   node2</span></p>
-  <p class=MsoNormal><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>    
+  <p class=MsoNormal><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;
   ], </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>goto_yes</span><span
   lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>, </span><span
   lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>goto_no</span><span
@@ -831,10 +786,9 @@ name=pow><b><span style='font-size:14.0pt'>Оператор возведения в степень
  </tr>
 </table>
 
-<p class=MsoNormal><span style='font-size:14.0pt'>&nbsp;</span></p>
+<p class=MsoNormal><span lang=EN-US style='font-size:14.0pt'>&nbsp;</span></p>
 
-<p class=MsoNormal><span style='font-size:14.0pt'>Параметры:</span><span
-style='font-size:14.0pt'> </span></p>
+<p class=MsoNormal><span style='font-size:14.0pt'>Параметры: </span></p>
 
 <p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
 style='font-size:14.0pt'>result</span></i></p>
@@ -851,8 +805,7 @@ style='font-size:15.0pt'> </span></p>
 <p class=MsoNormal style='margin-left:70.8pt;text-align:justify'><span
 style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>in</span><span
 style='font-size:14.0pt'>] узел, содержимое которого <span style='color:black'>является
-число, которое необходимо возвести в степень</span></span><span
-style='font-size:14.0pt'> </span></p>
+число, которое необходимо возвести в степень</span> </span></p>
 
 <p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
 style='font-size:14.0pt'>node</span></i><i><span style='font-size:15.0pt'>2</span></i><span
@@ -870,8 +823,8 @@ lang=EN-US style='font-size:15.0pt'>yes</span></i></p>
 <p class=MsoNormal style='margin-left:72.0pt;text-align:justify;text-indent:
 .6pt'><u><span style='font-size:14.0pt'>метка</span></u><span style='font-size:
 14.0pt'> перехода, если операция успешно завершена (содержимое </span><i><span
-lang=EN-US style='font-size:14.0pt'>result </span></i><span style='font-size:
-14.0pt'>сформировано)</span></p>
+lang=EN-US style='font-size:14.0pt'>result</span></i><i><span lang=EN-US
+style='font-size:14.0pt'> </span></i><span style='font-size:14.0pt'>сформировано)</span></p>
 
 <p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
 style='font-size:15.0pt'>goto</span></i><i><span style='font-size:15.0pt'>_</span></i><i><span
@@ -896,64 +849,17 @@ lang=EN-US style='font-size:15.0pt'>error</span></i></p>
 style='font-size:14.0pt'>Используется для возведения в степень численного
 содержимого узла </span><i><span lang=EN-US style='font-size:14.0pt'>node</span></i><i><span
 style='font-size:14.0pt'>1</span></i><span style='font-size:14.0pt'>. Степень
-записана в содержимом узла</span><span style='font-size:14.0pt'> </span><i><span
-lang=EN-US style='font-size:14.0pt'>node</span></i><i><span style='font-size:
-14.0pt'>2</span></i><span style='font-size:14.0pt'>. Результат операции
-заносится в содержимое узла </span><i><span lang=EN-US style='font-size:14.0pt'>result</span></i><i><span
-style='font-size:14.0pt'>. </span></i><span style='font-size:14.0pt'>Для
-данного оператора справедливы все правила и ограничения операторов </span><i><span
-lang=EN-US style='font-size:14.0pt'>add</span></i><span lang=EN-US
-style='font-size:14.0pt'> </span><span style='font-size:14.0pt'>и </span><i><span
+записана в содержимом узла </span><i><span lang=EN-US style='font-size:14.0pt'>node</span></i><i><span
+style='font-size:14.0pt'>2</span></i><span style='font-size:14.0pt'>. Результат
+операции заносится в содержимое узла </span><i><span lang=EN-US
+style='font-size:14.0pt'>result</span></i><i><span style='font-size:14.0pt'>. </span></i><span
+style='font-size:14.0pt'>Для данного оператора справедливы все правила и
+ограничения операторов </span><i><span lang=EN-US style='font-size:14.0pt'>add</span></i><span
+lang=EN-US style='font-size:14.0pt'> </span><span style='font-size:14.0pt'>и </span><i><span
 lang=EN-US style='font-size:14.0pt'>sub</span></i><span style='font-size:14.0pt'>,
 </span><i><span lang=EN-US style='font-size:14.0pt'>mult</span></i><i><span
 style='font-size:14.0pt'>, </span></i><i><span lang=EN-US style='font-size:
 14.0pt'>div</span></i><span style='font-size:14.0pt'>.</span></p>
-
-<p class=MsoNormal style='text-align:justify'><span lang=EN-US
-style='font-size:14.0pt'>&nbsp;</span></p>
-
-<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;border-collapse:collapse;border:none'>
- <tr>
-  <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
-  padding:0cm 5.4pt 0cm 5.4pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'>Содержание главы</span></p>
-  </td>
- </tr>
- <tr>
-  <td width="100%" style='width:100.0%;border:solid windowtext 1.0pt;
-  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
-  <p class=MsoNormal style='margin-left:53.4pt;text-indent:-18.0pt'><span
-  style='font-size:14.0pt;color:black'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span style='font-size:14.0pt'><a href="#add">Оператор сложения
-  содержимого <i><span lang=EN-US>add</span></i></a></span><span
-  style='font-size:14.0pt;color:black'> </span></p>
-  <p class=MsoNormal style='margin-left:53.4pt;text-indent:-18.0pt'><span
-  style='font-size:14.0pt;color:black'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span style='font-size:14.0pt'><a href="#sub">Оператор
-  вычитания численного содержимого <i><span lang=EN-US>sub</span></i></a></span><span
-  style='font-size:14.0pt;color:black'> </span></p>
-  <p class=MsoNormal style='margin-left:53.4pt;text-indent:-18.0pt'><span
-  style='font-size:14.0pt;color:black'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span style='font-size:14.0pt'><a href="#mult">Оператор
-  умножения численного содержимого <i><span lang=EN-US>mult</span></i></a></span></p>
-  <p class=MsoNormal style='margin-left:53.4pt;text-indent:-18.0pt'><span
-  style='font-size:14.0pt;color:black'>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span style='font-size:14.0pt'><a href="#div">Оператор деления
-  численного содержимого <i><span lang=EN-US>div</span></i></a></span></p>
-  <p class=MsoNormal style='margin-left:53.4pt;text-indent:-18.0pt'><span
-  style='font-size:14.0pt;color:black'>5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span style='font-size:14.0pt'><a href="#pow">Оператор
-  возведения в степень численного содержимого <i><span lang=EN-US>pow</span></i></a></span></p>
-  </td>
- </tr>
-</table>
-
-<p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt'>&nbsp;</span></p>
-
-<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><span
-style='font-size:14.0pt'>&nbsp;</span></p>
 
 </div>
 
