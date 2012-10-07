@@ -11,3 +11,4 @@ _region_.tex
 *.synctex.gz
 .idea/
 students_tasks.tex
+*.chm
