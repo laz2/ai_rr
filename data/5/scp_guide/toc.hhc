@@ -214,6 +214,22 @@
 				<param name="Name" value="pow">
 				<param name="Local" value="math_class.htm#pow">
 				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="sin">
+				<param name="Local" value="math_class.htm#sin">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="cos">
+				<param name="Local" value="math_class.htm#cos">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="floor">
+				<param name="Local" value="math_class.htm#floor">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="ceil">
+				<param name="Local" value="math_class.htm#ceil">
+				</OBJECT>
 		</UL>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="&Ecirc;&euml;&agrave;&ntilde;&ntilde; &icirc;&iuml;&aring;&eth;&agrave;&ograve;&icirc;&eth;&icirc;&acirc; &eth;&agrave;&aacute;&icirc;&ograve;&ucirc; &ntilde; &iuml;&eth;&icirc;&ouml;&aring;&ntilde;&ntilde;&agrave;&igrave;&egrave;">
