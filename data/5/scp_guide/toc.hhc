@@ -236,6 +236,10 @@
 				<param name="Name" value="waitReturn">
 				<param name="Local" value="process_class.htm#waitReturn">
 				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="nop">
+				<param name="Local" value="process_class.htm#nop">
+				</OBJECT>
 		</UL>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">

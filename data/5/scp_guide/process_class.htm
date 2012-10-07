@@ -66,15 +66,18 @@ lang=EN-US style='font-size:14.0pt'>call</span></i><span style='font-size:14.0pt
 </i></span><i><span lang=EN-US style='font-size:14.0pt'>callReturn</span></i><i><span
 style='font-size:14.0pt'>, </span></i><i><span lang=EN-US style='font-size:
 14.0pt'>waitReturn</span></i><span style='font-size:14.0pt'>,<i> </i></span><i><span
-lang=EN-US style='font-size:14.0pt'>return</span></i><span style='font-size:
-14.0pt'>. Предназначены для запуска процесса (</span><i><span lang=EN-US
-style='font-size:14.0pt'>call</span></i><span style='font-size:14.0pt'>),
+lang=EN-US style='font-size:14.0pt'>return</span></i><i><span style='font-size:
+14.0pt'>, </span></i><i><span lang=EN-US style='font-size:14.0pt'>nop</span></i><span
+style='font-size:14.0pt'>. Предназначены для запуска процесса (</span><i><span
+lang=EN-US style='font-size:14.0pt'>call</span></i><span style='font-size:14.0pt'>),
 запуска программы (</span><i><span lang=EN-US style='font-size:14.0pt'>callReturn</span></i><span
 style='font-size:14.0pt'>), ожидание завершения (</span><i><span lang=EN-US
 style='font-size:14.0pt'>waitReturn</span></i><span style='font-size:14.0pt'>)
 и завершения процесса (</span><i><span lang=EN-US style='font-size:14.0pt'>return</span></i><span
-style='font-size:14.0pt'>). Наиболее широкое применение имеют операторы </span><i><span
-lang=EN-US style='font-size:14.0pt'>callReturn</span></i><i><span lang=EN-US
+style='font-size:14.0pt'>), перехода по метке (</span><i><span lang=EN-US
+style='font-size:14.0pt'>nop</span></i><span style='font-size:14.0pt'>).
+Наиболее широкое применение имеют операторы </span><i><span lang=EN-US
+style='font-size:14.0pt'>callReturn</span></i><i><span lang=EN-US
 style='font-size:14.0pt'> </span></i><span style='font-size:14.0pt'>и </span><i><span
 lang=EN-US style='font-size:14.0pt'>return</span></i><span style='font-size:
 14.0pt'>. </span></p>
@@ -209,7 +212,7 @@ style='font-size:14.0pt'>&nbsp;</span></p>
   <p class=MsoNormal align=center style='text-align:center'><span
   style='font-size:14.0pt;color:black'><img width=50 height=31
   src="process_class.files/image001.gif"
-  alt="Описание: Описание: Описание: Описание: Attention"></span></p>
+  alt="Описание: Описание: Описание: Описание: Описание: Описание: Attention"></span></p>
   </td>
   <td width="91%" style='width:91.18%;border:solid windowtext 1.0pt;border-left:
   none;padding:0cm 5.4pt 0cm 5.4pt'>
@@ -226,7 +229,7 @@ style='font-size:14.0pt'>&nbsp;</span></p>
   <p class=MsoNormal align=center style='text-align:center'><span
   style='font-size:14.0pt;color:black'><img width=60 height=38
   src="process_class.files/image002.gif"
-  alt="Описание: Описание: Описание: Описание: Example"></span></p>
+  alt="Описание: Описание: Описание: Описание: Описание: Описание: Example"></span></p>
   </td>
   <td width="91%" valign=top style='width:91.18%;border-top:none;border-left:
   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
@@ -305,7 +308,7 @@ style='font-size:14.0pt'>&nbsp;</span></p>
   <p class=MsoNormal align=center style='text-align:center'><span
   style='font-size:14.0pt;color:black'><img width=60 height=38
   src="process_class.files/image002.gif"
-  alt="Описание: Описание: Описание: Описание: Example"></span></p>
+  alt="Описание: Описание: Описание: Описание: Описание: Описание: Example"></span></p>
   </td>
   <td width="91%" valign=top style='width:91.18%;border-top:none;border-left:
   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
@@ -457,6 +460,50 @@ style='font-size:14.0pt'>&nbsp;</span></b></p>
 <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt'>Оператор
 позволяющий ожидать выполнения определенного </span><span lang=EN-US
 style='font-size:14.0pt'>scp</span><span style='font-size:14.0pt'>-процесса.</span>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-left:21.75pt;text-align:center'><a
+name=nop><b><span style='font-size:14.0pt'>Оператор перехода </span></b></a><b><span
+lang=EN-US style='font-size:14.0pt'>nop</span></b></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=BE style='font-size:
+14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:</span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;background:#EAEAEA;border-collapse:collapse'>
+ <tr style='height:23.45pt'>
+  <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:23.45pt'>
+  <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>nop</span><span
+  lang=BE style='font-size:14.0pt;font-family:"Courier New"'>(</span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>goto_label)</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='margin-left:35.4pt'><span lang=EN-GB
+style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'>Параметры: </span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:15.0pt'>goto</span></i><i><span style='font-size:15.0pt'>_</span></i><i><span
+lang=EN-US style='font-size:15.0pt'>label</span></i></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;text-indent:
+35.4pt'><u><span style='font-size:14.0pt'>метка</span></u><span
+style='font-size:14.0pt'> безусловного перехода</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'>Назначение:</span></p>
+
+<p class=MsoNormal style='margin-left:72.0pt;text-align:justify'><span
+style='font-size:14.0pt'>Данный оператор применяется для безусловного перехода
+по метке.</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
 
 </div>
 
