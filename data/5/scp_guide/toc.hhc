@@ -45,17 +45,53 @@
 			<param name="Name" value="&Ecirc;&euml;&agrave;&ntilde;&ntilde; &icirc;&iuml;&aring;&eth;&agrave;&ograve;&icirc;&eth;&icirc;&acirc; &atilde;&aring;&iacute;&aring;&eth;&agrave;&ouml;&egrave;&egrave; gen">
 			<param name="Local" value="gen_class.htm">
 			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="genEl">
+				<param name="Local" value="gen_class.htm#genEl">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="genElStr3">
+				<param name="Local" value="gen_class.htm#genElStr3">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="genElStr5">
+				<param name="Local" value="gen_class.htm#genElStr5">
+				</OBJECT>
+		</UL>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="&Ecirc;&euml;&agrave;&ntilde;&ntilde; &icirc;&iuml;&aring;&eth;&agrave;&ograve;&icirc;&eth;&icirc;&acirc; &agrave;&ntilde;&ntilde;&icirc;&ouml;&egrave;&agrave;&ograve;&egrave;&acirc;&iacute;&icirc;&atilde;&icirc; &iuml;&icirc;&egrave;&ntilde;&ecirc;&agrave; search">
 			<param name="Local" value="search_class.htm">
 			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="searchElByIdtf">
+				<param name="Local" value="search_class.htm#searchElByIdtf">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="searchElStr3">
+				<param name="Local" value="search_class.htm#searchElStr3">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="searchElStr5">
+				<param name="Local" value="search_class.htm#searchElStr5">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="searchSetStr3">
+				<param name="Local" value="search_class.htm#searchSetStr3">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="searchSetStr5">
+				<param name="Local" value="search_class.htm#searchSetStr5">
+				</OBJECT>
+		</UL>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="&Ecirc;&euml;&agrave;&ntilde;&ntilde; &icirc;&iuml;&aring;&eth;&agrave;&ograve;&icirc;&eth;&icirc;&acirc; &oacute;&auml;&agrave;&euml;&aring;&iacute;&egrave;&yuml; erase">
 			<param name="Local" value="erase_class.htm">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="&Ecirc;&euml;&agrave;&ntilde;&ntilde; &icirc;&iuml;&aring;&eth;&agrave;&ograve;&icirc;&eth;&icirc;&acirc; &acirc;&ucirc;&aacute;&icirc;&eth;&ecirc;&egrave; select">
-			<param name="Local" value="erase_class.htm">
+			<param name="Local" value="select_class.htm">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="&Ecirc;&euml;&agrave;&ntilde;&ntilde; &icirc;&iuml;&aring;&eth;&agrave;&ograve;&icirc;&eth;&icirc;&acirc; &acirc;&ucirc;&acirc;&icirc;&auml;&agrave; &egrave;&iacute;&ocirc;&icirc;&eth;&igrave;&agrave;&ouml;&egrave;&egrave; &acirc; &iuml;&eth;&icirc;&ograve;&icirc;&ecirc;&icirc;&euml; print">
@@ -65,6 +101,52 @@
 			<param name="Name" value="&Ecirc;&euml;&agrave;&ntilde;&ntilde; &icirc;&iuml;&aring;&eth;&agrave;&ograve;&icirc;&eth;&icirc;&acirc; &iuml;&eth;&icirc;&acirc;&aring;&eth;&ecirc;&egrave; &oacute;&ntilde;&euml;&icirc;&acirc;&egrave;&eacute; if">
 			<param name="Local" value="if_class.htm">
 			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="&Ecirc;&euml;&agrave;&ntilde;&ntilde; &icirc;&iuml;&aring;&eth;&agrave;&ograve;&icirc;&eth;&icirc;&acirc; &iuml;&eth;&icirc;&acirc;&aring;&eth;&ecirc;&egrave; &oacute;&ntilde;&euml;&icirc;&acirc;&egrave;&eacute; if">
+			<param name="Local" value="if_class.htm">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="ifType">
+				<param name="Local" value="if_class.htm#ifType">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="ifEq">
+				<param name="Local" value="if_class.htm#ifEq">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="ifCoin">
+				<param name="Local" value="if_class.htm#ifCoin">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="ifGr">
+				<param name="Local" value="if_class.htm#ifGr">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="ifGrEq">
+				<param name="Local" value="if_class.htm#ifGrEq">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="ifFormCont">
+				<param name="Local" value="if_class.htm#ifFormCont">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="ifVarAssign">
+				<param name="Local" value="if_class.htm#ifVarAssign">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="ifFormIdtf">
+				<param name="Local" value="if_class.htm#ifFormIdtf">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="ifNumber">
+				<param name="Local" value="if_class.htm#ifNumber">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="ifString">
+				<param name="Local" value="if_class.htm#ifString">
+				</OBJECT>
+		</UL>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="&Ecirc;&euml;&agrave;&ntilde;&ntilde; &icirc;&iuml;&aring;&eth;&agrave;&ograve;&icirc;&eth;&icirc;&acirc; &igrave;&agrave;&ograve;&aring;&igrave;&agrave;&ograve;&egrave;&divide;&aring;&ntilde;&ecirc;&egrave;&otilde; &auml;&aring;&eacute;&ntilde;&ograve;&acirc;&egrave;&eacute;">
 			<param name="Local" value="math_class.htm">

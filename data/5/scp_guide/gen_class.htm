@@ -32,6 +32,12 @@ span.a
 	{mso-style-name:"Текст выноски Знак";
 	mso-style-link:"Текст выноски";
 	font-family:"Tahoma","sans-serif";}
+p.msochpdefault, li.msochpdefault, div.msochpdefault
+	{mso-style-name:msochpdefault;
+	margin-right:0cm;
+	margin-left:0cm;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
 .MsoChpDefault
 	{font-size:10.0pt;}
 @page WordSection1
@@ -39,11 +45,6 @@ span.a
 	margin:2.0cm 42.5pt 2.0cm 3.0cm;}
 div.WordSection1
 	{page:WordSection1;}
- /* List Definitions */
- ol
-	{margin-bottom:0cm;}
-ul
-	{margin-bottom:0cm;}
 -->
 </style>
 
@@ -59,37 +60,6 @@ style='font-size:16.0pt'>Класс операторов генерации gen</span></b></p>
 <p class=MsoNormal align=center style='text-align:center'><b><span lang=EN-US
 style='font-size:16.0pt'>&nbsp;</span></b></p>
 
-<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;border-collapse:collapse;border:none'>
- <tr>
-  <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
-  padding:0cm 5.4pt 0cm 5.4pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'>Содержание главы</span></p>
-  </td>
- </tr>
- <tr>
-  <td width="100%" style='width:100.0%;border:solid windowtext 1.0pt;
-  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
-  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
-  style='font-size:14.0pt;color:black'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span style='font-size:14.0pt'><a href="#genEl">Оператор
-  генерации элемента <span lang=EN-US>genEl</span></a></span></p>
-  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
-  style='font-size:14.0pt;color:black'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span style='font-size:14.0pt'><a href="#genElStr3">Оператор
-  генерации трёхэлементной конструкции genElStr3</a></span></p>
-  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
-  style='font-size:14.0pt;color:black'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span style='font-size:14.0pt'><a href="#genElStr5">Оператор
-  генерации пятиэлементной конструкции genElStr5</a></span></p>
-  </td>
- </tr>
-</table>
-
-<p class=MsoNormal align=center style='text-align:center'><b><i><span
-style='font-size:16.0pt'>&nbsp;</span></i></b></p>
-
 <p class=MsoNormal style='text-align:justify;text-indent:35.4pt'><span
 style='font-size:14.0pt'>Операторы генерации необходимы для создания
 (генерации) элементов в памяти </span><span lang=EN-US style='font-size:14.0pt'>SCP
@@ -100,10 +70,6 @@ style='font-size:14.0pt'>genEl</span><span style='font-size:14.0pt'>), так и
 style='font-size:14.0pt'>3, </span><span lang=EN-US style='font-size:14.0pt'>genElStr</span><span
 style='font-size:14.0pt'>5). </span></p>
 
-<p class=MsoNormal align=center style='text-align:center'><span
-style='font-size:14.0pt'><img border=0 width=229 height=166 id="Рисунок 1"
-src="gen_class.files/image001.gif" alt="Описание: gen_class"></span></p>
-
 <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
 style='font-size:14.0pt'>&nbsp;</span></p>
 
@@ -111,20 +77,20 @@ style='font-size:14.0pt'>&nbsp;</span></p>
 style='font-size:14.0pt'>Оператор генерации элемента </span></b></a><b><span
 lang=EN-US style='font-size:14.0pt'>genEl</span></b></p>
 
-<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:  </span></p>
+<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:&nbsp; </span></p>
 
-<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;background:#EAEAEA;border-collapse:collapse;border:none'>
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;background:#EAEAEA;border-collapse:collapse'>
  <tr>
   <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>genEl</span><span
   lang=BE style='font-size:14.0pt;font-family:"Courier New"'>([</span></p>
-  <p class=MsoNormal><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>         </span><span
-  lang=BE style='font-size:14.0pt;font-family:"Courier New"'>1_: </span><span
+  <p class=MsoNormal><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=BE style='font-size:14.0pt;font-family:"Courier New"'>1_: </span><span
   lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>element</span></p>
-  <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>     
-  ], </span><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>goto_yes</span><span
+  <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+  &nbsp; ], </span><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>goto_yes</span><span
   lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>, </span><span
   lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>goto_no</span><span
   lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>, </span><span
@@ -134,9 +100,7 @@ lang=EN-US style='font-size:14.0pt'>genEl</span></b></p>
  </tr>
 </table>
 
-<p class=MsoNormal><span style='font-size:14.0pt'>Параметры</span><span
-lang=EN-GB style='font-size:14.0pt'>:</span><span lang=EN-GB style='font-size:
-14.0pt'> </span></p>
+<p class=MsoNormal><span style='font-size:14.0pt'>Параметры: </span></p>
 
 <p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
 style='font-size:14.0pt'>element</span></i><span lang=EN-US style='font-size:
@@ -145,8 +109,8 @@ style='font-size:14.0pt'>element</span></i><span lang=EN-US style='font-size:
 <p class=MsoNormal style='margin-left:70.8pt;text-align:justify'><span
 style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>out</span><span
 style='font-size:14.0pt'>] </span><span lang=BE style='font-size:14.0pt'>элемент
-генерации</span><span lang=BE style='font-size:14.0pt'> </span><span
-style='font-size:14.0pt'>(уточняется <u>атрибутами</u>, смотри примеры ниже)</span></p>
+генерации </span><span style='font-size:14.0pt'>(уточняется <u>атрибутами</u>,
+смотри примеры ниже)</span></p>
 
 <p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
 style='font-size:14.0pt'>goto</span></i><i><span style='font-size:14.0pt'>_</span></i><i><span
@@ -228,18 +192,19 @@ lang=EN-US style='font-size:14.0pt'>const</span></i><i><span style='font-size:
 lang=EN-US style='font-size:14.0pt'>undf</span></i><i><span style='font-size:
 14.0pt'>_: </span></i><span style='font-size:14.0pt'>говорит о том, что
 необходимо создать <u>элемент неопределённого типа</u>, который может
-уточняться атрибутами узла или дуги.  </span></p>
+уточняться атрибутами узла или дуги.&nbsp; </span></p>
 
 <p class=MsoNormal><span style='font-size:14.0pt'>&nbsp;</span></p>
 
-<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;border-collapse:collapse;border:none'>
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;border-collapse:collapse'>
  <tr>
   <td width="16%" valign=top style='width:16.7%;border:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'><img border=0 width=60 height=38
-  id="Рисунок 2" src="gen_class.files/image002.gif" alt="Описание: Example"></span></p>
+  style='font-size:14.0pt;color:black'><img width=60 height=38
+  src="gen_class.files/image002.gif"
+  alt="Описание: Описание: Описание: Описание: Example"></span></p>
   </td>
   <td width="83%" valign=top style='width:83.3%;border:solid windowtext 1.0pt;
   border-left:none;padding:0cm 5.4pt 0cm 5.4pt'>
@@ -251,15 +216,13 @@ lang=EN-US style='font-size:14.0pt'>undf</span></i><i><span style='font-size:
   style='font-size:14.0pt;font-family:"Courier New"'>genEl</span><span lang=BE
   style='font-size:14.0pt;font-family:"Courier New"'>([</span></p>
   <p class=MsoNormal style='text-align:justify'><span lang=EN-US
-  style='font-size:14.0pt;font-family:"Courier New"'>         </span><span
-  lang=BE style='font-size:14.0pt;font-family:"Courier New"'>1_:</span><span
-  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'> assign_:</span><span
-  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'> </span><span
-  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>node_: const_:
-  node</span></p>
+  style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=BE style='font-size:14.0pt;font-family:"Courier New"'>1_:</span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'> assign_:
+  node_: const_: node</span></p>
   <p class=MsoNormal style='text-align:justify'><span lang=EN-US
-  style='font-size:14.0pt;font-family:"Courier New"'>      </span><span
-  style='font-size:14.0pt;font-family:"Courier New"'>])</span></p>
+  style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp; &nbsp;
+  ])</span></p>
   <p class=MsoNormal style='margin-left:35.55pt;text-align:justify'><i><span
   lang=EN-US style='font-size:14.0pt'>&nbsp;</span></i></p>
   </td>
@@ -268,8 +231,9 @@ lang=EN-US style='font-size:14.0pt'>undf</span></i><i><span style='font-size:
   <td width="16%" valign=top style='width:16.7%;border:solid windowtext 1.0pt;
   border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'><img border=0 width=60 height=38
-  id="Рисунок 3" src="gen_class.files/image002.gif" alt="Описание: Example"></span></p>
+  style='font-size:14.0pt;color:black'><img width=60 height=38
+  src="gen_class.files/image002.gif"
+  alt="Описание: Описание: Описание: Описание: Example"></span></p>
   </td>
   <td width="83%" valign=top style='width:83.3%;border-top:none;border-left:
   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
@@ -282,14 +246,13 @@ lang=EN-US style='font-size:14.0pt'>undf</span></i><i><span style='font-size:
   style='font-size:14.0pt;font-family:"Courier New"'>genEl</span><span lang=BE
   style='font-size:14.0pt;font-family:"Courier New"'>([</span></p>
   <p class=MsoNormal style='text-align:justify'><span lang=EN-US
-  style='font-size:14.0pt;font-family:"Courier New"'>         </span><span
-  lang=BE style='font-size:14.0pt;font-family:"Courier New"'>1_: </span><span
-  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>assign_:</span><span
-  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'> </span><span
-  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>arc_: var_:
-  fuz_: arc_elem</span></p>
+  style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=BE style='font-size:14.0pt;font-family:"Courier New"'>1_: </span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>assign_: arc_:
+  var_: fuz_: arc_elem</span></p>
   <p class=MsoNormal style='text-align:justify'><span lang=EN-GB
-  style='font-size:14.0pt;font-family:"Courier New"'>      ])</span></p>
+  style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp; &nbsp;
+  ])</span></p>
   <p class=MsoNormal style='margin-left:35.55pt;text-align:justify'><i><span
   lang=EN-US style='font-size:14.0pt'>&nbsp;</span></i></p>
   </td>
@@ -306,28 +269,26 @@ style='font-size:14.0pt'>Оператор генерации трёхэлементной </span></b></a></p>
 <p class=MsoNormal align=center style='text-align:center'><b><span
 style='font-size:14.0pt'>конструкции</span></b><span style='font-size:14.0pt'> <b>genElStr3</b></span></p>
 
-<p class=MsoNormal><u><span lang=BE style='font-size:14.0pt'><span
- style='text-decoration:none'>&nbsp;</span></span></u></p>
+<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>&nbsp;</span></p>
 
-<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:  </span></p>
+<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:&nbsp; </span></p>
 
-<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;background:#EAEAEA;border-collapse:collapse;border:none'>
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;background:#EAEAEA;border-collapse:collapse'>
  <tr style='height:80.75pt'>
   <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt;height:80.75pt'>
   <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>genElStr3</span><span
-  lang=BE style='font-size:14.0pt;font-family:"Courier New"'>([</span><span
-  lang=BE style='font-size:14.0pt;font-family:"Courier New"'> </span></p>
-  <p class=MsoNormal><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>             </span><span
-  lang=BE style='font-size:14.0pt;font-family:"Courier New"'>1_:</span><span
+  lang=BE style='font-size:14.0pt;font-family:"Courier New"'>([ </span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=BE style='font-size:14.0pt;font-family:"Courier New"'>1_:</span><span
   lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'> node,</span></p>
-  <p class=MsoNormal><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>             2_:
-  arc,</span></p>
-  <p class=MsoNormal><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>             3_:
-  element</span></p>
-  <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>          
-  ], </span><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>goto_yes</span><span
+  <p class=MsoNormal><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  2_: arc,</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  3_: element</span></p>
+  <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp; ], </span><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>goto_yes</span><span
   lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>, </span><span
   lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>goto_no</span><span
   lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>, </span><span
@@ -340,8 +301,7 @@ style='font-size:14.0pt'>конструкции</span></b><span style='font-size:14.0pt'> <
 <p class=MsoNormal style='margin-left:35.4pt'><i><span lang=EN-US
 style='font-size:14.0pt'>&nbsp;</span></i></p>
 
-<p class=MsoNormal><span style='font-size:14.0pt'>Параметры:</span><span
-style='font-size:14.0pt'> </span></p>
+<p class=MsoNormal><span style='font-size:14.0pt'>Параметры: </span></p>
 
 <p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
 style='font-size:14.0pt'>node</span></i></p>
@@ -397,13 +357,12 @@ lang=EN-US style='font-size:14.0pt'>error</span></i></p>
 style='font-size:14.0pt'> ошибочного выполнения, если в ходе генерации возникла
 ошибка</span></p>
 
-<p class=MsoNormal><u><span style='font-size:14.0pt'><span style='text-decoration:
- none'>&nbsp;</span></span></u></p>
+<p class=MsoNormal><span style='font-size:14.0pt'>&nbsp;</span></p>
 
 <p class=MsoNormal><span style='font-size:14.0pt'>Назначение:</span></p>
 
 <p class=MsoNormal style='margin-left:35.4pt;text-align:justify'><span
-style='font-size:14.0pt'>Оператор  осуществляет генерацию трёхэлементной
+style='font-size:14.0pt'>Оператор&nbsp; осуществляет генерацию трёхэлементной
 конструкции. </span></p>
 
 <p class=MsoNormal style='margin-left:35.4pt;text-align:justify'><span
@@ -421,14 +380,15 @@ lang=EN-US style='font-size:14.0pt'>fixed</span></i><i><span style='font-size:
 <p class=MsoNormal style='margin-left:35.4pt;text-align:justify'><span
 style='font-size:14.0pt'>&nbsp;</span></p>
 
-<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;border-collapse:collapse;border:none'>
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;border-collapse:collapse'>
  <tr>
   <td width="16%" valign=top style='width:16.7%;border:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'><img border=0 width=60 height=38
-  id="Рисунок 4" src="gen_class.files/image003.gif" alt="Описание: Example"></span></p>
+  style='font-size:14.0pt;color:black'><img width=60 height=38
+  src="gen_class.files/image003.gif"
+  alt="Описание: Описание: Описание: Описание: Example"></span></p>
   </td>
   <td width="83%" valign=top style='width:83.3%;border:solid windowtext 1.0pt;
   border-left:none;padding:0cm 5.4pt 0cm 5.4pt'>
@@ -445,8 +405,9 @@ style='font-size:14.0pt'>&nbsp;</span></p>
   style='font-size:14.0pt;color:black'>elmn</span></i><span style='font-size:
   14.0pt;color:black'>), не принадлежащий этому множеству. </span></p>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'><img border=0 width=222 height=155
-  id="Рисунок 5" src="gen_class.files/image004.gif" alt="Описание: gen_Ex1_1"></span></p>
+  style='font-size:14.0pt;color:black'><img width=222 height=155
+  src="gen_class.files/image004.gif"
+  alt="Описание: Описание: Описание: Описание: gen_Ex1_1"></span></p>
   <p class=MsoNormal style='text-align:justify'><span lang=EN-US
   style='font-size:14.0pt;color:black'>&nbsp;</span></p>
   <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
@@ -462,19 +423,28 @@ style='font-size:14.0pt'>&nbsp;</span></p>
   Такое действие можно осуществить при помощи оператора <i>genElStr3</i>.</span></p>
   <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt'>&nbsp;</span></p>
   <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";
-  color:black'>genElStr3([</span></p>
+  color:black'>genElStr</span><span style='font-size:14.0pt;font-family:"Courier New";
+  color:black'>3([</span></p>
   <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";
-  color:black'>             1_: fixed_: A,</span></p>
+  color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  style='font-size:14.0pt;font-family:"Courier New";color:black'> 1_: </span><span
+  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";color:black'>fixed</span><span
+  style='font-size:14.0pt;font-family:"Courier New";color:black'>_: </span><span
+  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";color:black'>A</span><span
+  style='font-size:14.0pt;font-family:"Courier New";color:black'>,</span></p>
   <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";
-  color:black'>             2_: assign_: const_: pos_: arc,</span></p>
+  color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  2_: assign_: const_: pos_: arc,</span></p>
   <p class=MsoNormal style='text-align:justify'><span lang=EN-GB
-  style='font-size:14.0pt;font-family:"Courier New";color:black'>             3_: 
-  fixed_: elmn</span></p>
+  style='font-size:14.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  3_:&nbsp; fixed_: elmn</span></p>
   <p class=MsoNormal style='text-align:justify'><span lang=EN-GB
-  style='font-size:14.0pt;font-family:"Courier New";color:black'>           ])</span></p>
+  style='font-size:14.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp; ])</span></p>
   <p class=MsoNormal align=center style='margin-left:35.55pt;text-align:center'><i><span
-  style='font-size:14.0pt'><img border=0 width=222 height=155 id="Рисунок 6"
-  src="gen_class.files/image005.gif" alt="Описание: gen_Ex1_2"></span></i></p>
+  style='font-size:14.0pt'><img width=222 height=155
+  src="gen_class.files/image005.gif"
+  alt="Описание: Описание: Описание: Описание: gen_Ex1_2"></span></i></p>
   <p class=MsoNormal align=center style='margin-left:35.55pt;text-align:center'><span
   lang=EN-US style='font-size:14.0pt'>&nbsp;</span></p>
   <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt'>Операнды
@@ -483,8 +453,8 @@ style='font-size:14.0pt'>&nbsp;</span></p>
   style='font-size:14.0pt'> отмечены атрибутами <i>fixed_ </i>так, как эти
   операнды нам известны. В случае второго операнда (<i>2_</i>), атрибут </span><i><span
   lang=EN-GB style='font-size:14.0pt'>assign</span></i><i><span
-  style='font-size:14.0pt'>_</span></i><span style='font-size:14.0pt'> говорит
-  о том, чтобы в последствии была сгенерирована дуга </span><span lang=EN-GB
+  style='font-size:14.0pt'>_</span></i><span style='font-size:14.0pt'> говорит о
+  том, чтобы в последствии была сгенерирована дуга </span><span lang=EN-GB
   style='font-size:14.0pt'>arc</span><span style='font-size:14.0pt'>, в данном
   примере константная и позитивная (атрибуты </span><i><span lang=EN-US
   style='font-size:14.0pt'>const</span></i><i><span style='font-size:14.0pt'>_ </span></i><span
@@ -496,8 +466,9 @@ style='font-size:14.0pt'>&nbsp;</span></p>
   <td width="16%" valign=top style='width:16.7%;border:solid windowtext 1.0pt;
   border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'><img border=0 width=60 height=38
-  id="Рисунок 7" src="gen_class.files/image002.gif" alt="Описание: Example"></span></p>
+  style='font-size:14.0pt;color:black'><img width=60 height=38
+  src="gen_class.files/image002.gif"
+  alt="Описание: Описание: Описание: Описание: Example"></span></p>
   </td>
   <td width="83%" valign=top style='width:83.3%;border-top:none;border-left:
   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
@@ -505,26 +476,30 @@ style='font-size:14.0pt'>&nbsp;</span></p>
   <p class=MsoNormal style='text-align:justify'><b><span style='font-size:14.0pt;
   color:black'>Пример 4</span></b><span style='font-size:14.0pt;color:black'>. </span><span
   style='font-size:14.0pt'>Предположим у нас есть множество </span><i><span
-  lang=EN-US style='font-size:14.0pt'>A</span></i><i><span lang=EN-US
-  style='font-size:14.0pt'> </span></i><span style='font-size:14.0pt'>и ходим
-  добавить к нему узел, но этот узел пока не существует в памяти, в отличии от
-  предыдущего примера.</span></p>
+  lang=EN-US style='font-size:14.0pt'>A </span></i><span style='font-size:14.0pt'>и
+  ходим добавить к нему узел, но этот узел пока не существует в памяти, в
+  отличии от предыдущего примера.</span></p>
   <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt'>&nbsp;</span></p>
   <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";
   color:black'>genElStr3([</span></p>
   <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";
-  color:black'>             1_: fixed_: A,</span></p>
+  color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  1_: fixed_: A,</span></p>
   <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";
-  color:black'>             2_: assign_: const_: pos_: arc,</span></p>
+  color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  2_: assign_: const_: pos_: arc,</span></p>
   <p class=MsoNormal style='text-align:justify'><span lang=EN-GB
-  style='font-size:14.0pt;font-family:"Courier New"'>             3_: assign _:
-  </span><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>node</span><span
-  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>_</span><span
-  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>:</span><span
-  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'> elmn</span></p>
+  style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='font-size:14.0pt;font-family:"Courier New"'>3_: </span><span
+  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>assign</span><span
+  style='font-size:14.0pt;font-family:"Courier New"'> _: </span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>node</span><span
+  style='font-size:14.0pt;font-family:"Courier New"'>_: </span><span
+  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>elmn</span></p>
   <p class=MsoNormal style='text-align:justify'><span lang=EN-US
-  style='font-size:14.0pt;font-family:"Courier New";color:black'>           </span><span
-  style='font-size:14.0pt;font-family:"Courier New";color:black'>])</span></p>
+  style='font-size:14.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp; </span><span style='font-size:14.0pt;font-family:"Courier New";
+  color:black'>])</span></p>
   <p class=MsoNormal style='margin-left:35.55pt;text-align:justify'><i><span
   style='font-size:14.0pt'>&nbsp;</span></i></p>
   <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt'>При
@@ -539,8 +514,9 @@ style='font-size:14.0pt'>&nbsp;</span></p>
   <td width="16%" valign=top style='width:16.7%;border:solid windowtext 1.0pt;
   border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'><img border=0 width=60 height=38
-  id="Рисунок 8" src="gen_class.files/image003.gif" alt="Описание: Example"></span></p>
+  style='font-size:14.0pt;color:black'><img width=60 height=38
+  src="gen_class.files/image003.gif"
+  alt="Описание: Описание: Описание: Описание: Example"></span></p>
   </td>
   <td width="83%" valign=top style='width:83.3%;border-top:none;border-left:
   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
@@ -554,35 +530,38 @@ style='font-size:14.0pt'>&nbsp;</span></p>
   lang=EN-US style='font-size:14.0pt'>elem</span></i><i><span style='font-size:
   14.0pt'>_2 </span></i><span style='font-size:14.0pt'>и </span><i><span
   lang=EN-US style='font-size:14.0pt'>elmn</span></i><span style='font-size:
-  14.0pt'>.  </span></p>
+  14.0pt'>.&nbsp; </span></p>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt'><img border=0 width=222 height=155 id="Рисунок 9"
-  src="gen_class.files/image005.gif" alt="Описание: gen_Ex5_1"></span></p>
+  style='font-size:14.0pt'><img width=222 height=155
+  src="gen_class.files/image005.gif"
+  alt="Описание: Описание: Описание: Описание: gen_Ex5_1"></span></p>
   <p class=MsoNormal style='text-align:justify'><span lang=EN-US
   style='font-size:14.0pt'>&nbsp;</span></p>
   <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt'>Нам
-  необходимо уточнить  </span><i><span lang=EN-US style='font-size:14.0pt'>elmn</span></i><span
+  необходимо уточнить&nbsp; </span><i><span lang=EN-US style='font-size:14.0pt'>elmn</span></i><span
   style='font-size:14.0pt'> атрибутом </span><i><span lang=EN-US
   style='font-size:14.0pt'>new</span></i><span style='font-size:14.0pt'>.</span></p>
   <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt'>&nbsp;</span></p>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt'><img border=0 width=222 height=178 id="Рисунок 10"
-  src="gen_class.files/image006.gif" alt="Описание: gen_Ex5_2"></span></p>
+  style='font-size:14.0pt'><img width=222 height=178
+  src="gen_class.files/image006.gif"
+  alt="Описание: Описание: Описание: Описание: gen_Ex5_2"></span></p>
   <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";
   color:black'>&nbsp;</span></p>
   <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New";
   color:black'>genElStr3([</span></p>
-  <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>             1_:
-  assign _: new,</span></p>
-  <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>             2_:
-  assign_: const_: pos_: arc_at,</span></p>
+  <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  1_: assign _: new,</span></p>
+  <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  2_: assign_: const_: pos_: arc_at,</span></p>
   <p class=MsoNormal style='text-align:justify'><span lang=EN-GB
-  style='font-size:14.0pt;font-family:"Courier New"'>             3_:  fixed _:
-  </span><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>arc</span><span
-  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>_ : arc</span></p>
+  style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  3_:&nbsp; fixed _: </span><span lang=EN-US style='font-size:14.0pt;
+  font-family:"Courier New"'>arc</span><span lang=EN-GB style='font-size:14.0pt;
+  font-family:"Courier New"'>_ : arc</span></p>
   <p class=MsoNormal style='text-align:justify'><span lang=EN-GB
-  style='font-size:14.0pt;font-family:"Courier New"'>           <span
-  style='color:black'>])</span></span></p>
+  style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp; <span style='color:black'>])</span></span></p>
   <p class=MsoNormal style='text-align:justify'><b><span lang=EN-GB
   style='font-size:14.0pt;color:black'>&nbsp;</span></b></p>
   </td>
@@ -595,29 +574,29 @@ style='font-size:14.0pt'>&nbsp;</span></p>
 style='font-size:14.0pt'>Оператор генерации пятиэлементной конструкции
 genElStr5</span></b></a></p>
 
-<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:  </span></p>
+<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:&nbsp; </span></p>
 
-<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;background:#EAEAEA;border-collapse:collapse;border:none'>
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;background:#EAEAEA;border-collapse:collapse'>
  <tr style='height:113.25pt'>
   <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt;height:113.25pt'>
   <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>genElStr5</span><span
   lang=BE style='font-size:14.0pt;font-family:"Courier New"'>([</span></p>
-  <p class=MsoNormal><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>             </span><span
-  lang=BE style='font-size:14.0pt;font-family:"Courier New"'>1_:</span><span
+  <p class=MsoNormal><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=BE style='font-size:14.0pt;font-family:"Courier New"'>1_:</span><span
   lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'> node</span><span
   lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>,</span></p>
-  <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>             2_:
-  </span><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>arc,</span></p>
-  <p class=MsoNormal><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>             3_:
-  element</span><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>,</span></p>
-  <p class=MsoNormal><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>             4_:
-  attr_arc,</span></p>
-  <p class=MsoNormal><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>             5_:
-  attr_node </span></p>
-  <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>          
-  ], </span><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>goto_yes</span><span
+  <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  2_: </span><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>arc,</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  3_: element</span><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>,</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  4_: attr_arc,</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  5_: attr_node </span></p>
+  <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp; ], </span><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>goto_yes</span><span
   lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>, </span><span
   lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>goto_no</span><span
   lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>, </span><span
@@ -713,15 +692,14 @@ lang=EN-US style='font-size:14.0pt'>error</span></i></p>
 style='font-size:14.0pt'> ошибочного выполнения, если в ходе генерации возникла
 ошибка</span></p>
 
-<p class=MsoNormal><u><span style='font-size:14.0pt'><span style='text-decoration:
- none'>&nbsp;</span></span></u></p>
+<p class=MsoNormal><span style='font-size:14.0pt'>&nbsp;</span></p>
 
 <p class=MsoNormal><span style='font-size:14.0pt'>Назначение:</span></p>
 
 <p class=MsoNormal style='margin-left:35.4pt;text-align:justify'><span
-style='font-size:14.0pt'>Оператор  осуществляет генерацию </span><span lang=BE
-style='font-size:14.0pt'>пятиэлементной </span><span style='font-size:14.0pt'>конструкции.
-</span></p>
+style='font-size:14.0pt'>Оператор&nbsp; осуществляет генерацию </span><span
+lang=BE style='font-size:14.0pt'>пятиэлементной </span><span style='font-size:
+14.0pt'>конструкции. </span></p>
 
 <p class=MsoNormal style='margin-left:35.4pt;text-align:justify'><span
 style='font-size:14.0pt'>Числовые атрибуты (<i>1_</i>, <i>... </i>, 5<i>_</i>)
@@ -737,14 +715,15 @@ lang=EN-US style='font-size:14.0pt'>fixed</span></i><i><span style='font-size:
 
 <p class=MsoNormal><i><span style='font-size:14.0pt'>&nbsp;</span></i></p>
 
-<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;border-collapse:collapse;border:none'>
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;border-collapse:collapse'>
  <tr>
   <td width="16%" valign=top style='width:16.7%;border:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'><img border=0 width=60 height=38
-  id="Рисунок 11" src="gen_class.files/image003.gif" alt="Описание: Example"></span></p>
+  style='font-size:14.0pt;color:black'><img width=60 height=38
+  src="gen_class.files/image003.gif"
+  alt="Описание: Описание: Описание: Описание: Example"></span></p>
   </td>
   <td width="83%" valign=top style='width:83.3%;border:solid windowtext 1.0pt;
   border-left:none;padding:0cm 5.4pt 0cm 5.4pt'>
@@ -761,41 +740,41 @@ lang=EN-US style='font-size:14.0pt'>fixed</span></i><i><span style='font-size:
   <p class=MsoNormal style='text-align:justify'><span lang=EN-GB
   style='font-size:14.0pt;font-family:"Courier New"'>genElStr5([</span></p>
   <p class=MsoNormal style='text-align:justify'><span lang=EN-GB
-  style='font-size:14.0pt;font-family:"Courier New"'>             1_: fixed _: </span><span
-  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>const</span><span
-  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>_: </span><span
-  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>set</span><span
-  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>,</span></p>
+  style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  1_: fixed _: </span><span lang=EN-US style='font-size:14.0pt;font-family:
+  "Courier New"'>const</span><span lang=EN-GB style='font-size:14.0pt;
+  font-family:"Courier New"'>_: </span><span lang=EN-US style='font-size:14.0pt;
+  font-family:"Courier New"'>set</span><span lang=EN-GB style='font-size:14.0pt;
+  font-family:"Courier New"'>,</span></p>
   <p class=MsoNormal style='text-align:justify'><span lang=EN-GB
-  style='font-size:14.0pt;font-family:"Courier New"'>             2_: assign_:
-  const_: pos_: arc,</span></p>
+  style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  2_: assign_: const_: pos_: arc,</span></p>
   <p class=MsoNormal style='text-align:justify'><span lang=EN-GB
-  style='font-size:14.0pt;font-family:"Courier New"'>             3_: assign_: </span><span
-  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>node</span><span
-  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>_ : elmn,</span></p>
+  style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  3_: assign_: </span><span lang=EN-US style='font-size:14.0pt;font-family:
+  "Courier New"'>node</span><span lang=EN-GB style='font-size:14.0pt;
+  font-family:"Courier New"'>_ : elmn,</span></p>
   <p class=MsoNormal style='text-align:justify'><span lang=EN-GB
-  style='font-size:14.0pt;font-family:"Courier New"'>             4_:</span><span
-  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'> </span><span
-  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>assign_:
-  const_: pos_: attr_arc,</span></p>
+  style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  4_: assign_: const_: pos_: attr_arc,</span></p>
   <p class=MsoNormal style='text-align:justify'><span lang=EN-US
-  style='font-size:14.0pt;font-family:"Courier New"'>             </span><span
-  style='font-size:14.0pt;font-family:"Courier New"'>5_: </span><span
+  style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='font-size:14.0pt;font-family:"Courier New"'>5_: </span><span
   lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>assign</span><span
   style='font-size:14.0pt;font-family:"Courier New"'>_: </span><span
   lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>const</span><span
   style='font-size:14.0pt;font-family:"Courier New"'>_: </span><span
   lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>attr</span></p>
   <p class=MsoNormal style='text-align:justify'><span lang=EN-US
-  style='font-size:14.0pt;font-family:"Courier New"'>           </span><span
-  style='font-size:14.0pt;font-family:"Courier New"'>])</span></p>
+  style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp; </span><span style='font-size:14.0pt;font-family:"Courier New"'>])</span></p>
   <p class=MsoNormal style='text-align:justify'><span lang=EN-US
   style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;</span></p>
   <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt'>(<i>1_</i>)
   Первый операнд – узел исходного множества </span><span lang=EN-US
   style='font-size:14.0pt'>s<i>et</i></span><span style='font-size:14.0pt'>, он
-  нам известен, поэтому атрибут  </span><i><span lang=EN-GB style='font-size:
-  14.0pt'>fixed</span></i><i><span style='font-size:14.0pt'>_</span></i><span
+  нам известен, поэтому атрибут&nbsp; </span><i><span lang=EN-GB
+  style='font-size:14.0pt'>fixed</span></i><i><span style='font-size:14.0pt'>_</span></i><span
   style='font-size:14.0pt'>, узел константный (атрибут </span><i><span
   lang=EN-US style='font-size:14.0pt'>const</span></i><i><span
   style='font-size:14.0pt'>_</span></i><span style='font-size:14.0pt'>).</span></p>
@@ -840,37 +819,7 @@ lang=EN-US style='font-size:14.0pt'>fixed</span></i><i><span style='font-size:
  </tr>
 </table>
 
-<p class=MsoNormal><span lang=EN-US style='font-size:14.0pt'>&nbsp;</span></p>
-
-<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;border-collapse:collapse;border:none'>
- <tr>
-  <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
-  padding:0cm 5.4pt 0cm 5.4pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'>Содержание главы</span></p>
-  </td>
- </tr>
- <tr>
-  <td width="100%" style='width:100.0%;border:solid windowtext 1.0pt;
-  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
-  <p class=MsoNormal style='margin-left:53.4pt;text-indent:-18.0pt'><span
-  style='font-size:14.0pt;color:black'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span style='font-size:14.0pt'><a href="#genEl">Оператор
-  генерации элемента <span lang=EN-US>genEl</span></a></span></p>
-  <p class=MsoNormal style='margin-left:53.4pt;text-indent:-18.0pt'><span
-  style='font-size:14.0pt;color:black'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span style='font-size:14.0pt'><a href="#genElStr3">Оператор
-  генерации трёхэлементной конструкции genElStr3</a></span></p>
-  <p class=MsoNormal style='margin-left:53.4pt;text-indent:-18.0pt'><span
-  style='font-size:14.0pt;color:black'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span style='font-size:14.0pt'><a href="#genElStr5">Оператор
-  генерации пятиэлементной конструкции genElStr5</a></span></p>
-  </td>
- </tr>
-</table>
-
-<p class=MsoNormal><span style='font-size:14.0pt'>&nbsp;</span></p>
+<p class=MsoNormal>&nbsp;</p>
 
 </div>
 

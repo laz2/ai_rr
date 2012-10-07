@@ -32,6 +32,12 @@ span.a
 	{mso-style-name:"Текст выноски Знак";
 	mso-style-link:"Текст выноски";
 	font-family:"Tahoma","sans-serif";}
+p.msochpdefault, li.msochpdefault, div.msochpdefault
+	{mso-style-name:msochpdefault;
+	margin-right:0cm;
+	margin-left:0cm;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
 .MsoChpDefault
 	{font-size:10.0pt;}
 @page WordSection1
@@ -39,11 +45,6 @@ span.a
 	margin:2.0cm 42.5pt 2.0cm 3.0cm;}
 div.WordSection1
 	{page:WordSection1;}
- /* List Definitions */
- ol
-	{margin-bottom:0cm;}
-ul
-	{margin-bottom:0cm;}
 -->
 </style>
 
@@ -57,49 +58,6 @@ ul
 style='font-size:16.0pt'>Класс операторов проверки условий </span></b><b><span
 lang=EN-US style='font-size:16.0pt'>if</span></b></p>
 
-<p class=MsoNormal align=center style='text-align:center'><b><span lang=EN-US
-style='font-size:16.0pt'>&nbsp;</span></b></p>
-
-<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;border-collapse:collapse;border:none'>
- <tr>
-  <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
-  padding:0cm 5.4pt 0cm 5.4pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'>Содержание главы</span></p>
-  </td>
- </tr>
- <tr>
-  <td width="100%" style='width:100.0%;border:solid windowtext 1.0pt;
-  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
-  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
-  style='font-size:14.0pt;color:black'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span style='font-size:14.0pt'><a href="#ifType">Оператор
-  проверки типа элемента <span lang=EN-US>ifType</span></a></span></p>
-  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
-  style='font-size:14.0pt;color:black'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span style='font-size:14.0pt'><a href="#ifEq">Оператор
-  проверки равенства содержимого двух элементов  <span lang=EN-US>ifEq</span></a></span></p>
-  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
-  style='font-size:14.0pt;color:black'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span style='font-size:14.0pt'><a href="#ifCoin">Оператор
-  проверки равенства значений двух элементов  <span lang=EN-US>ifCoin</span></a></span></p>
-  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
-  style='font-size:14.0pt;color:black'>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span style='font-size:14.0pt'><a href="#ifGr">Оператор
-  проверки строгого неравенства содержимого двух элементов  <span lang=EN-US>ifGr</span></a></span></p>
-  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
-  style='font-size:14.0pt;color:black'>5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span style='font-size:14.0pt'><a href="#ifFormCount">Оператор
-  проверки наличия содержимого у элемента <span lang=EN-US>ifFormCount</span></a></span></p>
-  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
-  style='font-size:14.0pt;color:black'>6.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span style='font-size:14.0pt'><a href="#ifVarAssign">Оператор
-  проверки вычислено ли значение элемента <span lang=EN-US>ifVarAssign</span></a></span></p>
-  </td>
- </tr>
-</table>
-
 <p class=MsoNormal align=center style='text-align:center'><span
 style='font-size:14.0pt'>&nbsp;</span></p>
 
@@ -108,35 +66,29 @@ style='font-size:14.0pt'>Класс операторов </span><i><span lang=EN-US
 style='font-size:14.0pt'>if</span></i><span style='font-size:14.0pt'>
 предназначен для определения истинности высказываний. </span></p>
 
-<p class=MsoNormal align=center style='text-align:center;text-indent:35.4pt'><i><span
-style='font-size:15.0pt'><img border=0 width=236 height=220 id="Рисунок 1"
-src="if_class.files/image001.gif" alt="Описание: if_class"></span></i></p>
-
 <p class=MsoNormal style='text-align:justify;text-indent:35.4pt'><span
 style='font-size:14.0pt'>&nbsp;</span></p>
 
 <p class=MsoNormal align=center style='text-align:center'><a name=ifType><b><span
 style='font-size:14.0pt'>Оператор проверки типа элемента </span></b></a><b><span
-lang=EN-US style='font-size:14.0pt'>ifType</span></b><b><span lang=EN-US
-style='font-size:14.0pt'> </span></b></p>
+lang=EN-US style='font-size:14.0pt'>ifType </span></b></p>
 
-<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:  </span></p>
+<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:&nbsp; </span></p>
 
 <div align=center>
 
-<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;background:#EAEAEA;border-collapse:collapse;border:none'>
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;background:#EAEAEA;border-collapse:collapse'>
  <tr style='height:50.5pt'>
   <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt;height:50.5pt'>
   <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>ifType</span><span
-  lang=BE style='font-size:15.0pt;font-family:"Courier New"'> ([</span></p>
-  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New"'>            1_:
-  </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>element</span></p>
-  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'>        </span><span
-  style='font-size:15.0pt;font-family:"Courier New"'> </span><span lang=EN-GB
-  style='font-size:15.0pt;font-family:"Courier New"'>], </span><span
-  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>goto_yes</span><span
+  lang=BE style='font-size:15.0pt;font-family:"Courier New"'>([</span></p>
+  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  1_: </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>element</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;</span><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>],
+  </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>goto_yes</span><span
   lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>, </span><span
   lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>goto_no</span><span
   lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>, </span><span
@@ -150,8 +102,7 @@ style='font-size:14.0pt'> </span></b></p>
 
 <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt'>&nbsp;</span></p>
 
-<p class=MsoNormal><span style='font-size:14.0pt'>Параметры:</span><span
-style='font-size:14.0pt'> </span></p>
+<p class=MsoNormal><span style='font-size:14.0pt'>Параметры: </span></p>
 
 <p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
 style='font-size:15.0pt'>element</span></i><span lang=EN-US style='font-size:
@@ -188,8 +139,8 @@ style='font-size:14.0pt'>goto</span></i><i><span style='font-size:14.0pt'>_</spa
 lang=EN-US style='font-size:14.0pt'>error</span></i></p>
 
 <p class=MsoNormal style='margin-left:72.0pt;text-align:justify'><u><span
-style='font-size:14.0pt'>метка</span></u><span style='font-size:14.0pt'> ошибочного
-выполнения, если в ходе проверки условия возникла ошибка </span></p>
+style='font-size:14.0pt'>метка</span></u><span style='font-size:14.0pt'>
+ошибочного выполнения, если в ходе проверки условия возникла ошибка </span></p>
 
 <p class=MsoNormal><span style='font-size:14.0pt'>&nbsp;</span></p>
 
@@ -205,14 +156,15 @@ style='font-size:14.0pt'>Оператор осуществляет проверку типа элемента
 <p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><span
 lang=EN-US style='font-size:14.0pt'>&nbsp;</span></p>
 
-<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;border-collapse:collapse;border:none'>
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;border-collapse:collapse'>
  <tr>
   <td width="12%" valign=top style='width:12.56%;border:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'><img border=0 width=50 height=31
-  id="Рисунок 2" src="if_class.files/image002.gif" alt="Описание: Attention"></span></p>
+  style='font-size:14.0pt;color:black'><img width=50 height=31
+  src="if_class.files/image002.gif"
+  alt="Описание: Описание: Описание: Описание: Описание: Описание: Attention"></span></p>
   </td>
   <td width="87%" style='width:87.44%;border:solid windowtext 1.0pt;border-left:
   none;padding:0cm 5.4pt 0cm 5.4pt'>
@@ -232,8 +184,9 @@ lang=EN-US style='font-size:14.0pt'>&nbsp;</span></p>
   <td width="12%" valign=top style='width:12.56%;border:solid windowtext 1.0pt;
   border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'><img border=0 width=60 height=38
-  id="Рисунок 3" src="if_class.files/image003.gif" alt="Описание: Example"></span></p>
+  style='font-size:14.0pt;color:black'><img width=60 height=38
+  src="if_class.files/image003.gif"
+  alt="Описание: Описание: Описание: Описание: Описание: Описание: Example"></span></p>
   </td>
   <td width="87%" valign=top style='width:87.44%;border-top:none;border-left:
   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
@@ -249,15 +202,16 @@ lang=EN-US style='font-size:14.0pt'>&nbsp;</span></p>
   style='font-size:14.0pt;font-family:"Courier New"'>ifType</span><span
   lang=BE style='font-size:14.0pt;font-family:"Courier New"'> ([</span></p>
   <p class=MsoNormal style='text-align:justify'><span lang=BE style='font-size:
-  14.0pt;font-family:"Courier New"'>             1_:</span><span lang=BE
-  style='font-size:14.0pt;font-family:"Courier New"'> </span><span lang=EN-US
-  style='font-size:14.0pt;font-family:"Courier New"'>arc_: fuz_: arc</span></p>
-  <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
-  font-family:"Courier New"'>         </span><span lang=EN-GB style='font-size:
-  14.0pt;font-family:"Courier New"'>]</span><span lang=EN-US style='font-size:
-  14.0pt;font-family:"Courier New"'>,yes,no</span><span lang=EN-GB
-  style='font-size:14.0pt;font-family:"Courier New"'>) </span></p>
-  <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt'>&nbsp;</span></p>
+  14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  1_: </span><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>arc_:
+  fuz_: arc</span></p>
+  <p class=MsoNormal style='text-align:justify'><span lang=EN-US
+  style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>]</span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>,yes,no</span><span
+  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>) </span></p>
+  <p class=MsoNormal style='text-align:justify'><span lang=EN-US
+  style='font-size:14.0pt'>&nbsp;</span></p>
   <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt'>Если
   </span><i><span lang=EN-US style='font-size:14.0pt'>arc </span></i><span
   style='font-size:14.0pt'>нечеткая дуга, то переход по метке </span><i><span
@@ -282,39 +236,38 @@ style='font-size:14.0pt'>&nbsp;</span></p>
 
 <p class=MsoNormal align=center style='text-align:center;text-indent:35.4pt'><a
 name=ifEq><b><span style='font-size:14.0pt'>Оператор проверки равенства
-содержимого двух элементов  </span></b></a><b><span lang=EN-US
+содержимого двух элементов&nbsp; </span></b></a><b><span lang=EN-US
 style='font-size:14.0pt'>ifEq</span></b></p>
 
-<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:  </span></p>
+<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:&nbsp; </span></p>
 
-<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;background:#EAEAEA;border-collapse:collapse;border:none'>
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;background:#EAEAEA;border-collapse:collapse'>
  <tr style='height:67.5pt'>
   <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt;height:67.5pt'>
   <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>ifEq</span><span
-  lang=BE style='font-size:15.0pt;font-family:"Courier New"'> ([</span></p>
-  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New"'>        1_:
-  </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>element_1,</span></p>
-  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'>        </span><span
-  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>2_: element_2</span></p>
-  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'>    </span><span
-  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>   </span><span
-  lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>], </span><span
-  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>goto_yes</span><span
-  lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>, </span><span
-  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>goto_no</span><span
-  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>, </span><span
-  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>goto_error</span><span
-  lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>)</span></p>
+  lang=BE style='font-size:15.0pt;font-family:"Courier New"'>([</span></p>
+  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  1_: </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>element_1,</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  2_: element_2</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp; </span><span lang=EN-GB style='font-size:15.0pt;font-family:
+  "Courier New"'>], </span><span lang=EN-US style='font-size:15.0pt;font-family:
+  "Courier New"'>goto_yes</span><span lang=EN-GB style='font-size:15.0pt;
+  font-family:"Courier New"'>, </span><span lang=EN-US style='font-size:15.0pt;
+  font-family:"Courier New"'>goto_no</span><span lang=EN-GB style='font-size:
+  14.0pt;font-family:"Courier New"'>, </span><span lang=EN-US style='font-size:
+  14.0pt;font-family:"Courier New"'>goto_error</span><span lang=EN-GB
+  style='font-size:15.0pt;font-family:"Courier New"'>)</span></p>
   </td>
  </tr>
 </table>
 
 <p class=MsoNormal><span lang=EN-GB style='font-size:14.0pt'>&nbsp;</span></p>
 
-<p class=MsoNormal><span style='font-size:14.0pt'>Параметры:</span><span
-style='font-size:14.0pt'> </span></p>
+<p class=MsoNormal><span style='font-size:14.0pt'>Параметры: </span></p>
 
 <p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
 style='font-size:15.0pt'>element</span></i><span style='font-size:15.0pt'>_1</span></p>
@@ -362,22 +315,23 @@ style='font-size:14.0pt'> ошибочного выполнения, если в ходе проверки условия
 <p class=MsoNormal><span style='font-size:14.0pt'>Назначение:</span></p>
 
 <p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><span
-style='font-size:14.0pt'>Оператор сравнивает содержимое двух операндов. В качестве
-операндов данного оператора могут выступать как переменные, так и константы.
-Содержимым операндов могут являться и числа (числовое содержимое), и строки
-(строковое содержимое).</span></p>
+style='font-size:14.0pt'>Оператор сравнивает содержимое двух операндов. В
+качестве операндов данного оператора могут выступать как переменные, так и
+константы. Содержимым операндов могут являться и числа (числовое содержимое), и
+строки (строковое содержимое).</span></p>
 
 <p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><span
 style='font-size:14.0pt'>&nbsp;</span></p>
 
-<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;border-collapse:collapse;border:none'>
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;border-collapse:collapse'>
  <tr>
   <td width="12%" valign=top style='width:12.56%;border:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'><img border=0 width=50 height=31
-  id="Рисунок 4" src="if_class.files/image004.gif" alt="Описание: Attention"></span></p>
+  style='font-size:14.0pt;color:black'><img width=50 height=31
+  src="if_class.files/image004.gif"
+  alt="Описание: Описание: Описание: Описание: Описание: Описание: Attention"></span></p>
   </td>
   <td width="87%" style='width:87.44%;border:solid windowtext 1.0pt;border-left:
   none;padding:0cm 5.4pt 0cm 5.4pt'>
@@ -392,8 +346,9 @@ style='font-size:14.0pt'>&nbsp;</span></p>
   <td width="12%" valign=top style='width:12.56%;border:solid windowtext 1.0pt;
   border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'><img border=0 width=60 height=38
-  id="Рисунок 5" src="if_class.files/image005.gif" alt="Описание: Example"></span></p>
+  style='font-size:14.0pt;color:black'><img width=60 height=38
+  src="if_class.files/image005.gif"
+  alt="Описание: Описание: Описание: Описание: Описание: Описание: Example"></span></p>
   </td>
   <td width="87%" valign=top style='width:87.44%;border-top:none;border-left:
   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
@@ -410,18 +365,19 @@ style='font-size:14.0pt'>&nbsp;</span></p>
   style='font-size:14.0pt;font-family:"Courier New"'>ifEq</span><span lang=BE
   style='font-size:14.0pt;font-family:"Courier New"'> ([</span></p>
   <p class=MsoNormal style='text-align:justify'><span lang=BE style='font-size:
-  14.0pt;font-family:"Courier New"'>         1_:</span><span lang=BE
-  style='font-size:14.0pt;font-family:"Courier New"'> </span><span lang=EN-US
-  style='font-size:14.0pt;font-family:"Courier New"'>fixed_: node1,</span></p>
-  <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
-  font-family:"Courier New"'>         </span><span lang=EN-US style='font-size:
-  14.0pt;font-family:"Courier New"'>2_: fixed_: node2</span></p>
-  <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
-  font-family:"Courier New"'>       </span><span lang=EN-GB style='font-size:
-  14.0pt;font-family:"Courier New"'>]</span><span lang=EN-US style='font-size:
-  14.0pt;font-family:"Courier New"'>,yes,no</span><span lang=EN-GB
-  style='font-size:14.0pt;font-family:"Courier New"'>)</span><span lang=EN-GB
-  style='font-size:14.0pt'> </span></p>
+  14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  1_: </span><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>fixed_:
+  node1,</span></p>
+  <p class=MsoNormal style='text-align:justify'><span lang=EN-US
+  style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  2_: fixed_: node2</span></p>
+  <p class=MsoNormal style='text-align:justify'><span lang=EN-US
+  style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp; </span><span lang=EN-GB style='font-size:14.0pt;font-family:
+  "Courier New"'>]</span><span lang=EN-US style='font-size:14.0pt;font-family:
+  "Courier New"'>,yes,no</span><span lang=EN-GB style='font-size:14.0pt;
+  font-family:"Courier New"'>)</span><span lang=EN-GB style='font-size:14.0pt'>
+  </span></p>
   <p class=MsoNormal style='text-align:justify'><span lang=EN-GB
   style='font-size:14.0pt'>&nbsp;</span></p>
   <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt'>Если
@@ -442,26 +398,25 @@ style='font-size:14.0pt'>&nbsp;</span></b></p>
 
 <p class=MsoNormal align=center style='text-align:center;text-indent:35.4pt'><a
 name=ifCoin><b><span style='font-size:14.0pt'>Оператор проверки равенства
-значений двух элементов  </span></b></a><b><span lang=EN-US style='font-size:
-14.0pt'>ifCoin</span></b></p>
+значений двух элементов&nbsp; </span></b></a><b><span lang=EN-US
+style='font-size:14.0pt'>ifCoin</span></b></p>
 
-<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:  </span></p>
+<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:&nbsp; </span></p>
 
-<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;background:#EAEAEA;border-collapse:collapse;border:none'>
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;background:#EAEAEA;border-collapse:collapse'>
  <tr style='height:67.5pt'>
   <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt;height:67.5pt'>
   <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>ifCoin</span><span
-  lang=BE style='font-size:15.0pt;font-family:"Courier New"'> ([</span></p>
-  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New"'>            1_:
-  </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>element_1,</span></p>
-  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'>            </span><span
-  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>2_: element_2</span></p>
-  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'>        </span><span
-  style='font-size:15.0pt;font-family:"Courier New"'> </span><span lang=EN-GB
-  style='font-size:15.0pt;font-family:"Courier New"'>], </span><span
-  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>goto_yes</span><span
+  lang=BE style='font-size:15.0pt;font-family:"Courier New"'>([</span></p>
+  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  1_: </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>element_1,</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  2_: element_2</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;</span><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>],
+  </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>goto_yes</span><span
   lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>, </span><span
   lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>goto_no</span><span
   lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>, </span><span
@@ -477,8 +432,7 @@ style='font-size:15.0pt'>&nbsp;</span></i></p>
 <p class=MsoNormal style='margin-left:35.4pt'><span lang=EN-GB
 style='font-size:14.0pt'>&nbsp;</span></p>
 
-<p class=MsoNormal><span style='font-size:14.0pt'>Параметры:</span><span
-style='font-size:14.0pt'> </span></p>
+<p class=MsoNormal><span style='font-size:14.0pt'>Параметры: </span></p>
 
 <p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
 style='font-size:15.0pt'>element</span></i><span style='font-size:15.0pt'>_1</span></p>
@@ -527,21 +481,22 @@ style='font-size:14.0pt'> ошибочного выполнения, если в ходе проверки условия
 
 <p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><span
 style='font-size:14.0pt'>Действия данного оператора аналогичны действиям
-оператора  </span><i><span lang=EN-US style='font-size:15.0pt'>ifEq</span></i><span
+оператора&nbsp; </span><i><span lang=EN-US style='font-size:15.0pt'>ifEq</span></i><span
 style='font-size:15.0pt'>, за исключением того, что сравниваются значения (не
 содержимое) рассматриваемых операндов. </span></p>
 
 <p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><span
 style='font-size:14.0pt'>&nbsp;</span></p>
 
-<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;border-collapse:collapse;border:none'>
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;border-collapse:collapse'>
  <tr>
   <td width="12%" valign=top style='width:12.9%;border:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'><img border=0 width=50 height=31
-  id="Рисунок 6" src="if_class.files/image002.gif" alt="Описание: Attention"></span></p>
+  style='font-size:14.0pt;color:black'><img width=50 height=31
+  src="if_class.files/image002.gif"
+  alt="Описание: Описание: Описание: Описание: Описание: Описание: Attention"></span></p>
   </td>
   <td width="87%" style='width:87.1%;border:solid windowtext 1.0pt;border-left:
   none;padding:0cm 5.4pt 0cm 5.4pt'>
@@ -557,8 +512,9 @@ style='font-size:14.0pt'>&nbsp;</span></p>
   <td width="12%" valign=top style='width:12.9%;border:solid windowtext 1.0pt;
   border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'><img border=0 width=50 height=31
-  id="Рисунок 7" src="if_class.files/image002.gif" alt="Описание: Attention"></span></p>
+  style='font-size:14.0pt;color:black'><img width=50 height=31
+  src="if_class.files/image002.gif"
+  alt="Описание: Описание: Описание: Описание: Описание: Описание: Attention"></span></p>
   </td>
   <td width="87%" style='width:87.1%;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
@@ -576,34 +532,34 @@ style='font-size:14.0pt'>&nbsp;</span></p>
 
 <p class=MsoNormal align=center style='text-align:center;text-indent:35.4pt'><a
 name=ifGr><b><span style='font-size:14.0pt'>Оператор проверки строгого
-неравенства содержимого двух элементов  </span></b></a><b><span lang=EN-US
-style='font-size:14.0pt'>ifGr</span></b></p>
+неравенства содержимого двух элементов&nbsp; </span></b></a><b><span
+lang=EN-US style='font-size:14.0pt'>ifGr</span></b></p>
 
 <p class=MsoNormal align=center style='text-align:center;text-indent:35.4pt'><b><span
 style='font-size:14.0pt'>&nbsp;</span></b></p>
 
-<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:  </span></p>
+<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:&nbsp; </span></p>
 
-<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;background:#EAEAEA;border-collapse:collapse;border:none'>
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;background:#EAEAEA;border-collapse:collapse'>
  <tr style='height:67.5pt'>
   <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt;height:67.5pt'>
   <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>ifGr</span><span
-  lang=BE style='font-size:15.0pt;font-family:"Courier New"'> ([</span></p>
-  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New"'>        1_:
-  </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>element_1,</span></p>
-  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'>        </span><span
-  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>2_: element_2</span></p>
-  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'>    </span><span
-  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>   </span><span
-  lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>], </span><span
-  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>goto_yes</span><span
-  lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>, </span><span
-  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>goto_no</span><span
-  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>, </span><span
-  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>goto_error</span><span
-  lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>)</span></p>
+  lang=BE style='font-size:15.0pt;font-family:"Courier New"'>([</span></p>
+  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  1_: </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>element_1,</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  2_: element_2</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp; </span><span lang=EN-GB style='font-size:15.0pt;font-family:
+  "Courier New"'>], </span><span lang=EN-US style='font-size:15.0pt;font-family:
+  "Courier New"'>goto_yes</span><span lang=EN-GB style='font-size:15.0pt;
+  font-family:"Courier New"'>, </span><span lang=EN-US style='font-size:15.0pt;
+  font-family:"Courier New"'>goto_no</span><span lang=EN-GB style='font-size:
+  14.0pt;font-family:"Courier New"'>, </span><span lang=EN-US style='font-size:
+  14.0pt;font-family:"Courier New"'>goto_error</span><span lang=EN-GB
+  style='font-size:15.0pt;font-family:"Courier New"'>)</span></p>
   </td>
  </tr>
 </table>
@@ -614,8 +570,7 @@ style='font-size:15.0pt'>&nbsp;</span></i></p>
 <p class=MsoNormal style='margin-left:35.4pt'><span lang=EN-GB
 style='font-size:14.0pt'>&nbsp;</span></p>
 
-<p class=MsoNormal><span style='font-size:14.0pt'>Параметры:</span><span
-style='font-size:14.0pt'> </span></p>
+<p class=MsoNormal><span style='font-size:14.0pt'>Параметры: </span></p>
 
 <p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
 style='font-size:15.0pt'>element</span></i><span style='font-size:15.0pt'>_1</span></p>
@@ -670,20 +625,21 @@ style='font-size:14.0pt'> ошибочного выполнения, если в ходе проверки условия
 
 <p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><span
 style='font-size:14.0pt'>Оператор позволяет сравнивать </span><span
-style='font-size:15.0pt'> содержимое (в случае данного оператора целесообразно
-сравнивать числовое содержимое) рассматриваемых операндов.</span></p>
+style='font-size:15.0pt'>&nbsp;содержимое (в случае данного оператора
+целесообразно сравнивать числовое содержимое) рассматриваемых операндов.</span></p>
 
 <p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><span
 style='font-size:14.0pt'>&nbsp;</span></p>
 
-<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;border-collapse:collapse;border:none'>
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;border-collapse:collapse'>
  <tr>
   <td width="12%" valign=top style='width:12.9%;border:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'><img border=0 width=50 height=31
-  id="Рисунок 8" src="if_class.files/image004.gif" alt="Описание: Attention"></span></p>
+  style='font-size:14.0pt;color:black'><img width=50 height=31
+  src="if_class.files/image004.gif"
+  alt="Описание: Описание: Описание: Описание: Описание: Описание: Attention"></span></p>
   </td>
   <td width="87%" style='width:87.1%;border:solid windowtext 1.0pt;border-left:
   none;padding:0cm 5.4pt 0cm 5.4pt'>
@@ -693,10 +649,10 @@ style='font-size:14.0pt'>&nbsp;</span></p>
   атрибутом </span><i><span lang=EN-US style='font-size:14.0pt;color:black'>fixed</span></i><i><span
   style='font-size:14.0pt;color:black'>_.</span></i><span style='font-size:
   14.0pt;color:black'> Если значение одного из рассматриваемых операндов будет
-  не вычислено, то произойдет переход по метке  </span><i><span lang=EN-US
-  style='font-size:15.0pt'>goto</span></i><i><span style='font-size:15.0pt'>_</span></i><i><span
-  lang=EN-US style='font-size:15.0pt'>no</span></i><i><span style='font-size:
-  15.0pt'>.</span></i></p>
+  не вычислено, то произойдет переход по метке&nbsp; </span><i><span
+  lang=EN-US style='font-size:15.0pt'>goto</span></i><i><span style='font-size:
+  15.0pt'>_</span></i><i><span lang=EN-US style='font-size:15.0pt'>no</span></i><i><span
+  style='font-size:15.0pt'>.</span></i></p>
   </td>
  </tr>
 </table>
@@ -704,25 +660,155 @@ style='font-size:14.0pt'>&nbsp;</span></p>
 <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt'>&nbsp;</span></p>
 
 <p class=MsoNormal align=center style='text-align:center;text-indent:35.4pt'><a
-name=ifFormCount><b><span style='font-size:14.0pt'>Оператор проверки наличия
+name=ifGrEq><b><span style='font-size:14.0pt'>Оператор проверки нестрогого
+неравенства содержимого двух элементов&nbsp; </span></b></a><b><span
+lang=EN-US style='font-size:14.0pt'>ifGrEq</span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:35.4pt'><b><span
+style='font-size:14.0pt'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:&nbsp; </span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;background:#EAEAEA;border-collapse:collapse'>
+ <tr style='height:67.5pt'>
+  <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:67.5pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>ifGrEq</span><span
+  lang=BE style='font-size:15.0pt;font-family:"Courier New"'>([</span></p>
+  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  1_: </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>element_1,</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  2_: element_2</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp; </span><span lang=EN-GB style='font-size:15.0pt;font-family:
+  "Courier New"'>], </span><span lang=EN-US style='font-size:15.0pt;font-family:
+  "Courier New"'>goto_yes</span><span lang=EN-GB style='font-size:15.0pt;
+  font-family:"Courier New"'>, </span><span lang=EN-US style='font-size:15.0pt;
+  font-family:"Courier New"'>goto_no</span><span lang=EN-GB style='font-size:
+  14.0pt;font-family:"Courier New"'>, </span><span lang=EN-US style='font-size:
+  14.0pt;font-family:"Courier New"'>goto_error</span><span lang=EN-GB
+  style='font-size:15.0pt;font-family:"Courier New"'>)</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='margin-left:35.4pt'><i><span lang=EN-GB
+style='font-size:15.0pt'>&nbsp;</span></i></p>
+
+<p class=MsoNormal style='margin-left:35.4pt'><span lang=EN-GB
+style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'>Параметры: </span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:15.0pt'>element</span></i><span style='font-size:15.0pt'>_1</span></p>
+
+<p class=MsoNormal style='margin-left:70.8pt;text-align:justify'><span
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>in</span><span
+style='font-size:14.0pt'>] первый элемент проверки, его содержимое сравнивается
+с содержимым второго элемента</span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:15.0pt'>element</span></i><span style='font-size:15.0pt'>_2</span></p>
+
+<p class=MsoNormal style='margin-left:72.0pt'><span style='font-size:14.0pt'>[</span><span
+lang=EN-US style='font-size:14.0pt'>in</span><span style='font-size:14.0pt'>]
+второй элемент проверки, его содержимое сравнивается с содержимым первого
+элемента</span><i><span style='font-size:15.0pt'> </span></i></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:15.0pt'>goto</span></i><i><span style='font-size:15.0pt'>_</span></i><i><span
+lang=EN-US style='font-size:15.0pt'>yes</span></i></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;text-indent:
+35.4pt'><u><span style='font-size:14.0pt'>метка</span></u><span
+style='font-size:14.0pt'> перехода, если содержимое первого операнда больше или
+равно</span></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;text-indent:
+35.4pt'><span style='font-size:14.0pt'>содержимому второго операнда</span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:15.0pt'>goto</span></i><i><span style='font-size:15.0pt'>_</span></i><i><span
+lang=EN-US style='font-size:15.0pt'>no</span></i></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;text-indent:
+35.4pt'><u><span style='font-size:14.0pt'>метка</span></u><span
+style='font-size:14.0pt'> перехода, если содержимое первого операнда меньше</span></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;text-indent:
+35.4pt'><span style='font-size:14.0pt'>содержимого второго операнда</span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:14.0pt'>goto</span></i><i><span style='font-size:14.0pt'>_</span></i><i><span
+lang=EN-US style='font-size:14.0pt'>error</span></i></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;text-indent:
+35.4pt'><u><span style='font-size:14.0pt'>метка</span></u><span
+style='font-size:14.0pt'> ошибочного выполнения, если в ходе проверки условия
+возникла ошибка</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'>Назначение:</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><span
+style='font-size:14.0pt'>Оператор позволяет сравнивать </span><span
+style='font-size:15.0pt'>&nbsp;содержимое (в случае данного оператора
+целесообразно сравнивать числовое содержимое) рассматриваемых операндов.</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><span
+style='font-size:14.0pt'>&nbsp;</span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;border-collapse:collapse'>
+ <tr>
+  <td width="12%" valign=top style='width:12.9%;border:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:14.0pt;color:black'><img width=50 height=31
+  src="if_class.files/image004.gif"
+  alt="Описание: Описание: Описание: Описание: Описание: Описание: Attention"></span></p>
+  </td>
+  <td width="87%" style='width:87.1%;border:solid windowtext 1.0pt;border-left:
+  none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify'><b><span style='font-size:14.0pt;
+  color:black'>Внимание:</span></b><span style='font-size:14.0pt;color:black'>
+  Значения операндов должны быть найдены. И, как следствие, отмечаются
+  атрибутом </span><i><span lang=EN-US style='font-size:14.0pt;color:black'>fixed</span></i><i><span
+  style='font-size:14.0pt;color:black'>_.</span></i><span style='font-size:
+  14.0pt;color:black'> Если значение одного из рассматриваемых операндов будет
+  не вычислено, то произойдет переход по метке&nbsp; </span><i><span
+  lang=EN-US style='font-size:15.0pt'>goto</span></i><i><span style='font-size:
+  15.0pt'>_</span></i><i><span lang=EN-US style='font-size:15.0pt'>no</span></i><i><span
+  style='font-size:15.0pt'>.</span></i></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:35.4pt'><b><span
+style='font-size:14.0pt'>&nbsp;</span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:35.4pt'><a
+name=ifFormCont><b><span style='font-size:14.0pt'>Оператор проверки наличия
 содержимого у элемента </span></b></a><b><span lang=EN-US style='font-size:
-14.0pt'>ifFormCount</span></b><b><span lang=EN-US style='font-size:14.0pt'> </span></b></p>
+14.0pt'>ifFormCont </span></b></p>
 
-<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:  </span></p>
+<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:&nbsp; </span></p>
 
-<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;background:#EAEAEA;border-collapse:collapse;border:none'>
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;background:#EAEAEA;border-collapse:collapse'>
  <tr style='height:50.5pt'>
   <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt;height:50.5pt'>
-  <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>ifFormCount</span><span
-  lang=BE style='font-size:15.0pt;font-family:"Courier New"'> ([</span></p>
-  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New"'>                1_:
-  </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>element</span></p>
-  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'>            </span><span
-  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>  </span><span
-  lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>], </span><span
-  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>goto_yes</span><span
+  <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>ifFormCont</span><span
+  lang=BE style='font-size:15.0pt;font-family:"Courier New"'>([</span></p>
+  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  1_: </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>element</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp; </span><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>],
+  </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>goto_yes</span><span
   lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>, </span><span
   lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>goto_no</span><span
   lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>, </span><span
@@ -738,8 +824,7 @@ style='font-size:15.0pt'>&nbsp;</span></i></p>
 <p class=MsoNormal style='margin-left:35.4pt'><span lang=EN-GB
 style='font-size:14.0pt'>&nbsp;</span></p>
 
-<p class=MsoNormal><span style='font-size:14.0pt'>Параметры:</span><span
-style='font-size:14.0pt'> </span></p>
+<p class=MsoNormal><span style='font-size:14.0pt'>Параметры: </span></p>
 
 <p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
 style='font-size:15.0pt'>element</span></i><span lang=EN-US style='font-size:
@@ -787,24 +872,23 @@ style='font-size:14.0pt'>Оператор осуществляет проверку элемента (операнда) на
 
 <p class=MsoNormal align=center style='text-align:center;text-indent:35.4pt'><a
 name=ifVarAssign><b><span style='font-size:14.0pt'>Оператор проверки вычислено
-ли значение элемента </span></b></a><b><span lang=EN-US style='font-size:14.0pt'>ifVarAssign</span></b><b><span
-lang=EN-US style='font-size:14.0pt'> </span></b></p>
+ли значение элемента </span></b></a><b><span lang=EN-US style='font-size:14.0pt'>ifVarAssign
+</span></b></p>
 
-<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:  </span></p>
+<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:&nbsp; </span></p>
 
-<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;background:#EAEAEA;border-collapse:collapse;border:none'>
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;background:#EAEAEA;border-collapse:collapse'>
  <tr style='height:50.5pt'>
   <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt;height:50.5pt'>
   <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>ifVarAssign</span><span
-  lang=BE style='font-size:15.0pt;font-family:"Courier New"'> ([</span></p>
-  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New"'>                1_:
-  </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>element</span></p>
-  <p class=MsoNormal><span style='font-size:15.0pt;font-family:"Courier New"'>            </span><span
-  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>  </span><span
-  lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>], </span><span
-  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>goto_yes</span><span
+  lang=BE style='font-size:15.0pt;font-family:"Courier New"'>([</span></p>
+  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  1_: </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>element</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp; </span><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>],
+  </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>goto_yes</span><span
   lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>, </span><span
   lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>goto_no</span><span
   lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>, </span><span
@@ -820,8 +904,7 @@ style='font-size:15.0pt'>&nbsp;</span></i></p>
 <p class=MsoNormal style='margin-left:35.4pt'><span lang=EN-GB
 style='font-size:14.0pt'>&nbsp;</span></p>
 
-<p class=MsoNormal><span style='font-size:14.0pt'>Параметры:</span><span
-style='font-size:14.0pt'> </span></p>
+<p class=MsoNormal><span style='font-size:14.0pt'>Параметры: </span></p>
 
 <p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
 style='font-size:15.0pt'>element</span></i><span lang=EN-US style='font-size:
@@ -871,14 +954,15 @@ style='font-size:14.0pt'>ifVarAssign </span></i><span style='font-size:14.0pt'>у
 <p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><span
 style='font-size:14.0pt'>&nbsp;</span></p>
 
-<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;border-collapse:collapse;border:none'>
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;border-collapse:collapse'>
  <tr>
   <td width="16%" valign=top style='width:16.7%;border:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'><img border=0 width=60 height=38
-  id="Рисунок 9" src="if_class.files/image005.gif" alt="Описание: Example"></span></p>
+  style='font-size:14.0pt;color:black'><img width=60 height=38
+  src="if_class.files/image005.gif"
+  alt="Описание: Описание: Описание: Описание: Описание: Описание: Example"></span></p>
   <p class=MsoNormal align=center style='text-align:center'><span
   style='font-size:14.0pt'>&nbsp;</span></p>
   </td>
@@ -888,17 +972,18 @@ style='font-size:14.0pt'>&nbsp;</span></p>
   color:black'>Пример 3</span></b><span style='font-size:14.0pt;color:black'>. </span><span
   style='font-size:14.0pt'>Необходимо проверить корректность входных значений
   программы. </span><i><span lang=EN-US style='font-size:14.0pt'>param</span></i><span
-  style='font-size:14.0pt'> – входной параметр программы. </span></p>
+  lang=EN-US style='font-size:14.0pt'> </span><span style='font-size:14.0pt'>–
+  входной параметр программы. </span></p>
   <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt'>&nbsp;</span></p>
   <p class=MsoNormal style='text-align:justify'><span lang=EN-US
   style='font-size:14.0pt;font-family:"Courier New"'>ifVarAssign</span><span
   lang=BE style='font-size:14.0pt;font-family:"Courier New"'> ([</span></p>
   <p class=MsoNormal style='margin-left:84.6pt;text-align:justify'><span
-  lang=BE style='font-size:14.0pt;font-family:"Courier New"'>       1_: </span><span
-  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>param</span></p>
+  lang=BE style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  1_: </span><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>param</span></p>
   <p class=MsoNormal style='margin-left:75.6pt;text-align:justify'><span
-  style='font-size:14.0pt;font-family:"Courier New"'>     ],,</span><span
-  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>exit</span><span
+  style='font-size:14.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+  &nbsp;],,</span><span lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>exit</span><span
   style='font-size:14.0pt;font-family:"Courier New"'>)</span><span
   style='font-size:14.0pt'> </span></p>
   <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt'>&nbsp;</span></p>
@@ -907,7 +992,7 @@ style='font-size:14.0pt'>&nbsp;</span></p>
   style='font-size:14.0pt'>не известно, то переход по метке </span><i><span
   lang=EN-US style='font-size:14.0pt'>exit</span></i><i><span style='font-size:
   14.0pt'>. </span></i><span style='font-size:14.0pt'>Если известно, то переход
-  к оператору, следующему прямо за оператором проверки  </span><i><span
+  к оператору, следующему прямо за оператором проверки&nbsp; </span><i><span
   lang=EN-US style='font-size:14.0pt'>ifVarAssign</span></i><i><span
   style='font-size:14.0pt'>.</span></i></p>
   </td>
@@ -917,47 +1002,248 @@ style='font-size:14.0pt'>&nbsp;</span></p>
 <p class=MsoNormal style='text-align:justify'><span lang=EN-US
 style='font-size:14.0pt'>&nbsp;</span></p>
 
-<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="100%"
- style='width:100.0%;border-collapse:collapse;border:none'>
- <tr>
+<p class=MsoNormal align=center style='text-align:center;text-indent:35.4pt'><a
+name=ifFormIdtf><b><span style='font-size:14.0pt'>Оператор проверки наличия
+сформированного идентификатора у элемента </span></b></a><b><span lang=EN-US
+style='font-size:14.0pt'>ifFormIdtf</span></b><b><span lang=EN-US
+style='font-size:14.0pt'> </span></b></p>
+
+<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:&nbsp; </span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;background:#EAEAEA;border-collapse:collapse'>
+ <tr style='height:50.5pt'>
   <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
-  padding:0cm 5.4pt 0cm 5.4pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'>Содержание главы</span></p>
-  </td>
- </tr>
- <tr>
-  <td width="100%" style='width:100.0%;border:solid windowtext 1.0pt;
-  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
-  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
-  style='font-size:14.0pt;color:black'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span style='font-size:14.0pt'><a href="#ifType">Оператор
-  проверки типа элемента <span lang=EN-US>ifType</span></a></span></p>
-  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
-  style='font-size:14.0pt;color:black'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span style='font-size:14.0pt'><a href="#ifEq">Оператор
-  проверки равенства содержимого двух элементов  <span lang=EN-US>ifEq</span></a></span></p>
-  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
-  style='font-size:14.0pt;color:black'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span style='font-size:14.0pt'><a href="#ifCoin">Оператор
-  проверки равенства значений двух элементов  <span lang=EN-US>ifCoin</span></a></span></p>
-  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
-  style='font-size:14.0pt;color:black'>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span style='font-size:14.0pt'><a href="#ifGr">Оператор
-  проверки строгого неравенства содержимого двух элементов  <span lang=EN-US>ifGr</span></a></span></p>
-  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
-  style='font-size:14.0pt;color:black'>5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span style='font-size:14.0pt'><a href="#ifFormCount">Оператор
-  проверки наличия содержимого у элемента <span lang=EN-US>ifFormCount</span></a></span></p>
-  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
-  style='font-size:14.0pt;color:black'>6.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span style='font-size:14.0pt'><a href="#ifVarAssign">Оператор
-  проверки вычислено ли значение элемента <span lang=EN-US>ifVarAssign</span></a></span></p>
+  padding:0cm 5.4pt 0cm 5.4pt;height:50.5pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>ifFormIdtf</span><span
+  lang=BE style='font-size:15.0pt;font-family:"Courier New"'>([</span></p>
+  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  1_: </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>element</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp; </span><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>],
+  </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>goto_yes</span><span
+  lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>, </span><span
+  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>goto_no</span><span
+  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>, </span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>goto_error</span><span
+  lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>)</span></p>
   </td>
  </tr>
 </table>
 
+<p class=MsoNormal style='margin-left:81.0pt'><i><span lang=EN-GB
+style='font-size:15.0pt'>&nbsp;</span></i></p>
+
+<p class=MsoNormal style='margin-left:35.4pt'><span lang=EN-GB
+style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'>Параметры: </span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:15.0pt'>element</span></i><span lang=EN-US style='font-size:
+15.0pt'> </span></p>
+
+<p class=MsoNormal style='margin-left:70.8pt;text-align:justify'><span
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>in</span><span
+style='font-size:14.0pt'>] </span><span lang=BE style='font-size:14.0pt'>элемент
+</span><span style='font-size:14.0pt'>проверки (может не уточнятся атрибутами)</span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:15.0pt'>goto</span></i><i><span style='font-size:15.0pt'>_</span></i><i><span
+lang=EN-US style='font-size:15.0pt'>yes</span></i></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;text-indent:
+35.4pt'><u><span style='font-size:14.0pt'>метка</span></u><span
+style='font-size:14.0pt'> перехода, если элемент имеет идентификатор, который
+не является системным </span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:15.0pt'>goto</span></i><i><span style='font-size:15.0pt'>_</span></i><i><span
+lang=EN-US style='font-size:15.0pt'>no</span></i></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;text-indent:
+35.4pt'><u><span style='font-size:14.0pt'>метка</span></u><span
+style='font-size:14.0pt'> перехода, если элемент имеет системный идентификатор</span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:14.0pt'>goto</span></i><i><span style='font-size:14.0pt'>_</span></i><i><span
+lang=EN-US style='font-size:14.0pt'>error</span></i></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;text-indent:
+35.4pt'><u><span style='font-size:14.0pt'>метка</span></u><span
+style='font-size:14.0pt'> ошибочного выполнения, если в ходе проверки условия
+возникла ошибка </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'>Назначение:</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><span
+style='font-size:14.0pt'>Оператор проверяет условие: установлен ли для элемента
+идентификатор.</span></p>
+
 <p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:35.4pt'><a
+name=ifNumber><b><span style='font-size:14.0pt'>Оператор проверки числового
+содержимого элемента </span></b></a><b><span lang=EN-US style='font-size:14.0pt'>ifNumber</span></b><b><span
+lang=EN-US style='font-size:14.0pt'> </span></b></p>
+
+<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:&nbsp; </span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;background:#EAEAEA;border-collapse:collapse'>
+ <tr style='height:50.5pt'>
+  <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:50.5pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>ifNumber</span><span
+  lang=BE style='font-size:15.0pt;font-family:"Courier New"'>([</span></p>
+  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  1_: </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>element</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp; </span><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>],
+  </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>goto_yes</span><span
+  lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>, </span><span
+  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>goto_no</span><span
+  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>, </span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>goto_error</span><span
+  lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>)</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='margin-left:81.0pt'><i><span lang=EN-GB
+style='font-size:15.0pt'>&nbsp;</span></i></p>
+
+<p class=MsoNormal style='margin-left:35.4pt'><span lang=EN-GB
+style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'>Параметры: </span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:15.0pt'>element</span></i><span lang=EN-US style='font-size:
+15.0pt'> </span></p>
+
+<p class=MsoNormal style='margin-left:70.8pt;text-align:justify'><span
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>in</span><span
+style='font-size:14.0pt'>] </span><span lang=BE style='font-size:14.0pt'>элемент
+</span><span style='font-size:14.0pt'>проверки (может не уточнятся атрибутами)</span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:15.0pt'>goto</span></i><i><span style='font-size:15.0pt'>_</span></i><i><span
+lang=EN-US style='font-size:15.0pt'>yes</span></i></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;text-indent:
+35.4pt'><u><span style='font-size:14.0pt'>метка</span></u><span
+style='font-size:14.0pt'> перехода, если у элемента числовое содержимое </span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:15.0pt'>goto</span></i><i><span style='font-size:15.0pt'>_</span></i><i><span
+lang=EN-US style='font-size:15.0pt'>no</span></i></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;text-indent:
+35.4pt'><u><span style='font-size:14.0pt'>метка</span></u><span
+style='font-size:14.0pt'> перехода, если элемент нечисловое содержимое</span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:14.0pt'>goto</span></i><i><span style='font-size:14.0pt'>_</span></i><i><span
+lang=EN-US style='font-size:14.0pt'>error</span></i></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;text-indent:
+35.4pt'><u><span style='font-size:14.0pt'>метка</span></u><span
+style='font-size:14.0pt'> ошибочного выполнения, если в ходе проверки условия
+возникла ошибка </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'>Назначение:</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><span
+style='font-size:14.0pt'>Оператор проверяет условие: установлен ли для элемента
+числовое содержимое.</span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:35.4pt'><b><span
+style='font-size:14.0pt'>&nbsp;</span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:35.4pt'><a
+name=ifString><b><span style='font-size:14.0pt'>Оператор проверки строкового
+содержимого элемента </span></b></a><b><span lang=EN-US style='font-size:14.0pt'>ifString</span></b></p>
+
+<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:&nbsp; </span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;background:#EAEAEA;border-collapse:collapse'>
+ <tr style='height:50.5pt'>
+  <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:50.5pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>ifString</span><span
+  lang=BE style='font-size:15.0pt;font-family:"Courier New"'>([</span></p>
+  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  1_: </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>element</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp; </span><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>],
+  </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>goto_yes</span><span
+  lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>, </span><span
+  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>goto_no</span><span
+  lang=EN-GB style='font-size:14.0pt;font-family:"Courier New"'>, </span><span
+  lang=EN-US style='font-size:14.0pt;font-family:"Courier New"'>goto_error</span><span
+  lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>)</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='margin-left:81.0pt'><i><span lang=EN-GB
+style='font-size:15.0pt'>&nbsp;</span></i></p>
+
+<p class=MsoNormal style='margin-left:35.4pt'><span lang=EN-GB
+style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'>Параметры: </span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:15.0pt'>element</span></i><span lang=EN-US style='font-size:
+15.0pt'> </span></p>
+
+<p class=MsoNormal style='margin-left:70.8pt;text-align:justify'><span
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>in</span><span
+style='font-size:14.0pt'>] </span><span lang=BE style='font-size:14.0pt'>элемент
+</span><span style='font-size:14.0pt'>проверки (может не уточнятся атрибутами)</span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:15.0pt'>goto</span></i><i><span style='font-size:15.0pt'>_</span></i><i><span
+lang=EN-US style='font-size:15.0pt'>yes</span></i></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;text-indent:
+35.4pt'><u><span style='font-size:14.0pt'>метка</span></u><span
+style='font-size:14.0pt'> перехода, если у элемента строковое содержимое </span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:15.0pt'>goto</span></i><i><span style='font-size:15.0pt'>_</span></i><i><span
+lang=EN-US style='font-size:15.0pt'>no</span></i></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;text-indent:
+35.4pt'><u><span style='font-size:14.0pt'>метка</span></u><span
+style='font-size:14.0pt'> перехода, если элемент содержимое, которое не
+является строкой</span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:14.0pt'>goto</span></i><i><span style='font-size:14.0pt'>_</span></i><i><span
+lang=EN-US style='font-size:14.0pt'>error</span></i></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;text-indent:
+35.4pt'><u><span style='font-size:14.0pt'>метка</span></u><span
+style='font-size:14.0pt'> ошибочного выполнения, если в ходе проверки условия
+возникла ошибка </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'>Назначение:</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><span
+style='font-size:14.0pt'>Оператор проверяет условие: установлен ли для элемента
+строковое содержимое.</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
 
 </div>
 
