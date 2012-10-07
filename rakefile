@@ -17,9 +17,30 @@ CLOBBER.include '*.pdf'
 CLOBBER.include '*.dvi'
 CLOBBER.include 'data/5/scp_guide/*.chm'
 
-directory "build"
+
 
 #task :default => [:test]
+
+task :all2 => "build" do
+  cp_r "data/4", "build/wave_find_path"
+  cp_r "data/5/fs_repo_src", "build"
+  Rake::Task["ai_rr"].invoke
+  Rake::Task["scp_guide"].invoke
+end
+
+task :all1 => "build" do
+  cp_r "data/1", "build/wave_find_path"
+  Rake::Task["ai_rr"].invoke
+end
+
+directory "build"
+
+task :ai_rr => "build" do
+  sh "pdflatex ai_rr.tex"
+  sh "pdflatex ai_rr.tex"
+  sh "pdflatex ai_rr.tex"
+  cp "ai_rr.pdf", "build"
+end
 
 task "scp_guide" => "build" do
   sh "hhc data/5/scp_guide/scp_guide.hhp" do |ok, status|
