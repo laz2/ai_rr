@@ -23,14 +23,14 @@ a:visited, span.MsoHyperlinkFollowed
 	{color:purple;
 	text-decoration:underline;}
 p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
-	{mso-style-link:"Текст выноски Знак";
+	{mso-style-link:"Balloon Text Char";
 	margin:0cm;
 	margin-bottom:.0001pt;
 	font-size:8.0pt;
 	font-family:"Tahoma","sans-serif";}
-span.a
-	{mso-style-name:"Текст выноски Знак";
-	mso-style-link:"Текст выноски";
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-link:"Balloon Text";
 	font-family:"Tahoma","sans-serif";}
 p.msochpdefault, li.msochpdefault, div.msochpdefault
 	{mso-style-name:msochpdefault;
@@ -38,6 +38,17 @@ p.msochpdefault, li.msochpdefault, div.msochpdefault
 	margin-left:0cm;
 	font-size:10.0pt;
 	font-family:"Times New Roman","serif";}
+p.a, li.a, div.a
+	{mso-style-name:"Текст выноски";
+	mso-style-link:"Текст выноски Знак";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+span.a0
+	{mso-style-name:"Текст выноски Знак";
+	mso-style-link:"Текст выноски";
+	font-family:"Tahoma","sans-serif";}
 .MsoChpDefault
 	{font-size:10.0pt;}
 @page WordSection1
@@ -45,6 +56,11 @@ p.msochpdefault, li.msochpdefault, div.msochpdefault
 	margin:2.0cm 42.5pt 2.0cm 3.0cm;}
 div.WordSection1
 	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
 -->
 </style>
 
@@ -56,6 +72,63 @@ div.WordSection1
 
 <p class=MsoNormal align=center style='text-align:center;text-indent:35.4pt'><b><span
 style='font-size:16.0pt'>Класс операторов математических действий</span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:35.4pt'><b><span
+lang=EN-US style='font-size:16.0pt'>&nbsp;</span></b></p>
+
+<table class=a1 border=1 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;border-collapse:collapse;border:none'>
+ <tr>
+  <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:14.0pt;color:black'>Содержание главы</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="100%" style='width:100.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
+  style='font-size:14.0pt;color:black'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span style='font-size:14.0pt'><a href="#add">Оператор сложения
+  содержимого <i><span lang=EN-US>add</span></i></a></span><span
+  style='font-size:14.0pt;color:black'> </span></p>
+  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
+  style='font-size:14.0pt;color:black'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span style='font-size:14.0pt'><a href="#sub">Оператор
+  вычитания численного содержимого <i><span lang=EN-US>sub</span></i></a></span><span
+  style='font-size:14.0pt;color:black'> </span></p>
+  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
+  style='font-size:14.0pt;color:black'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span style='font-size:14.0pt'><a href="#mult">Оператор
+  умножения численного содержимого <i><span lang=EN-US>mult</span></i></a></span></p>
+  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
+  style='font-size:14.0pt;color:black'>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span style='font-size:14.0pt'><a href="#div">Оператор деления
+  численного содержимого <i><span lang=EN-US>div</span></i></a></span></p>
+  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
+  style='font-size:14.0pt;color:black'>5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span style='font-size:14.0pt'><a href="#pow">Оператор
+  возведения в степень численного содержимого <i><span lang=EN-US>pow</span></i></a></span></p>
+  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
+  style='font-size:14.0pt;color:black'>6.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span style='font-size:14.0pt'><a href="#sin">Оператор вычисления
+  синуса численного содержимого <span lang=EN-US>sin</span></a></span></p>
+  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
+  style='font-size:14.0pt;color:black'>7.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span style='font-size:14.0pt'><a href="#cos">Оператор вычисления
+  косинуса численного содержимого <span lang=EN-US>cos</span></a></span></p>
+  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
+  style='font-size:14.0pt;color:black'>8.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span style='font-size:14.0pt'><a href="#floor">Оператор округления
+  численного содержимого вниз <span lang=EN-US>floor</span></a></span></p>
+  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
+  style='font-size:14.0pt;color:black'>9.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span style='font-size:14.0pt'><a href="#ceil">Оператор округления
+  численного содержимого вверх <span lang=EN-US>ceil</span></a></span></p>
+  </td>
+ </tr>
+</table>
 
 <p class=MsoNormal align=center style='text-align:center;text-indent:35.4pt'><b><span
 lang=EN-US style='font-size:16.0pt'>&nbsp;</span></b></p>
@@ -190,18 +263,18 @@ style='font-size:14.0pt'>&nbsp;</span></p>
   <td width="12%" valign=top style='width:12.56%;border:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'><img width=50 height=31
+  style='font-size:14.0pt;color:black'><img border=0 width=50 height=31
   src="math_class.files/image001.gif"
-  alt="Описание: Описание: Описание: Attention"></span></p>
+  alt="Description: Описание: Описание: Описание: Attention"></span></p>
   </td>
   <td width="87%" style='width:87.44%;border:solid windowtext 1.0pt;border-left:
   none;padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal style='text-align:justify'><b><span style='font-size:14.0pt;
-  color:black'>Внимание:</span></b><span style='font-size:14.0pt;color:black'> Довольно
-  часто необходимо переменную увеличить на какое-то значение, то есть результат
-  нужно занести не в отдельный узел, а в слагаемое. Для этого не нужно
-  использовать промежуточную переменную. Операнд можно помечать атрибутом </span><i><span
-  lang=EN-US style='font-size:14.0pt;color:black'>fixed</span></i><i><span
+  color:black'>Внимание:</span></b><span style='font-size:14.0pt;color:black'>
+  Довольно часто необходимо переменную увеличить на какое-то значение, то есть
+  результат нужно занести не в отдельный узел, а в слагаемое. Для этого не
+  нужно использовать промежуточную переменную. Операнд можно помечать атрибутом
+  </span><i><span lang=EN-US style='font-size:14.0pt;color:black'>fixed</span></i><i><span
   style='font-size:14.0pt;color:black'>_</span></i><span style='font-size:14.0pt;
   color:black'>, но его значение перед выполнением оператора должно быть
   найдено. Иначе возникнет ошибка, так как атрибутом </span><i><span
@@ -214,9 +287,9 @@ style='font-size:14.0pt'>&nbsp;</span></p>
   <td width="12%" valign=top style='width:12.56%;border:solid windowtext 1.0pt;
   border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'><img width=50 height=31
+  style='font-size:14.0pt;color:black'><img border=0 width=50 height=31
   src="math_class.files/image002.gif"
-  alt="Описание: Описание: Описание: Attention"></span></p>
+  alt="Description: Описание: Описание: Описание: Attention"></span></p>
   </td>
   <td width="87%" style='width:87.44%;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
@@ -238,9 +311,9 @@ style='font-size:14.0pt'>&nbsp;</span></p>
   <td width="12%" valign=top style='width:12.56%;border:solid windowtext 1.0pt;
   border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'><img width=60 height=38
+  style='font-size:14.0pt;color:black'><img border=0 width=60 height=38
   src="math_class.files/image003.gif"
-  alt="Описание: Описание: Описание: Example"></span></p>
+  alt="Description: Описание: Описание: Описание: Example"></span></p>
   </td>
   <td width="87%" valign=top style='width:87.44%;border-top:none;border-left:
   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
@@ -301,9 +374,9 @@ style='font-size:14.0pt'>&nbsp;</span></p>
   <td width="12%" valign=top style='width:12.56%;border:solid windowtext 1.0pt;
   border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'><img width=60 height=38
+  style='font-size:14.0pt;color:black'><img border=0 width=60 height=38
   src="math_class.files/image004.gif"
-  alt="Описание: Описание: Описание: Example"></span></p>
+  alt="Description: Описание: Описание: Описание: Example"></span></p>
   </td>
   <td width="87%" valign=top style='width:87.44%;border-top:none;border-left:
   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
@@ -457,9 +530,9 @@ style='font-size:14.0pt'>2</span></i><span style='font-size:14.0pt'>.</span></p>
   <td width="12%" valign=top style='width:12.56%;border:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'><img width=50 height=31
+  style='font-size:14.0pt;color:black'><img border=0 width=50 height=31
   src="math_class.files/image001.gif"
-  alt="Описание: Описание: Описание: Attention"></span></p>
+  alt="Description: Описание: Описание: Описание: Attention"></span></p>
   </td>
   <td width="87%" style='width:87.44%;border:solid windowtext 1.0pt;border-left:
   none;padding:0cm 5.4pt 0cm 5.4pt'>
@@ -469,20 +542,20 @@ style='font-size:14.0pt'>2</span></i><span style='font-size:14.0pt'>.</span></p>
   lang=EN-US style='font-size:14.0pt'>fixed</span></i><i><span
   style='font-size:14.0pt'>_</span></i><span style='font-size:14.0pt'>
   (применительно к первому операнду оператора </span><i><span lang=EN-US
-  style='font-size:14.0pt'>sub</span></i><span style='font-size:14.0pt'>) содержимое
-  узла будет дополнено (уменьшено). В случае </span><i><span lang=EN-US
-  style='font-size:14.0pt'>assign</span></i><i><span style='font-size:14.0pt'>_</span></i><span
-  style='font-size:14.0pt'> содержимое будет сформировано заново.<span
-  style='color:black'> </span></span></p>
+  style='font-size:14.0pt'>sub</span></i><span style='font-size:14.0pt'>)
+  содержимое узла будет дополнено (уменьшено). В случае </span><i><span
+  lang=EN-US style='font-size:14.0pt'>assign</span></i><i><span
+  style='font-size:14.0pt'>_</span></i><span style='font-size:14.0pt'>
+  содержимое будет сформировано заново.<span style='color:black'> </span></span></p>
   </td>
  </tr>
  <tr>
   <td width="12%" valign=top style='width:12.56%;border:solid windowtext 1.0pt;
   border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'><img width=60 height=38
+  style='font-size:14.0pt;color:black'><img border=0 width=60 height=38
   src="math_class.files/image003.gif"
-  alt="Описание: Описание: Описание: Example"></span></p>
+  alt="Description: Описание: Описание: Описание: Example"></span></p>
   </td>
   <td width="87%" valign=top style='width:87.44%;border-top:none;border-left:
   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
@@ -637,8 +710,8 @@ lang=EN-US style='font-size:15.0pt'>error</span></i></p>
 <p class=MsoNormal><span style='font-size:14.0pt'>Назначение:</span></p>
 
 <p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><span
-style='font-size:14.0pt'>Оператор используется для умножения численного содержимого
-узлов </span><i><span lang=EN-US style='font-size:14.0pt'>node</span></i><i><span
+style='font-size:14.0pt'>Оператор используется для умножения численного
+содержимого узлов </span><i><span lang=EN-US style='font-size:14.0pt'>node</span></i><i><span
 style='font-size:14.0pt'>1 </span></i><span style='font-size:14.0pt'>и </span><i><span
 lang=EN-US style='font-size:14.0pt'>node</span></i><i><span style='font-size:
 14.0pt'>2</span></i><span style='font-size:14.0pt'>. Результат операции
@@ -803,8 +876,8 @@ style='font-size:14.0pt'>result</span></i></p>
 
 <p class=MsoNormal style='margin-left:72.0pt;text-align:justify'><span
 style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>out</span><span
-style='font-size:14.0pt'>] узел, в содержимое которого заносится результата
-операции возведения в степень</span></p>
+style='font-size:14.0pt'>] узел, в содержимое которого заносится результата операции
+возведения в степень</span></p>
 
 <p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
 style='font-size:14.0pt'>node</span></i><i><span style='font-size:14.0pt'>1</span></i><span
@@ -993,7 +1066,8 @@ style='font-size:14.0pt'>result</span></i></p>
 
 <p class=MsoNormal style='margin-left:72.0pt;text-align:justify'><span
 style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>out</span><span
-style='font-size:14.0pt'>] узел, в содержимое которого заносится найденный косинус</span></p>
+style='font-size:14.0pt'>] узел, в содержимое которого заносится найденный
+косинус</span></p>
 
 <p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
 style='font-size:14.0pt'>node</span></i><i><span style='font-size:14.0pt'>1</span></i><span

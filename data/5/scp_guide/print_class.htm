@@ -23,14 +23,14 @@ a:visited, span.MsoHyperlinkFollowed
 	{color:purple;
 	text-decoration:underline;}
 p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
-	{mso-style-link:"Текст выноски Знак";
+	{mso-style-link:"Balloon Text Char";
 	margin:0cm;
 	margin-bottom:.0001pt;
 	font-size:8.0pt;
 	font-family:"Tahoma","sans-serif";}
-span.a
-	{mso-style-name:"Текст выноски Знак";
-	mso-style-link:"Текст выноски";
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-link:"Balloon Text";
 	font-family:"Tahoma","sans-serif";}
 p.msochpdefault, li.msochpdefault, div.msochpdefault
 	{mso-style-name:msochpdefault;
@@ -38,6 +38,17 @@ p.msochpdefault, li.msochpdefault, div.msochpdefault
 	margin-left:0cm;
 	font-size:10.0pt;
 	font-family:"Times New Roman","serif";}
+p.a, li.a, div.a
+	{mso-style-name:"Текст выноски";
+	mso-style-link:"Текст выноски Знак";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+span.a0
+	{mso-style-name:"Текст выноски Знак";
+	mso-style-link:"Текст выноски";
+	font-family:"Tahoma","sans-serif";}
 .MsoChpDefault
 	{font-size:10.0pt;}
 @page WordSection1
@@ -45,6 +56,11 @@ p.msochpdefault, li.msochpdefault, div.msochpdefault
 	margin:2.0cm 42.5pt 2.0cm 3.0cm;}
 div.WordSection1
 	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
 -->
 </style>
 
@@ -59,6 +75,37 @@ style='font-size:16.0pt'>Класс операторов вывода информации в протокол print</sp
 
 <p class=MsoNormal align=center style='text-align:center'><b><span lang=EN-US
 style='font-size:16.0pt'>&nbsp;</span></b></p>
+
+<table class=a1 border=1 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;border-collapse:collapse;border:none'>
+ <tr>
+  <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:14.0pt;color:black'>Содержание главы</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="100%" style='width:100.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
+  style='font-size:14.0pt;color:black'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span style='font-size:14.0pt'><a href="#print">Оператор вывода
+  информации в протокол print</a></span></p>
+  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
+  style='font-size:14.0pt;color:black'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span style='font-size:14.0pt'><a href="#printNl">Оператор
+  вывода информации в протокол print<span lang=EN-US>Nl</span></a></span></p>
+  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
+  style='font-size:14.0pt;color:black'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span style='font-size:14.0pt'><a href="#printEl">Оператор
+  вывода информации в протокол print<span lang=EN-US>El</span></a></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.4pt'><span
+style='font-size:14.0pt'>&nbsp;</span></p>
 
 <p class=MsoNormal style='text-align:justify;text-indent:35.4pt'><span
 style='font-size:14.0pt'>Данный класс предназначен для непосредственного вывода
@@ -250,8 +297,9 @@ style='font-size:14.0pt'>&nbsp;</span></p>
   <td width="12%" valign=top style='width:12.56%;border:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'><img width=50 height=31
-  src="print_class.files/image002.gif" alt="Описание: Описание: Attention"></span></p>
+  style='font-size:14.0pt;color:black'><img border=0 width=50 height=31
+  src="print_class.files/image002.gif"
+  alt="Description: Описание: Описание: Attention"></span></p>
   </td>
   <td width="87%" style='width:87.44%;border:solid windowtext 1.0pt;border-left:
   none;padding:0cm 5.4pt 0cm 5.4pt'>
@@ -264,8 +312,9 @@ style='font-size:14.0pt'>&nbsp;</span></p>
   <td width="12%" valign=top style='width:12.56%;border:solid windowtext 1.0pt;
   border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'><img width=60 height=38
-  src="print_class.files/image003.gif" alt="Описание: Описание: Example"></span></p>
+  style='font-size:14.0pt;color:black'><img border=0 width=60 height=38
+  src="print_class.files/image003.gif"
+  alt="Description: Описание: Описание: Example"></span></p>
   </td>
   <td width="87%" valign=top style='width:87.44%;border-top:none;border-left:
   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
@@ -370,10 +419,10 @@ style='font-size:14.0pt'> ошибочного выполнения, если в ходе вывода информации
 <p class=MsoNormal><span style='font-size:14.0pt'>Назначение:</span></p>
 
 <p class=MsoNormal style='margin-left:35.4pt;text-align:justify'><span
-style='font-size:14.0pt'>Данный оператор позволяет вывести в файл
-протоколирования информацию об операнде, а именно его окрестность по входящим и
-выходящим дугам. Обязательным атрибутом является <i>1_</i>. Все остальные
-атрибуты являются не обязательными.</span></p>
+style='font-size:14.0pt'>Данный оператор позволяет вывести в файл протоколирования
+информацию об операнде, а именно его окрестность по входящим и выходящим дугам.
+Обязательным атрибутом является <i>1_</i>. Все остальные атрибуты являются не
+обязательными.</span></p>
 
 <p class=MsoNormal style='margin-left:35.4pt;text-align:justify'><span
 style='font-size:14.0pt'>&nbsp;</span></p>
@@ -384,8 +433,9 @@ style='font-size:14.0pt'>&nbsp;</span></p>
   <td width="12%" valign=top style='width:12.82%;border:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'><img width=50 height=31
-  src="print_class.files/image004.gif" alt="Описание: Описание: Attention"></span></p>
+  style='font-size:14.0pt;color:black'><img border=0 width=50 height=31
+  src="print_class.files/image004.gif"
+  alt="Description: Описание: Описание: Attention"></span></p>
   </td>
   <td width="87%" style='width:87.18%;border:solid windowtext 1.0pt;border-left:
   none;padding:0cm 5.4pt 0cm 5.4pt'>
@@ -398,8 +448,9 @@ style='font-size:14.0pt'>&nbsp;</span></p>
   <td width="12%" valign=top style='width:12.82%;border:solid windowtext 1.0pt;
   border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:14.0pt;color:black'><img width=60 height=38
-  src="print_class.files/image003.gif" alt="Описание: Описание: Example"></span></p>
+  style='font-size:14.0pt;color:black'><img border=0 width=60 height=38
+  src="print_class.files/image003.gif"
+  alt="Description: Описание: Описание: Example"></span></p>
   </td>
   <td width="87%" valign=top style='width:87.18%;border-top:none;border-left:
   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
