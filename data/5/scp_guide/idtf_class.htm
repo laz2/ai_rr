@@ -1,0 +1,275 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<title>Класс операторов вывода информации в протокол print</title>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-link:"Balloon Text Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-link:"Balloon Text";
+	font-family:"Tahoma","sans-serif";}
+p.msochpdefault, li.msochpdefault, div.msochpdefault
+	{mso-style-name:msochpdefault;
+	margin-right:0cm;
+	margin-left:0cm;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+span.a
+	{mso-style-name:"Текст выноски Знак";
+	mso-style-link:"Текст выноски";
+	font-family:"Tahoma","sans-serif";}
+p.a0, li.a0, div.a0
+	{mso-style-name:"Текст выноски";
+	mso-style-link:"Текст выноски Знак";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+.MsoChpDefault
+	{font-size:10.0pt;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:2.0cm 42.5pt 2.0cm 3.0cm;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body bgcolor="#CCFFFF" lang=RU link=blue vlink=purple>
+
+<div class=WordSection1>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-size:16.0pt'>Класс операторов для работы с идентификаторами
+элементов </span></b><b><span lang=EN-US style='font-size:16.0pt'>idtf</span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span lang=EN-US
+style='font-size:16.0pt'>&nbsp;</span></b></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;border-collapse:collapse'>
+ <tr>
+  <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:14.0pt;color:black'>Содержание главы</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="100%" style='width:100.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
+  style='font-size:14.0pt;color:black'>1.</span><span style='font-size:7.0pt;
+  color:black'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-size:14.0pt'><a
+  href="#idtfAssign">Оператор установки идентификатора элемента <span
+  lang=EN-US>idtfAssign</span></a></span></p>
+  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
+  style='font-size:14.0pt;color:black'>2.</span><span style='font-size:7.0pt;
+  color:black'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-size:14.0pt'><a
+  href="#idtfErase">Оператор очистки идентификатора элемента <span lang=EN-US>idtfErase</span></a></span></p>
+  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
+  style='font-size:14.0pt;color:black'>3.</span><span style='font-size:7.0pt;
+  color:black'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-size:14.0pt'><a
+  href="#idtfMove">Оператор получения идентификатора элемента <span lang=EN-US>idtfMove</span></a></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.4pt'><span
+style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.4pt'><span
+style='font-size:14.0pt'>Данный класс операторов предназначен для работы с
+идентификаторами элементов. Для проверки наличия установленногоидентификатора у
+элемента необходимо использовать оператор </span><i><span lang=EN-US
+style='font-size:14.0pt'>ifFormIdtf</span></i><span lang=EN-US
+style='font-size:14.0pt'> </span><span style='font-size:14.0pt'>из класса
+условных операторов. </span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-size:14.0pt'>&nbsp;</span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><a name=idtfAssign><b><span
+style='font-size:14.0pt'>Оператор установки идентификатора элемента </span></b></a><b><span
+lang=EN-US style='font-size:14.0pt'>idtfAssign</span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:35.4pt'><b><span
+style='font-size:14.0pt'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:&nbsp; </span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;background:#EAEAEA;border-collapse:collapse'>
+ <tr style='height:51.95pt'>
+  <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:51.95pt'>
+  <p class=MsoNormal><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>idtfAssign</span><span
+  lang=BE style='font-size:15.0pt;font-family:"Courier New"'>([</span></p>
+  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  1_: </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>fixed_:
+  element,</span></p>
+  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>2</span><span
+  lang=BE style='font-size:15.0pt;font-family:"Courier New"'>_: </span><span
+  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>fixed_: idtf</span></p>
+  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp; ])</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='margin-left:35.4pt'><span lang=BE style='font-size:
+14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Параметры: </span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:15.0pt'>element</span></i><span lang=EN-US style='font-size:
+15.0pt'> </span></p>
+
+<p class=MsoNormal style='margin-left:70.8pt;text-align:justify'><span
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>in</span><span
+style='font-size:14.0pt'>] константа или переменная с вычисленным значением, идентификатор
+которых будет установлен</span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:15.0pt'>idtf</span></i></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;text-indent:
+35.4pt'><span style='font-size:14.0pt'>[</span><span lang=EN-US
+style='font-size:14.0pt'>in</span><span style='font-size:14.0pt'>] константа
+или переменная с вычисленным значением со строковым содержимым, которое будет использовано
+для установки идентификатора</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'>Назначение:</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><span
+style='font-size:14.0pt'>Оператор реализует присвание идентификатора элементу.</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:35.4pt'><a
+name=idtfErase><b><span style='font-size:14.0pt'>Оператор для очистки идентификатора
+элемента </span></b></a><b><span lang=EN-US style='font-size:14.0pt'>idtfErase</span></b></p>
+
+<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:&nbsp; </span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;background:#EAEAEA;border-collapse:collapse'>
+ <tr style='height:51.95pt'>
+  <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:51.95pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>idtfErase</span><span
+  lang=BE style='font-size:15.0pt;font-family:"Courier New"'>([</span></p>
+  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  1_: </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>fixed_:
+  element</span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;</span><span lang=EN-GB style='font-size:15.0pt;font-family:"Courier New"'>])</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='margin-left:35.4pt'><i><span lang=EN-GB
+style='font-size:15.0pt'>&nbsp;</span></i></p>
+
+<p class=MsoNormal style='margin-left:35.4pt'><span lang=EN-GB
+style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt'>Параметры:</span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:15.0pt'>element</span></i></p>
+
+<p class=MsoNormal style='margin-left:70.8pt;text-align:justify'><span
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>in</span><span
+style='font-size:14.0pt'>] константа или переменная с вычисленным значением, идентификатор
+которых будет очищен</span></p>
+
+<p class=MsoNormal style='margin-left:70.8pt;text-align:justify'><span
+style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><a name=idtfMove><b><span
+style='font-size:14.0pt'>Оператор получения идентификатора элемента </span></b></a><b><span
+lang=EN-US style='font-size:14.0pt'>idtfMove</span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:35.4pt'><b><span
+style='font-size:14.0pt'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Синтаксис:&nbsp; </span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;background:#EAEAEA;border-collapse:collapse'>
+ <tr style='height:51.95pt'>
+  <td width="100%" valign=top style='width:100.0%;border:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:51.95pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>idtfMove</span><span
+  lang=BE style='font-size:15.0pt;font-family:"Courier New"'>([</span></p>
+  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  1_: </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>fixed_:
+  target,</span></p>
+  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>2</span><span
+  lang=BE style='font-size:15.0pt;font-family:"Courier New"'>_: </span><span
+  lang=EN-US style='font-size:15.0pt;font-family:"Courier New"'>fixed_: source</span></p>
+  <p class=MsoNormal><span lang=BE style='font-size:15.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp; ])</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='margin-left:35.4pt'><span lang=BE style='font-size:
+14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=BE style='font-size:14.0pt'>Параметры: </span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:15.0pt'>target</span></i><span lang=EN-US style='font-size:
+15.0pt'> </span></p>
+
+<p class=MsoNormal style='margin-left:70.8pt;text-align:justify'><span
+style='font-size:14.0pt'>[</span><span lang=EN-US style='font-size:14.0pt'>in</span><span
+style='font-size:14.0pt'>] константа или переменная с вычисленным значением,
+содержимое которых будет записан идентификатор</span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><i><span lang=EN-US
+style='font-size:15.0pt'>source</span></i></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify;text-indent:
+35.4pt'><span style='font-size:14.0pt'>[</span><span lang=EN-US
+style='font-size:14.0pt'>in</span><span style='font-size:14.0pt'>] константа
+или переменная с вычисленным значением, идентификатор которых будет записан в </span><i><span
+lang=EN-US style='font-size:14.0pt'>target</span></i></p>
+
+</div>
+
+</body>
+
+</html>
