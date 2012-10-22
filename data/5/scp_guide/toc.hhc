@@ -190,7 +190,7 @@
 				</OBJECT>
 		</UL>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="&Ecirc;&euml;&agrave;&ntilde;&ntilde; &icirc;&iuml;&aring;&eth;&agrave;&ograve;&icirc;&eth;&icirc;&acirc; &igrave;&agrave;&ograve;&aring;&igrave;&agrave;&ograve;&egrave;&divide;&aring;&ntilde;&ecirc;&egrave;&otilde; &auml;&aring;&eacute;&ntilde;&ograve;&acirc;&egrave;&eacute;">
+			<param name="Name" value="&Ecirc;&euml;&agrave;&ntilde;&ntilde; &icirc;&iuml;&aring;&eth;&agrave;&ograve;&icirc;&eth;&icirc;&acirc; &igrave;&agrave;&ograve;&aring;&igrave;&agrave;&ograve;&egrave;&divide;&aring;&ntilde;&ecirc;&egrave;&otilde; &auml;&aring;&eacute;&ntilde;&ograve;&acirc;&egrave;&eacute; math">
 			<param name="Local" value="math_class.htm">
 			</OBJECT>
 		<UL>
@@ -232,7 +232,7 @@
 				</OBJECT>
 		</UL>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="&Ecirc;&euml;&agrave;&ntilde;&ntilde; &icirc;&iuml;&aring;&eth;&agrave;&ograve;&icirc;&eth;&icirc;&acirc; &eth;&agrave;&aacute;&icirc;&ograve;&ucirc; &ntilde; &iuml;&eth;&icirc;&ouml;&aring;&ntilde;&ntilde;&agrave;&igrave;&egrave;">
+			<param name="Name" value="&Ecirc;&euml;&agrave;&ntilde;&ntilde; &icirc;&iuml;&aring;&eth;&agrave;&ograve;&icirc;&eth;&icirc;&acirc; &eth;&agrave;&aacute;&icirc;&ograve;&ucirc; &ntilde; &iuml;&eth;&icirc;&ouml;&aring;&ntilde;&ntilde;&agrave;&igrave;&egrave; process">
 			<param name="Local" value="process_class.htm">
 			</OBJECT>
 		<UL>
@@ -255,6 +255,56 @@
 			<LI> <OBJECT type="text/sitemap">
 				<param name="Name" value="nop">
 				<param name="Local" value="process_class.htm#nop">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="&Ecirc;&euml;&agrave;&ntilde;&ntilde; &icirc;&iuml;&aring;&eth;&agrave;&ograve;&icirc;&eth;&icirc;&acirc; &auml;&euml;&yuml; &oacute;&ntilde;&ograve;&agrave;&iacute;&icirc;&acirc;&ecirc;&egrave; &ccedil;&iacute;&agrave;&divide;&aring;&iacute;&egrave;&yuml; &iuml;&aring;&eth;&aring;&igrave;&aring;&iacute;&iacute;&icirc;&eacute; var">
+			<param name="Local" value="var_class.htm">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="varAssign">
+				<param name="Local" value="var_class.htm#varAssign">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="varErase">
+				<param name="Local" value="var_class.htm#varErase">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="&Ecirc;&euml;&agrave;&ntilde;&ntilde; &icirc;&iuml;&aring;&eth;&agrave;&ograve;&icirc;&eth;&icirc;&acirc; &auml;&euml;&yuml; &oacute;&ntilde;&ograve;&agrave;&iacute;&icirc;&acirc;&ecirc;&egrave; &ntilde;&icirc;&auml;&aring;&eth;&aelig;&egrave;&igrave;&icirc;&atilde;&icirc; &yacute;&euml;&aring;&igrave;&aring;&iacute;&ograve;&icirc;&acirc; cont">
+			<param name="Local" value="cont_class.htm">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="contAssign">
+				<param name="Local" value="cont_class.htm#contAssign">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="contErase">
+				<param name="Local" value="cont_class.htm#contErase">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="to_str">
+				<param name="Local" value="cont_class.htm#to_str">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="&Ecirc;&euml;&agrave;&ntilde;&ntilde; &icirc;&iuml;&aring;&eth;&agrave;&ograve;&icirc;&eth;&icirc;&acirc; &auml;&euml;&yuml; &eth;&agrave;&aacute;&icirc;&ograve;&ucirc; &ntilde; &egrave;&auml;&aring;&iacute;&ograve;&egrave;&ocirc;&egrave;&ecirc;&agrave;&ograve;&icirc;&eth;&agrave;&igrave;&egrave; &yacute;&euml;&aring;&igrave;&aring;&iacute;&ograve;&icirc;&acirc; idtf">
+			<param name="Local" value="idtf_class.htm">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="idtfAssign">
+				<param name="Local" value="idtf_class.htm#idtfAssign">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="idtfErase">
+				<param name="Local" value="idtf_class.htm#idtfErase">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="idtfMove">
+				<param name="Local" value="idtf_class.htm#idtfMove">
 				</OBJECT>
 		</UL>
 	</UL>
