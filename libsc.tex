@@ -1029,9 +1029,9 @@ sc_retval print_content(const Content &content)
 {
     // Класс Content имеет перегруженный оператор
     // приведения к типу Cont, поэтому возможна следующая запись:
-    Cont c = cont;
+    Cont c = content;
 
-    switch (cont.type()) {
+    switch (content.type()) {
     case TCSTRING:
         std::cout << c.d.ptr;
         break;
@@ -1498,8 +1498,8 @@ if (search_5_f_cpa_a_cpa_f(
 }
 \end{lstlisting}
 
-\item Функция \lstinline|search_5_f_cpa_сna_cpa_f| --- аналогично функции
-  \lstinline|search_5_f_cpa_сna_cpa_f|, только для 3-го элемента
+\item Функция \lstinline|search_5_f_cpa_cna_cpa_f| --- аналогично функции
+  \lstinline|search_5_f_cpa_a_cpa_f|, только для 3-го элемента
   задана маска типа \lstinline+SC_NODE|SC_CONST+
 
 \item Функция \lstinline|search_3l2_f_a_a_a_f| --- поиск при помощи
