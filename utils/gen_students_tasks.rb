@@ -24,7 +24,7 @@ footer = <<EOF
 \\end{document}
 EOF
 
-curs = ['Основы искусственного интеллекта', 'Проетирование программ в интеллектуальных системах']
+curs = ['Основы искусственного интеллекта', 'Проектирование программ в интеллектуальных системах']
 
 paths = [
   '\\\\Info\\StudInfo\\~Методическое обеспечение кафедры\\~Учебные курсы\\1 курс\\ОИИ\\Расчётная работа',
@@ -69,7 +69,10 @@ if $PROGRAM_NAME == __FILE__
           to << '{\tiny '
           to << "#{db.groups[tgr_num][0]}: " if tgr_num == 0 or tgr_num == 1
           to << "#{db.groups[tgr_num][1][t_num].name}"
-          to << ' (' << row[3..row.size - 1].join(', ') << ')' if row[3]
+          
+          specs = row[3..row.size - 1].reject(&:nil?)
+          to << ' (' << specs.join(', ') << ')' unless specs.empty?
+          
           to << '}'
         end
 
@@ -83,7 +86,7 @@ if $PROGRAM_NAME == __FILE__
         end
 
         to.puts '\begin{center}'
-        to << '  ' << "\\textbf{Группа #{row[0]}}" << "\n"
+        to << '  ' << "\\textbf{Группа #{row[0].force_encoding("UTF-8")}}" << "\n"
         to.puts '\end{center}'
 
         to.puts
