@@ -57,7 +57,12 @@ task "tasks_list" do
   sh "ruby utils/gen_tasks_list.rb"
 end
 
-task "students_tasks" do
+task "students_tasks0" do
+  sh "ruby utils/gen_students_tasks.rb 0"
+  sh "pdflatex students_tasks.tex"
+end
+
+task "students_tasks1" do
   sh "ruby utils/gen_students_tasks.rb 1"
   sh "pdflatex students_tasks.tex"
 end

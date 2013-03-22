@@ -58,7 +58,7 @@ if $PROGRAM_NAME == __FILE__
       if row[1]
         counter = counter + 1
 
-        to << "  {\\scriptsize #{counter}} & {\\scriptsize #{row[0]}} &"
+        to << "  {\\tiny #{counter}} & {\\tiny #{row[0]}} &"
 
         if row[1] == '~'
           to << '{\tiny ~}'
